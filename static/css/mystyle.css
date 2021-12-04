@@ -1,0 +1,458 @@
+
+@font-face { 
+  font-family: raleway-medium; 
+  src: url('../fonts/raleway-medium-webfont.ttf'); 
+} 
+
+body{
+	width: 100%;
+	margin: 0px 0px 0px 0px;
+	background-color: #ffffff;
+	font-family: "Microsoft YaHei" ! important;
+}
+
+
+
+.imglist{
+	position: center;
+    margin: 0px 0px 0px 0px
+}
+
+#slider{
+	padding: 5px;
+}
+
+#addr{
+	margin: 30px 20px 30px 20px ;
+	//background-color: #fa8072 ;
+	font-size: 32px ;
+	font-weight: 600 ;
+	color: #ea7865
+}
+
+#addr p{
+	margin: 0;
+	padding: 0;
+}
+
+#p2{
+	font-family:raleway-medium;
+}
+#p3{
+	font-family:raleway-medium;
+}
+
+.out p{
+	display: inline-block;
+	padding-right: 5px;
+	font-size: 18px;
+	font-weight: 500;
+	margin: 5px;
+	color: #000000;
+	word-break: break-all;
+}
+.out{
+	width: 100%;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+.in{
+	width: 100%;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	clear: both;
+}
+
+.infoname{
+	float: left;
+}
+
+.infoval{
+	float: right;
+	font-family:raleway-medium;
+}
+
+#mls p{
+	font-family:raleway-medium;
+	font-weight: 600;
+}
+
+#freetitle{
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 15px;
+}
+
+#freetitle span{
+	padding-right: 8px;
+	color: silver;
+	font-size: 16px;
+}
+
+#freehead{
+	font-size: 24px;
+  text-align: left;
+  line-height: 33px;
+  padding: 0px 0px 6px 0px;
+  margin: 0;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  text-align: start;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.free{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.free p{
+	font-size: 18px;
+	text-align: left;
+	line-height: 24px;
+	margin-bottom: 0px;
+	padding: 0px 0px 6px 0px;
+	word-break: break-all;
+	white-space: pre-wrap;
+}
+
+#hr1{
+	height: 1px;
+	border: none;
+	border-top: 1px solid #dcdcdc;
+	margin-top: 1;
+}
+
+#hr2{
+	height: 1px;
+	border: none;
+	border-top: 1px solid #dcdcdc;
+	margin: 0;
+}
+
+.ttdiv{
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 5px;
+}
+
+.ttimg{
+	width: 100%
+}
+
+
+
+.introduction p{
+	padding-left: 15px;
+	padding-right: 15px;
+	word-break: nomal;
+	word-spacing: 2px;
+	font-family: raleway-medium;
+	color: #000000;
+	font-size: 100%;
+	font-weight: 500;
+	margin: 5px;
+	white-space: pre-wrap;
+}
+
+.corpaddr{
+	font-size: 90%;
+}
+
+#selfad{
+	
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#selfad img{
+	width: 100%;
+}
+
+a:link{
+	text-decoration: none;
+}
+
+a:visited{
+	text-decoration: none;
+	color:graytext;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+a:active{
+	text-decoration: none;
+}
+
+#atitle{
+	font-size: 150%;
+	font-weight: 500;
+	//margin-bottom: 0;
+	color:black;
+	margin:18px 5px 18px 5px;
+}
+
+#time{
+	display: block;
+	margin-bottom: 10px;
+	margin-top: 0;
+	font-size: 16px;
+	color:#999;
+
+}
+
+#tip{
+	display: block;
+	text-align: center;
+	margin: 0 0 0 0;
+	color: #00C700;
+}
+
+#atc{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#atc img{
+	width: 100%;
+}
+
+#m1{
+	display: inline-block;
+	float: left;
+}
+
+#m2{
+	display: inline-block;
+	float: right;
+	margin-right: 5px;
+}
+
+#sub1{
+	display: inline;
+	font-size: 16px;
+	font-weight: 50;
+	color:#999;
+}
+
+#sub2{
+	display: inline;
+	font-size: 16px;
+	font-weight: 50;
+	color:#999;
+}
+
+#selfinfo img{
+	width: 100%;
+	height: 100%;
+}
+
+#selfinfo p{
+	display: inline-block;
+	padding-right: 10px;
+	font-family: raleway-medium;
+	font-size: 100%;
+	font-weight: 500;
+	margin: 5px;
+	text-align: right;
+}
+
+#selfinfo span{
+	display: inline-block;
+	font-family: raleway-medium;
+	font-size: 100%;
+	font-weight: 500;
+	text-align: right;
+}
+
+#slf > span{
+	float: right;
+	clear: both;
+	word-wrap:break-word;
+	width: 100%;
+	margin: 5px;
+	word-break:break-all;
+    overflow:hidden;
+	text-overflow:ellipsis;	
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 2; /** 显示的行数 **/
+}
+#slf p{
+	word-wrap:break-word;
+}
+
+#info3{
+	/*width: 220px;
+	height: 100px;*/
+	float: right;
+	clear: both;
+	margin-right: 10px;
+	padding: 0;
+	text-align: center;
+}
+
+#info3 > img{
+	width: 80px;
+	height: 80px;
+	float: right;
+}
+
+#info3 > p{
+	display: block;
+	float: right;
+	clear: both;
+	margin-right: 0px;
+	padding: 0;
+	font-size: 10px;
+	text-align: center;
+}
+
+.info2{
+	margin-top: 5px;
+	clear: both;
+	background-color: #999999;
+
+}
+.info2 p{
+	color: #FFFFFF
+}
+
+.piclistdiv{
+	width: 100%;
+}
+
+.piclist{
+	width: 100%;
+}
+
+#warnimg{
+	margin-top: 5px;
+	width: 110px;
+}
+
+#warnfont{
+	padding-left: 15px;
+	padding-right: 15px;
+	font-family: raleway-medium;
+	color: #999999;
+	font-size:100%;
+}
+
+#foot{
+	position: fixed;
+	bottom: 0;
+	/*height: 45px;*/
+	border: 0px;
+	background:rgba(255,255,255,0)
+}
+
+
+#downloadapp{
+	width: 100%;
+	/*height: 100%;*/
+	margin: 0;
+}
+
+#applink{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	}
+
+#weixin-tip{
+	display:none;
+	position:fixed;
+	left:0;
+	top:0;
+	background:rgba(0,0,0,0.8);
+	filter:alpha(opacity=80);
+	width:100%;
+	height:100%;
+	z-index:100;
+	}
+#weixin-tip p{
+	text-align:center;
+	margin-top:10%;
+	padding:0 5%;
+	position:relative;
+	}
+#weixin-tip img{
+	width:100%;
+  }
+
+#weixin-tip .close{
+	color:#fff;
+	padding:5px;
+	font:bold 20px/24px simsun;
+	text-shadow:0 1px 0 #ddd;
+	position:absolute;
+	top:0;
+	left:5%;
+	}
+
+#downloadsite{
+	height:100%;
+	width:100%;
+}
+#downloadpage{
+	height:100%;
+	width:100%;
+	background-image: url(../img/downloadbg.png);
+	background-repeat: round;
+	text-align:center
+}
+
+#downloadpage2{
+	height:100%;
+	width:100%;
+	background-image: url(../img/downloadbg2.png);
+	background-repeat: round;
+	text-align:center
+}
+
+#wtip{
+	width:99%;
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+#downloadcont{
+	height:70%;
+	text-align:center;
+}
+#downloadnote{
+	padding-top:20px;
+	}
+#downloadpage p{
+	color: #FFFFFF;
+	font-size: 200%;
+	font-weight: 100;
+	line-height:5px;
+}
+#downloadname{
+	margin-top: 100px;
+	width:20%;
+}
+
+#downloadbutton{
+	height:30%;
+	text-align:center;
+}
+
+#downloadbutton img{
+	width:80%;
+}
+
+#android{
+	margin-top:15px;
+}

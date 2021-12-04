@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head>
+    <title>Realtoraccess MLS reciprocity</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{% static 'web/img/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+    <!-- START REALTYNINJA EMBED CODE -->
+    <style>
+    #embeded iframe {
+        width: 100%;
+    }
+    </style>
+    <div id="embeded" style="width: 1224px;margin:auto;"></div>
+    <script src="https://jacqueline5.realtyninja.com/static/js/jquery.js">
+    </script>
+    <script src="https://jacqueline5.realtyninja.com/static/js/easyXDM/easyXDM.min.js">
+    </script>
+    <script src="https://jacqueline5.realtyninja.com/static/js/embed_js.js" rel="responsive" url="mls-map" id="rn_embed_script"></script>        
+<!-- END REALTYNINJA EMBED CODE -->
+</body>
+<script type="text/javascript">
+    setTimeout("document.getElementsByTagName('iframe')[0].contentWindow.document.getElementsByTagName('iframe')[0].contentWindow.document.getElementsByClassName('i-am-new')",2000)
+    
+</script>
+</html>

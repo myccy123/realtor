@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv=Content-Type content=“text/html;charset=utf-8″>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>配置MySQL数据源</title>
+    {% load staticfiles %}
+    <!--<link rel="stylesheet" href="{% static 'bi/css/style.css' %}">-->
+    <link href="{% static 'bi/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/qingcheng.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/common.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/visio.css' %}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{% static 'bi/images/favicon.ico' %}">
+
+    <!--[if lt IE 9]>
+    <script src="{% static 'bi/js/html5shiv.min.js' %}"></script>
+    <script src="{% static 'bi/js/respond.min.js' %}"></script>
+    <script src="{% static 'bi/js/CRYPT.js' %}"></script>
+    <![endif]-->
+
+</head>
+<body id="matchMysql">
+<div id="navbox">
+
+</div>
+
+<section style="margin-top:65px">
+    <div class="containerbox">
+        <div class="container" style="margin: 0">
+        <div class="margin_x_zero huanjing margin_top_zero" id="match_section_title">
+            <p class="matchMysql_tileimg"><img src="{% static 'bi/images/MySQLimg.png' %}" alt="MySQLimg"/></p>
+            <!-- 配置完成数据-->
+            <div class="col-sm-2 col-xs-3 zero" id="macthed_mysql">
+                <div  class="col-xs-12 zero">
+                    已配数据
+                </div>
+                <!-- content mCustomScrollbar" data-mcs-theme="light-3 -->
+                <ul id="mysql_name"  class="col-xs-12 zero content" >
+                {% for s in sourcenames %}
+                <li  class="col-xs-12 zero" data-id="{{s.sourceid}}" style="padding: 10px 5px;position:relative">
+                    <span class="glyphicon glyphicon-link" style="font-size: 15px;color: #748693;"></span>
+                    <p style="width:145px;display: inline-block;float: left;margin: 0;font-size: 15px;color: #748693;">
+                        {{s.sourcename}}</p>
+                    <b class="s" style="font-size:18px;position:absolute; top:0px;right:0px; color:#fff;z-index:10;cursor:pointer">×</b>
+                </li>
+                {% endfor %}
+                </ul>
+
+            </div>
+            <!-- 数据步骤-->
+            <div id="dataStep">
+                <div class="dataStepImg">
+                    <p class="step1">
+                        <span class="num1">1.</span>
+                        <b></b>
+                        <span class="num2">连接信息</span>
+
+                    </p>
+                    <p class="step2">
+                        <span  class="num1">2.</span>
+                        <b></b>
+                        <span  class="num2">数据库</span>
+
+                    </p>
+                </div>
+
+                <!-- 输入数据-->
+                <div class="col-xs-12 dataStepForm">
+
+
+                        <form class="col-xs-6 form-horizontal " id="mysql_form">
+
+                            <div class="form-group">
+                                <div class="col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="mysqle_dataSource">数据源</label></div>
+                                <div class="col-xs-10 "><input class="form-control" value="" id="mysqle_dataSource" type="text" name="mysqle_dataSource"/></div>
+                            </div>
+                            <div class="form-group">
+                                <div class=" col-xs-2 padding_zero" style="text-align: right;">
+                                    <label class="control-label" for="mysqle_permiss">权限</label>
+                                </div>
+                                <div class="col-xs-10">
+                                    <select name="mysqle_permiss" id="mysqle_permiss"  class="form-control"></select>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="mysqle_ip">IP</label></div>
+                                <div class="col-xs-10 "><input class="form-control" value="123.57.184.16" id="mysqle_ip" type="text" name="mysqle_ip"/></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="mysqle_user">用户名</label></div>
+                                <div class="col-xs-10 "><input class="form-control" value="root" id="mysqle_user" type="text" name="mysqle_user"/></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="mysqle_psw">密码</label></div>
+                                <div class="col-xs-10 "><input class="form-control" value="Ikingcity2016+mysql" id="mysqle_psw" type="password" name="mysqle_psw"/></div>
+                            </div>
+                            <div>
+                                <div class="col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="mysqle_port">端口</label></div>
+                                <div class="col-xs-10 "><input class="form-control" value="3306" id="mysqle_port" type="text" name="mysqle_port"/></div>
+                            </div>
+                            <div>
+
+
+
+                            </div>
+                            <p class="login_error_tip s" id="mysql_error_tip"><b></b>输入错误!</p>
+
+                            <div class="form-group">
+                                <button class="btn col-xs-offset-3 col-xs-6" type="button" id="mysql_submit" disabled="disabled">下一步</button>
+                            </div>
+
+                        </form>
+
+                </div>
+
+                <!-- 生成数据-->
+                <div class="col-xs-4 s" id="mysqle_tree">
+                    <p>
+                        <span class="glyphicon glyphicon glyphicon-th-list" style="color:#677E8D"></span>
+                    </p>
+                    <div class=" mysqle_treeBox " id="mysqle_treeBox">
+                    </div>
+                    <div class="mysql_okBox">
+                        <input class="btn  col-xs-6" type="button" id="mysql_ok" value="完成" disabled="disabled">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    </div>
+</section>
+<div>
+
+</div>
+<!--弹窗遮罩层-->
+<div class="loading s none" style="position: fixed;top:0;bottom:0;left:0;right:0;z-index:9999;background:rgba(226,233,239,0.5);
+    text-align: center;display:none;vertical-align: middle;">
+    <img src="{% static 'bi/images/load7.gif' %}"  style="width:150px;height:150px" alt="loading"/>
+</div>
+<div id="index_addData" class="row ">
+
+</div>
+
+<div id="footerbox">
+    <footer id="footer">
+
+    </footer>
+</div>
+<script src="{% static 'bi/js/jquery-1.11.3.js' %}"></script>
+<script src="{% static 'bi/js/bootstrap.js' %}"></script>
+<script src="{% static 'bi/js/jquery-1.8.2.min.js' %}" charset="utf-8"></script>
+<script src="{% static 'bi/laydate/laydate.js' %}"></script>
+<script src="{% static 'bi/js/myjs.js' %}"></script>
+<script src="{% static 'bi/js/initEchart.js' %}"></script>
+<script src="{% static 'bi/js/IntervalEchart.js' %}"></script>
+<script src="{% static 'bi/js/outerTest.js' %}"></script>
+<script src="{% static 'bi/js/realTimeEachart.js' %}"></script>
+<script src="{% static 'bi/js/detail.js' %}"></script>
+<script src="{% static 'bi/js/systemPublish.js' %}"></script>
+<script src="{% static 'bi/js/commonIndexScroll.js' %}"></script>
+</body>
+</html>

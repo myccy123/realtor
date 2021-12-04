@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>配置EXCEL数据源</title>
+    {% load staticfiles %}
+    <link href="{% static 'bi/css/common.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/qingcheng.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/visio.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'bi/images/favicon.ico' %}">
+    <!--[if lt IE 9]>
+    <script src="{% static 'bi/js/html5shiv.min.js' %}"></script>
+    <script src="{% static 'bi/js/respond.min.js' %}"></script>
+    <![endif]-->
+</head>
+<body style="margin-top:0px" id="macthexcel">
+<div id="navbox">
+
+
+</div>
+
+<section>
+
+    <div class="container" style="width:1240px">
+        <div class="margin_x_zero huanjing zero" id="section_title">
+            <p class="matchMysql_tileimg"><img src="{% static 'bi/images/excelimg.png' %}" alt="MySQLimg"/></p>
+            <!-- 配置完成数据-->
+            <div class="col-xs-4 zero" id="add_excel">
+                <div>
+                    已配数据
+                </div>
+                <ul class="excel_source_list">
+                    {% for s in sourcenames %}
+                    <li  class="col-xs-12 zero" data-id="{{s.sourceid}}" style="padding: 10px 5px;position:relative">
+                        <span class="glyphicon glyphicon-link" style="font-size: 15px;color: #748693;margin-right:5px;position:relative;top:4px;display: inline-block;float: left;"></span>
+                        <p style="width:145px;display: inline-block;float: left;margin: 0;font-size: 15px;color: #748693;">
+                            {{s.sourcename}}</p>
+                        <b class="s" style="font-size:18px;position:absolute; top:0px;right:0px; color:#fff;z-index:10;cursor:pointer">×</b>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- 输入数据-->
+            <div class="input_file_box">
+                <div class="input_file_inner_box">
+                    <form class="col-xs-8 form-horizontal" id="excel_form"  method="post"  action="{% url 'bi:upexcel' %}" enctype="multipart/form-data" style="margin:90px 120px 10px 120px">
+
+                        <div class="form-group">
+                            <div class="col-xs-4 padding_zero" style="text-align: right;">
+                                <label class="control-label" for="excel_dataSource">数据源</label>
+                            </div>
+                            <div class="col-xs-8 "><input class="form-control" id="excel_dataSource" type="text" name="sourcename"/></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-4 padding_zero" style="text-align: right;">
+                                <label class="control-label" for="excel_permiss">权限</label>
+                            </div>
+                            <div class="col-xs-8">
+                                <select name="perm" id="excel_permiss"  class="form-control"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-4 padding_zero" style="text-align: right;">
+                                <label class="control-label" for="excel_permiss">上传文件</label>
+                            </div>
+                            <div class="col-xs-8 zero excel_input_file" style="padding: 0">
+                                <span>点击上传</span>
+                                <input class="col-xs-12 excel_input_submit" type="file" name="excel" title="选择文件" >
+                            </div>
+                            <div class="form-group" style="">
+                                <input type="submit" id="addexcel_submit" value="提交" class="btn col-xs-6">
+                            </div>
+                        </div>
+
+                    </form>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--弹窗遮罩层-->
+<div class="loading s none" style="position: fixed;top:0;bottom:0;left:0;right:0;z-index:9999;background:rgba(226,233,239,0.5);
+    text-align: center;display:none;vertical-align: middle;">
+    <img src="{% static 'bi/images/load7.gif' %}"  style="width:150px;height:150px" alt="loading"/>
+</div>
+<div id="index_addData" class="row ">
+
+</div>
+
+<div id="footerbox">
+    <footer id="footer">
+
+    </footer>
+</div>
+<script src="{% static 'bi/js/jquery-1.11.3.js' %}"></script>
+<script src="{% static 'bi/js/bootstrap.js' %}"></script>
+<script src="{% static 'bi/laydate/laydate.js' %}"></script>
+<script src="{% static 'bi/js/myjs.js' %}"></script>
+<script src="{% static 'bi/js/initEchart.js' %}"></script>
+<script src="{% static 'bi/js/IntervalEchart.js' %}"></script>
+<script src="{% static 'bi/js/outerTest.js' %}"></script>
+<script src="{% static 'bi/js/realTimeEachart.js' %}"></script>
+<script src="{% static 'bi/js/detail.js' %}"></script>
+<script src="{% static 'bi/js/systemPublish.js' %}"></script>
+<script src="{% static 'bi/js/commonIndexScroll.js' %}"></script>
+</body>
+</html>

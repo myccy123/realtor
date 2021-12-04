@@ -1,0 +1,54 @@
+#page3 #nav,#page1 #nav,#page2 #nav,#page3 #footer,#page2 #footer,#page1 #footer{
+    background:linear-gradient(270deg,#2ec9ef 20%,#3eccee 80%);
+    padding:5px 0;
+}
+
+@media screen and (min-width:990px){
+    #page #brandname{
+        font-size:24px;
+        color:#fff;
+        line-height: 50px;
+    }
+    #page #nav #nav_intel ul li a{
+        line-height:50px;
+    }
+}
+
+/*PAD：700-989px-*/
+@media screen and (min-width:700px) and (max-width:989px){
+    #page #brandname{
+        font-size:24px;
+        color:#fff;
+        line-height: 50px;
+    }
+}
+
+/*PHONE：699px*/
+@media screen and (max-width:699px) and (orientation:landscape){
+    #page  #brandname{
+        font-size:14px;
+        color:#fff;
+        line-height: 50px;
+    }
+    #page  #navbox #navbox{
+        height:50px;
+    }
+    #page .navbar-brand{
+
+    }
+    #page #brand>img{
+        height:10px;
+    }
+}
+/*PHINE：竖屏*/
+@media screen and (max-width:699px) and (orientation:portrait){
+    #page #brandname{
+        font-size:14px;
+        color:#fff;
+        line-height: 50px;
+
+    }
+    #page #navbox{
+        height:10px;
+    }
+}

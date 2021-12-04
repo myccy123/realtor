@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>温哥华楼花预售屋, 公众开放日, YVRＯPENHOUSE - 海外瑞安居</title>
+    <meta name="keywords" content="温哥华楼花预售屋, 温哥华公众开放日, YVR OPEN HOUSE, 温哥华MLS, 温哥华房产投资" />
+    <meta charset=utf-8>
+    <link rel="shortcut icon" href="http://www.realtoraccess.com/static/web/img/favicon.ico" type="image/x-icon">
+    <meta name=screen-orientation content=portrait>
+    <meta name=x5-orientation content=portrait>
+    <meta name=viewport content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui,maximum-scale=1,minimum-scale=1">
+    <script type=text/javascript src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiVLDWIST62iywvIYJW_cfYnpl5lM1MeY"></script>
+    <script type=text/javascript src="http://www.realtoraccess.com/static/web/js/jquery.min.js"></script>
+    <link href=/static/web/static/css/app.8c536d2b67d624c7f1a3577c67958dac.css rel=stylesheet>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div id=app></div>
+    <script type=text/javascript src=/static/web/static/js/manifest.bd151f20094228d4bb7c.js> </script> <script type=text/javascript src=/static/web/static/js/vendor.9281fa1bd69fb183784c.js> </script> <script type=text/javascript src=/static/web/static/js/app.02b20722ab9b8d5d08d1.js> </script>
+
+    <script type="text/javascript">
+    var timestamp = new Date().getTime();
+    timestamp = timestamp.toString().substring(0, 10);
+    var url = window.location.href;
+    url = encodeURIComponent(url.split('#')[0]);
+
+    var signature;
+    var imgurl = 'http://www.realtoraccess.com/static/web/img/809987453589583456.jpg'
+
+
+    $.get('http://www.realtoraccess.com/weixin/jsapi/?timestamp=' + timestamp + '&url=' + url, function(data) {
+        signature = data;
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: 'wxcd1c7e6e724cc101', // 必填，公众号的唯一标识
+            timestamp: timestamp, // 必填，生成签名的时间戳
+            nonceStr: 'realter', // 必填，生成签名的随机串
+            signature: signature, // 必填，签名，见附录1
+            jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        wx.ready(function() {
+            wx.onMenuShareAppMessage({
+                title: 'YVR OPEN HOUSE - 大温地产投资地图 - 公众开放日每周更新', // 分享标题
+                desc: '99%的大温地产投资精英都在关注！楼花、暗盘、大温房产置业投资最新发布，公众开放日每周更新。', // 分享描述
+                link: '', // 分享链接
+                imgUrl: imgurl, // 分享图标
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function() {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function() {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+            wx.onMenuShareTimeline({
+                title: 'YVR OPEN HOUSE - 大温地产投资地图 - 公众开放日每周更新', // 分享标题
+                link: '', // 分享链接
+                imgUrl: imgurl, // 分享图标
+                success: function() {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function() {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        });
+    })
+    </script>
+	
+</body> </html>

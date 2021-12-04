@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="screen-orientation" content="portrait">
+<title>{{ title }}</title>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/jquery.excoloSlider.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/jquery.mobile-1.4.5.min.css' %}">
+<link rel="shortcut icon" href="{% static 'img/realtor.ico' %}">
+<script src="{% static 'js/jquery-1.9.1.min.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'js/jquery.excoloSlider.min.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'js/myjs.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body id="mysite">
+<div data-role="page" id="page1">
+
+
+<!-- 个人信息区 -->
+
+<div id="selfinfo">
+	{% if tmp.a == '1' %}
+	<div id="selfad"><img src="{{ ad.img.url }}"></div>
+	{% endif %}
+	<div id="slf">
+	     {% if tmp.b == '1' %}
+	     <span>经纪:&nbsp;&nbsp;{{ uinfo.username }}</span>
+		 <span>电话:&nbsp;&nbsp;{{ uinfo.tel }}</span>
+		 <span>邮箱:&nbsp;&nbsp;{{ uinfo.email }}</span>
+		 {% endif %}
+		 {% if tmp.c == '1' %}
+		 <span>网址:&nbsp;&nbsp;{{ uinfo.siteurl }}</span>
+		 {% endif %}
+		 {% if tmp.d == '1' %}
+		 <span>{{ uinfo.note }}</span>
+		 {% endif %}
+	</div>
+	{% if tmp.e == '1' %}
+	<div id="info3"><img src="{{ wechat.img.url }}">
+	                <p id="sb">长按识别二维码</p></div>
+	                <div style="clear:both"></div>
+	{% endif %}
+	{% if tmp.f == '1' %}
+	<div class="info2"><span><p id="assi">助理:</p><p id="assi2">{{ uinfo.assistant }}</p></span>
+		 <span><p id="assitel">电话:</p><p class="v2" id="assitel2">{{ uinfo.assistanttel }}</p></span>
+	</div>
+	{% endif %}
+</div>
+<div style="clear:both"></div>
+
+<!-- 经纪介绍 -->
+{% if tmp.g == '1' %}
+<div class="introduction">
+	<div class="ttdiv"><img class="ttimg" src="{% static 'img/selfinfo.png' %}"></div>
+	<div><p>{{ uinfo.selfintro }}</p></div>
+</div>
+{% endif %}
+
+<!-- 经纪团队介绍 -->
+{% if tmp.h == '1' %}
+<div class="introduction">
+	<div class="ttdiv"><img class="ttimg" src="{% static 'img/teaminfo.png' %}"></div>
+	<div><p>{{ uinfo.teamintro }}</p></div>
+</div>
+{% endif %}
+
+<!-- 经纪团队照片 -->
+{% if tmp.i == '1' %}
+<div class="introduction">
+	<div class="ttdiv"><img class="ttimg" src="{% static 'img/teampic.png' %}"></div>
+	<div class="piclistdiv">
+		{% for t in team %}
+		<img class="piclist"  src="{{ t.img.url }}">
+		{% endfor %}
+	</div>
+</div>
+{% endif %}
+
+<!-- 经纪公司介绍 -->
+{% if tmp.j == '1' or tmp.k == '1' %}
+<div class="introduction">
+	{% if tmp.j == '1' %}
+	<div class="ttdiv"><img class="ttimg" src="{% static 'img/corpinfo.png' %}"></div>
+	<div><p>{{ uinfo.corpintro }}</p></div>
+	{% endif %}
+	{% if tmp.k == '1' %}
+	<br>
+	<p class="corpaddr">办公地址:{{ uinfo.address }}</p>
+	<p class="corpaddr">邮编:{{ uinfo.postid }}</p>
+	{% endif %}
+</div>
+{% endif %}
+
+<!-- 成交纪录 -->
+{% if tmp.l == '1' %}
+<div class="introduction">
+	<div class="ttdiv"><img class="ttimg" src="{% static 'img/history.png' %}"></div>
+	<div>
+	{% for t in history %}
+	<img class="piclist"  src="{{ t.img.url }}">
+	{% endfor %}
+	</div>
+</div>
+{% endif %}
+
+<!-- 视频区 -->
+{% if tmp.m == '1' %}
+<div id="vdo">
+	<div class="ttdiv"><img class="ttimg" src="{% static 'img/video.png' %}"></div>
+	<video width="100%" controls>
+		<source src="{{ vdo.img.url }}" type="video/mp4">
+ 		您的设备不支持视频播放!
+	</video>
+</div>
+{% endif %}
+
+<!-- 好评截图 -->
+{% if tmp.n == '1' %}
+<div class="introduction">
+	<div class="ttdiv"><img class="ttimg" src="{% static 'img/comm.png' %}"></div>
+	<div>
+	{% for t in comm %}
+	<img class="piclist"  src="{{ t.img.url }}">
+	{% endfor %}
+	</div>
+</div>
+{% endif %}
+
+<!-- 声明区 -->
+<div id="introduction">
+	<img id="warnimg" src="{% static 'img/warn.png' %}" alt="免责声明">
+	<div><p id="warnfont">上面所列信息仅供参考，瑞安居不为其准确性负责。具体信息请咨询您的经纪人。</p></div>
+	<div></div>
+</div>
+
+<div id="gzh">
+	<img class="ttimg" src="{% static 'img/gzh.png' %}">
+</div>
+
+<!-- 页脚 -->
+<div style="height:45px"></div>
+<div id="foot">
+    <a id="applink" href="http://www.realtoraccess.com/app/download/">
+    <img id="downloadapp" src="{% static 'img/getapp.png' %}" alt="下载APP">
+    </a>
+  </div>
+</div>
+
+<div id="weixin-tip">
+	<p>
+		<img src="{% static 'img/live_weixin.png' %}" alt="微信打开"/><span id="close" title="关闭" class="close">×</span>
+	</p>
+</div>
+
+</body>
+</html>
+
+
+

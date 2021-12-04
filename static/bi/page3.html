@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv=Content-Type content=“text/html;charset=utf-8″>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>清城联控详情页</title>
+    {% load staticfiles %}
+
+    <link href="{% static 'bi/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/common.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/qingcheng.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/qingchengnav.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'bi/images/favicon.ico' %}">
+    <script src="{% static 'bi/js/echarts-all.js' %}" charset="utf-8"></script>
+    <!--[if lt IE 9]>
+    <script src="{% static 'bi/js/html5shiv.min.js' %}"></script>
+    <script src="{% static 'bi/js/respond.min.js' %}"></script>
+    <![endif]-->
+</head>
+<body id="page3">
+<!--导航-->
+
+<div id="navbox">
+    <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav_intel">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'home' %}" id="brand"><img src="{% static 'bi/images/logo.png' %}" class="res" alt="logo"/></a>
+                <a class="navbar-brand" href="{% url 'account:self' %}" style="padding:0" id="brandname">大数据运维监控系统</a>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="nav_intel">
+
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{% url 'get:page1' %}" id="testindex_allshow0">&nbsp;<span class="glyphicon glyphicon-leaf"></span>&nbsp;概览</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'get:page2' %}" id="testindex_allshow1">&nbsp;<span class="glyphicon glyphicon-eye-open"></span>&nbsp;监控</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'get:page3' %}" id="testindex_allshow2">&nbsp;<span class="glyphicon glyphicon-tower"></span>&nbsp;详情</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account:self' %}" style="padding:0"><b class="nav_logined_img"></b></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account:self' %}"><span class="user_logined_name"></span></a>
+                    </li>
+
+                    <li>
+                        <button class="btn btn-success" id="nav_quit_btn" style="display: none"><a href="#">退出</a></button>
+                    </li>
+                    <li>
+
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+</div>
+<!--主题-->
+<section id="section">
+
+    <div class="container">
+
+        <div class="row col-xs-12 zero" id="allsvg1" style="margin-bottom: 80px;">
+
+
+            <!--测试-->
+
+
+
+            <div style="margin-top:50px;" id="out_test1" class="row">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--尾部-->
+<a id="back_top" href="#">
+    <img src="{% static 'bi/images/back.png' %}" alt=""/>
+</a>
+<div id="footerbox">
+    <footer id="footer">
+    </footer>
+</div>
+<script src="{% static 'bi/js/jquery-1.11.3.js' %}"></script>
+<script src="{% static 'bi/js/bootstrap.js' %}"></script>
+<!--<script src="{% static 'bi/js/myjs.js' %}"></script>-->
+<!--<script src="{% static 'bi/js/page.js' %}"></script>-->
+<script src="{% static 'bi/js/outerTest.js' %}"></script>
+
+<script src="{% static 'bi/js/initEchart.js' %}"></script>
+<script src="{% static 'bi/js/IntervalEchart.js' %}"></script>
+<script>
+    window.onload=initChart(262,"out_test1",400,"1");
+</script>
+</body>
+</html>

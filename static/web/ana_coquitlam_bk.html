@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %} {% load tinyimg %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>高贵林房价走势图，高贵林学区房投资-【海外瑞安居】</title>
+    <meta name="keywords" content="高贵林新移民房产购置，高贵林房产价格，,高贵林房价" />
+    <meta name="Description" content="【海外瑞安居】高贵林房产价格栏目为您提供最新的高贵林房价走势分析和高贵林最新房产信息，更多高贵林房源信息就来海外瑞安居。" />
+    <link rel="shortcut icon" href="{% static 'web/img/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/bi_price.css' %}">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/agent.css" rel="stylesheet"> -->
+    <meta property="fb:app_id" content="383582678814907">
+    <meta property="og:type" content="website">
+    <!-- <meta property="og:url" content=""> -->
+    <meta property="og:description" content="" />
+    <meta property="og:title" content="Realtoraccess.com-高贵林学区房投资">
+    <meta property="og:image" content="{{user.head.url|tiny_agent_img}}">
+    <script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdMiniList": false,
+            "bdPic": "",
+            "bdStyle": "2",
+            "bdSize": "16"
+        },
+        "share": {}
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">
+                        <img alt="Brand" src="{% static 'web/img/img_nav_logo@2x.png' %}" />
+                    </a>
+                    <span class="navbar-text location">加拿大-大温地区</span>
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="http://www.realtoraccess.com/">首页</a>
+                    </li>
+                    <li>
+                        <a href="http://www.realtoraccess.com/web/houses/">海外房源</a>
+                    </li>
+                    <li>
+                        <a href="http://www.realtoraccess.com/web/agentlist/">经纪门户</a>
+                    </li>
+                    <li class="active">
+                        <a href="http://www.realtoraccess.com/web/van/" rel="nofollow">房价走势</a>
+                    </li>
+                    <li>
+                        <a href="http://www.realtoraccess.com/news/list/">全球资讯</a>
+                    </li>
+                    <div class="login-panel">
+                        <a class="not-login" href="/web/page/signin/" rel="nofollow">Agent? Log in</a>
+                        <a class="not-login"> | </a>
+                        <a class="not-login" href="/web/page/signup/" rel="nofollow">Sign up</a>
+                    </div>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="top">
+        <div class="container">
+            <div class="share-options bdsharebuttonbox">
+                <button onclick="window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(document.location.href)+'&amp;t='+encodeURIComponent(document.title),'_blank','toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=600, height=450,top=100,left=350');void(0)" class="btn-share facebook"></button>
+                <a class="btn-share weibo" data-cmd="tsina" role="button"></a>
+                <a class="btn-share wechat" data-cmd="weixin" role="button"></a>
+            </div>
+        </div>
+        <div class="container pricesumm">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h3 class="panel-title">高贵林房价统计(1个月)</h3>
+              </div>
+              <div class="panel-body">
+                <table class="table table-hover table-bordered">
+                  <tr>
+                      <td><b>平均价格：</b></td>
+                      <td>${{prices.Coquitlam.price}} / sqft.</td>
+                  </tr>
+                  <tr>
+                      <td><b>最高价格：</b></td>
+                      <td>${{prices.Coquitlam.maxprice}} / sqft.</td>
+                  </tr>
+                  <tr>
+                      <td><b>最低价格：</b></td>
+                      <td>${{prices.Coquitlam.minprice}} / sqft.</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+        </div>
+        <div class="container title-info equal-height">
+            <div class="col-lg-7 col-xs-12">
+                <a href="/web/agent/{{user.id}}"><img class="avatar" src="{{user.head.url|tiny_agent_img}}" width="122" /></a>
+                <div class="name">
+                    <h1>{{user.username}}
+                        <img class="authenticated" src="{% static 'web/img/img_sign_renzheng@2x.png'%}" width="90" />
+                    </h1>
+                    <h4 class="city">{{usercity}} 经纪
+                        <span class="company"> | {{user.corp}}</span>
+                    </h4>
+                </div>
+            </div>
+            <div class="col-lg-5 col-xs-12 text-right">
+                <div class="logo">
+                    <h2>高贵林学区房投资</h2>
+                    <span class="service" tabindex="0" role="button" data-html="true" data-toggle="popover" data-placement="bottom" title="" data-content="<div>
+                            <img class='avatar' src='{{user.head2.url}}' width='77'/>
+                            <div class='info'>
+                                    <h2>{{user.username2}}</h2>
+                                    <p>电话: <a href='tel:{{user.tel2}}'>{{user.tel2}}</a></p>
+                                    <p>邮箱: <a href='mailto:{{user.email2}}'>{{user.email2}}</a></p>
+                                    <p>微信: <img src='{{user.qrcode2.url}}' width='62'/></p>
+                            </div>
+                            <form id='formMessage'>
+                                <input type='hidden' class='form-control' id='userid' value='{{user.userid}}'>
+                                <div class='form-group'>
+                                    <input type='text' class='form-control' id='inputName' placeholder='您的姓名' required>
+                                </div>
+                                <div class='form-group'>
+                                    <input type='email' class='form-control' id='inputEmail' placeholder='您的邮箱' required>
+                                </div>
+                                <div class='form-group'>
+                                    <textarea id='inputMessage' class='form-control' rows='4' placeholder='注册邮箱，免费获取大温房价走势分析月报' required></textarea>
+                                </div>
+                                <div class='form-group'>
+                                    <button class='btn btn-primary' type='submit'>发送</button>
+                                </div>
+                            </form>
+                        </div>">我要关注房源价格走势 </span>
+                    <span class="visit">访问量: {{visit}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="basic-info container text-center">
+        <h2>大温主要城市房源价格评估</h2>
+        <div class="row equal-height">
+            
+            <div class="col-lg-4 col-md-4 col-xs-4 item">
+                <img src="{% static 'web/img/img_account_address@2x.png'%}" alt="电话" />
+                <h3><a href="/web/van/">温哥华Vancouver</a></h3>
+                <h4><a href="/web/van/"><span class="hidden-xs">房屋均价：</span>${{prices.Vancouver.price}}</a></h4>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 item">
+                <img src="{% static 'web/img/img_account_address@2x.png'%}" alt="本拿比" />
+                <h3><a href="/web/westvan/">西温哥华WestVancouver</a></h3>
+                <h4><a href="/web/westvan/"><span class="hidden-xs">房屋均价：</span>${{prices.WestVan.price}}</a></h4>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 item">
+                <img src="{% static 'web/img/img_account_address@2x.png'%}" alt="地址" />
+                <h3><a href="/web/burnaby/">本拿比Burnaby</a></h3>
+                <h4><a href="/web/burnaby/"><span class="hidden-xs">房屋均价：</span>${{prices.Burnaby.price}}</a></h4>
+            </div>
+            <!--  <div class="visible-xs clearfix"></div> -->
+            <div class="col-lg-4 col-md-4 col-xs-4 item">
+                <img src="{% static 'web/img/img_account_address@2x.png'%}" alt="网址" />
+                <h3><a href="/web/surrey/">素里Surrey</a></h3>
+                <h4><a href="/web/surrey/"><span class="hidden-xs">房屋均价：</span>${{prices.Surrey.price}}</a></h4>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 item">
+                <img src="{% static 'web/img/img_account_address@2x.png'%}" alt="地址" />
+                <h3><a href="/web/whiterock/">白石WhiteRock</a></h3>
+                <h4><a href="/web/whiterock/"><span class="hidden-xs">房屋均价：</span>${{prices.WhiteRock.price}}</a></h4>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 item">
+                <img src="{% static 'web/img/img_account_address@2x.png'%}" alt="邮箱" />
+                <h3><a href="/web/portmoody/">满地宝PortMoody</a></h3>
+                <h4><a href="/web/portmoody/"><span class="hidden-xs">房屋均价：</span>${{prices.PortMoody.price}}</a></h4>
+            </div>
+            <!-- <div class="visible-xs clearfix"></div> -->
+            <div class="col-lg-4 col-md-4 col-xs-4 item">
+                <img src="{% static 'web/img/img_account_address@2x.png'%}" alt="邮编" />
+                <h3><a href="/web/richmond/">列治文Richmond</a></h3>
+                <h4><a href="/web/richmond/"><span class="hidden-xs">房屋均价：</span>${{prices.Richmond.price}}</a></h4>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 item">
+                <img src="{% static 'web/img/img_account_address@2x.png'%}" alt="邮编" />
+                <h3><a href="/web/northvan/">北温NorthVancouver</a></h3>
+                <h4><a href="/web/northvan/"><span class="hidden-xs">房屋均价：</span>${{prices.NorthVancouver.price}}</a></h4>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 item">
+                <img src="{% static 'web/img/img_account_address@2x.png'%}" alt="邮编" />
+                <h3><a href="/web/northsurrey/">北素里NorthSurrey</a></h3>
+                <h4><a href="/web/northsurrey/"><span class="hidden-xs">房屋均价：</span>${{prices.NorthSurrey.price}}</a></h4>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 item">
+                <img src="{% static 'web/img/img_account_address@2x.png'%}" alt="邮编" />
+                <h3><a href="/web/newwestminster/">新西敏NewWestminster</a></h3>
+                <h4><a href="/web/newwestminster/"><span class="hidden-xs">房屋均价：</span>${{prices.NewWestminster.price}}</a></h4>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 item">
+                <img src="{% static 'web/img/img_account_address@2x.png'%}" alt="邮编" />
+                <h3><a href="/web/whistler/">惠斯勒Whistler</a></h3>
+                <h4><a href="/web/whistler/"><span class="hidden-xs">房屋均价：</span>${{prices.Whistler.price}}</a></h4>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 item qrcode">
+                <img src="{{user.qrcode.url}}" alt="个人微信" />
+                <h4>关注大温地产投资地图</h4>
+            </div>
+            <div class="clearfix visible-xs"></div>
+        </div>
+    </div>
+
+    <!-- 区域 -->
+    <div class="team-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 hidden-xs">
+                    <img width="420" height="420" src="/static/web/img/coquitlam.jpg" />
+                </div>
+                <div class="col-lg-6 col-md-12 ">
+                    <div class="text-part">
+                        <h2>高贵林房价走势图</h2>
+                        <div id="chartvisio1"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 visible-xs">
+                    <img width="420" height="420" src="/static/web/img/coquitlam.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 房源信息-->
+    <div class="sources-list">
+        <div class="container">
+            <h2>高贵林最新房源</h2>
+            <div class="row">
+                {% for item in ls %}
+                <div class="col-lg-3 item">
+                    <div class="house-agent">
+                        <a href="/web/agent/{{item.uid}}/"><div class="agt-head"><img src="{{item.head|tiny_agent_img}}"></div></a>
+                        <p class="agt-city">{{item.usercity}}经纪</p>
+                        <a href="/web/agent/{{item.uid}}/"><p class="agt-name">{{item.username}}</p></a>
+                        <p class="house-tp">{{item.ltype}}</p>
+                    </div>
+                    <a href="{{item.url}}">
+                            {% if item.salestatus == "no" %}
+                            <!--在售-->
+                            <img class="status" src="{% static 'web/img/for_sale.png'%}" /> 
+                            {% elif item.salestatus == "yes" %}
+                            <!--已售-->
+                            <img class="status" src="{% static 'web/img/sold.png'%}" /> 
+                            {% elif item.salestatus == "rent" %}
+                            <!--出租-->
+                            <img class="status" src="{% static 'web/img/for_rent.png'%}" />
+                             {% elif item.salestatus == "rented" %}
+                            <!--已租-->
+                            <img class="status" src="{% static 'web/img/rent_out.png'%}" /> 
+                            {% elif item.salestatus == "presale" %}
+                            <!--楼花-->
+                            <img class="status" src="{% static 'web/img/pre_sale.png'%}" /> 
+                            {% elif item.salestatus == "dark" %}
+                            <!--暗盘-->
+                            <img class="status" src="{% static 'web/img/offmarket.png'%}" /> 
+                            {% endif %}
+                            <img src="{{item.img}}" width="234" height="154" />
+                            <h3>{{item.address}}</h3>
+                            <h3>{{item.price}} | {{item.areas}}</h3>
+                            <h4>{{item.cityname}} / {{item.housetype}}</h4>
+                            <span class="views">{{item.visit}}</span>
+                            <span class="time">{{item.date}}</span>
+                        </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- 城市介绍-->
+    <div class="personal-info">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-6 col-md-12 ">
+                    <div class="text-part">
+                        <h2>高贵林城市简介</h2>
+                        <h4 id="selfIntro">高贵林市（Coquitlam）距温哥华市中心以东36公里，人口11.6万，占地122平方公里，是一个安静美丽的小城。高贵林市的名字——“Coquitlam”，在当地土著语中的意思是“沿河而上的红鱼”。高贵林市与和它比邻的另外两个小城——高贵林港市（Port Coquitlam）和满地宝市（Port Moody）——被合称为“三联市（Tri-city）”。
+
+高贵林市依山而立，北面直接与大温地区北部的群山相连，很多住宅可以远眺Mt Baker雪山和菲沙河上的金耳大桥。天气晴朗的早晨，雾气从山中缭绕而上，映衬着远处的雪山，恍若人间仙境。
+
+靠近山顶的蟠龙山庄（Westwood Plateau）及梦幻街（Plateau Boulevard）是这里的豪宅区，不过价位相比昂贵的温哥华西区，还是相当经济实惠的。高贵林地区森林覆盖密度极高，市内有众多公园和健行小路，难怪初次来到这里的朋友，都忍不住说这里的空气仿佛比其它地区清新很多。如果想驱车前往东部的皮特草原、枫叶岭的众多省立森林公园游玩，也很便利，不过十几、二十分钟车程。
+
+高贵林市依山傍海，从满地宝市延伸过来的太平洋内湾（Inlet），从高贵林市中心开车过去，也不过十几分钟。在著名的Belcarra海滨地区公园里，可以买上一张钓鱼证钓钓螃蟹，试试你的手气。夏天的时候，在海边的公园，边烧BBQ，边钓螃蟹，不时还能捞上来一些海星、小鱼之类。离海滨不远的奔森湖（Buntzen Lake）为群山和森林环绕，即使是最热的日子，这里的温度也比市内低好几度。还可以下湖游泳，是不错的消夏之所。
+
+高贵林市生活便利，市中心设有大型购物中心——Coquitlam Centre，还有大型超市Super Store，Safeway，Save on Foods以及大统华等华人超市。华人偏爱的Costco、Walmart也都在市内，距离不远。在高贵林市中心，有一个闹中取静的美丽的人工湖——Lafarge Lake。天气晴朗的日子，总能看到人们在这里散步，聊天，钓鱼，游玩，尽享安静生活。市政府每年两次，在湖中投放鳟鱼，供市民垂钓娱乐。湖里原来还住着一只可爱的河狸，夏天傍晚的时候，它会在湖面上悠闲地游泳，任游人拍照也不躲避。湖边有大型的儿童娱乐设施（Play Ground），多个沙滩排球场地，灯光足球场，特技自行车区域。市内的游泳池，滑冰场，图书馆也都一应俱全。
+
+位于高贵林市中心的铁路——西部快线（West Coast Express），每日早晚通车，40分钟直达市中心的Water Front车站，可接驳天车及其它各路公交。特别值得一提的是计划在2016年春天通车的天车（Sky Train）——常青线，天车通车后大大缩短高贵林市到Metrotown与市中心所需的交通时间，使得高贵林的交通更加便捷，会吸引很多需要每日通勤人士搬来高贵林居住。在常青线确认开建之后，大温地区各大知名开发商纷纷蜂拥而至，抢滩此区，区内的各种新建楼盘——高层水泥公寓、矮层公寓、连排别墅，如雨后春笋，悄然兴起。
+
+高贵林市属于第43校区，是大温哥华地区唯一分三段教育的学区，分为小学、初中和高中。将初中和高中分开设立，更能对不同年龄段孩子的教育因材施教，对低年级的初中孩子提供更多关爱。高贵林地区的三所高中（Pinetree、Gleneagle和HeritageWoods）在全省公立高中排名中名列前茅。这里的专上教育有著名的道格拉斯学院（Douglas College）。从高贵林市开车去到西门菲沙大学（SFU），也不过十几分钟。在市中心的Lafarge湖畔，还有一座小型的综合艺术馆所——Evergreen Cultural Centre。这里有一个艺术画廊，一个小型剧院，还有多间综合功能的教室。艺术画廊长年有美术作品展出，小剧院也每月都有各种高质量的文艺表演。当地居民，不用长途开车，就可以欣赏到来自全省及全国的各类艺术表演。每逢春假、暑假，这里还提供很多艺术类课程供孩子们学习。
+                            <div class="read-more hidden-xs" tabindex="0" role="button" data-html="true" data-toggle="popover" data-trigger="click" data-placement="bottom"
+                                title="" data-content="<div>高贵林市（Coquitlam）距温哥华市中心以东36公里，人口11.6万，占地122平方公里，是一个安静美丽的小城。高贵林市的名字——“Coquitlam”，在当地土著语中的意思是“沿河而上的红鱼”。高贵林市与和它比邻的另外两个小城——高贵林港市（Port Coquitlam）和满地宝市（Port Moody）——被合称为“三联市（Tri-city）”。
+
+高贵林市依山而立，北面直接与大温地区北部的群山相连，很多住宅可以远眺Mt Baker雪山和菲沙河上的金耳大桥。天气晴朗的早晨，雾气从山中缭绕而上，映衬着远处的雪山，恍若人间仙境。
+
+靠近山顶的蟠龙山庄（Westwood Plateau）及梦幻街（Plateau Boulevard）是这里的豪宅区，不过价位相比昂贵的温哥华西区，还是相当经济实惠的。高贵林地区森林覆盖密度极高，市内有众多公园和健行小路，难怪初次来到这里的朋友，都忍不住说这里的空气仿佛比其它地区清新很多。如果想驱车前往东部的皮特草原、枫叶岭的众多省立森林公园游玩，也很便利，不过十几、二十分钟车程。
+
+高贵林市依山傍海，从满地宝市延伸过来的太平洋内湾（Inlet），从高贵林市中心开车过去，也不过十几分钟。在著名的Belcarra海滨地区公园里，可以买上一张钓鱼证钓钓螃蟹，试试你的手气。夏天的时候，在海边的公园，边烧BBQ，边钓螃蟹，不时还能捞上来一些海星、小鱼之类。离海滨不远的奔森湖（Buntzen Lake）为群山和森林环绕，即使是最热的日子，这里的温度也比市内低好几度。还可以下湖游泳，是不错的消夏之所。
+
+高贵林市生活便利，市中心设有大型购物中心——Coquitlam Centre，还有大型超市Super Store，Safeway，Save on Foods以及大统华等华人超市。华人偏爱的Costco、Walmart也都在市内，距离不远。在高贵林市中心，有一个闹中取静的美丽的人工湖——Lafarge Lake。天气晴朗的日子，总能看到人们在这里散步，聊天，钓鱼，游玩，尽享安静生活。市政府每年两次，在湖中投放鳟鱼，供市民垂钓娱乐。湖里原来还住着一只可爱的河狸，夏天傍晚的时候，它会在湖面上悠闲地游泳，任游人拍照也不躲避。湖边有大型的儿童娱乐设施（Play Ground），多个沙滩排球场地，灯光足球场，特技自行车区域。市内的游泳池，滑冰场，图书馆也都一应俱全。
+
+位于高贵林市中心的铁路——西部快线（West Coast Express），每日早晚通车，40分钟直达市中心的Water Front车站，可接驳天车及其它各路公交。特别值得一提的是计划在2016年春天通车的天车（Sky Train）——常青线，天车通车后大大缩短高贵林市到Metrotown与市中心所需的交通时间，使得高贵林的交通更加便捷，会吸引很多需要每日通勤人士搬来高贵林居住。在常青线确认开建之后，大温地区各大知名开发商纷纷蜂拥而至，抢滩此区，区内的各种新建楼盘——高层水泥公寓、矮层公寓、连排别墅，如雨后春笋，悄然兴起。
+
+高贵林市属于第43校区，是大温哥华地区唯一分三段教育的学区，分为小学、初中和高中。将初中和高中分开设立，更能对不同年龄段孩子的教育因材施教，对低年级的初中孩子提供更多关爱。高贵林地区的三所高中（Pinetree、Gleneagle和HeritageWoods）在全省公立高中排名中名列前茅。这里的专上教育有著名的道格拉斯学院（Douglas College）。从高贵林市开车去到西门菲沙大学（SFU），也不过十几分钟。在市中心的Lafarge湖畔，还有一座小型的综合艺术馆所——Evergreen Cultural Centre。这里有一个艺术画廊，一个小型剧院，还有多间综合功能的教室。艺术画廊长年有美术作品展出，小剧院也每月都有各种高质量的文艺表演。当地居民，不用长途开车，就可以欣赏到来自全省及全国的各类艺术表演。每逢春假、暑假，这里还提供很多艺术类课程供孩子们学习。
+                                </div>">[查看更多]</div>
+                        </h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div id="carousel-agent" class="carousel slide" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <img src="/static/web/img/coquitlam-1.jpg" alt="" width="420">
+                            </div>
+                            <div class="item">
+                                <img src="/static/web/img/Coquitlam-2.jpg" alt="" width="420">
+                            </div>
+                            <div class="item">
+                                <img src="/static/web/img/coquitlam-3.jpg" alt="" width="420">
+                            </div>
+                        </div>
+                        <!--  Controls -->
+                        <a class="left carousel-control" href="#carousel-agent" role="button" data-slide="prev">
+                            <img src="{% static 'web/img/ic_left@2x.png'%}" />
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-agent" role="button" data-slide="next">
+                            <img src="{% static 'web/img/ic_right@2x.png'%}" />
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 相关阅读-->
+    <div class="related-readings">
+        <div class="container">
+            <h2>高贵林相关资讯</h2>
+            <div class="row">
+                {% for item in atc %}
+                <div class="col-lg-6 item">
+                    <div class="col-lg-4"><a href="{{item.url}}"><img src="{{item.img}}" alt="{{item.title}}"/></a></div>
+                        <div class="col-lg-8">
+                            <a href="{{item.url}}"><h3>{{item.title}}</h3></a>
+                            <h4>{{item.intro}}</h4>
+                            <a href="{{item.url}}">
+                                <div class="read-more">查看详情>></div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+        <hr />
+        <div class="fixed-options">
+            <div class="btn-option"><a href="https://www.fangdaijisuanqi.com/" target="_blank" rel="nofollow"><img src="{% static 'web/img/img_right_01@2x.png' %}" /></a></div>
+            <div class="btn-option wechat"><img src="{% static 'web/img/img_right_02@2x.png' %}" /></div>
+            <div class="btn-option"><a href="http://ruianju.kuaizhan.com/clubv2/forums/WNPMtTEF8TSeToY_" target="_blank" rel="nofollow"><img src="{% static 'web/img/img_right_03@2x.png' %}" /></a></div>
+            <div class="btn-option"><a href="http://www.huilvwang.com/" target="_blank" rel="nofollow"><img src="{% static 'web/img/img_right_04@2x.png' %}" /></a></div>
+            <div class="btn-option backTop"><img src="{% static 'web/img/img_right_top@2x.png' %}" /></div>
+        </div>
+        <div id="wechat-qrcode"><img src="{% static 'web/img/kefu.png' %}" /></div>
+        <footer>
+            <div class="container footer-top">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="logo">
+                            <img src="{% static 'web/img/img_bottom_logo@2x.png' %}" />
+                            <h2>首创全球无忧置业信息服务平台</h2>
+                            <h4 class="hidden-xs">海外瑞安居（简称“瑞安居”），<a href="http://www.realtoraccess.com/">www.瑞安居.com</a>，面向全球华人提供最新、最全海外房产置业投资信息，汇集了美国、澳大利亚、加拿大、英国主要城市MLS二手房源、海外置业中介房源，
+                            海外房产经纪暗盘，期房楼花新盘以及海外短租房源。让全球华人可以查询海外主要城市房价、实时跟踪海外房源价格走势。集成视频、3D、户型图以及房源照片等房源详情信息，通过<a href="http://www.realtoraccess.com/web/houselist/">海外房源网页</a>全面进行展示，
+                            <br>
+                            <br>
+                            海外瑞安居无忧置业信息服务平台是全球海外房产投资者进行海外房产置业投资的不二选择。
+                            瑞安居<a href="http://www.realtoraccess.com/web/agentlist/">海外经纪门户</a>，对海外房地产经纪人，海外房地产公司置业顾问，房产中介进行全面认证和中文展示，
+                            是了解海外房产经纪的权威入口。通过<a href="http://www.realtoraccess.com/web/app/">瑞安居APP</a>，全球置业者能够在海外置业前期、海外购房中期以及成交以后的房屋托管、物业租赁和再投资过程中与海外房产置业经纪人以及线上线下服务提供商进行即时在线沟通，实现全程无缝对接。</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 contact">
+                        <h2>联系我们</h2>
+                        <p class="phone">客服专线 | <a href="tel:4008771896">400 877 1896</a></p>
+                        <p class="time">营业时间 | 周一至周日 9:00~17:00</p>
+                        <p class="email">客服邮箱 | <a href="mailto:clientservice@realtoraccess.com">clientservice@realtoraccess.com</a></p>
+                        <img src="{% static 'web/img/img_wechat@2x.png' %}" />
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container text-center">
+                    <p>
+                        <a href="http://www.realtoraccess.com/web/houses/">海外房源</a>
+                        <a href="http://www.realtoraccess.com/web/agentlist/">经纪门户</a>
+                        <a href="http://www.realtoraccess.com/web/van/" rel="nofollow">房价走势</a>
+                        <a href="/" rel="nofollow">全程服务</a>
+                        <a href="/" rel="nofollow">隐私条款</a>
+                        <a href="/" rel="nofollow">使用条款</a>
+                        <a href="/" rel="nofollow">关于我们</a>
+                        <a href="/" rel="nofollow">城市合伙人</a>
+                    </p>
+                    <p>©海外瑞安居（北京）科技发展有限公司 版权所有|京ICP备17003593号</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="{% static 'web/js/jquery.min.js' %}"></script>
+        <script src="{% static 'web/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'web/js/jquery.validate.min.js' %}"></script>
+        <script src="{% static 'web/js/main_ana.js' %}"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116462236-1"></script>
+        <script src="{% static 'web/js/visio/highcharts.js' %}"></script>
+        <script src="{% static 'web/js/visio/highcharts-more.js' %}"></script>
+        <script src="{% static 'web/js/visio/highcharts-3d.js' %}"></script>
+        <script src="{% static 'web/js/visio/visio.js' %}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-116462236-1');
+        </script>
+        <script type="text/javascript">
+            
+
+            var date=new Date;
+            var year=date.getFullYear();
+            function getWeekOfYear(){
+              var today = new Date();
+              var firstDay = new Date(today.getFullYear(),0, 1);
+              var dayOfWeek = firstDay.getDay(); 
+              var spendDay= 1;
+              if (dayOfWeek !=0) {
+                spendDay=7-dayOfWeek+1;
+              }
+              firstDay = new Date(today.getFullYear(),0, 1+spendDay);
+              var d =Math.ceil((today.valueOf()- firstDay.valueOf())/ 86400000);
+              var result =Math.ceil(d/7)+1;
+              year = result>=9?year:year-1
+              result = result>=9?(result -9):(53 + (result-9))
+              return (Array(2).join('0') + result).slice(-2);
+            };
+  
+
+            var week = getWeekOfYear()
+            makeChart('chartvisio1', 286, [
+                                           {col:'countyid',opt: 'eq', val: 'Coquitlam'}]);
+
+            var timestamp = new Date().getTime();
+            timestamp = timestamp.toString().substring(0, 10);
+            var url = window.location.href;
+            url = encodeURIComponent(url.split('#')[0]);
+
+            var signature;
+            var imgurl = '{{ user.head.url }}'
+
+
+            $.get('http://www.realtoraccess.com/weixin/jsapi/?timestamp=' + timestamp + '&url=' + url, function(data) {
+                signature = data;
+                wx.config({
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: 'wxcd1c7e6e724cc101', // 必填，公众号的唯一标识
+                    timestamp: timestamp, // 必填，生成签名的时间戳
+                    nonceStr: 'realter', // 必填，生成签名的随机串
+                    signature: signature, // 必填，签名，见附录1
+                    jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+
+                wx.ready(function() {
+                    wx.onMenuShareAppMessage({
+                        title: '高贵林学区房投资', // 分享标题
+                        desc: '{{ user.note }} -> {{user.tel}} , 点击了解 -> 经纪人及特色房源', // 分享描述
+                        link: '', // 分享链接
+                        imgUrl: imgurl, // 分享图标
+                        type: '', // 分享类型,music、video或link，不填默认为link
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success: function() {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function() {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    wx.onMenuShareTimeline({
+                        title: '高贵林学区房投资', // 分享标题
+                        link: '', // 分享链接
+                        imgUrl: imgurl, // 分享图标
+                        success: function() {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function() {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                });
+            })
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<div id="choose_a" class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12">
+    <p>选择...</p>
+    <div class="row zero" id="addDatabox">
+        <!-- 模糊搜索框-->
+        <div class="col-sm-5 col-xs-4 padding_zero" id="slectTYpe">
+            <input name="selectType" class="col-xs-12" placeholder="请输入数据源名称" id="madule_selectType">
+            <div class="index_dataItem col-xs-12">
+
+            </div>
+
+        </div>
+        <!--我的数据源 -->
+
+        <div class="col-sm-7 col-xs-8 padding_zero">
+            <div class="flow_table">
+                <p id="index_model_mysqlsoucer"><span></span><span>我的数据源</span></p>
+                <p id="mysqltable_tablename">表名</p>
+                <p id="index_model_usrname" class="index_mysql_border"><span></span><span>用户名</span></p>
+
+                <table style="width:100%" class="col-xs-12 table">
+
+                    <tr id="top_ten_bot_5">
+                        <td  class="index_mysql_border">条数</td>
+                        <td  class="index_mysql_border">大小</td>
+                    </tr>
+                    <tr>
+                        <td id="mysqltable_count"></td>
+                        <td id="mysqltable_size"></td>
+                    </tr>
+                    <tr id="top_ten_bot_5-too">
+                        <td>创建时间</td>
+                    </tr>
+                    <tr>
+                        <td class="pad-bottom-20"><span id="mysqltable_time"></span> </td>
+                    </tr>
+                    <tr class="lsttwo">
+                        <td class="index_mysql_border" >Number</td>
+                        <td   class="index_mysql_border" id="mysqltable_Number">
+                            <ul></ul>
+                        </td>
+                    </tr>
+                    <tr class="lsttwo">
+                        <td   class="index_mysql_border">Text</td>
+                        <td   class="index_mysql_border" id="mysqltable_Text">
+                            <ul></ul>
+                        </td>
+                    </tr>
+                    <tr class="lsttwo">
+                        <td   class="index_mysql_border">Date</td>
+                        <td   class="index_mysql_border" id="mysqltable_Date">
+                            <ul></ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col-xs-6">
+                <button type="button" class="btn btn-block btn-info" id="index_modlue_okbtn">确认</button>
+            </div>
+            <div class="col-xs-6">
+                <button type="button" class="btn btn-block btn-info" id="index_modlue_hiden_btn">取消</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>

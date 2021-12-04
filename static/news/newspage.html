@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{ainfo.title}}海外房产_最新资讯</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="keywords" content="海外置业,海外房产投资,海外置业流程,海外买房,海外物业托管，海外物业管理问答,海外购房资金汇兑" />
+<meta name="description" content="瑞安居全球无忧置业信息服务平台，海外房展第一门户，每天发布最新房产资讯,全球追踪，地产走势，财税知道，物业管理，家政服务，本地生活，海外房产最新动态" />
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/css/news.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/header.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'news/css/footer.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'news/css/sidelogo.css' %}">
+<link rel="shortcut icon" href="{% static 'news/img/ico.ico' %}">
+<script src="{% static 'js/jquery-1.9.1.min.js' %}" type="text/javascript" charset="utf-8"></script>
+</head>
+<body id="{{ainfo.articleid}}">
+<div id="header"></div>
+<div id="container_box">
+<div id="container_box_left">
+<div class="nav">
+	<div class="navlist">
+		<div id="tt">
+			<span id="tt1">热点文章</span>
+			<span id="tt2">阅读量</span>
+		</div>
+		<ol class="rightlist">
+			{% for r in rcmd %}
+			<li><span class="tt3"><a href="/news/{{r.id}}">{{forloop.counter}}.{{r.title}}</a></span>
+				<span class="look">{{r.look}}</span><div style="clear:both"></div></li>
+			{% endfor %}
+		</ol>
+	</div>
+	<div class="nav1">
+	   <div class="ban_1">
+	    <a href="http://www.realtoraccess.com/news/2523">
+           <p class="t_left">实&nbsp现</p>
+		   <p class="t_right">全球无忧置业</p>
+		   <p class="title_cls2">掌握小学生都能理解的七个指标</p>
+	   </a>
+	   </div>
+	</div>
+	<div class="nav2">
+	  <div class="ban_2">
+		   <a href="http://www.realtoraccess.com/news/2537">
+		   	   <p class="nav2_t_1">海外买房初探</p>
+			   <p class="nav2_t_2">温哥华月入多少才敢买房？</p>
+		   </a>
+	   </div>
+	</div>
+	<div class="nav3"><a href="http://www.realtoraccess.com/news/2595"></a>
+        <div class="ban_3">
+		   <a href="http://www.realtoraccess.com/news/2595">
+		       <p class="nav3_t_1">在加拿大移民定居？</p>
+		   	   <p class="nav3_t_2">如何判断一座城市世界最宜居</p>
+           </a>
+	   </div>
+	</div>
+	<div class="nav4">
+	  <div class="ban_3">
+	   <a href="http://www.realtoraccess.com/news/2537">
+		 <p class="nav4_t_4">地产数据分析报告</p>
+		 <p class="nav3_t_2">大温地区房地产市场趋势</p>
+	   </a>
+	 </div>
+  </div>
+</div>
+<div id="container">
+	<div class="cls2">
+		<ul class="breadcrumb">
+		<li><a class="global" href="/news/list/?cate=global">全球追踪</a></li>
+		<li><a class="land" href="/news/list/?cate=land">地产走势</a></li>
+		<li><a class="finance" href="/news/list/?cate=finance">财税知道</a></li>
+		<li><a class="manage" href="/news/list/?cate=manage">物业管理</a></li>
+		<li><a class="housekeep" href="/news/list/?cate=housekeep">家政服务</a></li>
+		<li><a class="local" href="/news/list/?cate=local">本地生活</a></li>
+	    </ul>
+	</div>
+	<div class="barrier">
+		<div class="branch">
+			<a href="/">首页</a>
+			<span>&rsaquo;</span>
+			<a href="#">{{ainfo.atype}}</a>
+			<span>&rsaquo;</span>
+			<a>查看内容</a>
+		</div>
+		<div class="search"><input><button id="btn"><strong>搜索</strong></button></div>
+	</div>
+	<div class="alist">
+		<div class="acontent">
+			<h1 class="bt">{{ainfo.title}}</h1>
+			<div class="fbt"><span>{{ainfo.pdate}}</span><span>|</span><span><a href="{{ainfo.authorurl}}">{{ainfo.author}}</a></span></div>
+			<div class="pre"></div>
+			
+			{% for c in acont %}
+				{% if c.ptype == "text" and c.pstyle == "normal"%}
+					<div class="para">{{c.p|safe}}</div>
+				{% elif c.ptype == "text" and c.pstyle == "center"%}
+					<div class="contcenter">{{c.p|safe}}</div>
+				{% elif c.ptype == "br"%}
+					<div><br></div>
+				{% elif c.ptype == "img"%}
+					<div class="contcenter"><img alt="海外买房新闻" src="{{c.img}}"></div>	
+				{% elif c.ptype == "a" %}
+					<div class="para">{{c.p|safe}}</div>
+				{% elif c.ptype == "table" %}
+					<div class="contcenter">{{c.p|safe}}</div>
+				{% elif c.ptype == "iframe" %}
+					<div class="contcenter"><iframe src="{{c.p|safe}}"></iframe></div>
+				{% endif %}
+			{% endfor %}
+
+			<div id="phonead"><a href="/app/todownload"><img src="/static/news/img/gzh.png"></a></div>
+			<!--<div id="footoccupy" style="height:45px"></div>
+			<div id="foot">
+			    <a id="applink" href="/app/download/">
+			    <img id="downloadapp" src="{% static 'img/getapp.png' %}" alt="下载APP">
+			    </a>
+			</div>-->
+		</div>
+		
+		<div class="ad">
+				<h4 class="rcmdtitle">文章推荐</h4>
+				<ul>
+					{% for r in rcmd %}
+						<li class="rcmd">
+						<a href="/news/list/?cate={{r.cate}}" class="lb">[{{r.articletype}}]</a>
+						<a href="/news/{{r.id}}">{{r.title}}</a>
+						</li>
+					{% endfor %}
+				</ul>
+
+		</div>
+		<div style="clear:both"></div>
+	</div>
+</div>
+</div><!-- container_box_left -->
+<div id="container_box_right"></div> 
+</div><!-- container_box -->
+<div id="footer"></div>
+<script src="{% static 'news/js/news.js' %}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="{% static 'news/js/sidelogo.js' %}"></script>
+</body>
+</html>
+
+
+

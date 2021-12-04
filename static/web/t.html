@@ -1,0 +1,128 @@
+<html>
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'js/jquery-1.9.1.min.js' %}"></script>
+<!-- <script>
+	//注册
+	var data = {}
+	data['userid'] = 'myccy123@126.com'
+	data['passwd1'] = '123456'
+	data['passwd2'] = '123456'
+
+	$.post('http://www.realtoraccess.com/web/signup/',data,function(res){
+		console.log(res)
+	})
+</script>
+ -->
+<!-- <script>
+	
+	//登陆
+	var data = {}
+	data['userid'] = 'myccy123@126.com'
+	data['passwd'] = '123456'
+
+	$.post('http://www.realtoraccess.com/web/signin/',data,function(res){
+		console.log(res)
+	})
+</script> -->
+
+<!-- <script>
+	
+	//上传、修改个人基本信息
+	var data = {}
+	data['userid'] = 'myccy123@126.com'
+	data['username'] = '于家浩'
+
+	$.post('http://www.realtoraccess.com/web/postinfo/',data,function(res){
+		console.log(res)
+	})
+</script> -->
+
+<!-- <script>
+	//上传图片
+	function postimg(){
+		var formData = new FormData()
+		formData.append('userid','myccy123@126.com')
+		formData.append('qrcode',$("#upload")[0].files[0])
+		var request = new XMLHttpRequest()
+		request.open("POST", "http://www.realtoraccess.com/web/postimg/",true)
+		request.send(formData)
+		request.onreadystatechange = function(){
+		    if(request.readyState === 4 && request.status === 200){
+		        console.log(request.responseText)
+		    }
+		}
+	}
+	
+</script> -->
+
+<!-- <script>
+	
+	//删除图片
+	var data = {}
+	data['userid'] = 'myccy123@126.com'
+	data['imgid'] = 'qrcode'
+
+	$.post('http://www.realtoraccess.com/web/delimg/',data,function(res){
+		console.log(res)
+	})
+</script> -->
+
+<!-- <script>
+	
+	//新增信用卡
+	var data = {}
+	data['userid'] = 'myccy123@126.com'
+	data['holder'] = 'Yu Jiahao'
+	data['cardno'] = '1231231232123123'
+	data['expire'] = '2020/12'
+	data['cvs'] = '525'
+	data['postid'] = '100000'
+
+
+	$.post('http://www.realtoraccess.com/web/addcard/',data,function(res){
+		console.log(res)
+	})
+</script> -->
+
+<!-- <script>
+	
+	//设置默认信用卡
+	var data = {}
+	data['userid'] = 'myccy123@126.com'
+	data['cardid'] = '1'
+
+
+
+	$.post('http://www.realtoraccess.com/web/defcard/',data,function(res){
+		console.log(res)
+	})
+</script> -->
+
+<!-- <script>
+	
+	//删除信用卡
+	var data = {}
+	data['userid'] = 'myccy123@126.com'
+	data['cardid'] = '1'
+
+
+
+	$.post('http://www.realtoraccess.com/web/delcard/',data,function(res){
+		console.log(res)
+	})
+</script> -->
+
+<!-- <script>
+	
+	//申请修改密码
+	var data = {}
+	data['userid'] = 'myccy123@126.com'
+
+	$.post('http://www.realtoraccess.com/web/topasswd/',data,function(res){
+		console.log(res)
+	})
+</script>
+ -->
+<input id="upload" type="file" title="点击更换图片" onchange="postimg()">
+
+</html>

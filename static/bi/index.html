@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv=Content-Type content=“text/html;charset=utf-8″>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="环境产业运营资金、环境监测设备、大数据技术、业务数据增值、本地化定制服务、环境产业咨询与投资运营、环境大数据运营服务、污染源在线监控运营服务、VOCs管控运营服务、机动车管控运营服务、总量减管控运营服务">
+    <meta name="description" content="清城联控为用户提供集“环境产业运营资金、环境监测设备、大数据技术、业务数据增值、本地化定制服务”于一体的运营服务，公司主要产品包括：环境产业咨询与投资运营、环境大数据运营服务、污染源在线监控运营服务、VOCs管控运营服务、机动车管控运营服务、总量减管控运营服务等多种覆盖全面的环境信息化运营服务产品。">
+
+    <title>Visio</title>
+    {% load staticfiles %}
+
+    <link href="{% static 'bi/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/common.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/qingcheng.css' %}" rel="stylesheet">
+
+    <link href="{% static 'bi/css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/style.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'bi/images/favicon.ico' %}">
+
+    <script src="{% static 'bi/js/echarts-all.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/jquery-1.8.2.min.js' %}" charset="utf-8"></script>
+    <!--[if lt IE 9]>
+    <script src="{% static 'bi/js/html5shiv.min.js' %}"></script>
+    <script src="{% static 'bi/js/respond.min.js' %}"></script>
+    <![endif]-->
+
+</head>
+<body id="index">
+<!--导航-->
+
+<div id="navbox">
+
+
+</div>
+<!--主题-->
+<section id="section"  style="position:relative;overflow: hidden">
+
+        <div class="row zero" id="index_allpage" style="position:relative;top:0px">
+            <!-- 滚动点-->
+            <ul id="index_sroll">
+                <li class="index_sroll_item  srollHover" data-num="index_page1"></li>
+                <li class="index_sroll_item" data-num="index_page2"></li>
+                <li class="index_sroll_item" data-num="index_page3"></li>
+                <li class="index_sroll_item" data-num="index_page4"></li>
+                <li class="index_sroll_item" data-num="index_page5"></li>
+                <li class="index_sroll_item" data-num="index_page6"></li>
+                <li class="index_sroll_item" data-num="index_page7"></li>
+                <li class="index_sroll_item"  data-num="index_page8"></li>
+            </ul>
+            <!-- page1-->
+            <div class="box" id="index_page1_box"  style="position:relative;overflow: hidden;background:#050D19;width: 100%">
+                <div style="position:absolute;margin:auto;line-height:100%;text-align:center;z-index:1" class="col-xs-12  zero ">
+                  <div class="col-lg-2  col-md-2 col-sm-2 hidden-xs"></div>
+                    <div  class="col-lg-8  col-md-8 col-sm-8 col-xs-12 center-block" style="margin:0 auto"  id="index_start_img">
+                        <!-- ********************************图片文字*******************************-->
+
+                            <img src="http://www.realtoraccess.com/static/bi/images/logotext.png" class="img-responsive col-xs-12" alt="logotext.png"/>
+
+                    </div>
+
+
+                </div>
+                <div id="stackbody" style="position:relative;top:0px;overflow: hidden" height="100%">
+
+                    <div id="BAIDU_DUP_fp_wrapper"
+                         style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;">
+                        <iframe id="BAIDU_DUP_fp_iframe" src="http://www.realtoraccess.com/static/bi/startback/o.html"
+                                style="width: 0px; height: 0px; overflow: hidden; display: none;">
+                        </iframe>
+                    </div>
+
+
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+
+                            var iframeHeight = function () {
+                                var _height = $(window).outerHeight();
+                                $('#stackbody').outerHeight(_height);
+                                $('#content').height(_height);
+                            }
+                            window.onresize = iframeHeight;
+
+                            $(function () {
+                                iframeHeight();
+                            });
+                        });
+                    </script>
+                    <div id="container" style="overflow:hidden;">
+                        <!--<iframe border="0" id="content" src="http://www.realtoraccess.com/static/bi/startback/index.html" frameborder="0" height="100%" width="100%"-->
+                                <!--style="height: 887px;"></iframe>-->
+                        <nav class="codrops-demos">
+
+                            <a class="current-demo" href="http://www.17sucai.com/preview/525216/2016-04-22/a/index5.html" style="display:none">Demo 5</a>
+
+                        </nav>
+
+                        <canvas id="canvas" width="100%" height="100%"></canvas>
+                        <script>
+                            "use strict";
+                            $(document).ready(function () {
+
+
+                                var iframeHeight = function () {
+
+                                    canvas.width = window.outerWidth
+                                    canvas.height = window.outerHeight
+                                }
+                                window.onresize = iframeHeight;
+
+
+                            });
+
+                            var canvas = document.getElementById('canvas'),
+
+                                    ctx = canvas.getContext('2d'),
+                                    w = canvas.width = window.outerWidth,
+                                    h = canvas.height = window.outerHeight,
+                                    hue = 217,
+                                    stars = [],
+                                    count = 0,
+                                    maxStars = 1200;
+
+
+                            var canvas2 = document.createElement('canvas'),
+                                    ctx2 = canvas2.getContext('2d');
+                            canvas2.width = 100;
+                            canvas2.height = 100;
+                            var half = canvas2.width / 2,
+                                    gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
+                            gradient2.addColorStop(0.025, '#fff');
+                            gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
+                            gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
+                            gradient2.addColorStop(1, 'transparent');
+
+                            ctx2.fillStyle = gradient2;
+                            ctx2.beginPath();
+                            ctx2.arc(half, half, half, 0, Math.PI * 2);
+                            ctx2.fill();
+
+                            // End cache
+
+                            function random(min, max) {
+                                if (arguments.length < 2) {
+                                    max = min;
+                                    min = 0;
+                                }
+
+                                if (min > max) {
+                                    var hold = max;
+                                    max = min;
+                                    min = hold;
+                                }
+
+                                return Math.floor(Math.random() * (max - min + 1)) + min;
+                            }
+
+                            function maxOrbit(x, y) {
+                                var max = Math.max(x, y),
+                                        diameter = Math.round(Math.sqrt(max * max + max * max));
+                                return diameter / 2;
+                            }
+
+                            var Star = function() {
+
+                                this.orbitRadius = random(maxOrbit(w, h));
+                                this.radius = random(60, this.orbitRadius) / 12;
+                                this.orbitX = w / 2;
+                                this.orbitY = h / 2;
+                                this.timePassed = random(0, maxStars);
+                                this.speed = random(this.orbitRadius) / 900000;
+                                this.alpha = random(2, 10) / 10;
+
+                                count++;
+                                stars[count] = this;
+                            }
+
+                            Star.prototype.draw = function() {
+                                var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
+                                        y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
+                                        twinkle = random(10);
+
+                                if (twinkle === 1 && this.alpha > 0) {
+                                    this.alpha -= 0.05;
+                                } else if (twinkle === 2 && this.alpha < 1) {
+                                    this.alpha += 0.05;
+                                }
+
+                                ctx.globalAlpha = this.alpha;
+                                ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
+                                this.timePassed += this.speed;
+                            }
+
+                            for (var i = 0; i < maxStars; i++) {
+                                new Star();
+                            }
+
+                            function animation() {
+                                ctx.globalCompositeOperation = 'source-over';
+                                ctx.globalAlpha = 0.8;
+                                ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 1)';
+                                ctx.fillRect(0, 0, w, h)
+
+                                ctx.globalCompositeOperation = 'lighter';
+                                for (var i = 1, l = stars.length; i < l; i++) {
+                                    stars[i].draw();
+                                };
+
+                                window.requestAnimationFrame(animation);
+                            }
+
+                            animation();
+                        </script>
+
+                    </div>
+                    <script type="text/javascript">
+                        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F382f81c966395258f239157654081890' type='text/javascript'%3E%3C/script%3E"));
+                    </script>
+                    <script src="http://www.realtoraccess.com/static/bi/startback/h.js" type="text/javascript"></script>
+
+                    <!-- 波浪线-->
+                    <div id="wavelineb_maxbox" style="position:absolute;left:0px;bottom:-350px;width:100%">
+
+
+                        <script type="text/javascript" src="http://www.realtoraccess.com/static/bi/waveline_files/jquery-1.4.2.min.js"></script>
+                        <script type="text/javascript">
+                            $(document).ready(function(){
+
+                                var iframeHeight = function () {
+                                    var _height = $(window).outerHeight();
+                                    $('#content').height(_height);
+                                }
+                                window.onresize = iframeHeight;
+
+                                $(function () {
+                                    iframeHeight();
+                                });
+
+                            });
+                        </script>
+                        <div id="wcontainer" style="overflow:hidden;">
+                            <iframe border="0" id="wavevalue" src="http://www.realtoraccess.com/static/bi/waveline_files/index.html" frameborder="0" height="100%" width="100%" style="height: 887px;"></iframe>
+                        </div>
+
+                        <script type="text/javascript">
+                            var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                            document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F382f81c966395258f239157654081890' type='text/javascript'%3E%3C/script%3E"));
+                        </script><script src="http://www.realtoraccess.com/static/bi/waveline_files/h.js" type="text/javascript"></script>
+                    </div>
+                </div>
+            </div>
+
+            <!-- page2-->
+            <div class="box" id="index_page2_box" style="position:relative;overflow: hidden">
+                <p class="slidshow">
+                    分析成果 &nbsp;分享工具
+                </p>
+
+
+            </div>
+            <!-- page3-->
+
+            <div class="box"  id="index_page3_box"  style="position:relative;overflow: hidden">
+                <div class="col-xs-2"></div>
+                <div class=" col-xs-8 index_page_boder slidshow">
+                    <div class="col-xs-12 index_page4_title">兼容大量数据源</div>
+                    <div class="col-xs-12 index_page4_context">高速抽取、导入各种主流数据源，</div>
+                    <div class="col-xs-12 index_page4_context">包括：Oracle、MySQL、SQLserver、Excel、TXT等。</div>
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+            <!-- page4-->
+            <div class="box"  id="index_page4_box"  style="position:relative;overflow: hidden">
+                <div class="col-xs-2"></div>
+               <div class="col-xs-8 index_page_boder slidshow">
+                   <div class="col-xs-12 index_page4_title">丰富的图库</div>
+                   <div class="col-xs-12 index_page4_context">提供大量的数据可视化方案及配色，如：</div>
+                   <div class="col-xs-12 index_page4_context">柱图、折线图、饼图、地图等。</div>
+               </div>
+                <div class="col-xs-2"></div>
+            </div>
+
+            <!-- page5-->
+            <div class="box"  id="index_page5_box"  style="position:relative;overflow: hidden">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-8 index_page_boder slidshow">
+                    <div class="col-xs-12 index_page4_title">移动端实时推送</div>
+                    <div class="col-xs-12 index_page4_context">图形与数据源实时联动，完美适配各种移动端，</div>
+                    <div class="col-xs-12 index_page4_context">并能通过手机接收到预警信息。</div>
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+
+
+              <!-- page6-->
+             <div class="box"  id="index_page6_box"  style="position:relative;overflow: hidden">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8 index_page_boder slidshow">
+            <div class="col-xs-12 index_page4_title">便利的API</div>
+            <div class="col-xs-12 index_page4_context">所有的可视化成果都可方便的被任何WEB服务调用，</div>
+            <div class="col-xs-12 index_page4_context">柱图、折线图、饼图、地图等。</div>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+
+
+             <!-- page7-->
+            <div class="box"  id="index_page7_box"  style="position:relative;overflow: hidden">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8 index_page_boder slidshow">
+            <div class="col-xs-12 index_page4_title">数据的安全保护</div>
+            <div class="col-xs-12 index_page4_context">数据源同步为数据文件，释放用户数据库的访问压力，</div>
+            <div class="col-xs-12 index_page4_context">保护敏感的数据源。</div>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+
+        </div>
+
+
+</section>
+<!--弹窗遮罩层-->
+<div id="index_addData" class="row ">
+
+</div>
+<!--返回顶部-->
+<span id="backDown"  style="display:block;padding:15px;"></span>
+<span id="backUp" class="backUp " style="display: none;padding:15px;"></span>
+<!--返回顶部-->
+<!--尾部-->
+<div id="footerbox" class="footer box"  style="background: #112b3f;border:1px solid transparent">
+    <div class="web_map w1190"  style="padding:0;background: #112b3f;border:1px solid transparent">
+        <div class="fl map">
+            <ul class="fl list list01">
+                <li><h4 style="color:#dadada">“1+2+3+N”产品体系</h4></li>
+                <li><a href="javascript:;">一张网</a></li>
+                <li><a href="javascript:;">两大平台</a></li>
+                <li><a href="javascript:;">三大服务对象</a></li>
+                <li><a href="javascript:;">N种SAAS业务云应用</a></li>
+            </ul>
+            <ul class="fl list list02">
+                <li><h4 style="color:#dadada">投资运营服务</h4></li>
+                <li><a href="javascript:;">PPP投资模式</a></li>
+                <li><a href="javascript:;">持续优化的运营体系</a></li>
+                <li><a href="javascript:;">全面量化的评估体系</a></li>
+                <li><a href="javascript:;">先进可靠的运营平台</a></li>
+            </ul>
+            <ul class="fl list list03">
+                <li><h4 style="color:#dadada">关于我们</h4></li>
+                <li><a href="javascript:;">公司介绍</a></li>
+            </ul>
+        </div>
+        <div class="fr logo">
+            <img src="http://www.realtoraccess.com/static/bi/images/logo1.png" alt="北京清城联控科技有限公司">
+            <p>Copyright © 2015</p>
+            <p>北京清城联控科技有限公司</p>
+        </div>
+    </div>
+    <div class="copy" style="padding:0;background: #112b3f;border:1px solid transparent">
+        <div class="w1190 clearfloat">
+            <p class="fl">京ICP备13019086号</p>
+            <p class="fl">京公网安备11010502024565</p>
+            <ul class="shareIcon clearfloat fl">
+                <li class="ewm">
+                    <div class="ewmIcon">
+                        <em>◆</em><i>◆</i>
+                        <img src="http://www.realtoraccess.com/static/bi/images/erweima.png" alt="北京清城联控科技有限公司">
+                    </div>
+                    <a href="javascript:;">微信</a>
+                </li>
+                <li class="second"><a href="javascript:;">新浪微博</a></li>
+                <li class="last"><a href="javascript:;">in</a></li>
+            </ul>
+            <p class="fr email">邮箱：info@ikingcity.cn</p>
+            <p class="fr">电话：010-86409285</p>
+            <p class="fr">地址：北京市朝阳区望京广顺北大街福码大厦A座805</p>
+        </div>
+    </div>
+</div>
+<script src="{% static 'bi/js/jquery-1.11.3.js' %}"></script>
+<script src="{% static 'bi/js/bootstrap.js' %}"></script>
+ <!--加密-->
+<script src="{% static 'bi/laydate/laydate.js' %}"></script>       <!--//日期插件-->
+<script src="{% static 'bi/js/myjs.js' %}"></script>                <!--//全局声明，及注册登录MYSQL个人中心-->
+<script src="{% static 'bi/js/initEchart.js' %}"></script>         <!--//普通图-->
+<script src="{% static 'bi/js/IntervalEchart.js' %}"></script>     <!-- //仪表盘实时图-->
+<script src="{% static 'bi/js/outerTest.js' %}"></script>          <!--//外网调用分配脚本-->
+<script src="{% static 'bi/js/realTimeEachart.js' %}"></script>    <!--//websoket实时-->
+<script src="{% static 'bi/js/detail.js' %}"></script>              <!--//详情页-->
+<script src="{% static 'bi/js/systemPublish.js' %}"></script>      <!--//系统页及发布页面-->
+<script src="{% static 'bi/js/commonIndexScroll.js' %}"></script>  <!--//共用，及首页滚动-->
+
+</body>
+</html>

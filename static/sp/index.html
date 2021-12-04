@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+
+<head>
+	<meta charset="UTF-8">
+	{% if presell == '1' %}
+	<title>{{ pname }}</title>
+	{% else %}
+	<title>{{ l.listingname }}</title>
+	{% endif %}
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="baidu-site-verification" content="Zl45PS4My9" />
+	<meta name="renderer" content="webkit">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% if l.salestatus == 'rent' %}
+    <meta name="keywords" content="海外房产投资, 温哥华租房, {{ l.listingname }}, {{ user.username}}, {{ l.cityname }}" />
+    {% else %}
+    <meta name="keywords" content="温哥华房价网, 海外房产投资, MLS, {{ l.listingname }}，{{ user.username}}，{{ l.cityname }}" />
+    {% endif %}
+    <meta name="Description" content="{{ l.intro_zh }}" />
+    <meta property="og:type" content="website">  
+    <meta property="og:url" content="{{l.url}}">  
+	<meta property="og:title" content="Webmainland Smartflyer-{{ user.username}} {{l.listingname}}"> 
+	{% if preimg != '' %}
+	<meta property="og:image" content="{{preimg}}">
+	{% endif %}
+
+
+	<meta property="og:description" content="{{ l.intro_zh }}">  
+	<script>
+		window._bd_share_config = {
+			"common": {
+				"bdSnsKey": {},
+				"bdText": "",
+				"bdMini": "2",
+				"bdMiniList": false,
+				"bdPic": "",
+				"bdStyle": "2",
+				"bdSize": "16"
+			},
+			"share": {}
+		};
+		with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+	</script>
+	<link rel="shortcut icon" href="/static/sp/img/realtor.ico" />
+	<link rel="stylesheet" type="text/css" href="{% static 'sp/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'sp/css/demo.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'sp/css/media.css' %}">
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		{% if bgimg1 != "" %}
+
+		.with-bg-2 {
+			background: url({{bgimg1}}) no-repeat center center;
+			background-size: cover;
+		}
+
+		{% endif %}
+
+		{% if bgimg2 != "" %}
+
+		.public-open-days {
+			background: url({{bgimg2}});
+			background-size: 100% 100%;
+		}
+
+		{% endif %}
+	</style>
+</head>
+{% if presell == '1' %}
+<body mls="{{ l.listingid }}" presell = "{{presell}}" saled="{{ l.salestatus}}" wechattitle="{{ bed }} | {{ tol }} | {{l.price}} | {{l.listingname}} | {{l.cityname}}" wechatnote="{{ l.intro_zh }}">
+{% else %}
+<body mls="{{ l.listingid }}" presell = "{{presell}}" saled="{{ l.salestatus}}" wechattitle="{{ bed }}室 | {{ tol }}卫 | {{l.price}} | {{l.listingname}} | {{l.cityname}}" wechatnote="{{ l.intro_zh }}">
+{% endif %}
+	<div class="container-fluid">
+		<div class="return-top"></div>
+		<!-- 1 头部 -->
+		<div class="small-header">
+			<nav class="navbar navbar-danger-g">
+				<div class="navbar-container nav-top-black">
+					<div class="navbar-header navbar-header-g">
+						<!--<button type="button" class="navbar-toggle collapsed navbar-bg-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			            <span class="sr-only">Toggle navigation</span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			          </button>-->
+						<a class="navbar-brand navbar-logo customer-name user-name" href="#">
+							{% if l.titleagent == "0" %}
+							{{ user.username}}
+							{% else %}
+							{{ user.cn_username}}
+							{% endif %}
+						</a>
+						<a class="navbar-brand navbar-display-none" href="#"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></a>
+						<a class="navbar-brand navbar-display-none tele" href="#">
+							{% if l.titleagent == "0" %}
+							{{ user.tel}}
+							{% else %}
+							{{ user.cn_tel}}
+							{% endif %}
+						</a>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse bdsharebuttonbox">
+						<ul class="nav navbar-nav navbar-right main-nav-g main-nav">
+							<a href="javascript:window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(document.location.href)+'&amp;t='+encodeURIComponent(document.title),'_blank','toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=600, height=450,top=100,left=350');void(0)"><img src="{% static 'sp/img/Facebook.png' %}"/></a>
+							<a href="#"><img data-cmd="tsina" src="{% static 'sp/img/weibo.png' %}"/></a>
+							<a href="#"><img data-cmd="weixin" src="{% static 'sp/img/wechat.png' %}"/></a>
+						</ul>
+					</div>
+					<!--/.navbar-collapse -->
+				</div>
+				<div class="navbar-center-g  container-fluid">
+					<div class="menu-container page-scroll">
+						<span class="navbar-toggle menu-left"><a href="tel:{{ user.tel}}" >
+						{% if l.titleagent == "0" %}
+						{{ user.tel}}
+						{% else %}
+						{{ user.cn_tel}}
+						{% endif %}
+						 <img src='{% static 'sp/img/phone.png' %}'/></a></span>
+						<span class="navbar-toggle menu-center">
+						{% if l.titleagent == "0" %}
+						{{ user.username}}
+						{% else %}
+						{{ user.cn_username}}
+						{% endif %}
+					</span>
+						<button type="button" class="navbar-toggle " data-toggle="collapse" data-target=".navbar-ex1-collapse">
+								<img src='{% static 'sp/img/navbar.png' %}'/>
+						</button>
+
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="navbar-collapse   navbar-ex1-collapse second-navbar collapse navbar-collapse-g" aria-expanded="false">
+						<div class="menu-container">
+							<ul class="nav navbar-nav navbar-mglft menu-navbar">
+								<li class="nav-logo-container">
+									<img class="nav-logo" src="{{ user.logo.url }}" />
+								</li>
+								<li class="scroll-pic">
+									<img src="/static/sp/img/webmainland.png" />
+								</li>
+								<li class="page-scroll page-scroll-mgrt">
+									<a id="index" class="navbar-color">首页</a>
+								</li>
+								<li class="page-scroll page-scroll-mgrt">
+									<a id="todescrption" class="navbar-color">房屋描述</a>
+								</li>
+								<li class="page-scroll page-scroll-mgrt">
+									<a id="todetail" class="navbar-color">房源详情</a>
+								</li>
+								<li class="page-scroll page-scroll-mgrt">
+									<a id="toopendays" class="navbar-color">公众开放日</a>
+								</li>
+								<li class="page-scroll page-scroll-mgrt">
+									<a id="topicture" class="navbar-color">房源照片</a>
+								</li>
+								<li class="page-scroll page-scroll-mgrt">
+									<a id="totype" class="navbar-color">户型图</a>
+								</li>
+								<li class="page-scroll page-scroll-mgrt">
+									<a id="tovideos" class="navbar-color">视频看房</a>
+								</li>
+								<li class="page-scroll page-scroll-mgrt ">
+									<a id="toreal" class="navbar-color">实景看房</a></li>
+								<li class="page-scroll page-scroll-mgrt ">
+									<a id="tolocation" class="navbar-color">地理位置</a></li>
+								<li class="page-scroll page-scroll-mgrt ">
+									<a id="tocontact" class="navbar-color">联系经纪</a></li>
+								<li class="page-scroll page-scroll-mgrt ">
+									<a href="{{ pdf }}" download="{{ l.listingid }}.pdf" class="navbar-color">PDF</a></li>
+								<li class="scroll-bottom">
+									<img src="{% static 'sp/img/mpp.jpg' %}" />
+									<h4>瑞安居</h4>
+									<p>客服专线：400 877 1896</p>
+									<p>营业时间：周一至周日 9:00-17:00</p>
+									<p>客服邮箱：clientservice@realtoraccess.com</p>
+
+								</li>
+								<!--<li class="page-scroll page-scroll-mgrt pc-none"><a href="#real" class="navbar-color">实景看房</a></li>
+								<li class="page-scroll page-scroll-mgrt pc-none"><a href="#location" class="navbar-color">地理位置</a></li>
+								<li class="page-scroll page-scroll-mgrt pc-none"><a href="#contact" class="navbar-color">联系经纪</a></li>
+								<li class="page-scroll page-scroll-mgrt pc-none"><a href="#" class="navbar-color">PDF</a></li>
+								<li class="dropdown ">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											···
+									</a>
+									<ul class="dropdown-menu">
+										<li id="toreal"><a>实景看房</a></li>
+										<li><a id="tolocation">地理位置</a></li>
+										<li><a id="tocontact">联系经纪</a></li>
+										<li><a id="#">PDF</a></li>
+									</ul>
+								</li>-->
+							</ul>
+						</div>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container -->
+			</nav>
+		</div>
+		<!--2 房源图 -->
+		<div class="container-fluid">
+			<div class="with-bg-container">
+				<div class="container-fluid with-bg-2">
+					{% if presell == '1' %}
+					<div class="with-bg-3">
+						<h3>{{ pname }}</h3>
+						<p>{{ l.cityname }},加拿大</p>
+						<p>{{ bed }} · {{ tol }} · {{ l.areas }} · {{ l.price }}</p>
+					</div>
+					{% else %}
+					<div class="with-bg-3">
+						<h3>{{ l.listingname }}</h3>
+						<p>{{ l.cityname }},加拿大</p>
+						<p>{{ bed }}室 · {{ tol }}卫 · {{ l.areas }} · {{ l.price }}</p>
+					</div>
+					{% endif %}
+					
+				</div>
+			</div>
+		</div>
+		<!-- 3 房源描述 -->
+
+		<div class="container-fluid house-desc" id="">
+			<div class="main-wrap main-wrap-pdtop">
+
+				<h3 class="text-center" id="descrption">
+						房源描述
+						<div class='main-wrap-width'></div>
+					</h3>
+				<p class="text-txt container">{{ l.intro_zh|safe }}
+				</p>
+				<h3 class="text-center" id='detail'>房源详情<div class='main-wrap-width'></div></h3>
+
+				<div class="container">
+					<div class="row detail-list">
+						<div class="col-md-4 col-xs-12 col-sm-12">
+							<span class="detail-tip">MLS#：</span>
+							{% if l.othermls == '' %}
+							<p> {{ l.listingid }} </p>
+							{% else %}
+							<p> {{ l.othermls }} </p>
+							{% endif %}
+						</div>
+						<div class="col-md-4 col-xs-12 col-sm-12 detail-mid">
+							<span class="detail-tip">卧室：</span>
+							<p> {{ l.bedroom }} </p>
+						</div>
+						<div class="col-md-4 col-xs-12 col-sm-12">
+							<span class="detail-tip">地下室：</span>
+							<p> {{ l.basement }} </p>
+						</div>
+						<div class="col-md-4 col-xs-12 col-sm-12">
+							<span class="detail-tip">售价：</span>
+							<p> {{ l.price }} </p>
+						</div>
+						<div class="col-md-4 detail-mid col-xs-12 col-sm-12">
+							<span class="detail-tip">卫生间：</span>
+							<p> {{ l.toilet }} </p>
+						</div>
+						<div class="col-md-4 col-xs-12 col-sm-12">
+							<span class="detail-tip">建筑年代：</span>
+							<p> {{ l.builddate }} </p>
+						</div>
+						<div class="col-md-4 col-xs-12 col-sm-12">
+							<span class="detail-tip">室内面积：</span>
+							<p> {{ l.areas }} </p>
+						</div>
+						<div class="col-md-4 col-xs-12 col-sm-12 detail-mid">
+							<span class="detail-tip">地税：</span>
+							<p> {{ l.tax }} </p>
+						</div>
+						<div class="col-md-4 col-xs-12 col-sm-12">
+							<span class="detail-tip">地产公司：</span>
+							<p> {{ l.corp }} </p>
+						</div>
+						<div class="col-md-4 col-xs-12 col-sm-12">
+							<span class="detail-tip">土地面积：</span>
+							<p> {{ l.parking }} </p>
+						</div>
+						<div class="col-md-4 col-xs-12 col-sm-12 detail-mid">
+							<span class="detail-tip">房屋类型：</span>
+							<p> {{ l.housetype }} </p>
+						</div>
+						<div class="col-md-4 col-xs-12 col-sm-12">
+							<span class="detail-tip">装修风格：</span>
+							<p> {{ l.housestyle }} </p>
+						</div>
+
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+		<!-- 4 公众开放日 -->
+		<div class="main-two  public-open-days main-two-mgtop" id='opendays'>
+			<div class="eye-container">
+				<img src='/static/sp/img/eyes.png' />
+				<span>{{look}}</span>
+			</div>
+
+			<div class="container-fluid with-bg-02">
+				<div class="container main-three-mgtop">
+					<div class="data-wrap main-wrap-pdtop">
+						<h3 class="text-center data-text-pdtop">
+						公众开放日
+						<div class='main-wrap-width'></div>
+						</h3>
+						<div class="data-box">
+							<ul class="list-group ">
+								<li class="data-mgtop list-boder-none openday-li-1">
+									<div class="list-wrap text-center">
+										<p>
+											<span class="glyphicon glyphicon-calendar add-mgrt" aria-hidden="true"></span>
+											<span class="add-on-1 year">敬请留下联系方式</span>
+										</p>
+										<span class="add-time-1"></span>
+									</div>
+
+
+								</li>
+								<li class=" data-mgtop list-boder-none openday-li-2">
+									<div class="list-wrap text-center">
+										<p>
+											<span class="glyphicon glyphicon-calendar add-mgrt" aria-hidden="true"></span>
+											<span class="add-on-2 year">获取公众开放日最新信息</span>
+										</p>
+
+										<span class="add-time-2"></span>
+									</div>
+
+
+								</li>
+								<li class=" data-mgtop list-boder-none openday-li-3">
+									<div class="list-wrap text-center">
+										<p>
+											<span class="glyphicon glyphicon-calendar add-mgrt" aria-hidden="true"></span>
+											<span class="add-on-3 year"></span>
+										</p>
+
+										<span class="add-time-3"></span>
+									</div>
+
+
+								</li>
+							</ul>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 5 房源照片 -->
+		<div class="main-pic" id="picture">
+			<div class="container">
+				<div class="house-wrap main-wrap-pdtop">
+					<h3 class="text-center data-text-pdtop">
+							房源照片
+							<div class='main-wrap-width'></div>
+					</h3>
+					<div class="list-group-pic">
+						<div class="row" id="listingimgs">
+						</div>
+
+					</div>
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									<h4 class="modal-title" id="myModalLabel"></h4>
+								</div>
+								<div class="modal-body">
+									<button class="modal-button-left" onclick="toLeftPic()">←</button>
+									<button class="modal-button-right" onclick="toRightPic()">→</button>
+									<span><img id='modal-img' src='' style="width:100%;height:70%;" /></span>
+									<span id='modal-desc'></span>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+								</div>
+							</div>
+							<!-- /.modal-content -->
+						</div>
+						<!-- /.modal -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 6 房源户型图 -->
+		<div class="house-type container-fluid" id="type">
+			<div class="house-type-img">
+				{% if bgimg3 != '' %}
+				<img src='{{ bgimg3 }}'> {% else %}
+				<img src='/static/sp/img/bg3.jpg'> {% endif %}
+			</div>
+			<div class="house-type-title">
+				<h3 class="text-center data-text-pdtop">
+										户型图
+										<div class='main-wrap-width'></div>
+									</h3>
+			</div>
+			<span class="page-left" onclick="changePage('l');">
+				</span>
+
+			<div class='container house-type-pic-container showing' data-info=''>
+				<div class="type-pic">
+					<img src="" id="floorimg"/>
+				</div>
+				<!--<div class="type-words">
+					<span class='type-num'></span>
+					<span class="type-type">户型图</span>
+					<p>FLOOR PLAN</p>
+				</div>-->
+			</div>
+			<span class="page-right" onclick="changePage('r');"></span>
+
+			<div class='type-pagination'>
+				<ul>
+					<ul id='pagination-ul'>
+					</ul>
+				</ul>
+			</div>
+		</div>
+		<!--<div class="interval-div"></div>-->
+		<!--7 视频看房-->
+		{% if video != '' %}
+		<div class="video-type" id="videos">
+			<div class="container">
+				<div class="video-wrap main-wrap-pdtop">
+					<h3 class="text-center data-text-pdtop">
+							视频看房
+							<div class='main-wrap-width'></div>
+					</h3>
+					<div class="video-wrap">
+						<div class="player-box player-video">
+							<div class="player-video-wrapper">
+								<video controls="controls" width="100%" height="100%">
+		                          <source src="{{ video }}" type="video/mp4">
+		                        </video>
+							</div>
+							<!-- end player-video-wrapper-->
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		{% endif %}
+		<!-- 8 实景看房-->
+		{% if l.vrtour != '' %}
+		<div class="real-view" id='real'>
+			<div class="real-view-title">
+				<h3 class="text-center data-text-pdtop look-house-title">
+						实景看房
+						<div class='main-wrap-width'></div>
+						</h3>
+			</div>
+			{% if bgimg4 != '' %}
+			<img src='{{ bgimg4 }}' /> {% else %}
+			<img src='/static/sp/img/bg4.jpg' /> {% endif %}
+			<div class="iframe-view">{{ l.vrtour|safe }}</div>
+		</div>
+		{% endif %}
+		<!-- 9地理位置 -->
+		<div class="map-type" id="location">
+			<div class="map-type-title">
+				<h3 class="text-center data-text-pdtop">
+							地理位置
+							<div class='main-wrap-width'></div>
+					</h3>
+			</div>
+			<div id="map-detail"> </div>
+		</div>
+		<!-- 10 联系经纪 -->
+		<div class="md-contact" id="contact">
+
+			<div class="container-fluid with-bg-03 outdoor-height">
+				<img class="contact-bg-pic" src="{% static 'sp/img/bg5.jpg' %}" />
+				<div class="container">
+					<h3 class="text-center data-text-pdtop look-house-title">
+					联系经纪
+					<div class='main-wrap-width look-house-title-border'></div>
+					</h3>
+
+					<div class="house-wrap row">
+
+						<div class="contact-wrap clearfix col-md-6 col-xs-6 col-lg-6 col-sm-6">
+							<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+								<div class="pull-left">
+									<div class="contact-page">
+										<div class="contact-icon">
+											<img id="gethead" src="{{ user.head.url }}">
+										</div>
+										<h5 class="text-center">{{ user.username }}</h5>
+										<h6 class="text-center">房源经纪人</h6>
+
+									</div>
+									<div class="contact-address">
+										<div class="contact-border">
+											<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+											<p class="contact-width">{{ user.tel }}</p>
+										</div>
+										<div class="contact-border">
+											<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+											<p class="contact-width" id="agentid"><a href="mailto:{{ user.email}}">{{ user.email }}</a></p>
+										</div>
+										<div class="contact-border">
+											<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+											<p class="contact-width"><a href="http://{{ user.website }}" target="_blank">{{ user.website }}</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 form-wrap">
+								<div class="form-group">
+									<input type="text" class="form-control" name="name" id="name1" placeholder="姓名">
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" name="email" id="email1" placeholder="邮箱">
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" name="tel" id="tel1" placeholder="手机号">
+								</div>
+								<div class="form-group">
+									<textarea name="" id="comm1" class="form-control" placeholder="留言..." rows="7" required="required"></textarea>
+								</div>
+								<button type="submit" id='pcBtn' class="btn btn-primary">提交</button>
+							</div>
+
+						</div>
+						<div class="contact-second clearfix col-md-6 col-lg-6 col-xs-6 col-sm-6">
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 second-left">
+								<div class="contact-page">
+									<div class="contact-icon">
+										<img src="{{ user.head2.url }}">
+									</div>
+
+									<h5 class="text-center">{{ user.username2}}</h5>
+									<h6 class="text-center">华语联系人</h6>
+								</div>
+
+								<div class="contact-address">
+									<div class="contact-border">
+										<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+										<p class="contact-width">{{ user.tel2}}</p>
+									</div>
+									<div class="contact-border">
+										<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+										<p class="contact-width"><a href="mailto:{{ user.email2}}">{{ user.email2}}</a></p>
+									</div>
+
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 second-right">
+								<div class="content-weixin text-center">
+									<img src="{{ user.qrcode2.url }}">
+									<p class="content-title text-center">请扫微信二维码</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 联系经纪人 -->
+
+
+
+
+		<div class="xs-contact">
+			<div class="house-wrap main-wrap-pdtop contact-title">
+				<h3 class="text-center ">
+							联系经纪
+							<div class='main-wrap-width'></div>
+					</h3>
+			</div>
+			<div class="container-fluid">
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 main-wrap-pdtop cn-contact">
+					<div class="thumbnail">
+						<img data-src="#" alt="" src="{{ user.head2.url }}">
+					</div>
+					<div class="caption">
+						<div class="contact-page">
+							<h5 class="text-center">{{ user.username2}}</h5>
+							<h6 class="text-center">华语联系人</h6>
+						</div>
+						<div class="contact-address">
+							<div class="contact-border">
+								<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+								<p class="contact-width pc-none"><a href="tel:{{ user.tel2 }}">{{ user.tel2 }}</a></p>
+								<p class="contact-width mb-none">{{ user.tel2}}</p>
+							</div>
+							<div class="contact-border">
+								<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+								<p class="contact-width"><a href="mailto:{{ user.email2}}">{{ user.email2}}</a>
+								</p>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 main-wrap-pdtop">
+						<div class="content-weixin text-center">
+							<img src="{{ user.qrcode2.url }}">
+							<p class="content-title text-center">扫微信二维码</p>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 oversea">
+					<div class="thumbnail">
+						<img data-src="#" src="{{ user.head.url }}">
+					</div>
+					<div class="caption">
+						<div class="contact-page">
+							<h5 class="text-center">{{ user.username }}</h5>
+							<h6 class="text-center">房源经纪人</h6>
+						</div>
+						<div class="contact-address">
+							<div class="contact-border">
+								<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+								<p class="contact-width mb-none">{{ user.tel }}</p>
+								<p class="contact-width pc-none"><a href="tel:{{ user.tel }}">{{ user.tel }}</a></p>
+							</div>
+							<div class="contact-border">
+								<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+								<p class="contact-width" id="agentid"><a href="mailto:{{ user.email}}">{{ user.email }}</a></p>
+							</div>
+							<div class="contact-border">
+								<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+								<p class="contact-width"><a href="http://{{ user.website }}" target="_blank">{{ user.website }}</a></p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 form-wrap">
+					<div class="form-group">
+						<input type="text" class="form-control" id="mobileName" placeholder="姓名">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="mobileEmail" placeholder="邮箱">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="mobilePhone" placeholder="手机号">
+					</div>
+					<div class="form-group">
+						<textarea name="" id="comm2" class="form-control" placeholder="留言..." rows="2" required="required"></textarea>
+					</div>
+					<div class="form-btn"><button type="submit" id="mobileBtn" class="btn btn-primary ">提交</button></div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- 底部-->
+		<div class='container-fluid footer-top'>
+			<div class="footer-realtor">
+				<img src="{% static 'sp/img/mpp.jpg' %}" />
+				<h4>关注瑞安居微信公众平台</h4>
+				<span>客服专线：<a href="tel:4008771896">400 877 1896</a></span>
+				<span>营业时间：周一至周日  9:00-17:00</span>
+				<span>客服邮箱：<a href="mailto:clientservice@realtoraccess.com">service@webmainland.com</a></span>
+			</div>
+			<!--暂时不显示
+			<div class="row">
+				<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+				</div>
+				<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+					<h4>业务</h4>
+					<p>◇ 海外房源</p>
+					<p>◇ 经纪门户</p>
+					<p>◇ 全程服务</p>
+				</div>
+
+				<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+					<h4>概况</h4>
+					<p>◇ 关于我们</p>
+					<p>◇ 城市合伙人</p>
+
+				</div>
+				<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+					<h4>服务与支持</h4>
+					<p>◇ 海外房产投资</p>
+					<p>◇ 免费购房咨询</p>
+					<p>◇ 靠谱经纪推荐</p>
+					<p>◇ 经纪房源推广</p>
+				</div>
+				<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+					<h4>声明</h4>
+					<p>◇ 隐私条款</p>
+					<p>◇ 使用条款</p>
+
+				</div>
+				<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+
+				</div>
+			</div>-->
+		</div>
+		<footer class="footer-bg container-fluid">
+			<div class="row">
+				<a href="http://www.webmainland.com">
+					<div class="footer-logo">
+					<img src='/static/sp/img/webmainland.png' />
+					<p class="footer-text ">
+						Site Powered By Webmainland<br>Information Deemed Accurate But Not Guaranteed
+					</p>
+
+					</div>
+				</a>
+			</div>
+			<div class="footer-bottom">
+				<a href="http://www.ubertor.com"><img src="/static/sp/img/ubertor.png" alt="ubertor" /></a>
+			</div>
+		</footer>
+	</div>
+</body>
+<script src="{% static 'sp/js/jquery-2.1.4.min.js' %} "></script>
+<script src="{% static 'sp/js/bootstrap.min.js' %} "></script>
+<script src="{% static 'sp/js/main.js' %} "></script>
+<script type="text/javascript " src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiVLDWIST62iywvIYJW_cfYnpl5lM1MeY"></script>
+<script type="text/javascript " src="{% static 'sp/js/location.js' %} "></script>
+<script>
+	{% if presell == '1' %}
+	$("#map-detail ").mapmarker('{{ addr }}', '{{ l.price }}', '{{ addr }}', 12, [{{l.lat}}, {{l.lng}}]);
+	{% else %}
+	$("#map-detail ").mapmarker('{{ l.listingname }}', '{{ l.price }}', '{{ l.listingname }}', 12, [{{l.lat}}, {{l.lng}}]);
+	{% endif %}
+</script>
+
+
+</html>

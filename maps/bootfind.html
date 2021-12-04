@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>地图找房</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiVLDWIST62iywvIYJW_cfYnpl5lM1MeY"></script>
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/marker.js"></script>
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" href="css/map.css" />
+		<script type="text/javascript">
+			var houseType = "";
+			var priceScope = "";
+			var roomType = "";
+			var releaseDate = "";
+			var dataurl = 'http://www.realtoraccess.com/web/zone/listings/';
+			var defaultmarkers = [];
+			$(document).ready(function() {
+				t_dn = $(".list-group-item")
+				var ZERO = 0,
+					ONE = 1,
+					TWO = 2,
+					THREE = 3,
+					FOUR = 4,
+					FIVE = 5,
+					SIX = 6;
+				var currentPage = 1;
+
+				//				滚动到底部加载更多数据
+				//				var loadmore = false;
+				//				var stop = true; //触发开关，防止多次调用事件  
+				//				var nScrollHight = 0; //滚动距离总长(注意不是滚动条的长度)
+				//				var nScrollTop = 0; //滚动到的当前位置
+				//				var nDivHight = $(".listview").height();
+				//				$(".listview").scroll(function() {
+				//					nScrollHight = $(this)[0].scrollHeight;
+				//					nScrollTop = $(this)[0].scrollTop;
+				//					if((nScrollTop + nDivHight >= nScrollHight - 100) && 　stop) {
+				//						stop = false;
+				//						$(".listview").append("<li class='ajaxtips'><div style='background-color: #F8F8F8;'><p class='text-center'>数据加载中...</p></div></li>");
+				//						nScrollHight = nScrollTop + nDivHight + nDivHight;
+				//						loadmore = true;
+				//						currentPage++;
+				//						$.get(dataurl, {
+				//								"page": currentPage,
+				//								"stype": "listing1",
+				//							},
+				//							function(data, status) {
+				//								$(".ajaxtips").hide();
+				//								stop = true;
+				//								render_list(data);
+				//							});
+				//					}
+				//				});
+
+				$.get(dataurl, {
+						"housetype": houseType,
+						"price": priceScope,
+						"bedroom": roomType,
+						"housedate": releaseDate,
+						"lat": 49.2827291,
+						"lng": -123.1207375,
+						"r": 50,
+					},
+					function(data, status) {
+						render_list(data, "Vancouver");
+					});
+
+				//筛选条件事件监听
+				$('.houseTypeItem').click(function() { //房源类型
+					var index = $(this).index();
+					$('#btnHouseType').html($(this).text());
+					switch(index) {
+						case ZERO:
+							houseType = "";
+							break;
+						case ONE:
+							houseType = "0";
+							break;
+						case TWO:
+							houseType = "1";
+							break;
+						case THREE:
+							houseType = "2";
+							break;
+						case FOUR:
+							houseType = "3";
+							break;
+						case FIVE:
+							break;
+						case SIX:
+							break;
+					}
+					getFilterData();
+				});
+				$('.scopePriceItem').click(function() { //价格范围
+					var index = $(this).index();
+					$('#btnScopePrice').html($(this).text());
+					switch(index) {
+						case ZERO:
+							priceScope = "0,500000";
+							break;
+						case ONE:
+							priceScope = "500001,1000000";
+							break;
+						case TWO:
+							priceScope = "1000001,2000000";
+							break;
+						case THREE:
+							priceScope = "2000001,3000000";
+							break;
+						case FOUR:
+							priceScope = "3000001,9999999";
+							break;
+						case FIVE:
+							break;
+						case SIX:
+							break;
+					}
+					getFilterData();
+				});
+				$('.roomTypeItem').click(function() { //房间类型
+					var index = $(this).index();
+					$('#btnRoomType').html($(this).text());
+					switch(index) {
+						case ZERO:
+							roomType = "";
+							break;
+						case ONE:
+							roomType = "0,1";
+							break;
+						case TWO:
+							roomType = "1,2";
+							break;
+						case THREE:
+							roomType = "2,3";
+							break;
+						case FOUR:
+							roomType = "3,4";
+							break;
+						case FIVE:
+							roomType = "4,5";
+							break;
+						case SIX:
+							roomType = "5,20";
+							break;
+					}
+					getFilterData();
+				});
+				$('.releaseTimeItem').click(function() { //发布时间
+					var index = $(this).index();
+					$('#btnReleaseTime').html($(this).text());
+					switch(index) {
+						case ZERO:
+							releaseDate = "";
+							break;
+						case ONE:
+							releaseDate = "1";
+							break;
+						case TWO:
+							releaseDate = "3";
+							break;
+						case THREE:
+							releaseDate = "7";
+							break;
+						case FOUR:
+							releaseDate = "30";
+							break;
+						case FIVE:
+							releaseDate = "";
+							break;
+						case SIX:
+							break;
+					}
+					getFilterData();
+
+				});
+				//获取筛选房源
+				function getFilterData() {
+					$.get(dataurl, {
+						"housetype": houseType,
+						"price": priceScope,
+						"bedroom": roomType,
+						"housedate": releaseDate,
+						"lat": 49.2827291,
+						"lng": -123.1207375,
+						"r": 50,
+					}, function(data) {
+						render_list(data);
+					});
+				}
+			});
+			//渲染列表数据
+			function render_list(data, center) {
+				var houses = JSON.parse(data);
+				var addmarker = [];
+				defaultmarkers.splice(0, defaultmarkers.length);
+				var markerjson = '';
+				var ullist = $(".listview");
+				ullist.html("");
+				for(var i = 0; i < houses.length; i++) {
+					var position = i;
+					var node_dn = t_dn.clone();
+					var house = houses[i];
+					node_dn.find(".item_img").attr("src", house.img); //房源图片
+					node_dn.find(".price").text(house.price); //价格
+					node_dn.find(".listingname").text(house.address); //地址  
+					node_dn.find(".square").text(house.bedroom.substring(0, 1) + '室' + house.toilet.substring(0, 1) + "卫 | " + house.areas); //户型及面积  
+					node_dn.find(".village").text(house.housetype); //类型  
+					node_dn.find(".img_url").attr("href", house.url);
+					node_dn.find(".address").attr("href", house.url);
+					ullist.append(node_dn)
+					var marker = new Marker(house.address, house.price, house.url);
+					//						if(loadmore) {
+					//							addmarker.push(marker);
+					//						} else {
+					defaultmarkers.push(marker);
+					//						}
+
+				}
+				//列表条目点击事件
+				$(".list-group-item").click(function() {
+					$('.detail').attr('src', houseArray[$(this).index()].url);
+					//					$('.detail').attr('src', "http://blog.csdn.net/borogadi/article/details/47618227");
+					$(".detail_container").show();
+				});
+
+				//					if(loadmore) {
+				//						markerjson = "{\"listing1\":" + JSON.stringify(addmarker) + "}";
+				//					} else {
+				markerjson = "{\"listing1\":" + JSON.stringify(defaultmarkers) + "}";
+				//					}
+				var jsonmarkers = JSON.parse(markerjson);
+				$("#map").mapmarker({
+					zoom: 10,
+					center: center,
+					markers: jsonmarkers
+				});
+				
+				disprogress();
+			}
+
+			//在div中打开详情地址
+			function openindiv() {
+
+			}
+
+			//关闭详情对话框
+			function dismiss() {
+				$(".detail_container").hide();
+			}
+
+			//地图中心点移动监听事件
+			function mapMoveListener(map) {
+
+			}
+
+			//关闭加载进度条
+			function disprogress() {
+				$(".process").hide();
+			}
+			//显示加载进度条
+			function showprogress() {
+				$(".process").show();
+			}
+		</script>
+		<script type="text/javascript" src="js/mapmarker.jquery.js"></script>
+	</head>
+
+	<body class='parent'>
+		<div id="header"></div>
+		<div style="display: none;">
+			<!--房源列表布局文件-->
+			<li class="list-group-item">
+				<div class="icon">
+					<a class='img_url' href="" onclick="openindiv()" target="detail"><img src="" class="item_img"></a>
+				</div>
+				<a class="address" href="" onclick="openindiv()" target="detail">
+					<h4 class="listingname"></h4></a>
+				<p class="price"></p>
+				<div class="data">
+					<p class="square"></p>
+					<p class="village"></p>
+				</div>
+			</li>
+		</div>
+		<!--列表容器-->
+		<aside class="houses">
+			<ul class="listview">
+			</ul>
+		</aside>
+		<!--详情容器-->
+		<div style="display: none;height: 100%; width: 450px;margin-top: 56px;" class="detail_container">
+			<img src="/static/web/img/house.png" onclick="dismiss()" style="float: right;width:20px;height:20px;margin-right: 8px;text-align: right;" />
+			<iframe name="detail" class="detail" style="width: 100%;height: 100%; border: 0px;margin-top: 5px;"></iframe>
+		</div>
+		<!--筛选条件容器-->
+		<div class='content'>
+			<div class="top">
+				<div class='process'>
+					<p style="height:50px; line-height:50px; overflow:hidden;color: white;">数据加载中...</p>
+				</div>
+				<div class="btn-group" id="houseType">
+					<button class="btn" type="button" data-toggle="dropdown" id="btnHouseType">房源类型 
+					<span class="caret"></span>
+				</button>
+					<ul class="dropdown-menu" role="menu">
+						<li role="presentation" class="houseTypeItem">
+							<a role="menuitem" tabindex="-1" href="#">不限</a>
+						</li>
+						<li role="presentation" class="houseTypeItem">
+							<a role="menuitem" tabindex="-1" href="#">独立屋</a>
+						</li>
+						<li role="presentation" class="houseTypeItem">
+							<a role="menuitem" tabindex="-1" href="#">叠拼</a>
+						</li>
+						<li role="presentation" class="houseTypeItem">
+							<a role="menuitem" tabindex="-1" href="#">城市屋</a>
+						</li>
+						<li role="presentation" class="houseTypeItem">
+							<a role="menuitem" tabindex="-1" href="#">别墅</a>
+						</li>
+					</ul>
+				</div>
+				<div class="btn-group" id="priceScope">
+					<button class="btn" type="button" data-toggle="dropdown" id="btnScopePrice">价格范围 
+					<span class="caret"></span>
+				</button>
+					<ul class="dropdown-menu" role="menu">
+						<li role="presentation" class="scopePriceItem">
+							<a role="menuitem" tabindex="-1" href="#">$50万以下</a>
+						</li>
+						<li role="presentation" class="scopePriceItem">
+							<a role="menuitem" tabindex="-1" href="#">$50万-$100万</a>
+						</li>
+						<li role="presentation" class="scopePriceItem">
+							<a role="menuitem" tabindex="-1" href="#">$100万-$200万</a>
+						</li>
+						<li role="presentation" class="scopePriceItem">
+							<a role="menuitem" tabindex="-1" href="#">$200万-$300万</a>
+						</li>
+						<li role="presentation" class="scopePriceItem">
+							<a role="menuitem" tabindex="-1" href="#">$500万以上</a>
+						</li>
+					</ul>
+				</div>
+				<div id="roomType" class="btn-group">
+					<button class="btn" type="button" data-toggle="dropdown" id="btnRoomType">房间类型 
+					<span class="caret"></span>
+				</button>
+					<ul class="dropdown-menu text-center" role="menu">
+						<li role="presentation" class="roomTypeItem">
+							<a role="menuitem" tabindex="-1" href="#">不限</a>
+						</li>
+						<li role="presentation" class="roomTypeItem">
+							<a role="menuitem" tabindex="-1" href="#">1室</a>
+						</li>
+						<li role="presentation" class="roomTypeItem">
+							<a role="menuitem" tabindex="-1" href="#">2室</a>
+						</li>
+						<li role="presentation" class="roomTypeItem">
+							<a role="menuitem" tabindex="-1" href="#">3室</a>
+						</li>
+						<li role="presentation" class="roomTypeItem">
+							<a role="menuitem" tabindex="-1" href="#">4室</a>
+						</li>
+						<li role="presentation" class="roomTypeItem">
+							<a role="menuitem" tabindex="-1" href="#">5室</a>
+						</li>
+						<li role="presentation" class="roomTypeItem">
+							<a role="menuitem" tabindex="-1" href="#">5室以上</a>
+						</li>
+					</ul>
+				</div>
+				<div id="releaseTime" class="btn-group">
+					<button class="btn btnn" type="button" data-toggle="dropdown" id="btnReleaseTime">发布时间 
+					<span class="caret"></span>
+				</button>
+					<ul class="dropdown-menu" role="menu">
+						<li role="presentation" class="releaseTimeItem">
+							<a role="menuitem" tabindex="-1" href="#">不限</a>
+						</li>
+						<li role="presentation" class="releaseTimeItem">
+							<a role="menuitem" tabindex="-1" href="#">今日更新</a>
+						</li>
+						<li role="presentation" class="releaseTimeItem">
+							<a role="menuitem" tabindex="-1" href="#">三天以内</a>
+						</li>
+						<li role="presentation" class="releaseTimeItem">
+							<a role="menuitem" tabindex="-1" href="#">一周以内</a>
+						</li>
+						<li role="presentation" class="releaseTimeItem">
+							<a role="menuitem" tabindex="-1" href="#">一月以内</a>
+						</li>
+						<li role="presentation" class="releaseTimeItem">
+							<a role="menuitem" tabindex="-1" href="#">其他</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--地图容器-->
+			<div id="map" class="map"> </div>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,217 @@
+<div class="row col-xs-12 zero" id="detail_echart_area">
+
+    <!-- 中心图表区域-->
+
+    <div class="col-xs-9 padding_zero" id="echart">
+
+        <p><b></b>参数设置</p>
+        <!-- 标签页切换-->
+        <div class="detail_tabbox">
+
+            <ul class="nav nav-tabs"  id="detail_tab_header">
+                <li class="active"><a data-toggle="tab" href="#detail_tab_base"><b></b>基本设置</a></li>
+                <li><a data-toggle="tab" href="#detail_tab_class"><b></b>筛选项</a></li>
+                <li><a data-toggle="tab" href="#detail_tab_hight"><b></b>高级设置</a></li>
+            </ul>
+            <div class="tab-content">
+                <!-- 基本设置-->
+                <div id="detail_tab_base" class="tab-pane active in">
+                    <form class="setting" id="detail_tab_base_set">
+                        <div class="form-group col-xs-6 row zero">
+                            <label for="polyline_maintitle" class="col-xs-2 zero">主标题:</label>
+                            <input id="polyline_maintitle" name="maintitle" class="col-xs-6 zero" type="text" placeholder="请输入"/>
+                            <!-- 传输echart图片base64-->
+                            <input id="charticon" name="charticon" class="s zero none" style="display:none" type="text"/>
+                            <span class="col-xs-3 zero">*必填</span>
+                        </div>
+                        <div class="form-group col-xs-6 zero" id="polyline_classifybox">
+                            <label for="polyline_classify" class="col-xs-2 zero">分类:</label>
+                            <input id="polyline_classify" name="datatype" class="col-xs-6 zero" type="text" placeholder="请输入"
+                                   onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')"
+                                   onpaste="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')"
+                                   oncontextmenu ="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')"/>
+
+                            <p class="col-xs-2 zero"></p>
+                            <!--模糊搜索显示分类项-->
+                            <div class="s class_fuzzy_search col-xs-6 zero" style="display:none">
+
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-6 zero">
+                            <label for="polyline_childtitle" class="col-xs-2 zero">描述:</label>
+                            <input id="polyline_childtitle" name="childtitle" class="col-xs-6 zero" type="text" placeholder="请输入"/>
+                        </div>
+                        <div class="form-group col-xs-6 zero">
+                            <label for="polyline_childtitle" class="col-xs-2 zero">主题:</label>
+                            <select name="theme" id="polyline_theme" class="col-xs-6 zero">
+                                <option value="">默认</option>
+                                <option value="e_blue">蓝色主题</option>
+                                <option value="e_dark">黑色主题</option>
+                                <option value="e_gray">灰色主题</option>
+                                <option value="e_green">绿色主题</option>
+                                <option value="esl">esl</option>
+                                <option value="e_helianthus">helianthus</option>
+                                <option value="e_infographic">infographic</option>
+                                <option value="e_macarons">macarons</option>
+
+                            </select>
+
+                        </div>
+                    </form>
+                </div>
+                <!-- 筛选项-->
+                <div id="detail_tab_class" class="tab-pane fade">
+                    <form class="setting row zero" id="detail_tab_class_set">
+                        <!-- 筛选项列表-->
+
+                        <div class="class_data_item_max_box row zero">
+                            <div  class="class_data_item_outer_box row zero ">
+                                <div class="class_data_item_inner_box form-group col-xs-4 zero">
+
+                                    <label class="col-xs-5 zero">数据项：</label>
+                                    <select name="selclassdata0"  class="class_data_souce_selec col-xs-7 zero">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+
+                                <div class="class_data_item_inner_box selclasscomputerbox col-xs-4 zero">
+                                    <label class="col-xs-5 zero">条件：</label>
+                                    <select name="selclasscompu0"  class="selclasscomputer col-xs-7 zero">
+                                        <option value="">请选择</option>
+                                        <option value="eq">等于</option>
+                                        <option value="noeq">不等于</option>
+                                        <option value="gt">大于</option>
+                                        <option value="gteq">大于等于</option>
+                                        <option value="lt">小于</option>
+                                        <option value="lteq">小于等于</option>
+                                        <option value="blank">为空</option>
+                                        <option value="noblank">不为空</option>
+                                        <option value="data" class="s timeoption">请选择</option>
+                                    </select>
+                                </div>
+
+                                <div class="class_data_item_inner_box datavaluebox col-xs-4 zero">
+                                    <label class="col-xs-5 zero">值：</label>
+                                    <input name="selclassval0" class="selclassval col-xs-7 zero" type="text" placeholder=" 请输入"/>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </form>
+
+                    <!-- 增加筛选项-->
+                    <div class="class_data_item_add_box">
+                        <button class="btn btn-default padding_zero" id="class_data_item_add" >
+                            <span class="glyphicon glyphicon-plus"   id="class_data_item_addspan"></span>
+                        </button>
+                    </div>
+
+                </div>
+                <!-- 高级-->
+                <div id="detail_tab_hight" class="tab-pane fade">
+
+                    <form class="setting " id="detail_tab_hight_set">
+                        <div class="form-group col-xs-6 row zero s" style="padding: 10px;" id="timewindowbox">
+                            <label for="polyline_maintitle" class="col-xs-4 zero">时间窗口长度:</label>
+                            <input id="timewindow" name="timewindow" class="col-xs-4 zero" type="number" max="1000" min="0" placeholder="请输入"/>
+                        </div>
+
+
+                        <div class="class_data_item_inner_box form-group col-xs-4 zero source_sort">
+                            <label class="col-xs-5 zero">数据项：</label>
+                            <select name="tabHightSourceSelect"  class="tabHightSourceSelect col-xs-7 zero">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+
+                        <div class="class_data_item_inner_box selclasscomputerbox col-xs-4 zero  source_sort">
+                            <label class="col-xs-5 zero">排序：</label>
+                            <select name="tabHightSourceSort"  class="tabHightSourceSort col-xs-7 zero">
+                                <option value="">请选择</option>
+                                <option value="1">升序</option>
+                                <option value="0">降序</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- chart生成-->
+        <div  class="col-xs-12 zero " id="loadechart">
+            <!-- 默认图-->
+            <div class="detail_img_map col-xs-12">
+                <img src="http://www.realtoraccess.com/static/bi/images/detailmap.png" class="img-responsive " alt="svg"/>
+                <p>请选择相关参数呈现图表</p>
+            </div>
+            <div id="detail_main" style=" height:400px;  float: none;"  class="col-xs-12 zero">
+
+            </div>
+        </div>
+        <!-- btn区域-->
+        <div class="col-xs-12 padding_zero Mcenter row" id="detail_center_btn">
+            <button class="btn btn-info col-xs-offset-2 col-xs-3 " id="detail_chart_sv" disabled="disabled">保存图表</button>
+            <button class="btn btn-info col-xs-offset-2 col-xs-3" id="againAddData">重新添加数据</button>
+        </div>
+
+    </div>
+
+    <!--右侧维度-->
+    <div id="right_dim" class="col-xs-3 zero" >
+        <p class="arguments_title"><b></b>维度度量设置</p>
+        <!-- x轴-->
+        <form class="row  col-xs-12 zero" id="right_dim_x">
+
+            <div class="col-xs-12 padding_zero Mcenter" id="deatil_selxckeck_box">
+                <label class="col-xs-5 zero">图例：</label>
+                <input type="checkbox" checked="checked" name="" id="deatil_selxckeck" class="col-xs-1 zero lengend_show" style="padding:0;margin:0">
+            </div>
+
+
+            <div class="col-xs-12 padding_zero Mcenter" id="deatil_selx_box">
+                <label class="col-xs-5 zero">轴分类：</label>
+                <select name="selx" id="detail_sel_x" class="col-xs-7 deatil_sel_checked zero">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+
+        </form>
+
+
+
+        <!-- y轴增加表单-->
+        <div class="col-xs-12 zero" id="detail_yAddSelect" data-choose="s1">
+            <form id="y_all_form">
+                <div class="row zero dimybox">
+                    <b class="s">×</b>
+                    <div class="col-xs-12 padding_zero Mcenter" >
+                        <label  class="col-xs-5 zero">数值：</label>
+                        <select name="selyF0" id="detail_sel_y" class="col-xs-7  deatil_sel_checked zero">
+                            <option value="">请选择</option>
+                        </select>
+                    </div>
+
+                    <div class="col-xs-12 padding_zero Mcenter">
+                        <label  class="col-xs-5 zero">计算规则：</label>
+                        <select name="selyS0" id="detail_sel_y_accut" class="col-xs-7 zero">
+                            <option value="sum">总和</option>
+                            <option value="count">个数</option>
+                            <option value="avg">平均</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-xs-12 zero Mcenter">
+                        <label for="polyline_yuint" class="col-xs-5 zero">单位：</label>
+                        <input id="polyline_yuint" name="lyuint" class="col-xs-7 zero" type="text" placeholder="请输入"/>
+                    </div>
+
+                </div>
+            </form>
+            <button class="btn btn-default col-xs-offset-9 col-xs-2 padding_zero s" id="deatil_sel_addSelect"  data-target="addsel">
+                <span class="glyphicon glyphicon-plus"  data-target="addsel" id="deatil_sel_addSelectspan"></span>
+            </button>
+        </div>
+    </div>
+
+</div>

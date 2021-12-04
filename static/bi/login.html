@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en" height="100%">
+    <meta http-equiv=Content-Type content=“text/html;charset=utf-8″>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="环境产业运营资金、环境监测设备、大数据技术、业务数据增值、本地化定制服务、环境产业咨询与投资运营、环境大数据运营服务、污染源在线监控运营服务、VOCs管控运营服务、机动车管控运营服务、总量减管控运营服务">
+    <meta name="description" content="清城联控为用户提供集“环境产业运营资金、环境监测设备、大数据技术、业务数据增值、本地化定制服务”于一体的运营服务，公司主要产品包括：环境产业咨询与投资运营、环境大数据运营服务、污染源在线监控运营服务、VOCs管控运营服务、机动车管控运营服务、总量减管控运营服务等多种覆盖全面的环境信息化运营服务产品。">
+    <title>visio登录</title>
+    {% load staticfiles %}
+
+    <link href="{% static 'bi/css/bigDataLQA.css' %}" rel="stylesheet">
+
+    <link href="{% static 'bi/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/qingcheng.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/common.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/visio.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'bi/images/favicon.ico' %}">
+
+
+    <script src="{% static 'bi/js/echarts-all.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/jquery-1.8.2.min.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/CRYPT.js' %}"></script>
+    <!--[if lt IE 9]>
+    <script src="{% static 'bi/js/html5shiv.min.js' %}"></script>
+    <script src="{% static 'bi/js/respond.min.js' %}"></script>
+
+    <![endif]-->
+</head>
+<body id="login" height="100%">
+
+        <div id="navbox" style="width: 100%"></div>
+
+
+    <section id="section" height="100%" >
+        <ul class="nav_section"  >
+            <li class="lt">
+                <h1>移动端实时推送</h1>
+                <h2>数据库的安全保护</h2>
+                <h3>便利的API</h3>
+                <h4>兼容大量数据源</h4>
+                <h5>丰富的图库</h5>
+                <h6>DataVisio</h6>
+
+                <img src="{% static 'bi/images/visiologin.png' %}" alt="login_map" width="700"/>
+            </li>
+            <li class="rt login_form">
+                <form id="loginForm">
+                    <ul>
+                        <li class="login_user">
+                            <b></b>
+                            <input type="text" name="userid" placeholder="邮箱/手机号"/>
+                            <i></i>
+                        </li>
+                        <li  class="login_psw">
+                            <b></b>
+                            <input type="password" name="passwd" placeholder="请输入登录密码"/>
+                            <i></i>
+                            <p class="login_error_tip s"><b></b>用户名或密码错误</p>
+                        </li>
+                        <li  class="login_rad">
+                            <input type="checkbox" name="login_rad" id="login_rad" checked="checked"/>
+                            <span>记住密码</span>
+
+                        </li>
+                    </ul>
+                </form>
+                <div>
+                    <input class="login_delv" type="button" value="登录" id="login_btn"/>
+                    <div class="login_forgrt">
+                        <span class="lt"><a href="#">忘记密码?</a></span>
+                        <span class="rt"><a href="#">立即注册>> </a></span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+    </section>
+    <div id="nav_footer">
+        <p>
+            <span class="nav_footer_rt">电话：010-84159286</span>
+            <span>邮箱：info@ikingcity.cn</span>
+        </p>
+        <p><span>京ICP备13019086号 &nbsp;京公网安备11010502024565</span></p>
+    </div>
+
+        <script src="{% static 'bi/js/jquery-1.11.3.js' %}"></script>
+        <script src="{% static 'bi/js/bootstrap.js' %}"></script>
+        <script src="{% static 'bi/laydate/laydate.js' %}"></script>
+        <script src="{% static 'bi/js/myjs.js' %}"></script>
+        <script src="{% static 'bi/js/initEchart.js' %}"></script>
+        <script src="{% static 'bi/js/IntervalEchart.js' %}"></script>
+        <script src="{% static 'bi/js/outerTest.js' %}"></script>
+        <script src="{% static 'bi/js/realTimeEachart.js' %}"></script>
+        <script src="{% static 'bi/js/detail.js' %}"></script>
+        <script src="{% static 'bi/js/systemPublish.js' %}"></script>
+        <script src="{% static 'bi/js/commonIndexScroll.js' %}"></script>
+
+
+</body>
+</html>

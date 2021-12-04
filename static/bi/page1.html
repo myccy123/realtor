@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv=Content-Type content=“text/html;charset=utf-8″>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>清城联控概览页</title>
+    {% load staticfiles %}
+
+    <link href="{% static 'bi/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/common.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/qingcheng.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/qingchengnav.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'bi/images/favicon.ico' %}">
+    
+    <script src="{% static 'bi/js/echarts-all.js' %}" charset="utf-8"></script>
+    <!--[if lt IE 9]>
+    <script src="{% static 'bi/js/html5shiv.min.js' %}"></script>
+    <script src="{% static 'bi/js/respond.min.js' %}"></script>
+    <![endif]-->
+</head>
+<body id="page1">
+<!--导航-->
+
+<div id="navbox">
+    <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav_intel">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'home' %}" id="brand"><img src="{% static 'bi/images/logo.png' %}" alt="logo"/></a>
+                <a class="navbar-brand" href="{% url 'account:self' %}" style="padding:0" id="brandname">大数据运维监控系统</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="nav_intel">
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{% url 'get:page1' %}" id="testindex_allshow0">&nbsp;<span class="glyphicon glyphicon-leaf"></span>&nbsp;概览</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'get:page2' %}" id="testindex_allshow1">&nbsp;<span class="glyphicon glyphicon-eye-open"></span>&nbsp;监控</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'get:page3' %}" id="testindex_allshow2">&nbsp;<span class="glyphicon glyphicon-tower"></span>&nbsp;详情</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account:self' %}" style="padding:0"><b class="nav_logined_img"></b></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account:self' %}"><span class="user_logined_name"></span></a>
+                    </li>
+
+                    <li>
+                        <button class="btn btn-success" id="nav_quit_btn" style="display: none"><a href="#">退出</a></button>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+</div>
+<!--主题-->
+<section id="section">
+    <div class="container">
+        <!--<ul class="list-group row" id="them_toggle">
+            <li class="pull-left col-sm-2 col-sm-offset-2 col-xs-3"><a href="#">全部</a></li>
+            <li class="pull-left col-sm-2 col-xs-3"><a href=""   id="twob">金融</a></li>
+            <li class="pull-left col-sm-2 col-xs-3 "><a href="#" class="hover" id="rigb">环境</a></li>
+            <li class="pull-left col-sm-2 col-xs-3"><a href="#">其他</a></li>
+        </ul>-->
+    </div>
+    <!--<div class="row zero" id="xiahuaxian"></div>-->
+    <div class="container">
+        <!--<div class="row margin_x_zero huanjing">
+            <span class="pull-left">环境</span>
+            <button class="btn btn-default pull-right" id="index_add_btn_btn">
+                <a href="#" id="index_add_btn">
+                <span class="glyphicon glyphicon-plus" ></span>
+                添加</a>
+            </button>
+            <button class="btn btn-default pull-right">
+                <a href="{% url 'add:source' %}"><span class="glyphicon glyphicon-plus"></span>
+                配置数据</a>
+            </button>
+
+        </div>-->
+        <div class="row col-xs-12 zero" id="allsvg" style="margin-bottom: 80px;">
+
+            <div id="test106" draggable="true" style=" height:400px;margin:20px 0;"class="col-md-4 col-sm-6 col-xs-12 zero"></div>
+            <div id="test102" draggable="true" style=" height:400px;margin:20px 0;"class="col-md-4 col-sm-6 col-xs-12 zero"></div>
+            <div id="test103" draggable="true" style=" height:400px;margin:20px 0;"class="col-md-4 col-sm-6 col-xs-12 zero"></div>
+            <div id="test104" draggable="true" style=" height:400px;margin:20px 0;"class="col-md-4 col-sm-6 col-xs-12 zero"></div>
+            <div id="test105" draggable="true" style=" height:400px;margin:20px 0;"class="col-md-4 col-sm-6 col-xs-12 zero"></div>
+            <div id="test101" draggable="true" style=" height:400px;margin:20px 0;"class="col-md-4 col-sm-6 col-xs-12 zero"></div>
+            <!--<p class="col-xs-12 zero">
+                <textarea name="tongzhi" id="sys_tongzhi" cols="30" rows="3" class="form-control">标题：@执行人</textarea>
+            </p>-->
+        </div>
+
+
+-
+    </div>
+</section>
+<!--弹窗遮罩层-->
+<div id="index_addData" class="row">
+    <div id="choose_a" class="col-md-offset-4 col-md-4 col-sm-offset-2 col-sm-8 col-xs-12">
+        <p>choose a...</p>
+        <div class="row zero" id="addDatabox">
+            <div class="col-sm-5 col-xs-4 padding_zero" id="slectTYpe">
+                <select name="selectType" class="col-xs-12" value="请选择" id="madule_selectType">
+                    <option value="">请选择</option>
+                </select>
+
+            </div>
+
+            <div class="col-sm-7 col-xs-8 padding_zero">
+                <div class="flow_table">
+                    <p id="index_model_mysqlsoucer"><span></span><span>我的数据源</span></p>
+                    <p id="mysqltable_tablename">表名</p>
+                    <p id="index_model_usrname" class="index_mysql_border"><span></span><span>用户名</span></p>
+
+                    <table style="width:100%" class="col-xs-12 table">
+
+                        <tr id="top_ten_bot_5">
+                            <td  class="index_mysql_border">条数</td>
+                            <td  class="index_mysql_border">大小</td>
+                        </tr>
+                        <tr>
+                            <td id="mysqltable_count"></td>
+                            <td id="mysqltable_size"></td>
+                        </tr>
+                        <tr id="top_ten_bot_5-too">
+                            <td>创建时间</td>
+                        </tr>
+                        <tr>
+                            <td class="pad-bottom-20"><span id="mysqltable_time"></span> </td>
+                        </tr>
+                        <tr class="lsttwo">
+                            <td class="index_mysql_border" >Number</td>
+                            <td   class="index_mysql_border" id="mysqltable_Number">
+                                <ul></ul>
+                            </td>
+                        </tr>
+                        <tr class="lsttwo">
+                            <td   class="index_mysql_border">Text</td>
+                            <td   class="index_mysql_border" id="mysqltable_Text">
+                                <ul></ul>
+                            </td>
+                        </tr>
+                        <tr class="lsttwo">
+                            <td   class="index_mysql_border">Date</td>
+                            <td   class="index_mysql_border" id="mysqltable_Date">
+                                <ul></ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-xs-6">
+                    <button type="button" class="btn btn-block btn-info" id="index_modlue_okbtn">OK</button>
+                </div>
+                <div class="col-xs-6">
+                    <button type="button" class="btn btn-block btn-info" id="index_modlue_hiden_btn">cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--尾部-->
+<a id="back_top" href="#">
+    <img src="{% static 'bi/images/back.png' %}" alt=""/>
+</a>
+<div id="footerbox">
+    <footer id="footer">
+    </footer>
+</div>
+<script src="{% static 'bi/js/jquery-1.11.3.js' %}"></script>
+<script src="{% static 'bi/js/bootstrap.js' %}"></script>
+<!--<script src="{% static 'bi/js/myjs.js' %}"></script>-->
+<script src="{% static 'bi/js/page.js' %}"></script>
+</body>
+</html>

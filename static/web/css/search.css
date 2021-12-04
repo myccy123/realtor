@@ -1,0 +1,252 @@
+body{
+	width: 100%;
+	margin: 0px 0px 0px 0px;
+    font-family: "Microsoft YaHei" ! important;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	width: 100%;
+}
+img{
+	border:none;
+}
+a{
+	text-decoration: none;
+}
+
+li{
+	list-style: none;
+	display: inline-block;
+	
+}
+ul{
+	margin: 0px;
+	padding: 0px;
+}
+#part2newhouselist{
+	display: none;
+}
+#part2fiveroomlist{
+	display: none;
+}
+#part2villaelist{
+	display: none;
+}
+#part2buylandlist{
+	display: none;
+}
+
+#houselist_container_box{
+    width: 1200px;
+   
+    margin: auto;
+   
+}
+#container_left{
+	width: 95.5%;
+	display: inline-block;
+	float: left;
+}
+#container_right{
+	width: 4.5%;
+	display: inline-block;
+	float: left;
+}
+#part1{
+	display: inline-block;
+	float: left;
+	width: 100%;
+    background-color:white;
+ }
+ #part1 h1{
+ 	height: 170px;
+ 	line-height: 170px;
+ 	font-size: 40px;
+ 	color: #696969;
+ 	margin: 0;
+ 	text-align: center;
+ }
+ .housedate{
+ 	color: #ea7865;
+ }
+/*part2*/
+.list{
+	width: 73%;
+	display: inline-block;
+	float: left;
+    background-color:white;
+}
+
+.list h2{
+	float: left;
+	display: inline-block;
+	width: 90%;
+	height: 40px;
+	line-height:40px;
+	margin-left: 27px;
+	letter-spacing: 2px;
+	color: #898989;
+	
+}
+.change{
+	float: left;
+	height: 50px;
+	width: 90%;
+	margin-left: 25px;
+
+}
+.change select{
+	width: 160px;
+	
+	height: 35px;
+	color: gray;
+	font-size: 16px;
+
+}
+.studentlist{
+	width: 98%;
+	margin:auto;
+	
+}
+.share_box{
+	float: left;
+	font-size: 10px;
+	padding: 0px 15px;
+	height: 330px;
+	width:29%;
+    display: inline-block;
+
+}
+
+#ldgif{
+	margin: auto;
+	width: 220px;
+	clear: both;
+}
+
+#ldgif img{
+	width: 100%;
+}
+
+
+.share_box p{
+	text-align: left;
+}
+.above{
+	position: relative;
+	width: 100%;
+	height:73%;
+	margin-top: 15px;
+	
+}
+.housepicture{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+	margin-top: 6px;
+}
+.housepicture img{
+	width: 100%;
+	height: 100%;
+}
+.price{
+	color: white;
+	margin:0;
+	position: absolute;
+	z-index:3;
+	top:72.5%;	
+	width: 70%;
+	height: 35px;
+	line-height: 35px;
+	background-color:rgba(0, 205 ,0,0.7);
+	border-radius: 0px 15px 15px 0px;
+}
+.adddress{
+    color: white;
+	margin: 0;
+	position: absolute;
+	z-index:7;
+	width:100%;
+	height:38px;
+	line-height: 38px;
+	top: 86.7%;
+    background-color:rgba(105, 105 ,105,0.7);
+}
+.adddress img{
+	width: 12px;
+	height: 14px;
+}
+.page_view{
+    color: black;
+	width: 100%;
+	margin: 10px 0px;
+}
+.page_view p{
+  	display: inline-block;
+
+}
+
+.date{
+	float: right;
+}
+#part3{
+	width:335px;
+	display: inline-block;
+	float:right;
+	background-color:white;
+	margin-top: 35px;
+}
+.card{
+	color: #c9bc9c;
+	width: 100%;
+	padding-bottom:20px;
+	border-bottom: solid 1px #efefef; 
+}
+#card_left{
+	font-size: 21px;
+	font-weight: bold;
+}
+#card_right{
+	font-size: 12px;
+	text-align: right;
+	color: black;
+}
+#s_nummber{
+	width: 335px;
+	font-size:36px;
+	color: #c9bc9c;
+	text-align: center;
+	padding:5px 0px;
+	border-bottom: solid 1px #efefef; 
+}
+.broker_title{
+	
+	width: 100%;
+	font-size:21px;
+	color: #c9bc9c;
+	font-weight: bold;
+	padding: 22px 0px 15px 0px;
+}
+.broker_title p{
+	display: inline-block;
+	float: left;
+	margin: 0px 40px 0px 0px;
+}
+
+.broker{
+	height: 180px;
+	width: 100%;
+	padding: 7px 0px;
+}
+.broker img{
+	width: 100%;
+	height: 100%;
+
+}
+.transform{
+	margin: 25px 20px 0px 0px;
+	float: right;
+}
+
+

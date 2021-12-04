@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+	<meta charset="UTF-8">
+	<title>零基础带你大数据实战</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" type="text/css" href="{% static 'mall/css/main.css' %}" />
+	<script src="{% static 'mall/js/jquery-1.9.1.min.js' %}"></script>
+	<script src="{% static 'mall/js/jquery.cookie.js' %}"></script>
+
+</head>
+<body {{ pinfo.product_id }}>
+	<div class="header">
+		<a class="back" href=""><img src="{% static 'mall/img/back.png' %}"></a>
+		<a class="share" href=""><img src="{% static 'mall/img/share.png' %}"></a>
+	</div>
+	<div class="product_view">
+		<img src="/static/mall/img/pic1.jpg" alt="">
+	</div>
+	
+	<p class="product_name">{{ pinfo.product_name }}</p>
+	<div class="product_desc">
+		<font color="#ff4a00">【{{ pinfo.product_title }}】</font>
+		{{ pinfo.product_desc }}
+	</div>
+	<p class="price">￥{{ pinfo.price }}</p>
+
+	<div class="uiline"></div>
+
+	<div class="seled">
+		<span class="catetitle">已选</span>
+		<p id="selset" class="seledcont" setid="{{ pset.0.set_id }}" >{{ pset.0.set_name }}</p>
+		<span class="catetail">	&gt;</span>
+	</div>
+
+	<div class="addr">
+		<span class="catetitle">送至</span>
+		{% if addr == '' %}
+		<p id="address" class="seledcont">请填写收货地址</p>
+		{% else %}
+		<p id="address" class="seledcont">{{addr.recvname}} {{addr.recvtel}} {{addr.addr}}</p>
+		{% endif %}
+		<span class="catetail">	&gt;</span>
+	</div>
+
+	<div class="uiline" style="clear: both"></div>
+
+	<div class="product_detail">概述</div>
+	<div class="imglist">
+		{% for dtl in pdtl %}
+		{% if dtl.detail_type == 'img' %}
+		<img src="{{ dtl.product_img.url }}">
+		{% elif dtl.detail_type == 'txt' %}
+		<p>{{dtl.product_text}}</p>
+		{% endif %}
+		{% endfor %}
+	</div>
+
+	<div class="footerspace"></div>
+	<div class="footer">
+		<div class="userinfo">
+			{% if islogin == '0' %}
+			<div class="userhead"><img src="{% static 'mall/img/head.png' %}"></div>
+			<div class="username">未登录</div>
+			{% else %}
+			<div class="userhead"><img src="{{head}}"></div>
+			<div class="username">{{nickname}}</div>
+			{% endif%}
+			<div style="clear: both"></div>
+		</div>
+		
+		<a href="/mall/pay/" target="_blank"><div class="buy">立即购买</div></a>
+	</div>
+
+	<!-- 地址遮罩 -->
+	<div class="addrarea zzc"></div>
+	<div class="addrtext zzc">
+		<div class="addrtitle">收货人信息</div>
+		
+		<div class="typewrap">
+			<div class="typetitle">姓名：<input id="rname" class="typecont" type="text" name="rname"></div>
+			
+			<div style="clear: both"></div>
+			<div class="typetitle">电话：<input id="rtel" class="typecont" type="text" name="rtel"></div>
+			
+			<textarea class="typeaddr" placeholder="请输入详细地址..."></textarea>
+		</div>
+		<div class="btns">
+			<span class="confirm btn">确定</span>
+			<span class="cancle btn">取消</span>
+		</div>
+	</div>
+
+	<script src="{% static 'mall/js/main.js' %}"></script>
+</body>
+

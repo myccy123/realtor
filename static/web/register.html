@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Create your Realtor Webpage in Chinese - Realtoraccess</title>
+  <link rel="shortcut icon" href="{% static 'web/img/favicon.ico' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'web/css/register.css' %}">
+  <!-- <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/register.css" rel="stylesheet"> -->
+</head>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+Tawk_API.visitor = {
+name : 'visitor name',
+email : 'visitor@email.com'
+};
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5da42103fbec0f2fe3b99527/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+<body>
+  <div class="main">
+    <div class="top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <img src="{% static 'web/img/img_log_logo@2x.png' %}" width="225" style="margin-top: 50px;" />
+            <h2 class="left-title">Access to the Chinese <br>market made easy!</h2>
+            <!-- <button class="btn-contact" title="Contact Us"></button> -->
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <a href="/"><button class="btn-back">Back</button></a>
+            <form id="formRegister">
+              <h4>Unlock your</h4>
+              <h3>free agent account now!
+              </h3>
+              <div class="form-group">
+                <input type="email" class="form-control" id="userid" placeholder="Email" name="userid" required>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="passwd" placeholder="Password" name="passwd" required>
+              </div>
+              <div style="margin-top: 20px;">
+                <input type="checkbox" id="inputCheck" checked><label for="inputCheck">Send me occasional email updates about new customization tools and promotions</label>
+                <label id="error-info" class="error"></label>
+              </div>
+              <button type="submit" class="btn btn-primary" id="btn-register" data-loading-text="Signing up...">Sign up now</button>
+              <div class="hint">
+                <span>Already have an account? </span>
+                <a href="/web/page/signin/"> Log in here</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="container">
+        <h2>Member Privilege and Packages</h2>
+        <div class="col-lg-4 feature-item">
+          <img src="{% static 'web/img/img_features_01@2x.png' %}" />
+          <h3>Online Branding & Chinese SEO</h3>
+          <h4>Professional Chinese Website with Chinese SEO enhancement. Powerful lead generating tool catering to the Chinese market</h4>
+        </div>
+        <div class="col-lg-4 feature-item">
+          <img src="{% static 'web/img/img_features_02@2x.png' %}" />
+          <h3>Blogging & Email Campaign</h3>
+          <h4>Overcome language barriers and engage your customers with Chinese blogging and weekly email campaigns</h4>
+        </div>
+        <div class="col-lg-4 feature-item">
+          <img src="{% static 'web/img/img_features_03@2x.png' %}" />
+          <h3>Wechat Marketing & Listing Promotion</h3>
+          <h4>Promote your listings with a map view on Wechat and reach thousands of local Wechat Users</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="container contact">
+      <div class="friend-link hidden-xs">
+        <a href="#">Career</a>
+        <a href="#">Partnership</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Term of Service</a>
+      </div>
+      <div class="row info">
+        <div class="col-lg-3">
+          <h3>E-mail:</h3>
+          <h4>
+            <a href="mailto:clientservice@realtoraccess.com">clientservice@realtoraccess.com</a>
+          </h4>
+        </div>
+        <div class="col-lg-5">
+          <h3>Headquarter:</h3>
+          <h4>B-2003-033, 17th floor, Building 1, #18 East Road
+            <br> Zhongguancun, Haidian District, Beijing, China 100083</h4>
+        </div>
+        <div class="col-lg-4">
+          <h3>Vancouver:</h3>
+          <h4>1788 Ontario St.Vancouver. BC V5T OG3 Canada</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <h4>©海外瑞安居（北京）科技发展有限公司 版权所有|京ICP备17003593号</h4>
+  </footer>
+
+
+  <!-- <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/main.js"></script> -->
+  <script src="{% static 'web/js/jquery.min.js' %}"></script>
+  <script src="{% static 'web/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'web/js/jquery.validate.min.js' %}"></script>
+  <script src="{% static 'web/js/main.js' %}"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116462236-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-116462236-1');
+  </script>
+</body>
+
+</html>

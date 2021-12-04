@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+{% load tinyimg %}
+<head>
+    <title>【海外房产经纪人_房产经纪人信用_经纪公司】 -海外瑞安居</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="keywords" content="海外房产经纪人. 房产经纪人信用，海外房产经纪公司" />
+    <meta name="description" content="【海外瑞安居】经纪门户栏目为您推荐可靠的海外房产经纪人. 房产经纪人信用查询，海外房产经纪公司等信息，查询更多海外房产经纪人信息就来海外瑞安居。" />
+    <link rel="stylesheet" type="text/css" href="{% static 'web/css/agentlisting.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'web/css/header.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'web/css/footer.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'web/css/sidelogo.css' %}">
+    <link rel="shortcut icon" href="{% static 'web/images/ico.ico' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-1.9.1.min.js' %}"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116462236-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-116462236-1');
+    </script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div class="container_box">
+        <div class="container_left">
+            <div id="search_box">
+                <input type="text" id="search" placeholder="经纪人姓名 | 经纪人邮箱">
+                <div id="magnifying_glass"><img src="{% static 'web/images/fangdajing.png' %}"></div>
+            </div>
+            <div id="sortrank">
+                <a href="/web/agentlist/"><span class="{% if deforder == 1 %} orderby-seled {% endif %}">默认排序</span></a> | 
+                <a href="/web/agentlist/{{order.0}}">
+                    <span class="orderby {% if currorder == '0' and deforder != 1 %} orderby-seled {% endif %}" dataid="integrity" updown="desc">经纪信息完整度&nbsp
+                        {% if currorder != '0' or deforder == 1%}
+                        <img src="{% static 'web/images/order.png' %}">
+                        {% elif currad == '0' %}
+                        <img src="{% static 'web/images/orderdesc.png' %}">
+                        {% elif currad == '1' %}
+                        <img src="{% static 'web/images/orderasc.png' %}">
+                        {% endif %}
+                    </span>
+                </a> | 
+                <a href="/web/agentlist/{{order.1}}">
+                    <span class="orderby {% if currorder == '1' %} orderby-seled {% endif %}" dataid="sharecnt" updown="asc">房源发布数量&nbsp
+                        {% if currorder != '1'%}
+                        <img src="{% static 'web/images/order.png' %}">
+                        {% elif currad == '0' %}
+                        <img src="{% static 'web/images/orderdesc.png' %}">
+                        {% elif currad == '1' %}
+                        <img src="{% static 'web/images/orderasc.png' %}">
+                        {% endif %}
+                    </span></a> | 
+                <a href="/web/agentlist/{{order.2}}">
+                    <span class="orderby {% if currorder == '2' %} orderby-seled {% endif %}" dataid="shareprice" updown="asc">发布房源价格&nbsp
+                        {% if currorder != '2'%}
+                        <img src="{% static 'web/images/order.png' %}">
+                        {% elif currad == '0' %}
+                        <img src="{% static 'web/images/orderdesc.png' %}">
+                        {% elif currad == '1' %}
+                        <img src="{% static 'web/images/orderasc.png' %}">
+                        {% endif %}
+                    </span></a>
+            </div>
+            <div id="agent_date">共有<span id="date">{{cnt}}</span>名经纪人</div>
+            <div id="agentlisting_box">
+                {% for agent in agents %}
+                <div class="listing">
+                    <div class="agenttx">
+                        <a href="/web/agent/{{agent.id}}"><img src="{{agent.head.url|tiny_agent_img}}" alt="{{agent.username}}"></a>
+                    </div>
+                    <div class="agent_clas_tr">
+                        <a href="/web/agent/{{agent.id}}"><h1>{{agent.username}}</h1></a>
+                        <p class="agent_company">{{agent.corp}}</p>
+                        {% if agent.note == '' %}
+                        <p class="agent_ad">海外房产投资估价</p>
+                        {% else %}
+                        <p class="agent_ad">{{agent.note|safe}}</p>
+                        {% endif %}
+                    </div>
+                    <div class="online">
+                        {% if agent.selfintro_cn != '' %}
+                        <p>{{agent.selfintro_cn}}</p>
+                        {% elif agent.selfintro != '' %}
+                        <p>{{agent.selfintro}}</p>
+                        {% else %}
+                        <p>欢迎您来我的中文网站，我是一名专业的海外房产经纪人。在这里您将看到我的介绍，我所代理的特色房源和我的团队介绍，无论您是首次置业者或者专业的海外房产投资人，或者要售出您的房屋，我都能为您提供全程房屋买售服务与专业的海外房产置业方案。</p>
+                        {% endif %}
+                        <div class="click_online">即时沟通</div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            <!-- agentlisting_box -->
+            <div id="ad_box">
+                <div id="APP_ad"><img src="{% static 'web/images/-2-0.png' %}"></div>
+                <div class="agentads"><img src="{% static 'web/images/ad1.png' %}"></div>
+                <div class="agentads"><img src="{% static 'web/images/ad2.png' %}"></div>
+                <div class="agentads"><img src="{% static 'web/images/ad1.png' %}"></div>
+            </div>
+            <div class="pageclick" currpage={{currpage}}>
+                <ul>
+                    <li class="bigpage" id="prevpage">上一页&nbsp</li>
+                    {% for i in pages%} 
+                        {% if forloop.counter < 6%}
+                        <li class="page" p="{{i}}">{{i}}</li>
+                        {% endif %} 
+                    {% endfor %}
+                    <li class="bigpage" id="nextpage">下一页&nbsp</li>
+                </ul>
+                <div class="txt" id="tip" page="{{lastpage}}">共{{lastpage}}页 , 到第</div>
+                <input id="ipt" type="number" name="skippage" min="1" max="{{lastpage}}" value="{{lastpage}}">
+                <span class="txt">页</span>
+                <span class="txt" id="confirm">确定</span>
+            </div>
+        </div>
+        <!-- container_left -->
+        <div id="container_right"></div>
+    </div>
+    <!-- container_box -->
+    <div id="footer"></div>
+    <script type="text/javascript" src="{% static 'web/js/agentlisting.js' %}"></script>
+</body>
+
+</html>

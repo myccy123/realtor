@@ -1,0 +1,368 @@
+body{
+	
+	
+	margin: 0px 0px 0px 0px;
+    font-family: "Microsoft YaHei" ! important;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	width: 100%;
+}
+img{
+	border:none;
+    object-fit: cover;
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+	
+}
+ul{
+	margin: 0px;
+	padding: 0px;
+}
+.container_box{
+    width: 1200px;
+    margin: auto;
+
+
+ }
+.container_left{
+    width: 95.5%;
+	display: inline-block;
+	float: left;
+	
+}
+.container_right{
+	width: 54px;
+	display: inline-block;
+	float: left;
+
+}
+/*搜索*/
+#search_box{
+	width: 1144px;
+	height: 226px;
+	float: left;
+	background-image: url(../images/agentsearch.png);
+}
+#search{
+    width: 459px; 
+    height: 40px;
+    border: none;
+	float: left;
+	border-radius: 5px 0px 0px 5px;
+	margin:90px 0px 0px 320px;
+	padding-left: 10px;
+}
+#search input{
+	
+}
+
+.orderby{
+	cursor: pointer;
+}
+
+#magnifying_glass{
+	width: 56px;   
+	height: 42px;
+    display: inline-block;
+    background-color: #00c700 ;
+    border-radius: 0px 5px 5px 0px;
+    float: left;
+    margin:90px 0px 0px 0px;
+    cursor: pointer;
+}
+#magnifying_glass img{
+	width: 30px;
+	height: 28px;
+	padding: 8px 0px 5px 15px;
+
+}
+#sortrank{
+	float: left;
+	width: 1117.3px;
+	height: 48px;
+	border: 1px solid #efefef;
+	margin:10px 0px;
+	line-height: 48px;
+	padding-left: 25.7px;
+	font-size: 18px;
+	color: #5d5d5d;
+}
+#sortrank select{
+	border: none;
+	font-size: 18px;
+	color: #5d5d5d;
+}
+#sortrank option{
+	font-size: 14px;
+	color: #5d5d5d;
+	text-align: center;
+	border: none;
+}
+#agent_date{
+	float: left;
+	width: 1117.3px;
+	height: 48px;
+	border: 1px solid #efefef;
+	margin:10px 0px;
+	line-height: 48px;
+	padding-left: 25.7px;
+	font-size: 18px;
+}
+#date{
+	color: #ea7865;
+}
+#agentlisting_box{
+	display: inline-block;
+	float: left;
+	width: 771px;
+	position: relative;
+
+
+}
+.listing{
+     width: 769px;
+     height: 190px;
+     border: 1px solid #efefef;
+     float: left;
+}
+.agent_sm{
+    width: 1200px;
+	height:2000px;
+	background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    z-index: 222;
+    top: 0px;
+    display: none;
+    margin-left:0x;
+}
+.smbox{
+	
+    z-index: 232;
+    position: fixed;
+    top: 100px;
+	left:540px;
+	width: 200px;
+	height: 300px;
+	background-color: white;
+}
+.smbox p{
+	text-align: center;
+	color: #00c700;
+}
+#ewm {
+	width: 150px;
+	height: 150px;
+	margin:20px 25px;
+}
+#sms{
+	width: 18px!important;
+	height: 18px!important;
+	float: right;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+.agenttx{
+	float: left;
+	display: inline-block;
+	width: 163px;
+    height: 163px;
+    margin: 14px 25px 0px 25px;
+}
+.agenttx img{
+	width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.agent_clas_tr{
+	display: inline-block;
+	float: left;
+	width:205px;
+	height: 170px;
+	padding-right: 15px;
+	border-right: 1px solid #efefef;
+	margin-top: 10px;
+}
+.agent_clas_tr h1{
+   margin:10px 0px;
+   font-size: 20px;
+   color: #ea7865;
+}
+.agent_company{
+    width: 199px;
+    height: 40px;
+	margin:10px 0px;
+	overflow: hidden;
+	color: #5d5d5d;
+	font-size: 12px;
+
+
+}
+.agent_ad{
+	width: 190px;
+	height: 71px;
+    margin:0px;
+     font-size: 12px;
+     float: left;
+     color: #5d5d5d;
+    word-break:keep-all;
+    overflow: hidden;
+	text-overflow:ellipsis;	
+     display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 3; /** 显示的行数 **/
+ }
+.online{
+	display: inline-block;
+	float: left;
+}
+.online p{
+	width: 265px;
+	height: 80px;
+	font-size: 14px;
+	color: #5d5d5d;
+	line-height: 20px;
+	margin:27px 30px 30px 33px;
+	overflow: hidden; 
+	word-break:keep-all;
+    text-overflow:ellipsis;	
+	display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 4;
+}
+.click_online{
+	width: 273px;
+	height: 32px;
+	background-color: #00c700;
+	margin-left: 33px;
+	text-align: center;
+	font-size: 14px;
+	color: white;
+	line-height: 32px;
+	cursor: pointer;
+}
+#ad_box{
+	width: 350px;
+	display: inline-block;
+    float:left;
+	border: 1px solid #efefef;
+	margin-left: 20px;
+}
+#APP_ad{
+	float: left;
+	width: 350px;
+	height: 132px;
+}
+#APP_ad img{
+	width: 100%;
+	height: 100%;
+
+}
+.agentads{
+	float: left;
+	width: 350px;
+	height:200px;
+	margin-top: 10px;
+}
+.agentads img{
+	width: 100%;
+	height: 100%;
+
+}
+.pageclick{
+	width: 1144px;
+	float: left;
+    margin:50px 0px 0px 0px;
+}
+.pageclick ul{
+	margin-left: 250px;
+}
+
+
+.selpage{
+	background-color: #38f;
+	text-align: center;
+}
+
+.txt{
+	color: rgb(153, 153, 153);
+	margin-left: 10px;
+	font-size: 16px;
+	line-height: 27px;
+	display: inline-block;
+	float: left; 
+}
+
+#ipt{
+	font-size: 16px;
+	width: 35px;
+	height: 23px;
+	text-align: center;
+	border-width: 1px;
+	border-style: solid;
+    border-color: rgb(237, 237, 237);
+    border-image: initial;
+    color: 	rgb(153, 153, 153);
+    float: left;
+    margin-left: 5px;
+    margin-top: 1px;
+}
+
+#confirm{
+	cursor: pointer;
+	border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(237, 237, 237);
+    border-image: initial;
+	color: #5d5d5d;
+	text-align: center;
+	height: 25px;
+	line-height: 25px;
+	width: 45px;
+}
+
+.page{
+	border: 1px solid #efefef;
+	width: 20px;
+	height: 25px;
+	margin-right: 5px;
+	font-size: 16px;
+	color: #5d5d5d;
+	line-height: 25px;
+	text-align: center;
+	display: inline-block;
+	float: left;
+	cursor: pointer;
+}
+.bigpage{
+	border: 1px solid #efefef;
+	height: 25px;
+	margin-right: 5px;
+	font-size: 16px;
+	color: #5d5d5d;
+	line-height: 25px;
+	padding-left: 5px;
+	display: inline-block;
+	float: left;
+	cursor: pointer;
+}
+
+#ddd{
+	float: left;
+	margin-right: 5px;
+}
+
+
+.orderby-seled{
+    color: red;
+}
+
+
+
+

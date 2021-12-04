@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+	<meta charset="UTF-8">
+	<title>零基础带你大数据实战</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" type="text/css" href="{% static 'mall/css/pay.css' %}" />
+	<script src="{% static 'mall/js/jquery-1.9.1.min.js' %}"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body pid="">
+	<div class="bk">
+		<a href="/mall"><img src="{% static 'mall/img/back.png' %} " style="display: inline-block; vertical-align: middle;"></a>
+	</div>
+	<div class="header">
+		用户结算
+	</div>
+
+	<div class="addr">
+		{% if addr == '' %}
+		<p class="nametel">请填写 收货地址</p>
+		<p class="addrdetail"></p>
+		{% else %}
+		<p class="nametel">{{addr.recvname}} {{addr.recvtel}}</p>
+		<p class="addrdetail">{{addr.addr}}</p>
+		{% endif %}
+		<span class="catetail">	&gt;</span>
+		<div style="clear: both;"></div>
+	</div>
+	<div class="uiline"></div>
+	
+	<ul>
+		<li class="paylist">
+			<div class="paytype"><img src="{% static 'mall/img/pay_wx.png' %}" style="display: inline-block; vertical-align: middle;"><span>微信支付</span></div>
+			<div class="checktail" chked="1"><img src="{% static 'mall/img/check_press.png' %}" style="display: inline-block; vertical-align: middle;"></div>
+			<div style="clear: both;"></div>
+		</li>
+		<!-- <li class="paylist">
+			<div class="paytype"><img src="{% static 'mall/img/pay_zfb2.png' %}" style="display: inline-block; vertical-align: middle;"><span>支付宝</span></div>
+			<div class="checktail" chked="0"><img src="{% static 'mall/img/check_normal.png' %}" style="display: inline-block; vertical-align: middle;"></div>
+			<div style="clear: both;"></div>
+		</li> -->
+	</ul>
+
+	<div class="uiline"></div>
+
+	<ul>
+		<li class="productlist">
+			<div class="pros"><span class="pimg"><img src="{{ pro.product_img.url }}" style="display: inline-block; vertical-align: middle;"></span><span>{{pro.product_name}}</span></div>
+			<div class="proprc">{{pset.set_price}}</div>
+			<div style="clear: both;"></div>
+		</li>
+	</ul>
+
+	<div class="uiline"></div>
+
+	<div class="footerspace"></div>
+	<div class="footer">
+		<div class="total">共<b>1</b>件 合计：<b><span id="total_fee">{{pset.set_price}}</span></b></div>
+		<div class="buy">立即购买</div>
+	</div>
+
+
+	<!-- 地址遮罩 -->
+	<div class="addrarea zzc"></div>
+	<div class="addrtext zzc">
+		<div class="addrtitle">收货人信息</div>
+		
+		<div class="typewrap">
+			<div class="typetitle">姓名：<input id="rname" class="typecont" type="text" name="rname"></div>
+			
+			<div style="clear: both"></div>
+			<div class="typetitle">电话：<input id="rtel" class="typecont" type="text" name="rtel"></div>
+			
+			<textarea class="typeaddr" placeholder="请输入详细地址..."></textarea>
+		</div>
+		<div class="btns">
+			<span class="confirm btn">确定</span>
+			<span class="cancle btn">取消</span>
+		</div>
+	</div>
+	
+	<script src="{% static 'mall/js/pay.js' %}"></script>
+</body>
+

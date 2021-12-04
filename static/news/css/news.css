@@ -1,0 +1,715 @@
+@font-face { 
+  font-family: raleway-medium; 
+  src: url('../../fonts/raleway-medium-webfont.ttf'); 
+} 
+
+.acontent a{
+	color:#607fa6	
+}
+
+td,th{
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 5px 10px;
+    border: 1px solid #DDD;
+   }
+
+
+li{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+@media screen and (min-width:768px){
+body{
+	width: 100%;
+	margin: 0px 0px 0px 0px;
+	background-color: #ffffff;
+	font-family: "Microsoft YaHei" ! important;
+	margin: 0;
+	padding: 0;
+}
+
+a{color:#333;text-decoration:none; }
+
+.toptb{
+}
+#container_box{
+	width: 1200px;
+	margin: auto;
+}
+#container_box_left{
+    width: 95.5%;
+	display: inline-block;
+	float: left;
+	
+}
+#container_box_right{
+    width: 4.5%;
+	display: inline-block;
+	background-color: #f5f5f5;
+	float: left;
+
+}
+.nav{
+	height: 410px;
+    width: 1146px;
+    display: inline-block;
+    float: left;
+
+	
+}
+
+.nav1{
+	display: inline-block;
+	height: 200px;
+	width: 830px;
+	float: left;
+	margin-right: 10px;
+	background-image: url(../img/xxs.png);
+
+}
+.ban_1{
+	width: 450px;
+	height: 150px;
+	margin: 60px 0px 0px 250px;
+}
+.ban_1 p{
+	float: left;
+	display: inline-block;
+    margin:0;
+
+}
+.t_left{
+	height:50px;
+	line-height: 50px;
+	font-size: 32px;
+    width: 70px;
+    padding: 4px 20px;
+	color: #1d2e3e;
+    background: rgba(255,255,255, 0.5);
+}
+.t_right{
+    height:50px;
+	line-height: 50px;
+	font-size: 32px;
+    width: 223px;
+    padding: 4px 24px;
+	color: #ffffff;
+	background-color:#1d2e3e;
+	letter-spacing: 5px;
+}
+.title_cls2{
+	  height:40px;
+	line-height: 40px;
+	color: #ffffff;
+	font-size: 27px;
+}
+.nav2{
+	display: inline-block;
+	height: 200px;
+	width: 270px;
+	float: left;
+	margin-right: 10px;
+	margin-top: 10px;
+	background-image: url(../img/wgh.png);
+}
+.ban_2{
+	width: 240px;
+	height: 100px;
+	margin:130px 0px 0px 10px;
+}
+
+.ban_2 p{
+	height:30px;
+	line-height: 30px;
+	font-size: 18px;
+	margin: 0px 5px;
+}
+.nav2_t_1{
+	letter-spacing: 2px;
+	padding: 2px 8px;
+    width: 120px;
+	color: #1d2e3e;
+    background: rgba(255,255,255, 0.5);
+}
+.nav2_t_2{
+   color: #ffffff;
+	
+	
+}
+.nav3{
+	display: inline-block;
+	height: 200px;
+	width:270px;
+	float: left;
+	margin-right: 10px;
+	margin-top: 10px;
+	background-image: url(../img/yjcs.png);
+}
+.ban_3{
+	width: 240px;
+	height: 100px;
+	margin:130px 0px 0px 10px;
+	font-size: 18px;
+}
+.ban_3 p{
+	height: 30px;
+	margin: 3px 0px;
+
+}
+.nav3_t_1{
+    line-height: 30px;
+	letter-spacing: 2px;
+	padding: 2px 8px;
+    width: 180px;
+	color: #1d2e3e;
+    background: rgba(255,255,255, 0.5);
+}
+.nav3_t_2{
+   color: #ffffff;
+	
+	
+}
+.nav4{
+	display: inline-block;
+	height: 200px;
+	width: 270px;
+	float: left;
+	margin-right: 10px;
+	margin-top: 10px;
+	background-image: url(../img/4444.png);
+}
+.nav4_t_4{
+    line-height: 30px;
+	letter-spacing: 2px;
+	padding: 2px 8px;
+    width: 140px;
+	color: #1d2e3e;
+    background: rgba(255,255,255, 0.5);
+}
+.navlist{
+	display: inline-block;
+	float: right;
+	height: 410px;
+	width: 305px;
+	background-color: #fafafa;
+	
+}
+
+#tt{
+	margin-top: 20px;
+	padding:0 20px;
+}
+#tt1{
+	float: left;
+	font-size: 18px;
+	padding-left: 10px;
+	border-left: 3px solid #676667;
+	font-weight: 600;
+}
+#tt2{
+	float: right;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.rightlist{
+	clear: both;
+	padding:20px 20px;
+}
+
+.rightlist li{
+	margin-top: 10px;
+	height: 21px;
+	overflow:hidden !important;
+}
+
+.tt3{
+	float: left;
+	width: 180px;
+	word-break:break-all !important;
+    overflow:hidden !important;
+	text-overflow:ellipsis !important;	
+    display: -webkit-box !important; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical !important; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 1 !important; /** 显示的行数 **/
+    -moz-line-clamp:1
+}
+.look{
+	float: right;
+}
+
+.nav img{
+	height: 100%;
+	width: 100%;
+}
+
+#container{
+	width: 1000px;
+	float: left;
+	margin-left: 65px;
+}
+
+.cls{
+	height: 40px; 
+	border-bottom: 2px solid #5CACEE;
+	padding: 5px 0;
+	margin-top: 30px;
+}
+
+.cls2{
+	height: 40px; 
+	border-bottom: 2px solid #5CACEE;
+	padding: 5px 0;
+	margin-top: 30px;
+}
+.breadcrumb li{
+	float: left;
+	font-size: 25px;
+	margin-left: 20px;
+}
+
+.breadcrumb li a{
+	padding: 0 21px;
+}
+
+.breadcrumb li a:hover{
+	color:#6495ed;
+	text-decoration:none;
+}
+
+.seled{
+	color: #ea7865;
+	border-bottom: 3px solid #ea7865;
+}
+
+.page{
+	margin: auto;
+	margin-top: 60px;
+	margin-bottom: 60px;
+	width: 400px;
+}
+.page li{
+	float: left;
+	margin-left: 5px;
+	padding: 5px 8px;
+	border-radius: 3px;
+	border: 1px solid buttonface;
+}
+
+.barrier{
+	height: 40px;
+	line-height: 40px;
+}
+
+.branch{
+	float: left;
+}
+
+.branch a{
+	height: 20px;
+	font-size: 13px;
+	cursor: auto;
+}
+
+.search{
+	float: right;
+}
+
+#btn{
+	margin-left: 3px;
+	height: 21px;
+	background: linear-gradient(to bottom,rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%);
+	border-style: none;
+	border-radius: 0 6px 6px 0;
+	color: white;
+}
+
+.alist{
+	padding: 10px 0;
+	width: 100%;
+	box-shadow: 0px 0px 5px 0px rgba(153,153,153,0.4);
+	
+}
+
+.artcilearea{
+	padding: 0px 10px;
+	width: 640px;
+	float: left;
+	display: inline-block;
+	border-right: 1px solid #ddd;
+}
+
+.artcilearea li{
+	margin-top: 5px;
+	padding-bottom: 5px;
+}
+
+.acontent{
+	
+	width: 600px;
+	float: left;
+	display: inline-block;
+	border-right: 1px solid #ddd;
+	padding: 30px;
+}
+
+.bt{
+	color: #444;
+	padding: 0px 20px;
+	text-align: center;
+}
+
+.fbt{
+	margin: auto;
+	text-align: center;
+	color: #999
+}
+
+.fbt span{
+	margin: 0px 5px;
+}
+
+
+.ad{
+	float: right;
+	display: inline-block;
+	width: 329px;
+	padding: 0px 5px
+}
+
+.ad img{
+	width: 100%;
+}
+
+.ad div img{
+	height: 100%;
+	width: 100%;
+}
+
+.aimg{
+	height: 120px;
+	width: 170px;
+	display: inline-block;
+	float: left;
+	/*border: #ddd 1px solid*/
+}
+
+.aimg img{
+	width: 100%;
+	height: 100%;
+}
+
+.atitle{
+	width: 440px;
+	float: left;
+	margin: 0px 15px;
+	word-break:break-all;
+    overflow:hidden;
+	text-overflow:ellipsis;	
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 2; /** 显示的行数 **/
+}
+
+.apro{
+	float: left;
+	width: 440px;
+	height: 57px;
+	margin: 10px;
+	margin-left: 15px;
+	font-size: 14px;
+	color: #999;
+	word-break:break-all;
+    overflow:hidden;
+	text-overflow:ellipsis;	
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 3; /** 显示的行数 **/
+}
+
+.adate{
+	float: right;
+	margin: 0px 20px;
+	font-size: 13px;
+}
+
+.pre{
+	height: 80px;
+}
+
+.para{
+	line-height: 1.8;
+	color: #000;
+	font-size: 18px;
+}
+
+.contcenter{
+	text-align: center;
+	margin: auto;
+}
+
+.contcenter img{
+	max-width: 600px;
+}
+
+#phonead{
+	display: none;
+}
+
+#footoccupy{
+	display: none;
+}
+
+#foot{
+	display: none;
+}
+
+.rcmd{
+	color: #666;
+	line-height: 24px;
+	height: 24px;
+	font-size: 12px;
+	width: 329px;
+	
+	word-break:break-all;
+    overflow:hidden;
+	text-overflow:ellipsis;	
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 1; /** 显示的行数 **/
+}
+
+.rcmdtitle{
+	padding: 5px 0px 0px 0px;
+	margin:0;
+	border-top: 2px solid #5CACEE;
+}
+
+.lb{
+	color: #015699;
+}
+}
+
+@media screen and (max-width:768px){
+body{
+	width: 100%;
+	margin: 0px 0px 0px 0px;
+	background-color: #ffffff;
+	font-family: "Microsoft YaHei" ! important;
+	margin: 0;
+	padding: 0;
+}
+
+.acontent{
+	width: 100%;
+}
+
+.acontent img{
+	max-width: 100%;
+
+}
+
+.bt{
+	color: #444;
+	padding: 0px 10px;
+	text-align: center;
+	font-size: 24px;
+	letter-spacing: 2px;
+}
+
+.fbt{
+	margin: auto;
+	text-align: center;
+	color: #999;
+	font-size: 12px;
+}
+
+.fbt span{
+	margin: 0px 5px;
+}
+
+.pre{
+	height: 20px;
+}
+
+.para{
+	line-height: 1.4;
+	color: #000;
+	font-size: 18px;
+	margin:0px 10px;
+}
+
+.contcenter{
+	text-align: center;
+	margin: auto;
+	margin:0px 10px;
+}
+
+#phonead{
+	margin-top: 10px;
+	width: 100%;
+}
+
+#phonead img{
+	width: 100%;
+}
+
+#foot{
+	position: fixed;
+	bottom: 0;
+	height: 45px;
+	border: 0px;
+	background:rgba(255,255,255,0)
+}
+
+
+#downloadapp{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+.toptb{
+	display: none;
+}
+
+.nav{
+	display: none;
+}
+
+.cls2{
+	display: none;
+}
+
+.cls{
+	height: 25px;
+    width: 100%;
+	padding: 5px 0;
+	margin-bottom: 20px;
+	margin-top: 5px;
+	overflow-x:scroll;
+	overflow-y: hidden;
+
+}
+
+.breadcrumb{
+	width: 600px;
+}
+
+.breadcrumb li{
+	
+	float: left;
+	font-size: 21px;
+	margin-left: 2px;
+	margin-bottom: 10px;
+}
+
+.breadcrumb li a{
+	padding: 0 5px;
+}
+
+.seled{
+	color: #ea7865;
+}
+
+.artcilearea{
+	padding: 0px 10px;
+	width: 100%;
+	float: left;
+	display: inline-block;
+	border-right: 1px solid #ddd;
+}
+
+.artcilearea li{
+	margin-top: 5px;
+	padding-bottom: 5px;
+}
+
+.aimg{
+	height: 90px;
+	width: 30%;
+	display: inline-block;
+	float: left;
+	/*border: #ddd 1px solid*/
+}
+
+.aimg img{
+	width: 100%;
+	height: 100%;
+}
+
+.atitle{
+	width: 60%;
+	float: left;
+	margin: 0px 15px;
+	word-break:break-all;
+    overflow:hidden;
+	text-overflow:ellipsis;	
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 1; /** 显示的行数 **/
+}
+
+.apro{
+	float: left;
+	width: 60%;
+	height: 40px;
+	margin: 10px;
+	margin-left: 15px;
+	font-size: 14px;
+	color: #999;
+	word-break:break-all;
+    overflow:hidden;
+	text-overflow:ellipsis;	
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 2; /** 显示的行数 **/
+}
+
+.adate{
+	float: right;
+	margin: 0px 20px;
+	font-size: 13px;
+}
+
+.page{
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 60px;
+	width: 150px;
+}
+.page li{
+	float: left;
+	margin-left: 5px;
+	padding: 5px 8px;
+	border-radius: 3px;
+	border: 1px solid buttonface;
+}
+
+.barrier{
+	display: none;
+}
+
+.ad{
+	display: none;
+}
+
+#header{
+	display: none;
+}
+
+#footer{
+	display: none;
+}
+
+}
+
+
+

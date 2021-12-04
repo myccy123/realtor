@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>个人中心</title>
+    {% load staticfiles %}
+
+    <link href="{% static 'bi/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/common.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/qingcheng.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/visio.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'bi/images/favicon.ico' %}">
+    <!--[if lt IE 9]>
+    <script src="{% static 'bi/js/html5shiv.min.js' %}"></script>
+    <script src="{% static 'bi/js/respond.min.js' %}"></script>
+    <script type="text/ecmascript" src="{% static 'bi/js/md5p.js' %}"></script>
+    <![endif]-->
+</head>
+<body style="margin-top:80px">
+<!--导航-->
+
+<div id="navbox">
+
+
+</div>
+<!--主题-->
+<section id="section">
+    <div class="container">
+        <!-- 左侧-->
+        <div class="row zero">
+            <div id="user_toggl" class="col-md-2 col-sm-4 col-xs-12">
+                <div class="row" id="user_left_toggl">
+                    <p class="col-sm-12 hidden-xs  center"><span class="user_logined_name"></span></p>
+                    <p class="col-sm-12 hidden-xs center"><b class="nav_logined_img"  style="margin: 0 auto"></b></p>
+                    <p class="col-sm-12 col-xs-4 center padding_zero poniter  userCenter_active" data-num="1" ><span>个人中心</span></p>
+                    <p class="col-sm-12 col-xs-4 center padding_zero poniter "  data-num="2"><span>拉人组群</span></p>
+                    <p class="col-sm-12 col-xs-4 center padding_zero poniter" id="usercenter_backInDEX"><span>返回首页</span>
+                </div>
+            </div>
+
+        <!-- 右侧-->
+            <div class="col-md-10 col-sm-8 col-xs-12" id="userCenter_right_form">
+                <!-- 个人中心-->
+                <div class="row"  id="user_center_tip">
+                    <p class="col-md-3 poniter" id="userCenter_edit">编辑</p>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <a href="#" class="col-xs-12 center poniter" id="userCenter_changeImg" onclick="fileSelect();">
+                                <p class="col-xs-12"><b class="nav_logined_bigger_img" style="margin: 10px auto"></b></p>
+                                更换头像
+                            </a>
+                            <form action="{% url 'account:changhead' %}" method="post" enctype="multipart/form-data"  style="width:auto;">
+                                <input type="file" name="img" id="fileToUpload" onchange="fileSelected();" style="display:none;">
+                                <button type="submit" class="none" id="touxiangImg_sumbmit" ></button>
+                            </form>
+                        </div>
+
+
+                        <form class="form-horizontal" id="userCenter_editFORM">
+                            <div class="form-group">
+                                <div class="col-sm-2 col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="name2" disabled>昵称</label></div>
+                                <div class="col-sm-10 col-xs-10 "><input class="form-control" value="{{user.username}}" id="name2" type="text" name="nuser"/></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2 col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="name3">邮箱</label></div>
+                                <div class="col-sm-10 col-xs-10 "><input class="form-control"  value="{{user.email}}" id="name3" type="email" name="email"/></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2 col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="name4">电话</label></div>
+                                <div class="col-sm-10 col-xs-10 "><input class="form-control"  value="{{user.tel}}"  id="name4" type="text" name="tel"/></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2 col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="name5">性别</label></div>
+                                <div class="col-sm-10 col-xs-10 "><input class="form-control"  value="{{user.sex}}"  id="name5" type="text" name="gender"/></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2 col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="name6">年龄</label></div>
+                                <div class="col-sm-10 col-xs-10 "><input class="form-control"  value="{{user.age}}" id="name6" type="text" name="age"/></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2 col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="name7">国家</label></div>
+                                <div class="col-sm-10 col-xs-10 "><input class="form-control"  value="{{user.country}}"  id="name7" type="text" name="coutry"/></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2 col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="name8">省份</label></div>
+                                <div class="col-sm-10 col-xs-10 "><input class="form-control"  value="{{user.province}}" id="name8" type="text" name="prov"/></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2 col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="name9">城市</label></div>
+                                <div class="col-sm-10 col-xs-10 "><input class="form-control"  value="{{user.city}}" id="name9" type="text" name="city"/></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2 col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="name10">地址</label></div>
+                                <div class="col-sm-10 col-xs-10 "><input class="form-control"  value="{{user.adress}}" id="name10" type="text" name="address"/></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2 col-xs-2 padding_zero" style="text-align: right;"><label class="control-label" for="name11">介绍</label></div>
+                                <div class="col-sm-10 col-xs-10 "><textarea name="intr" id="name11" class="form-control" cols="30" rows="3">{{user.introduce}}</textarea></div>
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-info col-xs-offset-4 col-xs-4" type="button" id="userCenter_editSve">保存</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <!--拉人群组-->
+                <div class="" id="user_group_tip"  style="display:none">
+
+                    <p >拉人群组</p>
+                    <div id="user_right_zu_boxborder">
+
+                        <div class="user_right_topBox ">
+                            <p>我的分组</p>
+                            <div class="user_right_overflowBox" id="user_add_team">
+                                <!-- 每行-->
+                                    <!--每个组 -->
+                                    <div class="row col-md-4 col-sm-6  col-xs-12 coleveryTD zero">
+                                        <div class="user_right_zu_zutubiao col-xs-6">
+                                        </div>
+                                        <div class="col-xs-6  margin_left_zero padding_zero ">
+                                            <span class="fourtyCenter">家人</span>
+                                        </div>
+                                    </div>
+                                    <!--每个组 -->
+                                    <div class="row col-md-4 col-sm-6  col-xs-12 coleveryTD zero">
+                                        <div class="user_right_zu_zutubiao col-xs-6">
+                                        </div>
+                                        <div class="col-xs-6  margin_left_zero padding_zero ">
+                                            <span class="fourtyCenter">家人</span>
+                                        </div>
+                                    </div>
+                                    <!--每个组 -->
+                                    <div class="row col-md-4 col-sm-6  col-xs-12 coleveryTD zero">
+                                        <div class="user_right_zu_zutubiao col-xs-6">
+                                        </div>
+                                        <div class="col-xs-6  margin_left_zero padding_zero ">
+                                            <span class="fourtyCenter">家人</span>
+                                        </div>
+                                    </div>
+
+                                    <!--每个组 -->
+                                    <div class="row col-md-4 col-sm-6  col-xs-12 coleveryTD zero">
+                                        <div class="user_right_zu_zutubiao col-xs-6">
+                                        </div>
+                                        <div class="col-xs-6  margin_left_zero padding_zero ">
+                                            <span class="fourtyCenter">家人</span>
+                                        </div>
+                                    </div>
+
+
+                                <!-- 每行-->
+
+                            </div>
+                            <a href="#" id="add_tankuang01" class="pull-left ">添加</a>
+                            <a href="#" id="edit_user_team" class="pull-left none">修改</a>
+                            <a href="#" id="delet_user_team" class="pull-left none">删除</a>
+                        </div>
+
+                        <div class="user_right_bottomBox ">
+                            <p>指定人</p>
+                            <div class="user_right_overflowBox " id="user_fre_add">
+                                <!-- 每行-->
+                                    <!--每个组 -->
+                                    <div class="row col-md-4 col-sm-6  col-xs-12 coleveryTD zero">
+                                        <div class="user_right_zu_zutubiao col-xs-6">
+                                        </div>
+                                        <div class="col-xs-6  margin_left_zero padding_zero ">
+                                            <span class="fourtyCenter">家人</span>
+                                        </div>
+                                    </div>
+                                    <!--每个组 -->
+                                    <div class="row col-md-4 col-sm-6  col-xs-12 coleveryTD zero">
+                                        <div class="user_right_zu_zutubiao col-xs-6">
+                                        </div>
+                                        <div class="col-xs-6  margin_left_zero padding_zero ">
+                                            <span class="fourtyCenter">家人</span>
+                                        </div>
+                                    </div>
+                                    <!--每个组 -->
+                                    <div class="row col-md-4 col-sm-6  col-xs-12 coleveryTD zero">
+                                        <div class="user_right_zu_zutubiao col-xs-6">
+                                        </div>
+                                        <div class="col-xs-6  margin_left_zero padding_zero ">
+                                            <span class="fourtyCenter">家人</span>
+                                        </div>
+                                    </div>
+                                    <!--每个组 -->
+                                    <div class="row col-md-4 col-sm-6  col-xs-12 coleveryTD zero">
+                                        <div class="user_right_zu_zutubiao col-xs-6">
+                                        </div>
+                                        <div class="col-xs-6  margin_left_zero padding_zero ">
+                                            <span class="fourtyCenter">家人</span>
+                                        </div>
+                                    </div>
+
+
+                            </div>
+                            <a href="#" id="add_tankuang02"  class="pull-left">添加</a>
+                            <a href="#" id="edit_user_frend" class="pull-left none">修改</a>
+                            <a href="#" id="delet_user_frend" class="pull-left none">删除</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--弹窗遮罩层-->
+<div id="index_addData" class="row ">
+
+</div>
+<!-- 添加组遮罩层-->
+<div id="user_right_addTeam">
+    <div>
+        <input type="text" name="addteam" class="form-control" placeholder="组名"/>
+        <button type="button" class="btn btn-block btn-info">保存</button>
+    </div>
+</div>
+<!-- 添加找好友遮罩层-->
+<div id="user_right_addFrend">
+    <div>
+        <input type="search" name="addfre" class="form-control" placeholder="查找好友"/>
+        <button type="button" class="btn btn-block btn-info">保存</button>
+    </div>
+</div>
+<!--尾部-->
+<div id="footerbox">
+    <footer id="footer">
+    </footer>
+    <a id="back_top" href="#">
+        <img src="{% static 'bi/images/back.png' %}" alt=""/>
+    </a>
+</div>
+<script src="{% static 'bi/js/jquery-1.11.3.js' %}"></script>
+<script src="{% static 'bi/js/bootstrap.js' %}"></script>
+<script src="{% static 'bi/laydate/laydate.js' %}"></script>
+<script src="{% static 'bi/js/myjs.js' %}"></script>
+<script src="{% static 'bi/js/initEchart.js' %}"></script>
+<script src="{% static 'bi/js/IntervalEchart.js' %}"></script>
+<script src="{% static 'bi/js/outerTest.js' %}"></script>
+<script src="{% static 'bi/js/realTimeEachart.js' %}"></script>
+<script src="{% static 'bi/js/detail.js' %}"></script>
+<script src="{% static 'bi/js/systemPublish.js' %}"></script>
+<script src="{% static 'bi/js/commonIndexScroll.js' %}"></script>
+
+<script type="text/javascript">
+    function fileSelect() {
+        document.getElementById("fileToUpload").click();
+    }
+
+    function fileSelected() {
+        // 文件选择后触发次函数
+        touxiangImg_sumbmit.click();
+
+    }
+</script>
+</body>
+</html>

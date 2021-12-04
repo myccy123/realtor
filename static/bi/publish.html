@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv=Content-Type content=“text/html;charset=utf-8″>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{title}}</title>
+    {% load staticfiles %}
+
+    <link href="{% static 'bi/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/qingcheng.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/common.css' %}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{% static 'bi/images/favicon.ico' %}">
+    <script src="{% static 'bi/js/echarts-all.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/esl.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/blue.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/dark.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/default.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/gray.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/green.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/helianthus.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/infographic.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/macarons.js' %}" charset="utf-8"></script>
+
+    <!--[if lt IE 9]>
+    <script src="{% static 'bi/js/html5shiv.min.js' %}"></script>
+    <script src="{% static 'bi/js/respond.min.js' %}"></script>
+    <![endif]-->
+</head>
+
+<body id="publish" data-num="{{ id }}">
+
+
+<!--导航-->
+
+<!--主题-->
+<section id="section">
+
+
+    <div class="container">
+
+        <div class="row zero" id="allsvg" style="margin-bottom: 80px;">
+
+        </div>
+    </div>
+</section>
+<!--弹窗遮罩层-->
+<div class="loading s none" style="position: fixed;top:0;bottom:0;left:0;right:0;z-index:9999;background:rgba(226,233,239,0.5);
+    text-align: center;display:none;vertical-align: middle;">
+    <img src="{% static 'bi/images/load7.gif' %}"  style="width:150px;height:150px" alt="loading"/>
+</div>
+<!--尾部-->
+
+<script src="{% static 'bi/js/jquery-1.11.3.js' %}"></script>
+<script src="{% static 'bi/js/bootstrap.js' %}"></script>
+<script src="{% static 'bi/laydate/laydate.js' %}"></script>
+<script src="{% static 'bi/js/myjs.js' %}"></script>
+<script src="{% static 'bi/js/initEchartNormal.js' %}"></script>
+<script src="{% static 'bi/js/IntervalEchart.js' %}"></script>
+<script src="{% static 'bi/js/outerTest.js' %}"></script>
+<script src="{% static 'bi/js/realTimeEachart.js' %}"></script>
+<script src="{% static 'bi/js/detail.js' %}"></script>
+<script src="{% static 'bi/js/systemPublish.js' %}"></script>
+<script src="{% static 'bi/js/commonIndexScroll.js' %}"></script>
+</body>
+</html>

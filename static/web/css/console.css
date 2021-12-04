@@ -1,0 +1,558 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    font-size: 20px;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+hr {
+    border-top: none;
+    border-color: #e5e5e5;
+}
+
+.el-header {
+    padding: 0;
+}
+
+.el-header .el-menu .el-submenu {
+    float: right;
+}
+
+.el-main {
+    padding: 0;
+}
+
+.left-side,
+.right-side {
+    display: inline-block;
+}
+
+.left-side {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: #32363f;
+    width: 180px;
+    margin: 0;
+    z-index: 900;
+}
+
+.right-side {
+    margin-left: 180px;
+    padding: 0;
+    max-width: 1186px;
+}
+
+.main-container {
+    width: 1000px;
+    margin: 2em auto;
+}
+
+.vertical-nav {
+    width: 180px;
+    height: 100%;
+    border-right: none;
+}
+
+.vertical-nav .nav-logo {
+    width: 147px;
+    display: block;
+    margin: 17px 15px;
+}
+
+.vertical-nav .el-menu-item {
+    text-align: center;
+    color: #333;
+    height: 50px;
+    line-height: 50px;
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 17px;
+    text-align: left;
+    padding-left: 48px !important;
+}
+
+.vertical-nav .el-menu-item.menu-dashboard {
+    background-image: url('../img/ic_dashboard_n@2x.png');
+}
+
+.vertical-nav .el-menu-item.menu-agent {
+    background-image: url('../img/img_agent_n@2x.png');
+}
+
+.vertical-nav .el-menu-item.menu-properties {
+    background-image: url('../img/img_properties_n@2x.png');
+}
+
+.vertical-nav .el-menu-item.menu-billing {
+    background-image: url('../img/img_billing_n@2x.png');
+}
+
+.vertical-nav .el-menu-item.menu-password {
+    background-image: url('../img/img_password_n@2x.png');
+}
+
+.vertical-nav .el-menu-item.menu-logout {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.vertical-nav .el-menu-item.is-active {
+    background-color: #4A505D !important;
+}
+
+.vertical-nav .el-menu-item.is-active.menu-dashboard {
+    background-image: url('../img/ic_dashboard_p@2x.png');
+}
+
+.vertical-nav .el-menu-item.is-active.menu-agent {
+    background-image: url('../img/img_agent_p@2x.png');
+}
+
+.vertical-nav .el-menu-item.is-active.menu-properties {
+    background-image: url('../img/img_properties_p@2x.png');
+}
+
+.vertical-nav .el-menu-item.is-active.menu-billing {
+    background-image: url('../img/img_billing_p@2x.png');
+}
+
+.vertical-nav .el-menu-item:hover {
+    background-color: white;
+}
+
+.header {
+    background-color: #4ab37a;
+    color: white;
+    padding: 29px 29px 78px 29px;
+}
+
+.header h1 {
+    margin: 0;
+    margin-top: 0.5em;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/*.el-form .el-button {
+    font-weight: 300;
+    color: white;
+    border-radius: 2px;
+}*/
+
+.el-button.btn-primary {
+    background: #00c700;
+    border-color: #00c700;
+    margin: 30px 80px;
+    width: 160px;
+    color: white;
+    border-radius: 2px;
+}
+
+.el-button.btn-preview {
+    background: #32363F;
+    border-color: #32363F;
+    margin: 30px 0;
+    width: 160px;
+    color: white;
+    border-radius: 2px;
+}
+
+.el-upload--picture-card {
+    background: transparent;
+}
+
+.el-upload--picture-card i {
+    color: #00c700;
+}
+
+.avatar-uploader {
+    display: inline-block;
+}
+
+.avatar-uploader .el-upload {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-uploader .el-icon-delete {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 10;
+}
+
+.avatar-uploader .el-upload--picture-card {
+    border: none;
+}
+
+.avatar-uploader .el-upload--picture-card .el-button.el-button--primary {
+    background: #00c700;
+    border-color: #00c700;
+}
+
+.avatar-uploader .el-upload:hover {
+    border-color: #00c700;
+}
+
+.avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+}
+
+.avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+}
+
+img.el-upload-list__item-thumbnail {
+    object-fit: cover;
+}
+
+.el-tabs__nav-wrap::after {
+    height: 1px;
+    background: #e5e5e5;
+}
+
+.el-tabs {
+    margin-left: 50px;
+}
+
+.el-tabs .el-tabs__item.is-active,
+.el-tabs .el-tabs__item:hover {
+    color: #00c700;
+}
+
+.el-tabs .el-tabs__active-bar {
+    background-color: #00c700;
+}
+
+.el-tabs__item {
+    font-size: 0.9rem;
+    color: #333;
+    height: 58px;
+    line-height: 58px;
+}
+
+.el-dialog .el-button--primary {
+    color: white;
+    background: #00c700;
+    border-color: #00c700;
+}
+
+.el-dialog .el-button.el-button--text {
+    color: #333;
+}
+
+.el-time-panel__btn.confirm {
+    color: #00c700;
+}
+
+.el-date-table td.current:not(.disabled) span {
+    background-color: #00c700;
+}
+
+.el-date-table td.today span {
+    color: #00c700;
+}
+
+.el-date-table td.available:hover {
+    color: #00c700;
+}
+
+#page-dashboard .container {
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.03);
+    margin-top: -58px;
+    background: white;
+    padding: 22px 0;
+    width: 580px;
+    margin-left: 30px;
+}
+
+#page-dashboard .container h2 {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin: 0 50px;
+}
+
+#page-dashboard .container .el-form {
+    width: 500px;
+    margin: 30px auto;
+}
+
+#page-agent .container {
+    width: 580px;
+    margin-left: 30px;
+    margin-top: 30px;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.03);
+    float: left;
+}
+
+#page-agent .container .el-select>.el-input {
+    width: 112px;
+    margin-right: 10px;
+}
+
+#page-agent .container .el-select .el-input__inner {
+    border-radius: 0;
+}
+
+#page-agent .container .el-input {
+    width: 350px;
+}
+
+#page-agent .container .el-input .el-input__inner {
+    background: #fafafa;
+}
+
+#page-agent .container .el-form-item {
+    margin-top: 20px;
+}
+
+#page-agent .container .el-textarea .el-textarea__inner {
+    width: 350px;
+    background: #fafafa;
+}
+
+#page-properties .container {
+    margin-left: 30px;
+    margin-top: 30px;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.03);
+    width: 1166px;
+}
+
+#page-properties .container h2 {
+    margin-left: 50px;
+    font-size: 1rem;
+    font-weight: 400;
+    display: inline-block;
+}
+
+#page-properties .container .btn-primary {
+    float: right;
+    margin: 15px 30px auto auto;
+    width: 120px;
+}
+
+/*#page-properties .container .property-table .property-detail-form .el-button {
+    border: 1px solid #00c700;
+    color: #00c700;
+}*/
+
+#page-properties .container .property-list .item:last-child table {
+    border-bottom: none;
+}
+
+#page-properties .container .el-date-editor.el-input,
+#page-properties .container .el-date-editor.el-input__inner {
+    width: 150px;
+}
+
+#page-billing .container {
+    margin-left: 30px;
+    margin-top: 30px;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.03);
+    width: 1126px;
+}
+
+#page-billing .container .credit-card-list .item h2 {
+    font-size: 1.1rem;
+}
+
+#page-billing .container .credit-card-list .item h3 {
+    font-size: 0.7rem;
+    color: #999;
+}
+
+#page-billing .container .credit-card-list .item h3 span {
+    color: #333;
+    margin-left: 1em;
+}
+
+#page-billing .container .hint {
+    color: #cbcbcb;
+    font-size: 0.7rem;
+}
+
+#page-billing .container .invoice-list .item {
+    margin-top: 20px;
+}
+
+#page-billing .container .invoice-list .item .invoice-action {
+    text-decoration: none;
+    color: #00c700;
+}
+
+#page-billing .payment-dialog .el-dialog__header {
+    background-image: url('../img/img_payment@2x.png');
+    background-position: right 35px center;
+    background-repeat: no-repeat;
+    background-size: 222px 25px;
+}
+
+#page-billing .payment-dialog .el-dialog__title {
+    font-weight: bold;
+}
+
+.banner-container {
+    float: left;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e5e5e5;
+    padding: 30px 20px;
+    margin-top: 30px;
+    margin-left: 20px;
+    max-width: 470px;
+}
+
+.banner-container img {
+    margin: 0 auto;
+    display: block;
+}
+
+.banner-container h2 {
+    font-size: 1rem;
+    color: #333;
+}
+
+.banner-container h3 {
+    font-size: 0.7rem;
+    color: #666;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.banner-container .demo {
+    float: left;
+    color: #00c700;
+    font-size: 0.8rem;
+    margin-top: 40px;
+}
+
+.banner-container button.charge {
+    border: none;
+    background: #00c700;
+    color: white;
+    font-size: 1rem;
+    float: right;
+    margin-top: 25px;
+    width: 130px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.banner-container button.charge span {
+    font-size: 0.7rem;
+}
+
+
+/*按钮样式的修改*/
+
+.banner-container button.charge {
+    border: none;
+    background: #00c700;
+    color: white;
+    font-size: 1rem;
+    float: right;
+    margin-top: 25px;
+    width: 130px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.banner-container button.charge span {
+    font-size: 0.7rem;
+}
+
+
+/*campaign块级元素的页面样式*/
+
+#page-campaigns .container {
+    width: 580px;
+    margin-left: 30px;
+    margin-top: 30px;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.03);
+    float: left;
+    height: 564px;
+}
+
+#uploadexplain {
+    font-size: 14px;
+    color: #606266;
+    line-height: 20px;
+    padding: 0 12px 0 0;
+}
+
+.vertical-nav .el-menu-item.menu-campaigns {
+    background-image: url('../img/email2.png');
+}
+
+.vertical-nav .el-menu-item.is-active.menu-campaigns {
+    background-image: url('../img/email.png');
+}
+
+
+/*添加房源*/
+
+.avatar-uploader-property .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-uploader-property .el-upload:hover {
+    border-color: #409EFF;
+}
+
+.avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+}
+
+.avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+}
+
+.mlsinput {
+    width: 50%;
+    float: left;
+    margin-right: 30px;
+}

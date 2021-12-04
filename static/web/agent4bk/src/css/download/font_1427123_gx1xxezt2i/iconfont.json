@@ -1,0 +1,30 @@
+{
+  "id": "1427123",
+  "name": "no name",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5289838",
+      "name": "zuo",
+      "font_class": "zuo",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "5338323",
+      "name": "zuo",
+      "font_class": "zuo5",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "10987740",
+      "name": "折线面积图",
+      "font_class": "zhexianmianjitu",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    }
+  ]
+}

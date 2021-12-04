@@ -1,0 +1,475 @@
+
+body{
+	
+	margin: 0px 0px 0px 0px;
+    font-family: "Microsoft YaHei" ! important;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	width: 100%;
+	
+}
+img{
+	border:none;
+}
+a{
+	text-decoration: none;
+}
+
+li{
+	list-style: none;
+	display: inline-block;
+	
+}
+ul{
+	margin: 0px;
+	padding: 0px;
+}
+#part2newhouselist{
+	display: none;
+}
+#part2fiveroomlist{
+	display: none;
+}
+#part2villaelist{
+	display: none;
+}
+#part2buylandlist{
+	display: none;
+}
+
+#houselist_container_box{
+    width: 1200px;
+    height: 1200px;
+    margin: auto;
+   
+}
+#container_left{
+	width: 95.5%;
+	display: inline-block;
+	float: left;
+	/* background-color:#f5f5f5;*/
+}
+#container_right{
+	width: 4.5%;
+	display: inline-block;
+	float: left;
+}
+#part1{
+	display: inline-block;
+	float: left;
+	width: 100%;
+
+    cursor: pointer;
+    position: relative;
+    background-color:white;
+ }
+.five{
+
+   float: left;
+   width: 1146px;
+   height: 426px;
+
+ }
+.five li{
+ 	float: left;
+ 	width:220px;
+}
+.five li img{
+	width: 100%;
+	height: 100%;
+    border-radius:3%;
+}
+.houseimg{
+
+	margin-right: 10px;
+}
+/*高亮*/
+.fiveup{
+	z-index: 9;
+	width: 1146px;
+	height: 426px;
+	position: absolute;
+}
+.up{
+	margin-right: 10px;
+	width: 220px;
+	height: 426px;
+    background-color: rgba(0,0,0,0.5);
+    border-radius:3%;
+    display: inline-block;
+    float: left;
+}
+
+/*condition*/
+.condi{
+	margin-top: 100px;
+	border: 1px solid #ddd;
+	padding-left: 10;
+	padding-right: 10;
+}
+
+.areas a{
+	padding-bottom: 15px;
+	z-index: 2;
+}
+.selarea{
+	background:url(http://127.0.0.1:8000/static/web/img/selectedArrow.gif)  center bottom no-repeat;
+}
+
+.thecity{
+	margin-top: -2;
+	padding: 10px;
+	border: 1px solid #ff7a22;
+	border-radius: 4px;
+	z-index: 1;
+	display: none;
+}
+.condi p{
+	font-size: 10pt;
+}
+
+.condi a{
+	font-size: 10pt;
+	padding-left: 5;
+	padding-right: 5;
+	word-wrap: break-word;
+}
+
+.seledcondi{
+	color: #de3438;
+	font-weight: 700;
+}
+
+
+#last_p{
+	margin:0!important;
+}
+.up img{
+	margin-top: 180px;
+	margin-left: 20px;
+	width: 160px;
+	height: 40px;
+	position: absolute;
+	z-index: 9999;
+	opacity:1;
+}
+.up:hover {
+	background-color: rgba(248,248,255,0.01);
+}
+#one img{
+	left:11px;
+}
+#two img{
+	left: 21%;
+}
+#three img{
+	left: 41.2%;
+}
+#fore img{
+	left: 61.2%;
+}
+#five{
+	margin-right: 0px!important;
+}
+#five img{
+	left: 81%;
+	
+}
+
+
+
+.list{
+    width: 810px;
+	display: inline-block;
+	float: left;
+    background-color:white;
+    margin-top: 10px;
+    
+}
+#map_clas{
+	float: right;
+	margin-top: 20;
+}
+.list h2{
+	float: left;
+	display: inline-block;
+	height: 40px;
+	line-height:40px;
+	letter-spacing: 2px;
+	color: #c9bc9c;
+
+}
+#s_map{
+	float: right;
+	display: inline-block;
+	margin:0px 38px 0px 0px;
+    background-color: #00c700;
+}
+
+.change{
+	display: inline-block;
+	float: left;
+	height: 50px;
+	width: 360px;
+    color: #9d9d9d;
+    text-align: center;
+}
+#citytype{
+	display: inline-block;
+	width: 160px;
+    height: 50px;
+    line-height: 50px;
+	color: #9d9d9d;
+	font-size: 16px;
+	text-align: center;
+	float: left;
+	margin-right: 20px;
+
+}
+select{
+	text-align: center;
+}
+#schooltype{
+	display: none;
+	float: left;
+	height: 50px;
+	width: 174px;
+    color: #9d9d9d;
+    text-align: center;
+    font-size: 16px;
+}
+.studentlist{
+	width: 830px;
+	margin:auto;
+	
+}
+.share_box{
+	float: left;
+	font-size: 10px;
+	padding: 0px 40px 0px 0px;
+	height: 278px;
+	width:365px;
+    display: inline-block;
+
+}
+
+#ldgif{
+	margin: auto;
+	width: 220px;
+	clear: both;
+}
+
+#ldgif img{
+	width: 100%;
+}
+
+
+.share_box p{
+	text-align: left;
+}
+.above{
+	position: relative;
+	width: 100%;
+	height:203px;
+	margin-top: 15px;
+	
+}
+.housepicture{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+	margin-top: 6px;
+}
+.housepicture img{
+	width: 100%;
+	height: 100%;
+}
+.price{
+	color: white;
+	margin:0;
+	position: absolute;
+	z-index:3;
+	top:67.3%;	
+	width: 206px;
+	height: 35px;
+	line-height: 35px;
+	background-color:rgba(0, 205 ,0,0.7);
+	font-size: 18px;
+	
+}
+.adddress{
+    color: white;
+	margin: 0;
+	position: absolute;
+	z-index:7;
+	width:100%;
+	height:38px;
+	line-height: 38px;
+	top: 84.5%;
+    background-color:rgba(105, 105 ,105,0.7);
+    font-size: 18px;
+}
+.adddress img{
+	width: 12px;
+	height: 14px;
+}
+.page_view{
+    color: black;
+	width: 100%;
+	margin: 10px 0px;
+}
+.page_view p{
+  	display: inline-block;
+
+}
+
+.date{
+	float: right;
+}
+#part3{
+	width:335px;
+	display: inline-block;
+	float:right;
+	background-color:white;
+	margin-top: 35px;
+}
+.card{
+	color: #c9bc9c;
+	width: 100%;
+	padding-bottom:20px;
+	border-bottom: solid 1px #efefef; 
+}
+#card_left{
+	font-size: 21px;
+	font-weight: bold;
+}
+#card_right{
+	font-size: 12px;
+	text-align: right;
+	color: black;
+}
+#s_nummber{
+	width: 335px;
+	font-size:36px;
+	color: #c9bc9c;
+	text-align: center;
+	padding:5px 0px;
+	border-bottom: solid 1px #efefef; 
+}
+.broker_title{
+	
+	width: 100%;
+	font-size:21px;
+	color: #c9bc9c;
+	font-weight: bold;
+	padding: 22px 0px 15px 0px;
+}
+.broker_title p{
+	display: inline-block;
+	float: left;
+	margin: 0px 40px 0px 0px;
+}
+
+.broker{
+	/*height: 180px;*/
+	width: 100%;
+	padding: 7px 0px;
+}
+.broker img{
+	width: 100%;
+	/*height: 100%;*/
+
+}
+.transform{
+	margin: 25px 20px 0px 0px;
+	float: right;
+}
+
+.pageclick{
+
+    margin:auto;
+}
+.pageclick ul{
+	margin-left: 150px;
+}
+
+
+.selpage{
+	background-color: #38f;
+	text-align: center;
+}
+
+.txt{
+	color: rgb(153, 153, 153);
+	margin-left: 10px;
+	font-size: 16px;
+	line-height: 27px;
+	display: inline-block;
+	float: left; 
+}
+
+#ipt{
+	font-size: 16px;
+	/*width: 35px;*/
+	height: 23px;
+	text-align: center;
+	border-width: 1px;
+	border-style: solid;
+    border-color: rgb(237, 237, 237);
+    border-image: initial;
+    color: 	rgb(153, 153, 153);
+    float: left;
+    margin-left: 5px;
+    margin-top: 1px;
+}
+
+#confirm{
+	cursor: pointer;
+	border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(237, 237, 237);
+    border-image: initial;
+	color: #5d5d5d;
+	text-align: center;
+	height: 25px;
+	line-height: 25px;
+	width: 45px;
+}
+
+.page{
+	border: 1px solid #efefef;
+	min-width: 20px;
+	height: 25px;
+	margin-right: 5px;
+	font-size: 16px;
+	color: #5d5d5d;
+	line-height: 25px;
+	text-align: center;
+	display: inline-block;
+	float: left;
+	cursor: pointer;
+}
+.bigpage{
+	border: 1px solid #efefef;
+	height: 25px;
+	margin-right: 5px;
+	font-size: 16px;
+	color: #5d5d5d;
+	line-height: 25px;
+	padding-left: 5px;
+	display: inline-block;
+	float: left;
+	cursor: pointer;
+}
+
+#ddd{
+	float: left;
+	margin-right: 5px;
+}
+
+
+
+

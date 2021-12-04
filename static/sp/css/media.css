@@ -1,0 +1,803 @@
+/* PC端 大屏幕*/
+
+@media screen and (min-width:768px) {
+  .page-scroll-mgrt {
+    width: 8%;
+    text-align: center;
+    font-size: 12px!important;
+  }
+  .page-scroll-mgrt a:hover {
+    background-color: #fff!important;
+  }
+  .navbar-mglft {
+    width: 95%;
+    margin-right: 0px;
+    float: left;
+  }
+  .page-scroll-mgrt a {
+    padding: 20px 48px;
+  }
+  .nav li a:hover {
+    background: #fff;
+  }
+  .navbar-collapse {
+    max-height: 90px!important;
+  }
+  .navbar-container {
+    max-height: 45px;
+  }
+  .xs-contact {
+    display: none;
+  }
+}
+
+@media (min-width:1280px) {
+  .page-scroll-mgrt {
+    font-size: 14px!important;
+  }
+  .nav li a {
+    padding-left: 10px;
+  }
+}
+
+@media (min-width:1400px) {
+  .page-left {
+    left: 8%;
+  }
+  .page-right {
+    right: 8%;
+  }
+  .page-scroll-mgrt {
+    font-size: 16px!important;
+  }
+  .real-view {
+    height: 900px;
+  }
+  .real-view .iframe-view {
+    width: 1199px;
+    height: 673px;
+  }
+}
+
+@media (min-width:1600px) {
+  .page-left {
+    left: 11%;
+  }
+  .page-right {
+    right: 11%;
+  }
+}
+
+@media (min-width:1800px) {
+  .page-left {
+    left: 15%;
+  }
+  .page-right {
+    right: 15%;
+  }
+  .page-scroll-mgrt {
+    font-size: 18px!important;
+  }
+}
+
+
+/*移动端*/
+
+@media (max-width: 767px) {
+  html {
+    font-size: calc(100vw/3.75);
+  }
+  .return-top {
+    position: fixed;
+    height: 0.27rem;
+    width: 0.27rem;
+    right: 0.1rem;
+    bottom: 0.1rem;
+    background: url('../img/totop.jpeg');
+    background-size: 100% 100%;
+  }
+  .scroll-bottom, .scroll-pic {
+    display: block!important;
+  }
+  .navbar {
+    min-height: 0.4rem;
+  }
+  .menu-container p {
+    font-weight: bold;
+    letter-spacing: 2PX
+  }
+  .main-wrap-width {
+    margin: 0.15rem auto;
+    border-bottom: 0.025rem solid #3d7fe0;
+  }
+  .pc-none {
+    display: inline-block!important;
+  }
+  .mb-none {
+    display: none;
+  }
+  .interval-div {
+    display: block;
+  }
+  .navbar-danger-g {
+    background: none;
+    border: 0px;
+  }
+  .navbar-header-g {
+    display: none;
+  }
+  .menu-center {
+    text-align: center;
+    font-size: 0.12rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .page-scroll-mgrt {
+    font-size: 0.18rem;
+  }
+  .navbar-collapse.in {
+    overflow-y: scroll;
+    z-index: 90;
+  }
+  .scroll-pic {
+    width: 100%;
+    margin-top: 0.2rem;
+    margin-bottom: 0.28rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    height: 0.25rem;
+  }
+  .scroll-pic img {
+    width: 100%;
+    height: 100%;
+  }
+  .scroll-bottom {
+    margin-top: 0.1rem;
+    text-align: center;
+  }
+  .scroll-bottom .bottom-webmainland {}
+  .scroll-bottom img {
+    height: 0.46rem;
+    width: 0.46rem;
+    margin: 0 auto;
+  }
+  .scroll-bottom h4 {
+    font-size: 0.15rem;
+    color: #bcbcbc;
+    margin-top: 0.15rem;
+    padding-bottom: 0.15rem;
+    border-bottom: 0.01rem solid #e8e8e8;
+  }
+  .scroll-bottom p {
+    font-size: 0.08rem;
+    color: #bcbcbc;
+    text-align: center;
+    letter-spacing: 0px;
+    margin-bottom: 0.1rem;
+  }
+  .navbar-ex1-collapse {
+    height: 6.27rem;
+    padding-right: 0;
+    padding-left: 0;
+    margin: 0 0 0 0!important;
+  }
+  .nav-logo-container img {
+    display: none;
+  }
+  .navbar-center-g {
+    width: 100%;
+    text-align: left;
+    z-index: 30;
+  }
+  .mb-btn-em {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 1);
+    margin: 0 5px 0 0;
+  }
+  .second-navbar .menu-container, .second-navbar ul {
+    height: auto;
+  }
+  .second-navbar ul {
+    background: rgba(51, 59, 72, 0.8);
+    width: 2.65rem;
+    margin-top: 0;
+    border: 0;
+    height: 7rem;
+    padding-top: 0;
+    margin-bottom: 0;
+    overflow: scroll;
+  }
+  .navbar-ex1-collapse, .page-scroll-mgrt {
+    color: #fff;
+    background: transparent;
+    border: 0px;
+  }
+  .navbar-ex1-collapse .page-scroll-mgrt {
+    padding: 0 0;
+    margin: 0.15rem auto;
+    text-align: center;
+  }
+  .navbar-ex1-collapse .page-scroll-mgrt a {
+    padding: 0 0 0 0;
+    line-height: 0.18rem;
+  }
+  .menu-container .pc-none {
+    display: block;
+  }
+  .menu-container .dropdown {
+    display: none;
+  }
+  .menu-container {
+    color: #fff;
+    background: #333b48;
+    height: 0.4rem;
+    padding-top: 0px!important;
+  }
+  .navbar-mglft {
+    margin-left: 0px;
+  }
+  .navbar-collapse-g {
+    width: 2.65rem;
+  }
+  .menu-container .navbar-toggle {
+    float: right;
+    text-align: left;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-size: 0.15rem;
+    display: inline-block;
+    padding-top: 0.14rem;
+    padding-bottom: 0.14rem;
+    height: 100%;
+    border: 0px;
+    line-height: 0.15rem;
+  }
+  .menu-container button, .menu-container .menu-left {
+    letter-spacing: 0;
+    font-weight: bolder;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 0.04rem;
+  }
+  .menu-container button img {
+    height: 0.15rem;
+    width: 0.23rem;
+  }
+  .menu-container .menu-left a {
+    color: #fff;
+  }
+  .menu-container .menu-left img {
+    height: 0.12rem;
+    padding-left: 0.04rem;
+  }
+  .menu-container .menu-left {
+    padding-right: 0.1rem;
+    width: 40%;
+    text-align: right;
+    font-size: 0.1rem;
+  }
+  .menu-container button {
+    text-align: right;
+    padding-top: 0.125rem!important;
+    padding-left: 0.1rem!important;
+    padding-bottom: 0.125rem!important;
+    width: 20%;
+  }
+  .menu-container .menu-center {
+    text-align: right;
+    width: 40%;
+  }
+  .with-bg-2 {
+    height: 2.9rem;
+  }
+  .with-bg-3 {
+    position: absolute;
+    left: 0;
+    top: 0.73rem;
+    bottom: 0.33rem;
+    right: 0;
+    margin: auto;
+    height: 1.9rem;
+    width: 80%;
+  }
+  .text-txt {
+    font-size: 0.13rem;
+    line-height: 0.2rem;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+  }
+  .with-bg-3 h3 {
+    padding-top: 0.59rem;
+    font-size: 0.15rem;
+    letter-spacing: 0px;
+    padding-bottom: 0.1rem;
+  }
+  .with-bg-3 p {
+    font-size: 0.15rem;
+    padding: 0.05rem 0;
+    margin-bottom: 0px;
+  }
+  .with-bg-3 span {
+    display: block;
+    font-size: 0.15rem;
+    padding: 0.05rem 0;
+  }
+  /*house descrption*/
+  .house-desc .main-wrap {
+    padding-top: 0.45rem;
+  }
+  .main-two-mgtop {
+    margin-top: 0.45rem;
+  }
+  .data-text-pdtop, .main-wrap-pdtop h3 {
+    font-size: 0.15rem;
+  }
+  .main-wrap-pdtop h3 {
+    margin-bottom: 0.2rem;
+  }
+  .data-wrap .data-text-pdtop {
+    padding-top: 0.05rem;
+  }
+  .main-pic, .house-wrap {
+    text-align: center;
+  }
+  .detail-mid {
+    border: 0px;
+  }
+  .detail-list .col-md-4 {
+    padding-top: 0rem;
+    line-height: 0.13rem;
+    margin-bottom: 0.1rem;
+  }
+  .detail-list div {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+  }
+  .detail-list span {
+    display: inline-block;
+    width: 20%;
+    text-align: left;
+    font-size: 0.13rem;
+    margin: 0px 0px;
+  }
+  .detail-list p {
+    display: inline-block;
+    width: 78%;
+    text-align: right;
+    margin-right: 0.1rem;
+    font-size: 0.13rem;
+    white-space: normal;
+  }
+  /*开放日*/
+  .public-open-days {
+    height: 5.585rem;
+    background-position: center!important;
+    background-size: 200% 100%!important;
+  }
+  .eye-container {
+    left: 0.1rem;
+    bottom: 0.1rem;
+    position: absolute;
+    color: #fff;
+  }
+  .eye-container img {
+    height: 0.11rem;
+    width: 0.15rem;
+    padding-right: 0.03rem;
+  }
+  .eye-container span {
+    font-size: 0.15rem;
+  }
+  .data-wrap {
+    width: 80%;
+    left: 10%;
+  }
+  .data-box p, .data-box span {
+    font-size: 0.14rem;
+    line-height: 0.2rem;
+  }
+  .data-box li {
+    margin-top: 5px;
+  }
+  .public-open-days h3 {
+    margin-bottom: 0;
+  }
+  #opendays .data-text-pdtop {
+    padding: 0.45rem 0 0 0;
+  }
+  #opendays .data-box {
+    margin-top: 0px;
+  }
+  #opendays .data-box li {
+    margin: 10px auto;
+    font-size: 0.14rem;
+  }
+  #opendays .data-wrap h3 {
+    font-size: 0.15rem;
+    font-weight: normal;
+  }
+  /*房源照片*/
+  #picture .text-center {
+    padding-top: 0.45rem;
+    padding-bottom: 0.05rem;
+    margin-bottom: 0;
+  }
+  #picture .container {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+  }
+  .list-group-pic .col-md-4, .list-group-pic .col-sm-6, .list-group-pic .col-xs-6 {
+    height: 1rem;
+    padding: 1px 1px 1px 1px;
+  }
+  .type-words {
+    padding-top: 20%;
+  }
+  .list-group-pic {
+    width: 90%;
+    margin-bottom: 0.45rem;
+    margin-left: 5%;
+  }
+  .mb-none {
+    display: none;
+  }
+  .house-type {
+    height: 2.47rem;
+    margin-bottom: 0px;
+    position: relative;
+  }
+  .house-type-title {
+    height: 0.675rem;
+    padding-top: 0.175rem;
+  }
+  .page-left {
+    left: 0.1rem;
+  }
+  .page-right {
+    right: 0.1rem;
+  }
+  .type-pagination .page-mid {
+    font-size: 0.14rem;
+    padding: 0 0.05rem;
+  }
+  .page-right, .page-left {
+    font-size: 0.4rem;
+    position: absolute;
+    top: 1.15rem;
+  }
+  .house-type-pic-container {
+    width: 1.91rem;
+    top: 0.68rem;
+    height: 1.475rem;
+    padding-right: 0;
+  }
+  .house-type-pic-container .type-pic {
+    width: 100%;
+    height: 100%;
+    padding: 0.05rem 0.05rem 0.05rem 0.05rem;
+  }
+  .type-pic img {
+    height: 100%;
+  }
+  .type-pagination {
+    top: 2.14rem;
+  }
+  .type-pagination li, .pagination-ul li {
+    display: inline-block;
+    color: #c9c9c9;
+    font-weight: bolder;
+  }
+  .type-pagination .page-right {
+    padding-left: 0;
+  }
+  .type-pagination .page-left {
+    padding-right: 0;
+  }
+  .list-pic-width {
+    width: 100%;
+    margin-bottom: 0.05rem;
+  }
+  .list-house-width {
+    width: 100%;
+    margin: 0;
+  }
+  .player-video-wrapper {
+    height: 1.995rem;
+    border: 0;
+  }
+  .video-type {
+    height: 3.5rem;
+  }
+  .video-type .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .video-wrap {
+    margin-top: 0px;
+    height: 1.995rem;
+  }
+  .video-wrap .text-center {
+    padding-bottom: 0.05rem;
+    padding-top: 0.45rem;
+    margin-bottom: 0;
+  }
+  .real-view {
+    height: 2.5rem;
+  }
+  .real-view-title {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .real-view .iframe-view {
+    top: 0.675rem;
+    margin-bottom: 0;
+    height: 1.775rem;
+    width: 100%;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+  }
+  .real-view .main-wrap-width-white {
+    margin: 0.075rem auto;
+  }
+  .real-view .text-center {
+    padding-top: 0.175rem;
+    padding-bottom: 0.2rem;
+  }
+  /*map*/
+  .map-type {
+    height: 3.24rem;
+  }
+  .map-type-title {
+    height: 0.99rem;
+    width: 100%;
+    top: 0;
+  }
+  .map-type-title .text-center {
+    padding-top: 0.45rem;
+  }
+  #map-detail {
+    height: 2.19rem;
+    width: 100%;
+  }
+  .xs-contact {
+    background: #edf0ef;
+  }
+  .xs-contact .container {
+    padding-left: 0;
+    padding-right: 0;
+    width: 90%;
+  }
+  .xs-contact .main-wrap-pdtop {
+    color: #fff;
+  }
+  .navbar-bg-toggle .icon-bar {
+    background: #a6a9bb;
+  }
+  .navbar-display-none {
+    display: none;
+  }
+  .navbar-txt-mglf {
+    margin-left: 10px;
+  }
+  .navbar-display {
+    display: block;
+  }
+  .map-type {
+    padding-bottom: 0px;
+  }
+  .xs-contact .contact-width input {
+    background: #edf0ef;
+  }
+  .xs-contact .contact-title {
+    height: 0.675rem;
+  }
+  .xs-contact {
+    font-size: 0.14rem;
+  }
+  .xs-contact .oversea, .xs-contact .form-wrap {
+    background: #edf0ef;
+  }
+  .xs-contact .text-center {
+    text-align: center;
+    font-size: 0.14rem;
+  }
+  .xs-contact .contact-border {
+    width: 60%;
+    padding-top: 0.1rem;
+    margin: 0px auto;
+  }
+  .xs-contact .cn-contact {
+    margin-top: 0.1rem;
+    background: #edf0ef;
+    height: 5.65rem;
+    border-bottom: 0.125rem solid #fff;
+  }
+  .xs-contact .contact-page h6 {
+    color: #425362;
+  }
+  .xs-contact .caption {
+    margin: 0px auto;
+  }
+  .xs-contact .caption, .xs-contact h3 {
+    color: #000;
+  }
+  .contact-border span {}
+  .xs-contact .form-group {
+    margin: 0px auto;
+    margin-bottom: 0.09rem;
+    width: 80%;
+  }
+  .contact-border p {
+    font-size: 0.1rem;
+    text-align: right;
+    float: right;
+  }
+  .cn-contact .content-title {
+    font-size: 0.1rem;
+    margin-top: 0.08rem;
+    color: #80919e;
+  }
+  .contact-address a {
+    color: #898989;
+  }
+  .content-weixin img {
+    width: 1.2rem;
+    margin-top: 0.175rem;
+  }
+  .cn-contact .thumbnail {
+    width: 50%;
+    margin: 0px auto;
+  }
+  .oversea .caption {
+    margin-bottom: 0.185rem;
+  }
+  .oversea a {
+    margin-top: 0.3rem;
+  }
+  .oversea .form-btn {
+    margin: 0px auto;
+    width: 40%;
+  }
+  .xs-contact .form-wrap {
+    height: 2.8rem;
+    border-bottom: 0.525rem solid #fff;
+  }
+  .form-wrap input {
+    height: 0.25rem;
+  }
+  .cn-contact .contact-page {
+    width: 100%;
+    margin: 0px auto;
+  }
+  .xs-contact .btn {
+    width: 100%;
+    border: 0px;
+    margin: 0px auto;
+    background: #808386;
+    height: 0.29rem;
+    border-radius: 2px;
+    font-size: 0.13rem;
+  }
+  .xs-contact .form-btn {
+    width: 20%;
+    margin: 0px auto;
+    height: 0.27rem;
+  }
+  .xs-contact .thumbnail {
+    margin: 0px auto;
+    margin-top: 0.2rem;
+    background: none;
+    height: 1.8rem;
+    background: rgba(255, 255, 255, 0);
+    border: 0;
+  }
+  .xs-contact .thumbnail img {
+    height: 100%;
+  }
+  .md-contact {
+    display: none;
+  }
+  .footer-top {
+    height: 1.9rem;
+  }
+  .footer-top .row {
+    display: none;
+  }
+  .footer-realtor span {
+    display: block;
+    font-size: 0.1rem;
+    margin-bottom: 0.02rem;
+  }
+  .footer-bg .row {
+    margin: 0 0 0 0;
+  }
+  .footer-realtor {
+    border-bottom: 0px;
+  }
+  .footer-realtor h4 {
+    font-size: 0.15rem;
+    padding-top: 0.8rem;
+  }
+  .footer-logo {
+    height: 1.2rem;
+    font-size: 0.08rem;
+  }
+  .footer-realtor img {
+    width: 1rem;
+    height: 1rem;
+  }
+  .footer-text {
+    font-size: 0.08rem;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 0.15rem;
+  }
+  .footer-logo img {
+    margin-top: 0.175rem;
+    margin-bottom: 0.1rem;
+    height: 0.3rem;
+  }
+  .footer-bottom {
+    height: 0.6rem;
+  }
+  .footer-bottom img {
+    height: 0.22rem;
+    margin-top: 0.19rem;
+  }
+  .webmainland img {
+    width: 0.3rem;
+  }
+  .ubertor img {
+    width: 0.6rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1180px) {
+  html {
+    font-size: calc(100vw/10);
+  }
+  .page-scroll-mgrt {
+    font-size: 0.08rem;
+  }
+  .page-scroll-mgrt {
+    width: 7.5%;
+    text-align: center;
+    font-size: 0.08rem;
+  }
+  .navbar-nav>li>a {
+    padding-left: 0.05rem;
+    padding-right: 0.05rem;
+  }
+  .navbar-mglft {
+    margin: 0px auto;
+    float: left;
+  }
+  .page-scroll-mgrt {
+    margin-right: 0;
+  }
+  .navbar-mglft {
+    margin-left: 0;
+  }
+  .house-type-pic-container {
+    width: 700px;
+  }
+  .xs-contact {
+    display: none;
+  }
+  .navbar-display {
+    display: none;
+  }
+}
+
+@media (max-width:1280px) and( min-width:768px) {
+  .page-left {
+    left: 3%;
+  }
+  .page-right {
+    right: 3%;
+  }
+}

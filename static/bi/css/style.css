@@ -1,0 +1,581 @@
+/*****************头部banner********************/
+.banner{
+	width:100%;
+	height:495px;
+	background:url(../images/bannerBg.jpg) no-repeat 0 0;
+	background-size:cover;
+	padding-top:120px;
+}
+.banner img{
+	display:block;
+	margin:0 auto;
+}
+.banner p{
+	width:800px;
+	font-size:14px;
+	color:#fff;
+	line-height:24px;
+	margin:0 auto;
+	text-align:center;
+}
+/*****************产品体系********************/
+.product{
+	height:614px;
+}
+.proText{
+	width:570px;
+	margin:130px 0 0 17px;
+}
+.tab{
+	margin-top:60px;
+	margin-bottom:36px;
+}
+.tab li{
+	display:block;
+	float:left;
+	margin-right:45px;
+}
+.tab a{
+	display:block;
+	font-size:16px;
+	color:#4a4a4a;
+	line-height:30px;
+}
+.tab a:hover{
+	color:#454fa0;
+}
+.current a{
+	color:#454fa0;
+}
+.line{
+	display:block;
+	width:17px;
+	max-width:96px;
+	height:4px;
+	background:#fff;
+}
+.current .line{
+	background:#454fa0;
+}
+.proText .item{
+	display:none;
+	width:566px;
+	overflow:hidden;
+	background:url(../images/textLine.png) no-repeat 19px 0;
+}
+.proText .show{
+	display:block;
+}
+.item .text{
+	width:510px;
+	overflow:hidden;
+	margin-top:34px;
+	background:#f4f4f4;
+	padding-left:20px;
+}
+.text h6{
+	font-size:16px;
+	color:#666;
+	line-height:60px;
+	font-weight:bold;
+}
+.text p{
+	font-size:12px;
+	color:#666;
+	line-height:28px;
+	padding-bottom:20px;
+	padding-right:20px;
+}
+.proImg{
+	width:590px;
+	height:614px;
+	display:table;
+}
+.proImg div{
+	display:none;
+}
+.proImg .show{
+	display:block;
+}
+.imgItem{
+	width:590px;
+	height:614px;
+	display:table-cell;
+	vertical-align:middle;
+}
+.imgItem img{
+	width:auto;
+	text-align:center;
+	max-width:570px;
+	float:right;
+}
+/*****************公司简介及运营服务********************/
+.about{
+	overflow:hidden;
+	margin-top:-220px;
+}
+.bgImg{
+	display:block;
+	width:100%;
+	height:620px;
+	background:url(../images/yunyingBg.jpg) no-repeat 0 0;
+	background-size:cover;
+	position:relative;
+	z-index:-1;
+}
+.bgImg img{
+	display:block;
+	position:absolute;
+	left:50%;
+	bottom:0;
+	margin-left:-220px;
+}
+.business{
+	width:1140px;
+	height:472px;
+	background:url(../images/ikingcityBg.png) no-repeat 0 0;
+	background-size:cover;
+	padding:150px 0 0 50px;
+}
+.asideNav{
+	width:300px;
+}
+.tabs{
+	margin-top:24px;
+	font-size:20px;
+}
+.tabs li{
+	line-height:30px;
+}
+.tabs .current{
+	line-height:56px;
+	margin:20px 0;
+}
+.tabs .current .line{
+	display:block;
+}
+.tabs a:hover{
+	color:#454fa0;
+}
+.tabsWrap{
+	width:715px;
+	padding:65px 0 0 65px;
+}
+.tabsItem{
+	display:none;
+	width:715px;
+	overflow:hidden;
+}
+.tabsItem.show{
+	display:block;
+}
+.tabsItem h6{
+	font-size:20px;
+	color:#454fa0;
+	padding:0 0 30px 140px;
+}
+.tabsCon{
+	width:715px;
+	height:270px;
+	overflow:hidden;
+	background:url(../images/textLine.png) no-repeat 140px 0;
+}
+.tabsText{
+	width:643px;
+	margin-top:47px;
+}
+.tabsText img{
+	display:block;
+	float:left;
+	width:343px;
+}
+.second img{
+	width:auto;
+	margin:0 41px;
+}
+.tabsText p{
+	float:left;
+	width:260px;
+	padding:0 20px;
+	font-size:14px;
+	line-height:24px;
+	color:#666;
+}
+.aboutWrap{
+	padding-bottom:35px;
+	background:#f4f4f4;
+}
+.aboutUs{
+	width:1080px;
+	padding-top:80px;
+	margin:0 auto;
+}
+.aboutUs .title{
+	display:block;
+	margin:0 auto 24px;
+}
+.aboutUs p{
+	width:890px;
+	font-size:14px;
+	color:#1a1a1a;
+	line-height:30px;
+	margin:0 auto;
+	text-indent:2em;
+}
+.aboutImg{
+	width:1080px;
+	margin:57px auto 0;
+	overflow:hidden;
+}
+.aboutImg img{
+	display:block;
+	float:left;
+	margin-right:20px;
+}
+.aboutImg .last{
+	margin-right:0;
+}
+
+/*****************footer部分********************/
+.footer{
+	background:#fff;
+}
+.web_map{
+	height:185px;
+}
+.map{
+	margin-top:32px;
+}
+.list{
+	overflow:hidden;
+}
+.list h4{
+	font-size:16px;
+	line-height:16px;
+	font-weight: bold;
+	color:#666;
+	margin-bottom:16px;
+}
+.list a{
+	line-height:24px;
+	font-size:12px;
+	color:#999;
+}
+.list01{
+	margin-right:74px;
+}
+.list02{
+	margin-right:96px;
+}
+.logo{
+	margin-top:33px;
+}
+.logo img{
+	margin-bottom:22px;
+}
+.logo p{
+	font-size:12px;
+	color:#999;
+	line-height:26px;
+	text-align:center;
+}
+.copy{
+	height:40px;
+	border-top:1px solid #f4f4f4;
+	border-bottom:1px solid #f4f4f4;
+	position:relative;
+}
+.copy p{
+	display:block;
+	float:left;
+	line-height:40px;
+	color:#999;
+	font-size:12px;
+	margin-right:13px;
+}
+.copy .email{
+	margin-right:0;
+}
+.copy .fr{
+	float:right;
+}
+.ewm{
+	position:relative;
+	z-index:3;
+}
+.ewmIcon{
+	position:absolute;
+	left:50%;
+	bottom:50px;
+	padding:9px;
+	border-radius:3px;
+	border:1px solid #ddd;
+	margin-left:-70px;
+	background:#fff;
+	display:none;
+}
+.ewmIcon em,.ewmIcon i{
+	font-style:normal;
+	font-size:30px;
+	width:20px;
+	height:20px;
+	color:#ddd;
+	position:absolute;
+	left:50%;
+	bottom:0px;
+	bottom:-2px\9;
+	+bottom:1px;
+	margin-left:-10px;
+}
+.ewmIcon i{
+	color:#fff;
+	bottom:1px;
+	bottom:-1px\9;
+	+bottom:2px;
+}
+.ewmIcon img{
+	display:block;
+}
+.shareIcon{
+	width:120px;
+	margin-left:90px;
+}
+.shareIcon li{
+	width:23px;
+	height:24px;
+	padding:8px 0;
+	float:left;
+	margin-right:16px;
+}
+.shareIcon li a{
+	display:block;
+	width:23px;
+	height:23px;
+	text-indent:-999em;
+	overflow:hidden;
+	background:url(../images/icons.png) no-repeat 0 0;
+}
+.shareIcon li a:hover{
+	background-image:url(../images/iconsHover.png);
+}
+.shareIcon li.second a{
+	background-position:-28px 0;
+}
+.shareIcon li.last{
+	margin-right:0;
+}
+.shareIcon li.last a{
+	background-position:-56px 0;
+}
+/*****************footer部分********************/
+
+/*****************移动端适配代码********************/
+@media screen and ( max-width:1024px ){
+	.w1190{
+		width:90%;
+	}
+	.banner{
+		height:300px;
+		padding-top:30px;
+	}
+	.banner img{
+		width:90%;
+	}
+	.banner p{
+		width:90%;
+		margin:20px auto;
+	}
+	.product{
+		height:auto;
+	}
+	.proImg div{
+		margin:10px auto;
+	}
+	.proText{
+		width:100%;
+		margin:0 auto;
+	}
+	.proText .title{
+		display:block;
+		margin:25px auto;
+		width:auto;
+		max-width:240px;
+	}
+	.tab{
+		margin:20px 0;
+	}
+	.proText .item{
+		width:100%;
+		background:none;
+	}
+	.item .text{
+		width:90%;
+		margin:0 auto;
+		padding:10px;
+	}
+	.text h6{
+		line-height:40px;
+	}
+	.text p{
+		padding-right:0;
+		padding-bottom:0;
+	}
+	.proImg{
+		width:90%;
+		height:auto;
+		float:none;
+		margin:0 auto;
+		text-align:center;
+	}
+	.imgItem{
+		width:90%;
+		height:auto;
+	}
+	.imgItem img{
+		width:100%;
+		float:none;
+		margin:0 auto;
+	}
+
+	.bgImg{
+		height:300px;
+		background-size:cover;
+	}
+	.bgImg img{
+		width:40%;
+		max-width:260px;
+		margin-left:-10%;
+	}
+	.business{
+		width:100%;
+		height:auto;
+		top:150px;
+		left:0;
+		margin-left:0;
+		padding:42px 0 20px 0;
+		background:url(../images/ikingcityBg01.png) no-repeat center 0;
+		background-size:300px 44px;
+	}
+	.asideNav{
+		float:none;
+		width:100%;
+		background:#fff;
+	}
+	.tabs {
+		overflow:hidden;
+		margin-top:10px;
+		padding:0 5%;
+	}
+	.tab li{
+		width:50%;
+		margin-right:0;
+	}
+	.tab li:nth-child(even){
+		float:right;
+	}
+	.tabs li{
+		width:50%;
+		font-size:14px;
+		line-height:30px;
+		float:left;
+		margin:0;
+	}
+	.tabs li:nth-child(even){
+		float:right;
+	}
+	.tabs .current{
+		line-height:30px;
+		margin:0;
+	}
+	.tabsWrap{
+		width:100%;
+		padding:10px 0 0;
+		float:none;
+		background:#fff;
+	}
+	.asideNav .title{
+		display:block;
+		margin:0 auto;
+		width:200px;
+		padding:25px 0 15px;
+	}
+	.tabsItem{
+		width:100%;
+	}
+	.tabsItem h6{
+		width:100%;
+		padding:0;
+		text-align:center;
+	}
+	.tabsText p{
+		width:90%;
+		padding:0;
+		margin:0 auto 20px;
+		float:none;
+		text-indent:2em;
+	}
+	.tabsCon{
+		width:100%;
+		height:auto;
+		background:none;
+	}
+	.tabsText{
+		width:100%;
+		overflow:hidden;
+		margin-top:0;
+	}
+	.tabsText img{
+		width:100%;
+		float:none;
+		max-width:300px;
+		margin:10px auto;
+	}
+	.aboutWrap{
+		padding-bottom:10px;
+	}
+	.aboutUs{
+		width:96%;
+		padding-top:0;
+	}
+	.aboutUs .title{
+		margin:10px auto 20px;
+	}
+	.aboutUs p{
+		width:100%;
+	}
+	.aboutImg{
+		display:none;
+	}
+	.second img{
+		margin:0 auto;
+	}
+	.about{
+		margin-top:-80px;
+	}
+
+
+	.map,.shareIcon{
+		display:none;
+	}
+	.web_map{
+		height:auto;
+	}
+	.logo{
+		width:190px;
+		margin:10px auto;
+		float:none;
+	}
+	.logo img{
+		margin-top:10px;
+		margin-bottom:0;
+	}
+	.copy{
+		height:auto;
+	}
+	.copy p,.copy .fr{
+		float:none;
+		text-align:center;
+		line-height:30px;
+		margin-right:0;
+	}
+}

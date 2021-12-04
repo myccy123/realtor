@@ -1,0 +1,14 @@
+.text_discriprt{
+    padding:5px 30px;
+    font-size: 16px;
+    text-align: left;
+    color: #4E7E9A;
+}
+.text_discriprt_height{
+    height:100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.s,.none{
+    display:none;
+}

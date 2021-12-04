@@ -1,0 +1,137 @@
+
+body{
+	
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	width: 100%;
+}
+
+
+img{
+	border:none;
+}
+
+li{
+    list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+#container{
+	width: 1200px;
+	margin: auto;
+}
+.container_left{
+    width: 95.5%;
+	display: inline-block;
+	float: left;
+}
+#container_right{
+    width: 4.5%;
+	display: inline-block;
+	
+	float: left;
+
+}
+#APPpicture{
+	display: inline-block;
+	float: left;
+	width:1144px;
+
+}
+.ping{
+	float: left;
+	width: 100%;
+    height: 500px;
+    
+
+}
+.ping h1{
+
+}
+.back{
+	background-color: #fafafa;
+}
+.ping p{
+	color: #5d5d5d;
+}
+#ping_o_l{
+	display: inline-block;
+	float: left;
+	width: 400px;
+	height:400px;
+	margin: 100px 0px 0px 100px;
+
+}
+#a_i {  
+	float: left;
+}
+#ewm{
+	width: 110px;
+	height: 110px;
+	padding: 5px;
+	border: 1px #5d5d5d dashed;
+	margin-left: 20px;
+    margin-top: 20px;
+	float: left: ;;
+
+}
+#ping_o_r{
+	display: inline-block;
+	float: left;
+	width: 500px;
+	height: 400px;
+	margin-top: 70px;
+	margin-left:50px;
+
+}
+#ping_t_l{
+	float: left;
+    margin: 50px;
+
+}
+#ping_t_r{
+	margin-top: 170px;
+}
+#ping_r_l{
+	width: 500px;
+	height: 400px;
+	float: left;
+    margin-left: 100px;
+    margin-top: 170px;
+} 
+#ping_r_r{
+	float: left;
+	margin-top: 50px;
+	margin-left: 20px;
+}
+#ping_f_l{
+
+	height: 400px;
+	float: left;
+    margin-left: 100px;
+    margin-top: 170px;
+}
+#ping_f_r{
+	float: left;
+	margin-top: 50px;
+	margin-left: 20px;
+}
+#ping_u_l{
+	float: left;
+	margin-top: 50px;
+	margin-left: 20px;
+		
+}
+#ping_u_r{
+	height: 400px;
+	float: left;
+    margin-left: 100px;
+    margin-top: 170px;
+}

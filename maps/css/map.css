@@ -1,0 +1,180 @@
+html,
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+button {
+	border: none;
+	background-color: transparent;
+	background: transparent;
+}
+input {
+	border: solid 1px #CCCCCC;
+	border-radius: 5px;
+	padding: 7px 14px;
+	margin-bottom: 10px
+}
+input:focus {
+	outline: none;
+	border-color: #aaa;
+}
+img {
+	margin-left: 0px;
+}
+li {
+	margin-left: 0px;
+	list-style-type: none;
+}
+a {
+	target: '_blank';
+	color: #0000FF;
+}
+.parent {
+	height: 100%;
+	display: flex;
+	// flex-direction: row;
+}
+.container {
+	position: relative;
+	height: 100%;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	overflow: hidden;
+	flex: 1;
+	display: flex;
+}
+.houses {
+	height: 100%;
+	background: white;
+	width: 450px;
+	margin-left: 0px;
+	padding-left: 0px;
+}
+
+.listview {
+	overflow: scroll;
+	height: 100%;
+	padding-left: 0px;
+	margin-left: 0px;
+}
+
+.list-group {
+	height: 100%;
+	padding-left: 0px;
+	margin-left: 0px;
+}
+
+
+/*列表房源item样式*/
+
+.item_img {
+	margin-left: 10px;
+	width: 120px;
+	height: 85px;
+	padding: 0px;
+	margin-right: 10px;
+	float: left;
+}
+
+.square {
+	color: #595959;
+	font-size: 14px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+
+.village {
+	color: #595959;
+	font-size: 14px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.price {
+	color: #EA7865;
+	float: right;
+	font-size: 16px;
+	margin-top: 30xp;
+	margin-right: 10px;
+}
+.listingname {
+	font-size: 15px;
+	color: blue;
+	padding: 0px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.text-center {
+	font: "微软雅黑";
+	padding: 10px;
+	font-size: 16px;
+}
+.right {
+	width: 100%;
+	display: flex;
+}
+.map {
+	flex: 1;
+}
+.top {
+	width:100%;
+	height: 56px;
+	position:relative;
+}
+
+.btn-group {
+	float: left;
+}
+
+.btn {
+	outline: none!important;
+	margin: 0px;
+	border-radius: 0px;
+	border: 1px solid #B2B2B2;
+	border-right: none;
+	color: #595959;
+	font-size: 16px;
+	cursor: pointer;
+	float: left;
+	width: 126px;
+	height: 56px;
+}
+
+.btnn {
+	outline: none!important;
+	outline: none;
+	margin: 0px;
+	border-radius: 0px;
+	border: 1px solid #B2B2B2;
+	border-right: 1px solid #B2B2B2;
+	color: #595959;
+	font-size: 16px;
+	cursor: pointer;
+	float: left;
+	width: 126px;
+	height: 56px;
+}
+
+.process{
+	width: 300px;
+	height: 50px;
+	background-color:#000000;
+	position:absolute;
+	left: 40%;
+	text-align: center;
+	top: 60px;
+	border-radius: 5px;
+	display: inline-block;
+	z-index:1;
+	opacity:0.7; -moz-opacity:0.7; filter:alpha(opacity=70);
+}
+.content{
+	flex:1;
+	display:flex;
+	flex-direction:column;
+}

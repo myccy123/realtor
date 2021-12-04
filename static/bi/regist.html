@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv=Content-Type content=“text/html;charset=utf-8″>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>用户注册</title>
+    {% load staticfiles %}
+    <link href="{% static 'bi/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/qingcheng.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/common.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/visio.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'bi/images/favicon.ico' %}">
+    <!--[if lt IE 9]>
+    <script src="{% static 'bi/js/html5shiv.min.js' %}"></script>
+    <script src="{% static 'bi/js/respond.min.js' %}"></script>
+    <script src="{% static 'bi/js/CRYPT.js' %}"></script>
+    <![endif]-->
+</head>
+<body id="regist" style="overflow: hidden">
+    <div id="navbox">
+
+    </div>
+
+    <section>
+        <div id="registBack">
+            <div class="container" id="regist_content">
+                <p class="reg_user">
+                    <img src="http://www.realtoraccess.com/static/bi/images/logo_big.png" alt="logo"/>
+                </p>
+
+                <form  class="form-horizontal" id="regist_form">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-2 col-xs-2 padding_zero" style="text-align: right"><label class="control-label" for="name2">用户名</label></div>
+                        <div class="col-sm-4 col-xs-8 "><input class="form-control" placeholder="用户名/手机号" id="name2" type="text" name="user"/></div>
+                        <div class="col-sm-2 col-xs-2 padding_zero"><span class="help-block" id="regist_user">必填*</span></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-2 col-xs-2 padding_zero" style="text-align: right"><label class="control-label" for="pwd1">密码</label></div>
+                        <div class="col-sm-4 col-xs-8 "><input class="form-control" placeholder="设置密码" id="pwd1" type="password" name="psw"/></div>
+                        <div class="col-sm-2 col-xs-2 padding_zero"><span class="help-block" id="regist_psw">必填*</span></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-2 col-xs-2 padding_zero" style="text-align: right"><label class="control-label" for="pwd2">确认密码</label></div>
+                        <div class="col-sm-4 col-xs-8 "><input class="form-control" placeholder="确认密码" id="pwd2" type="password" name="repsw"/></div>
+                        <div class="col-sm-2 col-xs-2 padding_zero"><span class="help-block" id="regist_rpsw">必填*</span></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-2 col-xs-2 padding_zero" style="text-align: right"><label class="control-label" for="email">邮箱</label></div>
+                        <div class="col-sm-4 col-xs-8 "><input class="form-control" placeholder="输入邮箱" id="email" type="email" name="email"/></div>
+                        <div class="col-sm-2 col-xs-2 padding_zero"><span class="help-block" id="regist_email">必填*</span></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-4 col-xs-offset-2 col-xs-8 " class="zero">
+                            <div class="checkbox" class="zero" style="margin:0;">
+                                <label>
+                                    <input type="checkbox" name="check" id="reg_check"/>我已阅读并同意
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-4 col-sm-4 col-xs-offset-2 col-xs-8" class="zero">
+                        <button class="btn btn-block btn-info" type="button" style="background: #9e9e9e;padding-left:0;    border-color:rgba(155, 153, 158, 0.16);" disabled="true" id="reg_submit_btn" >立即注册</button>
+                    </div>
+                </form>
+
+                <div class="col-sm-offset-4 col-sm-4 col-xs-offset-2 col-xs-8" id="go_login">
+                    <p class="row">
+                        <span class="col-xs-offset-1 col-xs-5">已有帐号</span>
+                        <a href="http://www.realtoraccess.com/bi/login/" class="col-xs-offset-1 col-xs-5" id="zoujian">直接登录</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 注册成功-->
+        <div id="regist_suc" class="row">
+             <div class="congrand col-xs-offset-3 col-xs-6 center col-xs-offset-3" width="1240">
+                 <div class="row">
+                     <p class="center col-xs-offset-3 col-xs-6 center col-xs-offset-3">
+                         恭喜你，注册成功
+                     </p>
+                     <p class="center col-xs-offset-3 col-xs-6 center col-xs-offset-3">
+                         <span class="">尊敬的用户，你已成功注册，请 </span><a href="http://www.realtoraccess.com/bi/login/" > 点击登录</a>
+                     </p>
+                     <a href="http://www.realtoraccess.com/bi/login/" >
+			            <button class="btn  btn-info col-xs-offset-3 col-xs-6 center col-xs-offset-3" type="button" id="http://www.realtoraccess.com/bi/login/" >
+			            立即登录
+			            </button>
+		            </a>
+                 </div>
+             </div>
+
+        </div>
+    </section>
+
+    <div id="footerbox">
+        <footer id="footer">
+
+        </footer>
+
+    </div>
+    <script src="{% static 'bi/js/jquery-1.11.3.js' %}"></script>
+    <script src="{% static 'bi/js/bootstrap.js' %}"></script>
+    <script src="{% static 'bi/laydate/laydate.js' %}"></script>
+    <script src="{% static 'bi/js/myjs.js' %}"></script>
+    <script src="{% static 'bi/js/initEchart.js' %}"></script>
+    <script src="{% static 'bi/js/IntervalEchart.js' %}"></script>
+    <script src="{% static 'bi/js/outerTest.js' %}"></script>
+    <script src="{% static 'bi/js/realTimeEachart.js' %}"></script>
+    <script src="{% static 'bi/js/detail.js' %}"></script>
+    <script src="{% static 'bi/js/systemPublish.js' %}"></script>
+    <script src="{% static 'bi/js/commonIndexScroll.js' %}"></script>
+</body>
+</html>

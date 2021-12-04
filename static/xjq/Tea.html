@@ -1,0 +1,875 @@
+<!DOCTYPE>
+<html>
+<head>
+<title> 茶叶网站</title>
+<meta= http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'xjq/css/Tea.css' %}">
+<link rel="stylesheet" href="{% static 'xjq/css/jquery.hiSlider.css' %}">
+<script type="text/javascript" src="{% static 'xjq/js/jquery-1.9.1.min.js' %}"></script>
+<script src="{% static 'xjq/js/jquery.hiSlider.min.js' %}"></script>
+</head>
+<body>
+<div id="container">
+<div id="header"></div>
+
+
+  
+ <!--客服-->
+  <div class="divQQbox">
+    <ul>
+      <li id="kefu"><img
+      src="{% static 'xjq/imgs/kefu.png' %}"></li>
+   
+     <li><strong>售前:</strong><a target="_blank" href=""><img
+      src="{% static 'xjq/imgs/qq.png' %}"></a></li>
+     <li><strong>售后:</strong><a target=""><img
+      border="0" src="{% static 'xjq/imgs/qq.png' %}"></a></li>
+     <li><strong>加盟:</strong><a target="_blank" href=""><img
+      border="0" src="{% static 'xjq/imgs/qq.png' %}"></a></li><br>
+      <li><i><strong>真力热线：</strong></i></li>
+      <li>000-8888-8888</li>
+      <li>9:00-21:00<br>周一至周五</li>
+      <li id="erweimai"><a target="_blank" href=""><img src="{% static 'xjq/imgs/weixin.jpg' %}"></a></li>
+     
+    </ul>
+   </div>
+
+<!--top-->
+
+<div class="top"><img src="{% static 'xjq/imgs/top.png' %}"></div>
+ 
+ <!-- start head --> 
+
+<div class="head_box">
+    <div class="logo"><a href=""><img src="{% static 'xjq/imgs/zhenlilogo.jpg' %}"alt="真力有机茶logo"></a></div>
+     <div class="search">
+      <form id="search_mini_form" method="get" action="">
+  <input type="text" value="请输入商品名称..." onfocus="if (value =='请输入商品名称...'){value =''}" onblur="if (value ==''){value='请输入商品名称...'}" name="q" class="search_input" />
+  <div class="submit"><a href=""><img src="{% static 'xjq/imgs/search.png' %}"></a></div></form></div>
+</div> 
+<div style="clear:both"></div>
+
+<!--<div id="container">-->
+        
+<div id="part1">
+   <div class="menu">
+             <div class="tea"><strong>商品分类</strong></div>
+              <div class="oolong">乌龙茶</div>
+
+              <table class="oolong-table">
+               <tr>
+                <th><strong>乌龙茶:</strong></th>
+                <td><a href="">安溪铁观音</a></td>
+                <td><a href="">台湾高山茶</a></td>
+                <td><a href="">建瓯水仙</a></td>
+                <td><a href="">百年乌龙</a></td>
+                <td><a href="">其他乌龙茶</a></td>
+               </tr>
+               
+         
+               
+               <tr>
+               <th><strong>等级:</strong></th>
+                <td><a href="">特级</a></td>
+                <td><a href="">一级</a></td>
+                <td><a href="">二级</a></td>
+                <td><a href="">其他</a></td>
+              </tr>
+                
+                
+                <tr>
+                <th><strong>用途:</strong></th>
+                <td><a href="">自饮</a></td>
+                <td><a href="">送礼（简装礼盒）</a></td>
+                <td><a href="">送礼（精装礼盒）</a></td>
+               </tr>
+              
+           
+             
+                <tr>
+                <th><strong>净含量:</strong></th>
+                <td><a href="">50克以下</a></td>
+                <td><a href="">50-100g</a></td>
+                <td><a href="">101-250g</a></td>
+                <td><a href="">251-500g</a></td>
+                <td><a href="">500克以上</a></td> 
+              </tr>
+             
+           
+              
+                <tr>
+                <th><strong>价格:</strong></th>
+                <td><a href="">200元以下</a></td>
+                <td><a href="">200-500元</a></td>
+                <td><a href="">501-800元</a></td>
+                <td><a href="">800-1200元</a></td>
+                <td><a href="">1200元以上</a></td>
+               </tr>
+
+               </table>
+           
+             <div class="oolong">绿茶</div>
+
+                <table>
+               <tr>
+                <th><strong>绿茶:</strong></th>
+                <td><a href="">毛峰</a></td>
+                <td><a href="">龙井</a></td>
+                <td><a href="">碧螺春</a></td>
+                <td><a href="">四川绿茶</a></td>
+                <td><a href="">安吉白茶</a></td>
+               </tr>
+               
+         
+               
+               <tr>
+               <th><strong>等级:</strong></th>
+                <td><a href="">特级</a></td>
+                <td><a href="">一级</a></td>
+                <td><a href="">二级</a></td>
+                <td><a href="">其他</a></td>
+              </tr>
+                
+                
+                <tr>
+                <th><strong>用途:</strong></th>
+                <td><a href="">自饮</a></td>
+                <td><a href="">送礼（简装礼盒）</a></td>
+                <td><a href="">送礼（精装礼盒）</a></td>
+               </tr>
+              
+           
+             
+                <tr>
+                <th><strong>净含量:</strong></th>
+                <td><a href="">50克以下</a></td>
+                <td><a href="">50-100g</a></td>
+                <td><a href="">101-250g</a></td>
+                <td><a href="">251-500g</a></td>
+                <td><a href="">500克以上</a></td> 
+              </tr>
+             
+           
+              
+                <tr>
+                <th><strong>价格:</strong></th>
+                <td><a href="">200元以下</a></td>
+                <td><a href="">200-500元</a></td>
+                <td><a href="">501-800元</a></td>
+                <td><a href="">800-1200元</a></td>
+                <td><a href="">1200元以上</a></td>
+               </tr>
+
+               </table>
+
+            <div class="oolong">白茶</div>
+
+            <table>
+               <tr>
+                <th><strong>白茶:</strong></th>
+                <td><a href="">白牡丹</a></td>
+                <td><a href="">白毫银针</a></td>
+                <td><a href="">寿眉</a></td>
+                <td><a href="">贡眉</a></td>
+                <td><a href="">泉城红</a></td>
+               </tr>
+               
+         
+               
+               <tr>
+               <th><strong>等级:</strong></th>
+                <td><a href="">特级</a></td>
+                <td><a href="">一级</a></td>
+                <td><a href="">二级</a></td>
+                <td><a href="">其他</a></td>
+              </tr>
+                
+                
+                <tr>
+                <th><strong>用途:</strong></th>
+                <td><a href="">自饮</a></td>
+                <td><a href="">送礼（简装礼盒）</a></td>
+                <td><a href="">送礼（精装礼盒）</a></td>
+               </tr>
+              
+           
+             
+                <tr>
+                <th><strong>净含量:</strong></th>
+                <td><a href="">50克以下</a></td>
+                <td><a href="">50-100g</a></td>
+                <td><a href="">101-250g</a></td>
+                <td><a href="">251-500g</a></td>
+                <td><a href="">500克以上</a></td> 
+              </tr>
+             
+           
+              
+                <tr>
+                <th><strong>价格:</strong></th>
+                <td><a href="">200元以下</a></td>
+                <td><a href="">200-500元</a></td>
+                <td><a href="">501-800元</a></td>
+                <td><a href="">800-1200元</a></td>
+                <td><a href="">1200元以上</a></td>
+               </tr>
+
+               </table>
+
+             <div class="oolong">黑茶</div>
+             <table>
+               <tr>
+                <th><strong>黑茶:</strong></th>
+                <td><a href="">安化黑茶</a></td>
+                <td><a href="">普洱茶</a></td>
+                 </tr>
+               
+         
+               
+               <tr>
+               <th><strong>等级:</strong></th>
+                <td><a href="">特级</a></td>
+                <td><a href="">一级</a></td>
+                <td><a href="">二级</a></td>
+                <td><a href="">其他</a></td>
+              </tr>
+                
+                
+                <tr>
+                <th><strong>用途:</strong></th>
+                <td><a href="">自饮</a></td>
+                <td><a href="">送礼（简装礼盒）</a></td>
+                <td><a href="">送礼（精装礼盒）</a></td>
+               </tr>
+           
+           
+             
+                <tr>
+                <th><strong>净含量:</strong></th>
+                <td><a href="">50克以下</a></td>
+                <td><a href="">50-100g</a></td>
+                <td><a href="">101-250g</a></td>
+                <td><a href="">251-500g</a></td>
+                <td><a href="">500克以上</a></td> 
+              </tr>
+             
+           
+              
+                <tr>
+                <th><strong>价格:</strong></th>
+                <td><a href="">200元以下</a></td>
+                <td><a href="">200-500元</a></td>
+                <td><a href="">501-800元</a></td>
+                <td><a href="">800-1200元</a></td>
+                <td><a href="">1200元以上</a></td>
+               </tr>
+
+               </table>
+
+             <div class="oolong">黄茶</div>
+                 <table>
+               <tr>
+                <th><strong>黄茶:</strong></th>
+                <td><a href="">君山银针</a></td>
+                <td><a href="">霍山黄芽</a></td>
+                 </tr>
+               
+         
+               
+               <tr>
+               <th><strong>等级:</strong></th>
+                <td><a href="">特级</a></td>
+                <td><a href="">一级</a></td>
+                <td><a href="">二级</a></td>
+                <td><a href="">其他</a></td>
+              </tr>
+                
+                
+                <tr>
+                <th><strong>用途:</strong></th>
+                <td><a href="">自饮</a></td>
+                <td><a href="">送礼（简装礼盒）</a></td>
+                <td><a href="">送礼（精装礼盒）</a></td>
+               </tr>
+              
+           
+             
+                <tr>
+                <th><strong>净含量:</strong></th>
+                <td><a href="">50克以下</a></td>
+                <td><a href="">50-100g</a></td>
+                <td><a href="">101-250g</a></td>
+                <td><a href="">251-500g</a></td>
+                <td><a href="">500克以上</a></td> 
+              </tr>
+             
+           
+              
+                <tr>
+                <th><strong>价格:</strong></th>
+                <td><a href="">200元以下</a></td>
+                <td><a href="">200-500元</a></td>
+                <td><a href="">501-800元</a></td>
+                <td><a href="">800-1200元</a></td>
+                <td><a href="">1200元以上</a></td>
+               </tr>
+
+               </table>
+             <div class="oolong">红茶</div>
+               <table>
+               <tr>
+                <th><strong>红茶:</strong></th>
+                <td><a href="">正山小种</a></td>
+                <td><a href="">大红袍</a></td>
+                <td><a href="">金骏眉</a></td>
+                <td><a href="">云南滇红</a></td>
+              
+               </tr>
+               
+         
+               
+               <tr>
+               <th><strong>等级:</strong></th>
+                <td><a href="">特级</a></td>
+                <td><a href="">一级</a></td>
+                <td><a href="">二级</a></td>
+                <td><a href="">其他</a></td>
+              </tr>
+                
+                
+                <tr>
+                <th><strong>用途:</strong></th>
+                <td><a href="">自饮</a></td>
+                <td><a href="">送礼（简装礼盒）</a></td>
+                <td><a href="">送礼（精装礼盒）</a></td>
+               </tr>
+            
+           
+             
+                <tr>
+                <th><strong>净含量:</strong></th>
+                <td><a href="">50克以下</a></td>
+                <td><a href="">50-100g</a></td>
+                <td><a href="">101-250g</a></td>
+                <td><a href="">251-500g</a></td>
+                <td><a href="">500克以上</a></td> 
+              </tr>
+             
+           
+              
+                <tr>
+                <th><strong>价格:</strong></th>
+                <td><a href="">200元以下</a></td>
+                <td><a href="">200-500元</a></td>
+                <td><a href="">501-800元</a></td>
+                <td><a href="">800-1200元</a></td>
+                <td><a href="">1200元以上</a></td>
+               </tr>
+
+               </table>
+
+             <div class="oolong">茶具</div>
+               <table>
+              <tr>
+                <th><strong>茶具:</strong></th>
+                <td><a href="">紫砂茶壶</a></td>
+                <td><a href="">玻璃茶具</a></td>
+                <td><a href="">木质茶盘</a></td>
+                <td><a href="">陶瓷茶具</a></td>
+              </tr>
+               
+         
+               
+              <tr>
+               <th><strong>等级:</strong></th>
+                <td><a href="">特级</a></td>
+                <td><a href="">一级</a></td>
+                <td><a href="">二级</a></td>
+                <td><a href="">其他</a></td>
+              </tr>
+                
+                
+              <tr>
+                <th><strong>用途:</strong></th>
+                <td><a href="">自饮</a></td>
+                <td><a href="">送礼（简装礼盒）</a></td>
+                <td><a href="">送礼（精装礼盒）</a></td>
+              </tr>
+              
+           
+             
+              <tr>
+                <th><strong>净含量:</strong></th>
+                <td><a href="">50克以下</a></td>
+                <td><a href="">50-100g</a></td>
+                <td><a href="">101-250g</a></td>
+                <td><a href="">251-500g</a></td>
+                <td><a href="">500克以上</a></td> 
+              </tr>
+             
+           
+              
+                <tr>
+                <th><strong>价格:</strong></th>
+                <td><a href="">200元以下</a></td>
+                <td><a href="">200-500元</a></td>
+                <td><a href="">501-800元</a></td>
+                <td><a href="">800-1200元</a></td>
+                <td><a href="">1200元以上</a></td>
+               </tr>
+         </table>
+          </div>
+
+
+
+ <!--  导航栏-->
+ <div class="classify_nav">
+        <div class="classify_nav_1"><a href="" title="真力首页">真力首页</a></div>
+        <div class="classify_nav_1"><a href="" title="经典茶">经典茶</a></div>
+        <div class="classify_nav_1"><a href="" title="优选茶">优选茶</a></div>
+        <div class="classify_nav_1"><a href="" title="自饮茶">自饮茶</a></div>
+        <div class="classify_nav_1"><a href="" title="茶具">茶具</a></div>
+</div>
+
+ <!--图片轮播区-->
+ <div class="fouse">
+         <ul class="hiSlider demo">
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/1.png' %}"></li>
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/2.png' %}"></li>
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/3.png' %}"></li>
+        </ul>
+ </div>
+</div>
+
+<div style="clear:both"></div>
+
+
+<div id="part2">
+
+<div class="sall_box">
+      <div class="information_logo"><img src="{% static 'xjq/imgs/123456.jpg' %}"></div>
+      <div class="zxzx_information">
+         <h3 id="zxzx"><a href="">资讯中心</a></h3>
+        <ol>
+         <li class="zx_news"><a href="">真力有机茶 安溪铁观音 2016年春茶</a></li>
+         <li class="zx_news"><a href="">真力有机茶 福建乌龙茶 2016年春茶</a></li>
+         <li class="zx_news"><a href="">真力有机茶 福鼎白牡丹 2016年春茶</a></li>
+         <li class="zx_news"><a href="">真力有机茶 武夷山岩茶 2016年春茶</a></li>
+         <li class="zx_news"><a href="">真力有机茶 建瓯水仙茶 2016年春茶</a></li>
+         <li class="zx_news"><a href="">真力有机茶 建瓯百年乌龙 2016年春茶</a></li>
+         <li class="zx_news"><a href="">真力有机茶 太姥山白茶 2016年春茶</a></li>
+         <li class="zx_news"><a href="">真力有机茶 太姥山白茶 2016年春茶</a></li>
+        </ol>
+    </div>
+</div>
+   <!--活动区导航栏-->       
+   <div class="nav">
+      <ul>
+          <li><a href="" title="限时抢购">限时抢购</a></li>
+          <li><a href="" title="新品上市">新品上市</a></li>
+          <li><a href="" title="特惠商品">特惠商品</a></li>
+          <li><a href="" title="组合套装">组合套装</a></li>
+      </ul> 
+   </div>
+    <!--活动区域-->
+   <div class="activity_commodity">
+   
+      <div class="activity_1">
+       <ul>
+           <li><a href=""><img src="{% static 'xjq/imgs/xsqg.jpg' %}" ></a> </li>
+           <li><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器</a></li>
+           <li>【老客户口碑款，60000人的口粮茶】</li>
+           <li><span>原价：1999</span><span> 真力价：￥999 </span></li>
+       </ul>
+     </div>
+       <div class="activity_1">
+       <ul>
+           <li><a href=""><img src="{% static 'xjq/imgs/xsqg.jpg' %}" ></a> </li>
+           <li><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器</a></li>
+           <li>【老客户口碑款，60000人的口粮茶】</li>
+           <li><span>原价：1999</span><span> 真力价：￥999 </span></li>
+       </ul>
+     </div>
+       <div class="activity_1">
+       <ul>
+           <li><a href=""><img src="{% static 'xjq/imgs/xsqg.jpg' %}" ></a> </li>
+           <li><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器</a></li>
+           <li>【老客户口碑款，60000人的口粮茶】</li>
+           <li><span>原价：1999</span><span> 真力价：￥999 </span></li>
+       </ul>
+     </div>
+       <div class="activity_1">
+       <ul>
+           <li><a href=""><img src="{% static 'xjq/imgs/xsqg.jpg' %}" ></a> </li>
+           <li><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器</a></li>
+           <li>【老客户口碑款，60000人的口粮茶】</li>
+           <li><span>原价：1999</span><span> 真力价：￥999 </span></li>
+       </ul>
+     </div>
+   </div>
+</div>
+<div style="clear:both"></div>
+
+<div class="turn_box" >
+    <div class="picture_turn">
+      <ul class="hiSlider demo">
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/1.png' %}"></li>
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/2.png' %}"></li>
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/3.png' %}"></li>
+        </ul>
+    </div>
+
+<!--新用户注册优惠卷-->
+
+     <div class="newuser">
+          <a href=""><img src="{% static 'xjq/imgs/20160914xk_xgg.gif' %}" id="card"></a>
+     </div>
+</div>
+
+<!--经典茶模块-->
+<div id="part3">
+     <div class="jingdian_column">
+           <h3 id="jdTea_right">经典茶</h3> 
+           <span id="jdTea_centre"><a href="">真力有机茶直供直销</a></span>
+           <span id="findmore"><a href="">查看更多</a></span>
+     </div>
+    <div class="picture">
+          <div id="jd_logo">
+               <a href=""><img src="{% static 'xjq/imgs/daohang.jpg' %}"></a>
+          </div>
+          <div class="jd_turn">
+          <ul class="hiSlider demo">
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/1.png' %}"></li>
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/2.png' %}"></li>
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/3.png' %}"></li>
+        </ul>
+          </div>
+     </div>
+
+<!--经典茶每周热卖-->
+
+<div class="jd_hotsell">
+     <h4>每周热卖</h4>
+
+         
+    <div class="news"><p>1.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>2.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>3.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>4.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>5.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>6.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>7.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>8.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>9.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>10.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+     
+   
+</div>
+
+
+      <div class="product">
+            <div class="product_one">
+                 <a href=""><img src="{% static 'xjq/imgs/xsqg.jpg' %}"></a><span><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器<br><br>【老客户口碑款，60000人的口粮茶】<br><br>真力价：￥999</a></span>
+            </div>
+
+            <div class="product_one">
+                  <a href=""><img src="{% static 'xjq/imgs/xpss.jpg' %}"></a><span><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器<br><br>【老客户口碑款，60000人的口粮茶】<br><br>真力价：￥999</a></span>
+            </div>
+
+            <div class="product_one">
+                 <a href=""><img src="{% static 'xjq/imgs/thsp.jpg' %}"></a><span><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器<br><br>【老客户口碑款，60000人的口粮茶】<br><br>真力价：￥999</a></span>
+            </div>
+
+             <div class="product_one">
+                  <a href=""><img src="{% static 'xjq/imgs/zhtz.jpg' %}"></a><span><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器<br><br>【老客户口碑款，60000人的口粮茶】<br><br>真力价：￥999</a></span>
+            </div>
+      </div>
+</div>
+
+<!--优选茶模块-->
+<div id="part3">
+     <div class="jingdian_column">
+           <h3 id="jdTea_right">优选茶</h3> 
+           <span id="jdTea_centre"><a href="">真力有机茶直供直销</a></span>
+           <span id="findmore"><a href="">查看更多</a></span>
+     </div>
+    <div class="picture">
+          <div id="jd_logo">
+               <a href=""><img src="{% static 'xjq/imgs/daohang.jpg' %}"></a>
+          </div>
+          <div class="jd_turn">
+              <ul class="hiSlider demo">
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/1.png' %}"></li>
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/2.png' %}"></li>
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/3.png' %}"></li>
+        </ul>
+          </div>
+     </div>
+
+<!--经典茶每周热卖-->
+<div class="jd_hotsell">
+     <h4>每周热卖</h4>
+
+         
+         
+    <div class="news"><p>1.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>2.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>3.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>4.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>5.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>6.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>7.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>8.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>9.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>10.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+     
+</div>
+
+
+
+
+      <div class="product">
+            <div class="product_one">
+                 <a href=""><img src="{% static 'xjq/imgs/xsqg.jpg' %}"></a><span><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器<br><br>【老客户口碑款，60000人的口粮茶】<br><br>真力价：￥999</a></span>
+            </div>
+
+            <div class="product_one">
+                  <a href=""><img src="{% static 'xjq/imgs/xpss.jpg' %}"></a><span><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器<br><br>【老客户口碑款，60000人的口粮茶】<br><br>真力价：￥999</a></span>
+            </div>
+
+            <div class="product_one">
+                 <a href=""><img src="{% static 'xjq/imgs/thsp.jpg' %}"></a><span><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器<br><br>【老客户口碑款，60000人的口粮茶】<br><br>真力价：￥999</a></span>
+            </div>
+
+             <div class="product_one">
+                  <a href=""><img src="{% static 'xjq/imgs/zhtz.jpg' %}"></a><span><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器<br><br>【老客户口碑款，60000人的口粮茶】<br><br>真力价：￥999</a></span>
+            </div>
+      </div>
+</div>
+
+<!--茶具-->
+<div id="part3">
+     <div class="jingdian_column">
+           <h3 id="jdTea_right">茶具</h3> 
+           <span id="jdTea_centre"><a href="">真力有机茶直供直销</a></span>
+           <span id="findmore"><a href="">查看更多</a></span>
+     </div>
+    <div class="picture">
+          <div id="jd_logo">
+               <a href=""><img src="{% static 'xjq/imgs/daohang.jpg' %}"></a>
+          </div>
+          <div class="jd_turn">
+               <ul class="hiSlider demo">
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/1.png' %}"></li>
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/2.png' %}"></li>
+          <li class="hiSlider-item"><img src="{% static 'xjq/imgs/3.png' %}"></li>
+        </ul>
+          </div>
+     </div>
+
+<!--经典茶每周热卖-->
+<div class="jd_hotsell">
+     <h4>每周热卖</h4>
+
+         
+        
+    <div class="news"><p>1.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>2.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>3.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>4.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>5.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>6.真力有机茶 安溪铁观音 2016年春茶</p></div>
+          <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>7.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>8.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>9.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+    <div class="news"><p>10.真力有机茶 安溪铁观音 2016年春茶</p></div>
+           <div class="news-1"><img src="{% static 'xjq/imgs/aaa16.jpg' %}"><p><a href="">真力有机茶 安溪铁观音 2016年春茶</a></p><p><strong>真力价：999元</strong></p></div>
+     
+   
+</div>
+
+
+
+
+      <div class="product">
+            <div class="product_one">
+                 <a href=""><img src="{% static 'xjq/imgs/xsqg.jpg' %}"></a><span><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器<br><br>【老客户口碑款，60000人的口粮茶】<br><br>真力价：￥999</a></span>
+            </div>
+
+            <div class="product_one">
+                  <a href=""><img src="{% static 'xjq/imgs/xpss.jpg' %}"></a><span><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器<br><br>【老客户口碑款，60000人的口粮茶】<br><br>真力价：￥999</a></span>
+            </div>
+
+            <div class="product_one">
+                 <a href=""><img src="{% static 'xjq/imgs/thsp.jpg' %}"></a><span><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器<br><br>【老客户口碑款，60000人的口粮茶】<br><br>真力价：￥999</a></span>
+            </div>
+
+             <div class="product_one">
+                  <a href=""><img src="{% static 'xjq/imgs/zhtz.jpg' %}"></a><span><a href="">正山小种 特级 礼盒 好茶礼造就好交情 客情关系的秘密武器<br><br>【老客户口碑款，60000人的口粮茶】<br><br>真力价：￥999</a></span>
+            </div>
+      </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!--商品筛选-->
+<div class="part4">
+<div class="spsx_column">
+    <h3 id="a"> 商品筛选</h3>
+</div>
+
+<!--二维码-->
+<div class="share_box">
+     <div class="share"><h3>茶友共分享</h3>
+     </div>
+
+     <div class="scan">
+           <a href=""><img src="{% static 'xjq/imgs/weixin.jpg' %}"></a>
+     </div>
+</div>
+<div class="spsx">
+      <div class="spsx_1"><label><strong>热卖茗茶</strong></label>
+         <span><a href="" target="_blank">台湾高山茶</a></span>
+         <span><a href="" target="_blank">铁观音</a></span>
+         <span><a href="" target="_blank">大红袍</a></span>
+         <span><a href="" target="_blank">西湖龙井</a></span>
+         <span><a href="" target="_blank">黄山毛峰</a></span> 
+         <span><a href="" target="_blank">金骏眉</a></span> 
+         <span><a href="" target="_blank">祁门红茶</a></span> 
+         <span><a href="#" target="_blank">更多名茶</a></span> 
+       </div>
+
+       <div class="spsx_1"><label><strong>按品种分</strong></label>
+         <span><a href="" target="_blank">乌龙茶</a></span>
+         <span><a href="" target="_blank">白茶</a></span>
+         <span><a href="" target="_blank">红茶</a></span>
+         <span><a href="" target="_blank">绿茶</a></span>
+         <span><a href="" target="_blank">黑茶</a></span> 
+         <span><a href="" target="_blank">黄茶</a></span> 
+         <span><a href="" target="_blank">花草茶</a></span> 
+       </div>
+
+       <div class="spsx_1"><label><strong>按价格分</strong></label>
+         <span><a href="" target="_blank">0-200元</a></span>
+         <span><a href="" target="_blank">200-400元</a></span>
+         <span><a href="" target="_blank">400-600元</a></span>
+         <span><a href="" target="_blank">600-800元</a></span>
+         <span><a href="" target="_blank">800-1000元</a></span> 
+         <span><a href="" target="_blank">1000以上元</a></span> 
+       </div>
+
+        <div class="spsx_1"><label><strong>按茶具分</strong></label>
+         <span><a href="" target="_blank">陶瓷茶具</a></span>
+         <span><a href="" target="_blank">紫砂茶具</a></span>
+         <span><a href="" target="_blank">玻璃茶具</a></span>
+         <span><a href="" target="_blank">茶盘</a></span>
+       </div>
+        
+        <div class="spsx_1"><label><strong>按等级分</strong></label>
+         <span><a href="" target="_blank">特级</a></span>
+         <span><a href="" target="_blank">一级</a></span>
+         <span><a href="" target="_blank">二级</a></span>
+         <span><a href="" target="_blank">三级</a></span>
+        </div>
+
+         <div class="spsx_1"><label><strong>按用途分</strong></label>
+         <span><a href="" target="_blank">自饮</a></span>
+         <span><a href="" target="_blank">送礼（简装）</a></span>
+         <span><a href="" target="_blank">送礼（精装)</a></span>
+        </div>
+        
+     </div>
+</div>
+
+<div id="part5">
+
+<!--支付 安全模块-->
+<div class="payment">
+  <img src="{% static 'xjq/imgs/payment.png' %}">
+</div>
+<!--帮助中心-->
+
+<div class="help_box">
+  <div class="help_logo"><a href=""><img src="{% static 'xjq/imgs/aaa20.jpg' %}" ></a></div>
+  
+   <div class="help_mod">
+        <div class="help_mod_t"><strong>购物指南</strong></div>
+        <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">怎样购物</a></div>
+        <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">积分政策</a></div>
+        <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">会员优惠</a></div>
+        <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">VIP企业用户</a></div>
+        <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">订单状态解释</a></div>
+   </div>
+   <div class="help_mod">
+         <div class="help_mod_t"><strong>配送方式</strong></div>
+         <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">快递资费及送达时间</a></div>
+         <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">快递覆盖地区查询</a></div>
+         <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">验货与签收</a></div>
+   </div>
+   <div class="help_mod">
+         <div class="help_mod_t"><strong>支付方式</strong></div>
+         <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">货到付款</a></div>
+         <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">支付宝</a></div>
+
+         <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">银行转账</a></div>
+         <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">网银在线</a></div>
+   </div>
+    <div class="help_mod">
+          <div class="help_mod_t"><strong>售后服务</strong></div>
+          <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">退换货原则</a></div>
+          <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">退换货要求与运费规则</a></div>
+          <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">退换货流程</a></div>
+   </div>
+     <div class="help_mod">
+           <div class="help_mod_t"><strong>关于醉品</strong></div>
+           <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">关于我们</a></div>
+           <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">友情链接</a></div>
+           <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">媒体报道</a></div>
+           <div class="help_mod_c"><a rel="nofollow" href="" target="_blank">醉品动态</a></div>
+     </div>
+</div>
+</div>
+<div id="footer"></div>
+
+</div>
+<script type="text/javascript" src="{% static 'xjq/js/Tea.js' %}"></script>
+
+
+</body>
+</html>

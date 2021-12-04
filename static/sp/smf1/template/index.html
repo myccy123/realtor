@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<!-- {% verbatim %} -->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>房源地址</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/static/web/agent4/src/img/aside-pic.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/web/agent4/src/css/public.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/web/agent4/src/css/main.css" />
+    <script src="/static/web/agent4/src/js/jq.js"></script>
+    <script src="/static/web/agent4/src/js/vue.js"></script>
+    <script src="/static/web/agent4/src/js/axios.min.js"></script>
+    <script src="/static/web/agent4/template/common/template.js"></script>
+	<!-- 删 -->
+	<link rel="shortcut icon" href="../src/img/aside-pic.png" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" media="screen" href="../src/css/public.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../src/css/main.css" />
+	<script src="../src/js/jq.js"></script>
+	<script src="../src/js/vue.js"></script>
+	<script src="../src/js/axios.min.js"></script>
+	<script src="common/template.js"></script>
+	
+    <style type="text/css">
+    	.container{
+    		margin-top: 50px;
+    		height: 100%;
+    	}
+    	.page{
+    		text-align: center;
+    	}
+    	.page>span{
+    		display: inline-block;
+    		color: #333333;
+    		width: 25px;
+    		height: 25px;
+    	}
+    	.page>b{
+    		padding: 10px;
+    		color:#333333;
+    		font-size: 11px;
+    	}
+    	.page>b.actives{
+    		color:#d8b76b;
+    	}
+    </style>
+</head>
+
+<body>
+    <div id="home">
+    	<div class="show_box">
+    		<img src="/static/web/agent4/src/img/phoney@3x.png"/>
+    		<span>{{tel}}</span>
+    		<img src="/static/web/agent4/src/img/homeimg@3x.png"  @click="homeshow($event)" class="showimg"/>
+    	</div>
+        <aside-common :website="website" :logo="logo" :myimg="myimg" class="all_aside"></aside-common>
+        <headmenu :tel="tel" @homehidetap="homeshow($event)" :qrcode="qrcode"></headmenu>
+        <main>
+            <div class="video" v-if="templateId==0">
+            	<aside-common :website="website" :logo="logo" :myimg="myimg" class="phone_aside"></aside-common>
+                <div class="container">
+                    <div style="position: relative;">
+                        <!--<img class="without-video" style="height: calc(100vh - 75px - 60px)" v-if="isImage"
+                            src="/static/web/agent4/src/img/none-video.png" alt="">-->
+                        <video id="video1" @click="playPause" 
+                            :src="corpVideo"
+                            poster="/static/web/agent4/src/img/indexvideoimg.jpg"></video>
+                        <div v-show="isPause" class="pause">
+                            <img @click="playPause" v-show="!isImage" src="/static/web/agent4/src/img/play.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-us" v-else-if="templateId==2">
+                <div class="container">
+                    <div class="text">
+                        <div class="writing title">
+                            <span>
+                                ———
+                            </span> 关于我们
+                        </div>
+                        <div class="">
+                            <span class="content">
+                                {{selfintro}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="text clear">
+                        <div class="writing title">
+                            <span>
+                                ———
+                            </span> 联系我们
+                        </div>
+                        <div class="right">
+                            <span class="content left">
+                                {{corpintro}}
+                            </span>
+                            <img class="right about-us-logo" :src="logo" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-us" v-else-if="templateId==3">
+                <div class="container clear">
+                    <div class="left us-info">
+                        <div class="us-info-box clear">
+                            <span class="title left">联系我们</span>
+                            <div class="left">
+                                <div>
+                                    <svg class="iconfont-tel6" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px">
+                                        <image x="0px" y="0px" width="18px" height="18px"
+                                            xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAArCAMAAAA5QerMAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABL1BMVEX////Yt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2v///8zfqNKAAAAY3RSTlMAAT9lQwIPvL7IvWQG5lKe0K7qGvst+e0H6P5byWiaXRT6RbLSBERqx/A+tqZ0FfxGTjOQLwXB3mad6eeUDSfsEDf15VRBLk399/IxxR3MCZtY74r4SNRf1qr2wgxRyvShEiCoLQGkAAAAAWJLR0QAiAUdSAAAAAd0SU1FB+MJHBQpLVFtgegAAAE/SURBVDjLjdRpU8JADAbgLSoKigrVemtFUFG8TwSLF1a87/vO//8P1nFqs+1uyPups/NMJrObVAgvRqypuUVwEm8FgLY4RybgN4nG1kgCMG07ANN2pIBrOwG4tgvYtluikCZoRqZg6mlPiPbqqSXLvn49HZDk4BDR67AkR6jLGmVLMYYoLYU9HtAsTcVEQHN5mk6iDqYalJ0OaMGk6QwqO2vQtojsHE3n0cgsLNJ2CZUtLNN2BdnMKknX1nHdGN3uBrLWpn9sl7bKle2Qdap4woo7fwVyyn3b3cN2/+BfKmxN3ofkoS8V1pXtEfUvceugS7SHY749SWntaXiVz861NrJNF5c6Woo+3NW1mt4oHtlMq+Sto5yIu/uItFzN9OQfHmVZ10kvRvbpOZAvjiDz+lZ5//Bc+bMmOPn6tv3PH1yT9juniOCNAAAAAElFTkSuQmCC" />
+                                    </svg>
+                                    <span class="content" style="display:inline">{{tel}}</span>
+                                </div>
+                                <div>
+                                    <svg class="iconfont-tel6" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px">
+                                        <image x="0px" y="0px" width="18px" height="18px"
+                                            xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAgCAMAAAC4saEMAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABPlBMVEX////Yt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2v////mrXdYAAAAaHRSTlMAA4Lf78I9i/k8EMDtQeAP9qCJ/TAJz4Yb26QKGP6IDqsgefrhV+tMMdWjBn+fCI7sVS/itxoEepH1agEmx9c1Vslr+7uAuchx+Nw3QAfSng1N6VQFcufGlNqcKRzkaB+mh76YdapfC6hAhSsAAAABYktHRACIBR1IAAAAB3RJTUUH4wkcFCoYLPMWCAAAAVxJREFUOMuN0nk7AlEUBvB3KCollLQYkZ2EKMZkTbJkD9l3zvf/BO5sTZvuff+ac5/fc5657wwgdXQ6uHF2Aegmkbjc8LiEJPXALQbJC5+g7IW/T0z2AwNCMBAEBkMicoi1hHCED6MSgzEMOzlOHpEQB0bHICXG28EJHzCZAEJT08DM7P9wzoP5ETnJJNFCHKlFubVbWgbSzBhS3+9baQVXM8iuuagqSV6PwRNtcsqGitym/mhJoq1tYMdbD3dzUPcUapCUT2aR2a9x+QI7OLCmGklFVpl6eGSNxyes7JLSQhb9wCm755lR9vkFkGL3VJqkBi+vroHyzS3RXYm5yn3YplWpQ9bGA3sF6fEJxvKITS1pQaLnl5j227xW9A9sU1PakMXxVnj/CJhDlRqyDjbEorpsB6tUk+2hRZn85ECTfrFOeNCgZa0RHjSoEDSp+s2HpPzoSzNBXtK/wB86coo0tbOIqQAAAABJRU5ErkJggg==" />
+                                    </svg>
+                                    <span class="content" style="display:inline">{{email}}</span>
+                                </div>
+                                <div>
+                                    <svg class="iconfont-tel6" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px">
+                                        <image x="0px" y="0px" width="18px" height="18px"
+                                            xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAArCAMAAAA0X5qLAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACuFBMVEX////Yt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2v///8F0EPSAAAA5nRSTlMADgQoeWgNBWtYDFS2M1r53CB4nCkhbUsBCM8yzXo5+tP9mxFvykg+0hdx4QvVgD9G9a0WfPySal7zFMJBQ+c7BqPqHojQVjpgVwOu/kddojHa8OgZnpZPhzCnvQ/lEmLmt19FJ3cdIvT7xRi/65i+EKBNI5fyi1Dk3XJ9ZVyaNRU4fiphPB+DCcAlUZGfqZ1EPUCULOnesY91Y2mCQtSJNqXf2Gd2xxqBG6/ZjuwC7VOZqAp/vEqNqzQ3bvaTTMuh+LUr1sy7cLPOJhOyZlLxL6bI4u+whuCQxPdJpMO5JIXjuBwtB+9d/hQAAAABYktHRACIBR1IAAAAB3RJTUUH4wkcFCopfS0WMgAABCVJREFUOMuFlftfk3UUx7+iGziVgYixAY6JhgIpa04ZDAExrmsGkmCgwBBBYfQ0oCANEFRARViBukDMSwwsILGbGl0sumlauSK7X+z8HZ3v833G9iC8Oj98znnOee+77/O9nIcQsc0jxIvMXyCREm/+YW6b57NQtmjxEl85gJ//0oBlgcsfCZoDVSxQBi8JgdAVKkALk4WoV4avWv3orGyE35q1kSqIin4MeFu3HiAqOEbzuPYhNGiDLky7EZlNsYwFfVw8gMaQIN+cOINNSoYtKVspIn1CgGFpKoomLR3kGSI2MwuMT5oose0pFwvZihzU7blPg87XE47bAQH+ekrk5U/DsPMZqgWFu/R5u91sUfGKjLgSWpHLwtzwBjZ9c+mesi17XWx5BagSkgL2YWF/pZuFqhSqFhOpBnjWteA4pp57zlpTWwfPv+ABa7zqoeHFygMHX6LjM7YUw8YmgBBTs++hFg8YWg8fOdpmgYZ2C0B9Ow93YPpILS3mbONkx46XnejMOtm11ae7OdrWoab5l19BkVC2B4PN3r38UEZF9qnTZ+yvms19BxqrcvqFDdpxFmWAwucwSH6NZeszVZ7TOJ/I/IUkDWowwhfRX3qdZQcdnizE+wtBShXKECHD9KHpJEteDhbBbyiE4Pib9KeE5NEH6RqWDCgVwSNEL2zPQbqSo4ROYIzUseSZt0SwjtSz4EoM1UBCV+Viu1BdZxbB4H2K+dP89NLIkFKpHJcqmV2yKkUmHWd+5V6qEeQqx3HSII6ZIokTWZCUedkoVW/SieMrOeFv354xDW6A+XeOUX2XvIfqlyQU22LFcOYF5t+/RvU6uYH6ARkRViNPxKrIdhZMfEi1knRTp/2IJT82iOBe8gkLIpfzC0wKdegNXSx581MR/JlUCGKqaRHPxiB6u4QlJ5tF8Od7mFeHT6J+gTDdwi+FrIVUeMJdCcx/Rf/emIKwA09lRbsfSxc2nou1fa3lbpVfT2253fcNy/bTU1DA35TzGN1pQ7l7pdTr29Dvvr/ndDp3KX/48U50Tf4UhVvHUaw8PB+v9W1/ddQmbXqJKdRzGuU/2R3WQbi/+2e8ocL1nsBXKP/FkY8NqNrzjFpGnaD6dZn1LL6W0eZqy1NQkMuN0fqAbJ8bvswvpM5O+nGU6Y6Ull/zW+sErRhz492wzw0+ZZMYMlZHe/S6EegobKClIvs0a0z5nd/qPzS6olHPzliGW9qErwElR9UueH8cveqT0vswtlPcoPt0qohFuPS64RIXnL4KZcpxAu71zGz93b3OnoX45flzvcBGKbKxRweWQVXlw9+U5nFLWuJfcLd5MYNNeLZvxrXURWbO+gmy/S0J3yjvHOZbWdat4mJzeHKtY84P4bVUxz9Dh3rwfmRdjTQrHsSuJf9r/xoezJr/D8WEzZOT8k8sAAAAAElFTkSuQmCC" />
+                                    </svg>
+                                    <span class="content" style="display:inline">{{website}}</span>
+                                </div>
+                                <div>
+                                    <svg class="iconfont-tel6" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="20px">
+                                        <image x="0px" y="0px" width="18px" height="20px"
+                                            xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAA4CAMAAACmP3p3AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACSVBMVEX////Yt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vYt2vau3Pgx4zkzZjjy5Xfw4XYuG3YuG7n06b2797+/v3////9+/jy583hyI7hyI/59ery6M/bvXfn1Kb69u3ew4Tl0J/+/v779/DcvnvdwX/17dry6NDlz53dwH7279/p167cv3338OHq2LD58+fr27Xp16zw5MnjzJbm0qP+/fzau3Tt3rvgxYnaunL59evu4MDfxIb8+vb07NjZuW/fxYj69+/z6dPZuXDbvHbw5Mj7+fPo1ardwYDs3Lj9/Pn7+PLz6tPZunLZunGpaCJ5AAAAf3RSTlMABDdskqqvpYZaIz6g79qAHEHH+50aEaPyaAEu3qsKQPDIDzP0GOeouWNdFwnklWX3Fs52JW3+pk3QeOv9n+yW0ndJ/B6/vE/uCwLRf0gQs3Dz1AVqOr6UIAxrxS2ORuinZBvPfD/frlT5wI0v6ppmwnQk9dsGbwO9LPqKDukV/3x6oQAAAAFiS0dEAIgFHUgAAAAHdElNRQfjCRwUKjVpLEp9AAACQ0lEQVRIx42VZ1sUMRCABwsIigUQ5EQ5EWxgOdSzYUFR8BRUUMFesHcsKLa1IHo5KyqgyNlBsaJiA7H8Mne5STZ7SXZ5P01m3ifZ3SSzADwRvXr36RsZGdUvOgaU9B8QqzEGDhoslYbEaVbiE4YKUmKSJjIs2WW1hqdoUkaM5K1Ut6ZgVJppjU7XlMSx+TLGcOkLFy9drr7CJcai5RrHUjVXr/mJTuD6DdMbH9ImsMTNW4Rx+w7NujMNK2siHdf6CcfdezQ/ydAm09H9OmKhvgELUzy6lo2DBwESxkM6wVSAaTRuJAKPsJQNMB3DJr+oBbHmzYAZGD4mEp5gcSbMUq9prjob5mD0VKY9Y58kB6PnMu0FFucCfdGgTHvJtHkYNcu0FizOhwUYvZJYr1uxmAtRGLUGRK2RPtFCSKbhG8Gqe4ulRYmQ58X43ftw7QOdYbG+9Uvo4GOb1fr0mT+Y+exUfmnnra/faL5gqa75ljHv+w+2/z87zFO+vPuQF3L3o/NXsIuQ339q/5q5gqLQZVihWfhXYx2vxKuVt0qzobiEXtTVNlbOGnbrXWvVWinXQ8qUy6as43vNeoXlTbU0Lt8G5yUNNsY7L2mwSaZtFrpq2hbR2ipp0dsEK327RPOVh2s7pB1/Z5i1K0uqwW6rtkduQcxe3toHKvbzW35AqRUdNLVDoOYws9weG813hGoVYMfRYyHr+AlbDSpDWr69BSe7/6qnwImq0/oPt8pRgzNGO3Pm7LnY8z3QoKKyJxZ4SsTcf6bOo1V75LBYAAAAAElFTkSuQmCC" />
+                                    </svg>
+                                    <span class="content" style="display:inline">{{address}}</span>
+                                </div>
+                            </div>
+                            <img class="right" :src="qrcode" alt="">
+                            <span class="wx content right">扫码添加微信</span>
+                        </div>
+                    </div>
+                    <div class="left img">
+                        <img src="/static/web/agent4/src/img/map_image.png" alt="">
+                        <span></span>
+                    </div>
+                    <div class="left subs">
+                        <div class="user-info">
+                            <span class="title">获取更多房地产信息</span>
+                            <input type="text" v-model="form.name" placeholder="姓名">
+                            <input type="text" v-model="form.email" placeholder="邮箱" class="emailbox">
+                            <button @click="postForm">订阅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="video" v-else>
+                <div class="container" style="height: 100%;">
+                	<div style="position: relative;" class="feature_box">
+                		<img src="/static/web/agent4/src/img/none-video.png" v-if="houseListture" class="houseListimg"/>
+	                    <div class="" v-else>
+	                    	<div v-for="(item,index) in houseList">
+	                        <a :href="item.url" v-if="hasImage[index]" style="width: 100%;">
+	                            <div class="house">
+	                                <img :src="item.img" alt="">
+	                                <span class="money">{{item.price}}</span>
+	                                <span class="info">{{item.address}}</span>
+	                                <div class="hover-content">
+	                                    <div>
+	                                        <span class="info2">{{item.address}}</span>
+	                                        <span class="money2">{{item.price}}</span>
+	                                        <div class="total">
+	                                            <span>
+	                                                <svg class="iconfont-tel2" xmlns="http://www.w3.org/2000/svg"
+	                                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="40px"
+	                                                    height="18px">
+	                                                    <image x="0px" y="0px" width="40px" height="18px"
+	                                                        xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG0AAAA4CAQAAABdsr6ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfjCRwUGRtBkSKCAAACNUlEQVRo3u2Yz0sUYRjHP2tLwqK7EmsEogUFQkcJXPoF4iVQwcMGYR3yD6hEyLDL3oIKCoLo0KXDgsSC9wgMOoigiIu73awuHWIPaRSVtT0eGnVXd2rHnbfXeZjPXN55Zt6Z74d33vmFIEizjEte1uWnFGVSYoKGBUESMiuVLEm77Vh+qeVkJy9tx/JjichJiuzmDLMEnCb6a9b7bAfzQ+1QzXrSdjA/1NQSqgURxWrRv2xLch+AVd6zwDzrtsP6p9bC1Yq1NaZ5xJLtwPVT/wWZYJRFcnTajuy/GkCENAUu2g5tQg0gznNu2o5tRg0i3OO67eBm1AAe7P+3zL2qHeAZrbbDm1GDLiZshzelBtf297hFG+ib4BJPqyrdpBs6ojsrTFH+f2owXKV2gkViRsQAehj31qGx1+NzVf0vGBSDEa8d3EYtRYa2f/Zu5S5fKvqYJEHGZctHCizwfVddMqKBr5KV3uo/Wlq+12JcZo4cR7ZLWtT+kCbP2c0Vt7lW4oPnA7fTYTB2meWa9YMcq7h9HeYFg7wCXOfawz38r71hdDZ9cj1vVM5LVspbe65Jt5a59ovXXCHFO2c9Tpaoprk2Ty9vnPYpRjWpQYmhrafsLZo0qcFb7jit45zWpQaP+ea0BrSpfWbGafW4PdfGGLOdcgdtiKf9j2obtW2a9aqpuvmHagoI1YJIqBZEQrUgEqoFkVAtiIRqQcTtK/sJt21Hq5s8XV7UfrBqO3Hd/K5dVnxBbgBd8hs7wLu3LAAAAABJRU5ErkJggg==" />
+	                                                </svg>{{item.bedroom}}</span>
+	                                            <span>
+	                                                <svg class="iconfont-tel3" xmlns="http://www.w3.org/2000/svg"
+	                                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="40px"
+	                                                    height="40px">
+	                                                    <image x="0px" y="0px" width="40px" height="40px"
+	                                                        xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFcAAABICAQAAAApQaGpAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfjCRwUHTX5K+pJAAACzklEQVRo3u3aTUgUYRzH8e/srnaR1V5OWeGt6E07BdGljoYVdegoBS0dgo69iCFRHqpTdIno5VYStVhEWofoomlWKxFUh8peoC4moaW1+uvgNLvrzDgbrD6zMb857DMPDw+fnf3zzDLzWMIjMfaxl6X22RSDnKGXEMTy4Ma5ThNXGCALQBU72EqKy6axgNzHIf3Qxhl9xzWulcL04dU5pBOuPksZnTeNFTHX5a5jBbc8foQ0m01XAh7cGmDEY+QI1aaxXtxQ5z/lJtlPLVvKg1vJTaq5Q5r1hr2uxaJBUl1BT1wdGtYaVahLH1UbrnXXzT2nMW0SQkk9V0bVYea2KqttztlSfVC3Kk1xE7NWyiLaOMglltDs9F2ghU5O8zB8tdsgv6TNXN0yW3dnL4ZJz9sxwFgYuS9YaIbllzIrhogbcSNuxI24ETfiRtyIazoRN+JG3Ihb9lxLFTQW9CxmJx2MmoZ55pWlGr6ZVhSdtjIrhogbcZ0kkP2UMUGVaYxvsvZKNZ57417DMJZpl09O0jrdyBXDCG9Mq3zT97eRX7tPTKt848jyuY9Nq3wyxFcvblivbn+umc8d5Jdp2b9wJ8iYlnmmL9csvE2EsRwmeebH7TFt88hg/kuxQm4Xv03rXLmbf1LIHabTtG5Gprjqz4VTqPi55iHXeDsbN8NF08K8fOdIYYd7U2EVfaw27QRA7OFGYZf7/+4ojXwyLQXg8EwseO8bqNVTmc2EUsVtbpk+FqhdE8aw/aovdi9O7lius/oyz9Cs7mu7LD+TFbBuxajnACnn/B6vS1qfcZpJ2u3PpOgNeOpRxA6Ydue7ZxQr+f6aZmf2n4oHjS5mwtvOhE1zsB0orpfO/KtKwX1nT9YzB1iEdjnc3UFjg58zJKmzW0dLWrW5pBmwW+uChgZz19qf3TyaI644Viw3ETSAZbwHoGWOsAAPSLMBgvdf/wF6pGpGiZp5CQAAAABJRU5ErkJggg==" />
+	                                                </svg>{{item.toilet}}</span>
+	                                            <span>
+	                                                <svg class="iconfont-tel1" xmlns="http://www.w3.org/2000/svg"
+	                                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="25px"
+	                                                    height="25px">
+	                                                    <image x="0px" y="0px" width="25px" height="25px"
+	                                                        xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABHCAQAAAAOsskZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfjCRwUGhodu0HXAAACTElEQVRo3u3aP2hTQQDH8d9LS9BgqYM1YgcV66AO6qCipOAghS4OikMHhy4ugggObiIOxUEQOikIhYKD6OCSUp3qoHTQQRBEoVAUtC0SajElkZCvUzR5ycu/d+9eoPfNlEty+ZA/R+6Ih4w0qVXNGZkJE5dxSuQ5bWIuE5xT5AFY41AvgEZYo9ISe+IGpVmiuvcMxAka4B3+XpKMC5RknkbN4sUB8pghqHtxgKZo1nXboGs0r8Qlm6CLlGhVgVFboAybLTkA6xy1ATpMri0OwDeGowYN87VtDsBHdkYJGuRDRxyA12yLCpRkoWMOwDP6ogAleNoVB2A6CtCDrjkAt0yDbobiQJkrJkETlEOCoMiYKdB5iqE5ABucMAE6xroRDsAKB8KC9vHdGAfgC0NhQLv4ZJQDsEiqW1CKN8Y5ANlmC2Uwp48XkXAAHgf/yA0GPYyMA3CnU9DtSDkAVzsBTRpYCFtV4kK7oPE2fqCaKM+Z+mf36k4/TmpBKTNHIi37qYw+1w75QSN6qyFLHEla1ln9qB5I1Nyc1rxVjrRfcxoMAu1QVgetciTpuJ4rWXX938cpaKduoyf/F8oKp9lO3Ub3/aCp8HOG7EY1qNVO3UZlLldA7ezUbVTkHPLI6JW2W/9uNe6XRj3SdZysjlgCLGrCN/K7X6t1d/tj7RUpaNk/lOhimkhzIAdyoC0H6g/5+Lua8Y080licoFzdWrsZbsKee8scyIEcyIHizoEcyIEcKO56DuQ1+Jfe3ppDyObltOEb2d3BKXdBK/6hv03xB3kkAWq1AAAAAElFTkSuQmCC" />
+	                                                </svg>{{item.areas}}</span>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </a>
+	                        <div class="house" v-else>
+	                            <img src="/static/web/agent4/src/img/none-video.png" alt="">
+	                        </div>
+	                    </div>
+	                    </div>
+                	</div>	
+                	<div class="page">
+                		<span class="prebtn" @click="btnclick($event)">←</span>
+                		   <b  @click="btnclick($event)" v-for="(item,index) in allbtnpagearr"  :key="index" :class="index==0?'actives':''" :style="{'display':index>=ltnum ? (index<gtnum?'inline-block':'none'):'none'}">{{item}}</b>
+                		<span class="nexbtn" @click="btnclick($event)">→</span>
+                	</div>
+            	 </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
+
+<script>
+    new Vue({
+        el: '#home',
+        data() {
+            return {
+            	corpVideo:"",
+                isImage: true,
+                isPause: true,
+                corpintro: '',
+                selfintro: '',
+                logo: "",
+                myimg:"",
+                website:"",
+                form: {
+                    email: "",
+                    name: "",
+                    type: "agent_page_4",
+                    userId: "",
+                    url: window.location.href
+                },
+                tel: "",
+                email: "",
+                address: "",
+                qrcode: "",
+                hasImage: [],
+                houseListture:false,
+                templateId:0,
+                allhouseList: [],
+                houseList: [],
+                pagelist:[],
+                page:1,
+                size:2,
+                btnpage:1,
+                btnsize:6,
+                allbtnpage:"",
+                allbtnpagearr:[],
+                ltnum:0,
+                gtnum:6
+            }
+        },
+        methods: {
+        	homeshow(e){
+        		var my = e.target
+        		if ($(my).attr("src")=="/static/web/agent4/src/img/homeimg@3x.png") {
+        			$("header").addClass("shows")
+        		} else{
+        			$("header").removeClass("shows")
+        		}
+        	},
+            postForm() {
+            	let data = this.form
+                if($.trim(this.form.name)&&$.trim(this.form.email)){
+					var email =this.form.email;
+					var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+					if(reg.test(email)){
+						axios.post(baseUrl + '/portal/commit/email/', data)
+	                    .then(response => {
+							this.$message({
+                                message: '订阅成功！',
+                                type: 'success'
+                            });
+	                    })
+	                    .catch(function (error) {
+	
+	                        console.log(error);
+	                    });
+					}else{
+						this.$message({
+                            message: '邮箱格式不正确！',
+                            type: 'error'
+                        });
+					}
+                }else{
+                	this.$message({
+                            message: '请填写完整信息！',
+                            type: 'error'
+                        });
+                }
+            },
+            playPause() {
+                var myVideo = document.getElementById("video1");
+                if (myVideo.paused) {
+                    myVideo.play()
+                    this.isPause = false
+                } else {
+                    myVideo.pause();
+                    this.isPause = true
+                }
+            },
+            btnclick(e){
+            	   var thats = e.target
+            	   if($(thats).hasClass("prebtn")){
+	            	   	  if (this.page>1) {
+	            	   	  	this.page--
+	            	   	  	this.nowepage(this.page);
+	            	   	  	$(".page").find("b").eq(this.page-1).addClass("actives").siblings().removeClass("actives")
+	            	   	  } else{
+	            	   	  	this.page = 1
+	            	   	  }
+	            	   	  if (this.page%this.btnsize==0) {
+		            	   	 	if (this.btnpage>1) {
+		            	   	 		this.btnpage--
+		            	   	 		this.alltbnpage(this.btnpage)
+		            	   	 	}		
+		            	   } 
+            	   	  } else if($(thats).hasClass("nexbtn")){
+	            	   	  if (this.page>=(this.allhouseList).length/this.size) {
+	            	   	  	} else{
+            	   	  		this.page++
+            	   	  		this.nowepage(this.page);
+            	   	  		$(".page").find("b").eq(this.page-1).addClass("actives").siblings().removeClass("actives")
+            	   	  	}
+	            	   	if ((this.page-1)%this.btnsize==0) {
+		            	   	 	if (this.btnpage>=(this.allbtnpagearr).length/this.btnsize) {
+		            	   	 	}else{
+		            	   	 		this.btnpage++
+		            	   	 		this.alltbnpage(this.btnpage)
+		            	   	 	}
+		            	   } 
+            	   }else{
+            	   	  this.page = $(thats).text()
+            	   	   $(thats).addClass("actives").siblings().removeClass("actives")
+            	  		this.nowepage(this.page);
+            	   }
+            },
+            nowepage(page){
+            	console.log(22222)
+            	 var  sliceout = page*this.size
+            	 if(page*this.size>=(this.allhouseList).length){
+            	 	sliceout = (this.allhouseList).length
+            	 }
+            	 	this.houseList = this.allhouseList.slice((page-1)*this.size,sliceout)
+            	 	console.log(this.houseList)
+            },
+             alltbnpage(page){
+             	this.ltnum = (Math.ceil(this.page/this.btnsize)-1)*this.btnsize
+             	this.gtnum = Math.ceil(this.page/this.btnsize)*this.btnsize
+             	console.log(this.ltnum+"________________"+this.gtnum)
+            },
+            getHouseList(id) {
+                axios.get(baseUrl + 'portal/agent/listings/', { params: { id } })
+                    .then(res => {
+                    	this.allhouseList = res.data.data;
+                        if ($(window).width()<420) {
+                        	this.allbtnpage = Math.ceil(this.allhouseList.length/this.size);
+                        	for(var i=0;i<this.allbtnpage;i++){
+                        		this.allbtnpagearr.push(i+1)
+                        	}
+                        	 this.alltbnpage(1)
+                        	  this.nowepage(1)
+		            	}else{
+		            		 this.houseList = res.data.data;
+		            	}
+                        this.houseListture =( this.houseList).length>0?false:true
+                        this.houseList.forEach((item, i) => {
+                            if (item.img) { //判断是否有图片
+                                this.hasImage[i] = true
+                            } else {
+                                this.hasImage[i] = false
+                            }
+                        });
+                    })
+                    .catch(function (error) {
+
+                    });
+            },
+            getDate() {
+                var url = window.location.href;
+                var strs = url.split("/"), str, userId
+                str = strs[strs.length - 1]
+                if (!str) {
+                    userId = strs[strs.length - 2]
+                } else {
+                    userId = strs[strs.length - 1]
+                }
+                axios.get(baseUrl + "/portal/agent/" + 37)
+                    .then(res => {
+                        sessionStorage.setItem('userObj', res)
+                        this.isImage=res.data.data.corpVideo?false:true;
+                        this.corpVideo = res.data.data.corpVideo?res.data.data.corpVideo:'/static/web/agent4/src/video/indexvideo.mp4'
+                        this.corpintro=res.data.data.corpintro
+                        this.selfintro=res.data.data.selfintro
+                        this.logo=res.data.data.logo
+                        this.form.userId=res.data.data.email
+                        this.logo=res.data.data.logo
+                        this.tel=res.data.data.tel
+                        this.email=res.data.data.email
+                        this.website=res.data.data.website
+                        this.address=res.data.data.address
+                        this.qrcode=res.data.data.qrcode
+                        this.getHouseList(res.data.data.id)
+                        this.myimg =res.data.data.head
+                    })
+                    .catch(function (error) {
+
+                    });
+            }
+        },
+        mounted() {
+            if (this.qrcode.indexOf(baseUrl) == -1) {
+                this.qrcode = baseUrl + this.qrcode
+            }
+            let that=this
+            $('.menu-item').eq(0).addClass('select')
+            $('.menu-item').click(function () {
+            	if ($(window).width()<420) {
+            		$("header").removeClass("shows")
+            	}
+                $('.menu-item').removeClass('select')
+                $(this).addClass('select')
+                that.templateId=$(this).context.id
+            })
+            if(getParam("pageId")){
+            	this.templateId = getParam("pageId")
+            	$('.menu-item').removeClass('select')
+            	$('.menu-item').eq(getParam("pageId")).addClass('select')
+            }
+            this.getDate()
+        }
+    })
+</script>
+<!-- {% endverbatim %} -->

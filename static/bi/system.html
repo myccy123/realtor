@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv=Content-Type content=“text/html;charset=utf-8″>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>图表发布</title>
+    {% load staticfiles %}
+
+    <link href="{% static 'bi/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/common.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/qingcheng.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/visio.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'bi/images/favicon.ico' %}">
+    <script src="{% static 'bi/js/echarts-all.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/esl.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/blue.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/dark.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/default.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/gray.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/green.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/helianthus.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/infographic.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bi/js/theme/macarons.js' %}" charset="utf-8"></script>
+    <!--[if lt IE 9]>
+    <script src="{% static 'bi/js/html5shiv.min.js' %}"></script>
+    <script src="{% static 'bi/js/respond.min.js' %}"></script>
+    <script type="text/ecmascript" src="{% static 'bi/js/md5p.js' %}"></script>
+    <![endif]-->
+</head>
+<body id="system">
+<!--导航-->
+
+<div id="navbox">
+    <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+
+    </nav>
+
+</div>
+<!--主题-->
+    <section id="system_section" style="margin-top:80px;width:1240px;margin:0 auto">
+        <div class="row margin_x_zero huanjing section_title" style="color: #4E7E9A;font-size:16px">
+            <!--<i style=""></i><b></b><p>编辑图表</p><b></b><em></em>-->
+            >>编辑图表
+        </div>
+
+        <div class="container" style="width:1240px;margin:0 auto">
+            <div class="row zero" id="system_left_maxBox_maxBox">
+                <!-- 左框-->
+                <div id="system_left_maxBox" class="col-xs-3 row redboder zero" >
+
+                    <!-- 元素树-->
+                    <div id="system_left_center_maxBox"  class="col-xs-12 zero">
+                        <h3 class="sys_control" ><span class="glyphicon glyphicon-list"></span>系统管理</h3>
+                        <h4  class="sys_c0ntrol_click_hover dataclass" data-name="sys1"><span class="glyphicon glyphicon-map-marker"></span>数据分类管理</h4>
+                        <ul id="system_tree">
+
+                        </ul>
+                        <h4  class="" data-name="sys2"><span class="glyphicon glyphicon-map-marker"></span>URL管理</h4>
+                    </div>
+
+
+                </div>
+                <!-- 右框-->
+                <div class="sys_rightbox pull-right" style="width:1035px">
+                    <!-- 数据分类管理-->
+                    <div class="dataClass rightHideContent "  data-name="sys1_content">
+                        <!-- 中框-->
+                        <div id="system_center_maxBox" class="col-xs-7 row zero redboder" style="width:835px">
+                            <h3>
+                                <span class="glyphicon glyphicon-list-alt"></span>数据模板
+                                <span class="pull-right">URL分类 <input type="text" name="Modeltype" placeholder="请输入"/></span>
+                                <span class="pull-right">URL名称 <input type="text" name="tempname" placeholder="请输入"/></span>
+
+                                <ul class="sys_url_class s">
+
+                                </ul>
+                            </h3>
+
+                            <!--查看状态-->
+                            <div id="viewState" class="tab-pane active in row zero">
+
+                                <!-- 操作区总盒子-->
+                                <div id="sys_all_handleArea">
+                                    <!-- 操作区  -- 布局6---->
+                                    <div class="row col-xs-12 zero caozuoarea none" id="sys_arae6" data-model="evry3area">
+
+
+                                        <div class=" col-sm-4 col-xs-12 zero dragTarget" data-tag="div1"  data-num="six_0"  data-que="0" style="cursor:pointer;">
+
+                                            <ul class="col-xs-12 zero">
+                                                <b class="s">×</b>
+
+
+
+                                                <li class="col-xs-12 zero center targetli" id="sys_six_0">
+
+                                                    <img src="{% static 'bi/images/sys300.png' %}" class="img-responsive" alt="treesvgimg1" data-data="" data-ctype=""/>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+
+                                        <div class="  col-sm-4 col-xs-12 zero dragTarget" data-tag="div1"  data-num="six_1"   data-que="1"  style="cursor:pointer">
+                                            <ul class="col-xs-12 zero">
+                                                <b class="s">×</b>
+
+                                                <li class=" col-xs-12  zero center targetli" id="sys_six_1">
+                                                    <img src="{% static 'bi/images/sys300.png' %}" class="img-responsive"alt="treesvgimg1"/>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+                                        <div class="  col-sm-4 col-xs-12 zero  dragTarget" data-tag="div1" data-num="six_2"  data-que="2"  style="cursor:pointer">
+                                            <ul class="col-xs-12 zero">
+                                                <b class="s">×</b>
+
+
+                                                <li class="col-xs-12 zero center targetli" id="sys_six_2">
+                                                    <img src="{% static 'bi/images/sys300.png' %}" class="img-responsive"alt="treesvgimg1"/>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class=" col-sm-4 col-xs-12 zero dragTarget" data-tag="div1"  data-num="six_3"   data-que="3"  style="cursor:pointer">
+                                            <ul class="col-xs-12 zero">
+                                                <b class="s">×</b>
+
+                                                <li class="col-xs-12 zero center targetli" id="sys_six_3">
+                                                    <img src="{% static 'bi/images/sys300.png' %}" class="img-responsive"alt="treesvgimg1"/>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="  col-sm-4 col-xs-12 zero dragTarget" data-tag="div1"  data-num="six_4"   data-que="4"  style="cursor:pointer">
+                                            <ul class="col-xs-12 zero">
+                                                <b class="s">×</b>
+
+                                                <li class="col-xs-12 zero center targetli" id="sys_six_4">
+                                                    <img src="{% static 'bi/images/sys300.png' %}" class="img-responsive"alt="treesvgimg1"/>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+                                        <div class="  col-sm-4 col-xs-12  zero dragTarget"  data-tag="div1"  data-num="six_5"   data-que="5"  style="cursor:pointer">
+                                            <ul class="col-xs-12 zero">
+                                                <b class="s">×</b>
+
+                                                <li class="col-xs-12 zero center targetli" id="sys_six_5">
+                                                    <img src="{% static 'bi/images/sys300.png' %}" class="img-responsive"  alt="treesvgimg1"/>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- 操作区  -- 布局1 说明---->
+                                    <div class="row col-xs-12 zero caozuoarea none" id="sys_mudle_1_text"  data-model="chart1textarea">
+
+                                        <div class="col-xs-12 zero" data-num="oneExp_0">
+                                            <ul class="col-xs-12 zero">
+                                                <li class="col-xs-12 zero center targetli" id="sys_oneExp_0">
+                                                    <div  class="col-xs-12 zero center" id="sys_mudel1text_back">
+                                                        <img src="{% static 'bi/images/sys400.png' %}" alt="treesvgimg1" style="height:400px" data-data="" data-ctype=""/>
+                                                    </div>
+                                                </li>
+
+                                                <li class="form-group col-xs-12 row zero" id="sys_oneExp_textarea">
+                                                    <h6  class="zero sys_explian text_discriprt">说明:</h6>
+                                                    <textarea  id="sys_chart_dre0" name="sys_chart_dre" cols="30" rows="3" class="form-control" placeholder="请输入说明"/></textarea>
+                                                    <div id="sys_show_explain" class="text_discriprt text_discriprt_height" style="display:none"></div>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- 操作区  -- 布局1--->
+                                    <div class="row col-xs-12 zero caozuoarea handleAreaHover" id="sys_mudle_1" data-model="chart1area">
+
+                                        <div class="col-xs-12 zero" data-num="one_0">
+                                            <ul class="col-xs-12 zero">
+                                                <li class="col-xs-12 zero center targetli" id="sys_one_0">
+                                                    <img src="{% static 'bi/images/sys400.png' %}" class="img-responsive" alt="treesvgimg1" data-data="" data-ctype=""/>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <!--保存区-->
+                                <div class="row col-xs-12 zero sys_save">
+                                    <div class="col-xs-3">
+
+                                    </div>
+                                    <div class="col-xs-3">
+
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <button class="btn btn-default col-xs-12 s" id="sys_add_chartGrid">增加图块</button>
+                                    </div>
+
+
+                                    <div class="col-xs-3 zero">
+                                        <button class="btn btn-default col-xs-12" id="sys_fabu" disabled>发布</button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <!-- you右框-->
+                        <div id="system_right_maxBox" class="col-xs-2 row zero redboder pull-right" style="width:180px">
+                            <!-- 模板类型-->
+                            <h3><span class="glyphicon glyphicon-tasks"></span>模板类型</h3>
+
+                            <ul  class="clearfix" id="sys_modul_class">
+                                <li class="col-xs-12 zero sye_handle_hover"  data-model="chart1">1图</li>
+                                <li class="col-xs-12 "  data-model="evry3" data-show="add">每行3格</li>
+                                <li class=" col-xs-12 zero"  data-model="chart1text" data-show="explain">1图附说明</li>
+                            </ul>
+                            <!-- 数据预览-->
+                            <h3><span class="glyphicon glyphicon-picture"></span>数据预览</h3>
+                            <div id="system_right_backgBox" class="col-xs-12 zero">
+                                <div id="sys_treeImg_srollBox" class="col-xs-12 zero">
+                                    <ul id="sys_treeImg" class="col-xs-12 zero">
+
+
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- url管理-->
+                    <div class="url_control rightHideContent s" data-name="sys2_content">
+                        <!-- 中-->
+                        <div class="url_edior_center">
+                            <h3 class="h3title"><span class="glyphicon glyphicon-list-alt"></span>URL编辑</h3>
+                            <div class="url_edior_center_conter">
+                                <div class="url_edior_item">
+
+                                    <label >名称：</label><input type="text" name="urlname" class="urlname" value="" disabled placeholder="名称:"/>
+                                    <label >分类：</label><input type="text" name="urltype" class="urlclass" value="" disabled placeholder="分类:"/>
+                                    <span class="urlid"><b>ID：</b></span>
+                                    <div class="url_edior_class s">
+
+                                    </div>
+                                    <span class="url_edior_span urleid">编辑</span>
+
+                                </div>
+                                <div class="url_edior_echart_box">
+                                    <p class="url_edior_echart_tile"><span class="yuandian"></span>URL预览</p>
+                                    <div class="url_edior_echart" id="url_edior_echart">
+
+                                        <img src="{% static 'bi/images/echartptev.png' %}" alt=""/>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <!-- 右-->
+
+                        <div id="url_list_right" class="pull-right">
+
+                            <h3><span class="glyphicon glyphicon-tasks"></span>URL列表</h3>
+                            <p class="url_load s">
+                                <img src="{% static 'bi/images/loading.gif' %}" alt=""/>
+                            </p>
+
+                            <div class="url_list_right_content">
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        </div>
+
+
+
+    </section>
+<!--弹窗遮罩层-->
+
+<div id="index_addData" class="row ">
+
+</div>
+
+<script src="{% static 'bi/js/jquery-1.11.3.js' %}"></script>
+<script src="{% static 'bi/js/bootstrap.js' %}"></script>
+<script src="{% static 'bi/laydate/laydate.js' %}"></script>
+<script src="{% static 'bi/js/myjs.js' %}"></script>
+<script src="{% static 'bi/js/initEchartNormal.js' %}"></script>
+<script src="{% static 'bi/js/IntervalEchart.js' %}"></script>
+<script src="{% static 'bi/js/outerTest.js' %}"></script>
+<script src="{% static 'bi/js/realTimeEachart.js' %}"></script>
+<script src="{% static 'bi/js/detail.js' %}"></script>
+<script src="{% static 'bi/js/systemPublish.js' %}"></script>
+
+<script src="{% static 'bi/js/commonIndexScroll.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+	<meta charset="UTF-8">
+	<title>{{ l.listingname }}</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/static/sp/img/realtor.ico" />
+	<link rel="stylesheet" type="text/css" href="{% static 'sp/css/bi.css' %}">
+	<script src="{% static 'sp/js/jquery-2.1.4.min.js' %} "></script>
+	<script type="text/javascript" src="{% static 'sp/js/bi/echarts-all.js' %}"></script>
+	<script type="text/javascript" src="{% static 'sp/js/bi/initEchart.js' %}"></script>
+	<script type="text/javascript" src="{% static 'sp/js/bi/initEchartNormal.js' %}"></script>
+	<script type="text/javascript" src="{% static 'sp/js/bi/outerTest.js' %}"></script>
+	
+</head>
+<body mls="{{mls}}" token="{{token}}">
+	<script src="https://qiyukf.com/script/8f268b771e08cca286c1c202bb681317.js"></script>
+	<h1>Listing Viewer Report</h1>
+	<div class="big" id="chart1"></div>
+	<!-- <div class="bigwrp">
+		<div class="sml" id="chart2"></div>
+		<div class="sml" id="chart3"></div>
+	</div>
+	<div class="big" id="chart4"></div> -->
+	<div class="big" id="chart5"></div>
+	
+	<div class="info1">
+		<div class="infotitle">this listing info</div>
+		<div class="tabdiv">
+			<table>
+				<tbody>
+					<tr>
+						<td class="iname">mls</td>
+						<td class="ival">{{mls}}</td>
+					</tr>
+					<tr>
+						<td class="iname">owner</td>
+						<td class="ival">{{userid}}</td>
+					</tr>
+					<tr>
+						<td class="iname">create date</td>
+						<td class="ival">{{createdate}}</td>
+					</tr>
+					<tr>
+						<td class="iname">listing url</td>
+						<td class="ival"><a href="http://www.webmainland.com/sp/listing/{{mls}}/?token={{token}}" target="_blank">http://www.webmainland.com/sp/listing/{{mls}}/?token={{token}}</a></td>
+					</tr>
+					<tr>
+						<td class="iname">personal url</td>
+						{% if purl != '' %}
+						<td class="ival"><a href="http://www.{{purl}}" target="_blank">http://www.{{purl}}</a></td>
+						{% else %}
+						<td class="ival">None</td>
+						{% endif %}
+					</tr>
+					<tr>
+						<td class="iname">invoice</td>
+						<td class="ival"><a href="{{ivc}}">Click Me To Download</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<div class="info1">
+		<div class="infotitle" >creditcard info <div class="btn" id="cancle">Cancle</div> <div class="btn" id="edit">Edit</div></div>
+		<div class="tabdiv">
+			<table>
+				<tbody>
+					<tr>
+						<td class="iname">name</td>
+						<td class="ival"><input type="text" name="" id="cardname" value="{{finfo.username}}" readonly="readonly"></td>
+					</tr>
+					<tr>
+						<td class="iname">cardno</td>
+						<td class="ival"><input type="text" name="" id="cardno" value="{{finfo.cardid}}" readonly="readonly"></td>
+					</tr>
+					<tr>
+						<td class="iname">YYYY/MM</td>
+						<td class="ival"><input type="text" name="" id="cardy" value="{{finfo.yyyy}}" placeholder="YYYY" readonly="readonly"><input type="text" name="" id="cardm" value="{{finfo.mm}}" placeholder="MM" readonly="readonly"></td>
+					</tr>
+					<tr>
+						<td class="iname">CVS</td>
+						<td class="ival"><input type="text" name="" id="cardcvs" value="{{finfo.cvs}}" readonly="readonly"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="info1">
+		<div class="infotitle">other listing analysis</div>
+		<div class="tabdiv">
+			<table>
+				<tbody>
+					{% for l in alllisting %}
+					<tr>
+						<td class="iname">{{l.listingid}}</td>
+						<td class="ival"><a href="http://www.realtoraccess.com/sp/bi/?mls={{l.listingid}}&token={{l.token}}">http://www.realtoraccess.com/sp/bi/?mls={{l.listingid}}&token={{l.token}}</a></td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<p id="footertitle">connect us</p>
+		<p>email: service@webmainland.com</p>
+		<p>Phone: 1-604-442-5585</p>
+		<p>address: 1788 Ontario St.Vancouver .BC V5T OG3 Canada</p>
+
+		<img src="/static/sp/img/webmainland.png">
+		<p>Site Powered By Webmainland</p>
+		<p>Information Deemed Accurate But Not Guaranteed</p>
+	</div>
+
+
+	<script>
+    window.onload=initChart(34,"chart1",500,{'selclassdata0':'htmlid','selclasscompu0':'eq','selclassval0':'{{mls}}_{{token}}'});
+    // window.onload=initChart({{ chartid.1 }},"chart2",500,{});
+    // window.onload=initChart({{ chartid.2 }},"chart3",500,{});
+    // window.onload=initChart({{ chartid.3 }},"chart4",500,{});
+    window.onload=initChart(35,"chart5",500,{'selclassdata0':'htmlid','selclasscompu0':'eq','selclassval0':'{{mls}}_{{token}}'});
+	</script>
+</body>
+<script type="text/javascript" src="{% static 'sp/js/bi/bi.js' %}"></script>
+
+
+</html>

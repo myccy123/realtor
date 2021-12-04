@@ -1,0 +1,1013 @@
+body {
+
+    margin: 0px 0px 0px 0px;
+    font-family: "Microsoft YaHei" ! important;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 100%;
+}
+
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 21px;
+    color: #c9bc9c;
+    float: left;
+}
+
+
+#part3 h3 a:hover {
+    color: #009fda;
+}
+
+
+#container_home {
+    width: 1200px;
+    margin: auto;
+}
+
+#container_left {
+    width: 95.5%;
+    display: inline-block;
+    float: left;
+}
+
+#part1 {
+    width: 100%;
+    height: 480px;
+    position: relative;
+}
+
+#background {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+#static {
+    width: 100%;
+    height: 100%;
+}
+
+#static img {
+    width: 100%;
+    height: 100%;
+}
+
+.counts {
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    height: 83px;
+    position: absolute;
+    z-index: 99;
+    display: inline-block;
+    bottom: 0%;
+}
+
+.counts div {
+    cursor: hand;
+    width: 18%;
+    height: 83px;
+    margin: 0px 9px;
+    float: left;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.counts a {
+    color: #fff !important;
+}
+
+#counts_first {
+    margin-left: 20px;
+}
+
+.sz {
+    font-size: 30px;
+    margin: 10px 0px 0px 0px;
+}
+
+.mc {
+    margin: 0px 0px 10px 0px;
+}
+
+#slogan {
+    width: 45%;
+    height: 50px;
+    position: absolute;
+    z-index: 99;
+    display: inline-block;
+    top: 18%;
+    left: 25%;
+}
+
+#search_clas {
+    color: #fff;
+    width: 45%;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    z-index: 99;
+    display: inline-block;
+    top: 30%;
+    left: 25%;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+#search_clas_first {
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+#search_clas_two {
+    cursor: pointer;
+    ;
+}
+
+#searchsj {
+    width: 12px;
+    height: 8px;
+    position: absolute;
+    z-index: 99;
+    display: inline-block;
+    top: 32.7%;
+    left: 26.5%;
+}
+
+#searchsj img {
+    width: 100%;
+    height: 100%;
+}
+
+.search {
+    width: 45%;
+    position: absolute;
+    z-index: 99;
+    display: inline-block;
+    top: 39.5%;
+    left: 25%;
+}
+
+.search input {
+    width: 89%;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 5px 0px 0px 5px;
+    color: #999999;
+    padding-left: 10px;
+}
+
+#magnifying_glass {
+    width: 5%;
+    height: 42px;
+    position: absolute;
+    z-index: 99;
+    display: inline-block;
+    top: 39.5%;
+    left: 65%;
+    background-color: #00c700;
+    border-radius: 0px 5px 5px 0px;
+}
+
+@media (max-width: 768px) {
+    .search {
+        height: 42px;
+    }
+    .search input {
+        height: 100%!important;
+    }
+}
+
+#magnifying_glass img {
+    width: 30px;
+    height: 28px;
+    padding: 8px 0px 5px 15px;
+}
+
+
+#part2 {
+    width: 100%;
+    background-color: #fff;
+}
+
+#part2 h2 {
+    margin: 30px 0px 26px 0px;
+}
+
+.clickhouse {
+    position: absolute;
+    z-index: 9;
+    width: 30px;
+    height: 250px;
+}
+
+.clickhouse img {
+    width: 100%;
+    height: 30px;
+    margin-top: 140px;
+}
+
+#houseleft {
+    left: 20px;
+    position: absolute;
+    z-index: 999;
+}
+
+#houseright {
+    right: 20px;
+    position: absolute;
+    z-index: 999;
+}
+
+#rentleft {
+    left: 20px;
+    position: absolute;
+    z-index: 999;
+}
+
+#rentright {
+    right: 20px;
+    position: absolute;
+    z-index: 999;
+}
+
+.zhezao {
+    position: absolute;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0, );
+    width: 100%;
+    /*	height:400px;*/
+}
+
+.zhezao img {
+    margin-top: 150px;
+    margin-left: 556px;
+}
+
+.windowbox {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+#box {
+    float: left;
+    width: 10000px;
+    position: relative;
+    height: 280px;
+}
+
+.share_box {
+    float: left;
+    width: 264px;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.nomargin {
+    margin: 0px!important;
+}
+
+.share_logo {
+    float: left;
+    display: inline-block;
+    overflow: hidden;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+}
+
+.share_logo img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /*vertical-align: middle;*/
+    border-radius: 50%;
+}
+
+.broker {
+    margin: 0px 0px 17px 25px;
+    float: left;
+    width: 180px;
+}
+
+.broker p {
+    margin: 0;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.type {
+    margin-top: 8px!important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.above {
+    position: relative;
+    clear: both;
+}
+
+#housepicture {
+    width: 265px;
+    height: 176px;
+    overflow: hidden;
+}
+
+#housepicture img {
+    width: 100%;
+    height: 100%;
+}
+
+#price {
+    color: white;
+    margin: 0;
+    position: absolute;
+    z-index: 3;
+    top: 70%;
+    font-size: 14px;
+    height: 23px;
+    overflow: hidden;
+    width: 190px;
+    line-height: 25px;
+    background-color: rgba(0, 205, 0, 0.7);
+}
+
+#adddress {
+    color: white;
+    margin: 0;
+    position: absolute;
+    z-index: 7;
+    font-size: 14px;
+    height: 30px;
+    width: 265px;
+    line-height: 30px;
+    bottom: 0%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: rgba(105, 105, 105, 0.7);
+}
+
+.page_view {
+    float: left;
+    font-size: 10px;
+}
+
+.reading {
+    width: 120px;
+    height: 15px;
+    display: inline-block;
+}
+
+.date {
+    width: 140px;
+    height: 15px;
+    display: inline-block;
+    text-align: right;
+}
+
+#box_2 {
+    float: left;
+    width: 100%;
+}
+
+.share_box_2 {
+    float: left;
+    width: 265px;
+    display: inline-block;
+    margin-right: 28px;
+}
+
+.type_2 {
+    margin-top: 5px!important;
+}
+
+
+/*房源租售*/
+
+.clickhousetwo {
+    position: absolute;
+    z-index: 9;
+    width: 30px;
+    height: 250px;
+}
+
+.clickhousetwo img {
+    width: 100%;
+    height: 30px;
+    margin-top: 140px;
+}
+
+#houselefttwo {
+    left: 20px;
+    position: absolute;
+    z-index: 999;
+}
+
+#houserighttwo {
+    right: 20px;
+    position: absolute;
+    z-index: 999;
+}
+
+.zhezaotwo {
+    position: absolute;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0, );
+    width: 100%;
+    /*	height:400px;*/
+}
+
+.zhezaotwo img {
+    margin-top: 150px;
+    margin-left: 556px;
+}
+
+#single {
+    float: left;
+    width: 1144px;
+}
+
+#single h2 {
+    float: left;
+    width: 200px;
+    height: 30px;
+}
+
+#free {
+    display: inline-block;
+    float: right;
+    width: 130px;
+    height: 30px;
+    margin-top: 35px;
+    margin-right: 50px;
+    cursor: pointer;
+}
+
+#boxtwo {
+    float: left;
+    width: 100%;
+}
+
+.share_boxtwo {
+    float: left;
+    width: 264px;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.nomargintwo {
+    margin: 0px;
+}
+
+.share_logotwo {
+    float: left;
+    width: 55px;
+    height: 55px;
+    display: inline-block;
+    overflow: hidden;
+    line-height: 55px;
+}
+
+.share_logotwo img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /*vertical-align: middle;*/
+    border-radius: 50%;
+}
+
+.brokertwo {
+    margin: 0px 0px 17px 25px;
+    float: left;
+}
+
+.brokertwo p {
+    margin: 0;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.typetwo {
+    margin-top: 8px!important;
+}
+
+.abovetwo {
+    position: relative;
+    clear: both;
+}
+
+#housepicturetwo {
+    width: 265px;
+    height: 176px;
+    overflow: hidden;
+}
+
+#housepicturetwo img {
+    width: 100%;
+    height: 100%;
+}
+
+#pricetwo {
+    color: white;
+    margin: 0;
+    position: absolute;
+    z-index: 3;
+    top: 70%;
+    font-size: 14px;
+    height: 23px;
+    overflow: hidden;
+    width: 190px;
+    line-height: 25px;
+    background-color: rgba(0, 205, 0, 0.7);
+}
+
+#adddresstwo {
+    color: white;
+    margin: 0;
+    position: absolute;
+    z-index: 7;
+    font-size: 14px;
+    height: 30px;
+    width: 265px;
+    line-height: 30px;
+    bottom: 0%;
+    background-color: rgba(105, 105, 105, 0.7);
+}
+
+.page_viewtwo {
+    float: left;
+    font-size: 10px;
+}
+
+.readingtwo {
+    width: 120px;
+    height: 15px;
+    display: inline-block;
+}
+
+.datetwo {
+    width: 140px;
+    height: 15px;
+    display: inline-block;
+    text-align: right;
+}
+
+#box_2two {
+    float: left;
+    width: 10000px;
+    position: relative;
+}
+
+.share_box_2two {
+    float: left;
+    width: 265px;
+    display: inline-block;
+    margin-right: 28px;
+}
+
+.type_2two {
+    margin-top: 5px!important;
+}
+
+#headline_box {
+    width: 768px;
+    display: inline-block;
+    float: left;
+    color: white;
+}
+
+#headline_box h2 {
+    width: 100%;
+    float: left;
+}
+
+#headline_li {
+    float: left;
+    height: 430px;
+    width: 768px;
+    background-image: url(../images/wuyouzhiye-01.png);
+}
+
+#categories_box {
+    float: left;
+    background-color: #5d5d5d;
+    opacity: 0.7;
+    z-index: 3;
+    /*  width: 768px;*/
+}
+
+.categories {
+    display: inline-block;
+    float: left;
+    /*width: 16.5383%;*/
+    width: 127px;
+    height: 176px;
+    cursor: pointer;
+    /*border-left: 1px solid #b5b5b6; */
+}
+
+.boders {
+    width: 1px;
+    height: 176px;
+    display: inline-block;
+    float: left;
+    margin: 0;
+    background-color: #b5b5b6;
+}
+
+
+/*#C_six{
+	float: right!important;
+}*/
+
+.sanjiao {
+    display: inline-block;
+    float: left;
+    margin-top: 78px;
+}
+
+.categories_r {
+    display: inline-block;
+    float: left;
+    width: 108px;
+    text-align: center;
+}
+
+.categories h2 {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.categories h3 {
+    font-size: 10px;
+    margin-bottom: 41px;
+}
+
+#C_first {
+    text-align: center;
+}
+
+.C_logo {
+    margin: 20px 8px 0px 0px;
+}
+
+#f_logo {
+    margin-top: 20px;
+}
+
+.news {
+    float: left;
+    background-color: #5d5d5d;
+    opacity: 0.7;
+    z-index: 3;
+    height: 71px;
+    width: 768px;
+    font-size: 18px;
+    margin: 184px 0px 0px 0px;
+    text-align: center;
+    line-height: 28px;
+}
+
+.news ul {
+    display: none;
+    float: left;
+    width: 690px;
+    height: 71px;
+    margin: 0px 0px 0px 35px;
+    overflow: hidden;
+}
+
+.news li {
+    display: inline-block;
+    float: left;
+    width: 690px;
+    height: 71px;
+    margin: 0;
+}
+
+.news p {
+    margin: 0;
+    height: 71px;
+    line-height: 71px;
+}
+
+.news a {
+
+    color: white;
+}
+
+
+#hot_accounts {
+    display: inline-block;
+    float: right;
+    width: 355px;
+}
+
+#accounts_box {
+    float: left;
+    width: 355px;
+    height: 429px;
+    background-color: #efefef;
+    border: 0.3px solid #efefef;
+}
+
+.accounts {
+    height: 100px;
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+.accounts h2 {
+    font-size: 18px;
+    color: #5d5d5d;
+    margin: 10px 0px;
+}
+
+.accounts p {
+    font-size: 14px;
+    color: #868686;
+    margin: 4px 0px;
+    clear: both;
+}
+
+.accounts_logo {
+    display: inline-block;
+    float: left;
+    width: 90px;
+    height: 90px;
+    margin: 5px 15px 0px 10px;
+}
+
+.accounts_logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.A_information {
+    display: inline-block;
+    float: left;
+}
+
+.accounts_cusp {
+    display: inline-block;
+    float: right;
+    margin-top: 38px;
+}
+
+.accounts_up {
+    height: 100px;
+    width: 355px;
+    background-color: white;
+    margin-bottom: 10px;
+    position: absolute;
+    z-index: 3;
+    display: none;
+    top: 0px;
+}
+
+.up_bottom {
+    position: relative;
+}
+
+.accounts_up h2 {
+    font-size: 18px;
+    color: #5d5d5d;
+    margin: 10px 0px;
+}
+
+.accounts_up p {
+    font-size: 14px;
+    color: #868686;
+    margin: 4px 0px;
+}
+
+.A_information_up {
+    margin-left: 20px;
+    display: inline-block;
+    float: left;
+}
+
+.accounts_logo_up {
+    display: inline-block;
+    float: right;
+    width: 90px;
+    height: 90px;
+    margin: 5px 10px 0px 0px;
+}
+
+.accounts_logo_up img {
+    width: 100%;
+    height: 100%;
+}
+
+#hover4 {
+    margin: 0;
+    height: 99px;
+}
+
+#hover4_up {
+    margin: 0;
+    height: 99px;
+}
+
+#counselorth {
+    float: left;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#counselorth h2 {
+    width: 100%;
+}
+
+.counselor_boxth {
+    float: left;
+    color: #868686;
+    position: relative;
+    width: 100000000px;
+    /*border: solid 0.3px #efefef;*/
+}
+
+.agent_informationth {
+    font-size: 12px;
+    display: inline-block;
+    float: left;
+    border-right: 0.3px solid #efefef;
+    border-top: 0.3px solid #efefef;
+    border-bottom: 0.3px solid #efefef;
+    width: 285px;
+}
+
+#agentfirstth {
+    border-left: 0.3px solid #efefef;
+}
+
+.agent_headth {
+    width: 163px;
+    height: 163px;
+    margin: 25px 61px 0px 61px;
+    overflow: hidden;
+    line-height: 163px;
+}
+
+.agent_headth img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.agentstarth {
+    float: left;
+    height: 31px;
+    line-height: 31px;
+    margin-top: 30px;
+    margin-left: 8px;
+    padding-bottom: 5px;
+    border-bottom: 0.3px solid #efefef;
+}
+
+.integrityth {
+    float: left;
+    display: inline-block;
+    width: 148px;
+    margin-left: 4px;
+}
+
+.start_dateth {
+    float: left;
+    display: inline-block;
+    width: 110px;
+    text-align: right;
+}
+
+.agentrenz p {
+    margin-left: 12px;
+    color: #00c700;
+    font-size: 12px;
+}
+
+.bigvip {
+    margin-top: -50px;
+    margin-left: 50px;
+    width: 235px;
+    height: 88px;
+}
+
+.agentnameth {
+    float: left;
+    width: 262px;
+    margin: 0px 12px;
+    padding-bottom: 5px;
+    border-bottom: 0.3px solid #efefef;
+}
+
+.agentnameth h2 {
+    margin: 2px 0px;
+    float: left;
+    color: #ea7865;
+    font-size: 24px;
+}
+
+.agentnameth p {
+    float: left;
+    margin: 2px 0px;
+    width: 260px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 16px;
+}
+
+.agent_adth {
+    float: left;
+}
+
+.agent_adth p {
+    display: inline-block;
+    float: left;
+    width: 194px;
+    height: 60px;
+    line-height: 60px;
+    margin: 5px 0px 5px 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.weixsoanth {
+    display: inline-block;
+    float: right;
+    width: 65px;
+    height: 65px;
+    margin: 5px 5px;
+}
+
+.weixsoanth img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.clickhouseth {
+    position: absolute;
+    z-index: 9;
+    width: 30px;
+    height: 250px;
+}
+
+.clickhouseth img {
+    width: 100%;
+    height: 30px;
+    margin-top: 140px;
+}
+
+#houseleftth {
+    left: 20px;
+    position: absolute;
+    z-index: 999;
+}
+
+#houserightth {
+    right: 20px;
+    position: absolute;
+    z-index: 999;
+}
+
+.zhezaoth {
+    position: absolute;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0, );
+    width: 100%;
+    /*	height:400px;*/
+}
+
+.zhezaoth img {
+    margin-top: 150px;
+    margin-left: 556px;
+}

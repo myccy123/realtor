@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<!-- {% verbatim %} -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <title>房源地址</title>
+     <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1"> 
+    <!-- <script src="common/rem.js"></script> -->
+    <link rel="shortcut icon" href="/static/sp/smf1/src/img/aside-pic.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/sp/smf1/src/css/public.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/sp/smf1/src/css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/sp/smf1/src/css/iconfont.css" />
+    <!-- 引入样式 -->
+    <link rel="stylesheet" media="screen" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<script src="/static/sp/smf1/src/js/jq.js"></script>
+    <script src="/static/sp/smf1/src/js/location.js"></script>
+    <script src="/static/sp/smf1/src/js/vue.js"></script>
+    <script src="/static/sp/smf1/src/js/axios.min.js"></script>
+    <script src="/static/sp/smf1/template/common/template.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script type="text/javascript "
+    src="http://maps.google.cn/maps/api/js?key=AIzaSyA1wj36Jr6W46WQ1JpQsoQZxHMQm5pEQDs"></script>
+</head>
+<style type="text/css">
+	@media only screen and (min-width: 310px) and (max-width: 420px) {
+		main .video.house-detail{
+			margin-top: 65px;
+			position: relative;
+		}
+		main .video>.house-pic{
+			height: 278px;
+		}
+		.open-house{
+			width: 152px;
+			padding: 0 10px;
+		}
+		.open-house-cont{
+			font-size: 10px;
+		}
+		.open-house-title{
+			font-size: 13px;
+		}
+		.house-detail .cts-1 .cts-box{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			min-height: 298px;
+			
+		}
+		.house-cts{
+			margin-top: 40px;
+			padding: 0 30px;
+			width: 100%;
+			box-sizing: border-box;
+			min-height: 298px;
+			margin-bottom: 30px;
+		}
+		.tal-box{
+			width: 100%;
+			min-width: 100%;
+		}
+		.clear button{
+			font-size:12px;
+			padding: 0;
+			width: 20%;
+		}
+		.house-detail .cts-1 .cts-box{
+			width: 100%;
+			min-width: 100%;
+			min-height: 322px;
+			height: auto;
+			padding: 0 30px;
+			box-sizing: border-box;
+			padding-bottom: 30px;
+		}
+		.house-map{
+			height:276px;
+			min-height:276px;
+		}
+		.house-map #map-detail{
+			min-width: 100%;
+			height:100%;
+		}
+		.house-detail .cts-box .content{
+			width: 100%;
+			/*padding: 0 20px;*/
+			box-sizing: border-box;
+		}
+		.user-info-form{
+			width: 100%;
+			padding: 0 30px;
+			margin: 0 30px;
+			margin-top: 30px;
+			box-sizing: border-box;
+			min-height: 290px;
+		}
+		.user-info-form .clear{
+			width: 100%;
+			min-width: 100%;
+		}
+		.user-info-form .clear .left{
+			width: 50%;
+			box-sizing: border-box;
+		}
+		.user-info-form .clear .ct-us{
+			width: 50%;
+			margin-left: 0;
+			padding: 0;
+			
+			/*padding-left:15px;*/
+		}
+		.user-info-form .clear .title{
+			font-size: 12px;
+		}
+		.user-info-form .clear .user-info{
+			width: 100%;
+			padding-right:30px;
+			box-sizing: border-box;
+		}
+		.user-info-form .clear .ct-us .user-info{
+			width: 100%;
+			padding-right:0px;
+		}
+		.user-info-form .clear .user-info .content{
+			max-width: 70%;
+		}
+		.user-info-form .clear .user-info input, .user-info-form .clear .user-info .more, .user-info-form .clear .user-info .content, .user-info-form .clear .user-info .iconfont, .user-info-form .clear .user-info input::placeholder{
+			font-size: 9px;
+		}
+		.user-info-form .clear .right img{
+			width: 80px;
+			height: 80px;
+		}
+		.user-info-form .clear .right{
+			width: 100%;
+			text-align: left;
+		}
+		.house-data{
+			margin-top: 20px;
+		}
+		.house-data .money{
+			font-size: 15px;
+			margin-top:7px;
+		}
+		.house-data .title{
+			font-size: 22px;
+		}
+		.iconfont-price{
+			width: 16px;
+		    height: 16px;
+		}
+		.iconfont-price>image{
+		    width: 16px;
+		    height: 16px;
+		}
+		.house-detail-aside .house-data > div, .house-detail-aside .house-data > div .left span{
+			font-size: 11px;
+			width: 90px;
+		}
+		.house-detail-aside .house-data > div{
+			text-align:left;
+		}
+		.house-detail-aside .house-data > div, .house-detail-aside .house-data > div>.right span{
+			width:60px;
+			/*max-width:90px;*/
+		}
+		.bdshare-button-style2-16{
+			width: 65%;
+		}
+		.house-detail-aside .house-data > div, .house-detail-aside .house-data > div span{
+			width: 80%;
+			line-height: 1;
+			display: inline;
+		}
+		.house-detail-aside .house-data > div, .house-detail-aside .house-data > div>div>span{
+			display: inline-block;
+			width: 90px;
+			line-height: 1;
+			/*width: 70%;*/
+		}
+		.house-detail-aside .house-data > div{
+			width: 100%;
+			padding-right: 0;
+			padding-left: 30px;
+			vertical-align: top;
+			line-height: 40px;
+		}
+		.house-detail-aside .share{
+			position: absolute;
+			right: 30px;
+			bottom: 30px;
+		}
+		.house-footer img{
+			position: absolute;
+			right: 30px;
+			bottom: 50px;
+			/*widows: 400px;*/
+		}
+		.house-detail-aside .house-data > div{
+			padding: 0;
+			/*width: 50%;*/
+		}
+	}
+</style>
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdMiniList": false,
+            "bdPic": "",
+            "bdStyle": "2",
+            "bdSize": "16"
+        },
+        "share": {}
+    };
+    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+
+<body>
+    <div id="house-detail">
+    	<div class="show_box">
+    		<img src="/static/sp/smf1/src/img/phoney@3x.png"/>
+    		<span>{{agentInfo.tel}}</span>
+    		<img src="/static/sp/smf1/src/img/homeimg@3x.png"  @click="homeshow($event)" class="showimg"/>
+    	</div>
+        <aside class="house-detail-aside" v-show="!isMobile">
+            <div class="house-data bdsharebuttonbox">
+                <span class="title">{{houseInfo.listingname}}</span>
+                <span class="money"><svg class="iconfont-price" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" width="25px" height="25px">
+                        <image x="0px" y="0px" width="25px" height="25px"
+                            xlink:href="data:img/png;base64,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" />
+                    </svg>{{houseInfo.price}}</span>
+                <div>
+                    MLS：<span>{{houseInfo.listingid}}</span>
+                </div>
+                <div class="clear">
+                    <div class="left">室内面积：<span>{{houseInfo.areas}}</span></div>
+                    <div class="right">卧室:<span>{{houseInfo.bedroom}}</span></div>
+                </div>
+                <div class="clear">
+                    <div class="left">土地面积：<span>{{houseInfo.parking}}</span></div>
+                    <div class="right">浴室：<span>{{houseInfo.toilet}}</span></div>
+                </div>
+                <div class="clear">
+                    <div class="left">地税：<span>{{houseInfo.tax}}</span></div>
+                    <div class="right">屋龄：<span>{{houseInfo.builddate}}</span></div>
+                </div>
+                <div class="clear">
+                    <div class="left">类型：<span>{{houseInfo.housetype}}</span></div>
+                </div>
+                <div class="clear">
+                    <div class="left">风格：<span>{{houseInfo.housestyle}}</span></div>
+                </div>
+                <div style="">
+                    地产公司：{{houseInfo.corp}}
+                </div>
+                <ul class="share right">
+                    <a
+                        href=" 'http://www.facebook.com/sharer.php?u='+encodeURIComponent(document.location.href)+'&amp;t='+encodeURIComponent(document.title),'_blank','toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=600, height=450,top=100,left=350');void(0)"><img
+                            src="/static/sp/smf1/src/img/fs.png" /></a>
+                    <a href=""><img data-cmd="tsina" src="/static/sp/smf1/src/img/wb.png" /></a>
+                    <a href=""><img data-cmd="weixin" src="/static/sp/smf1/src/img/wx.png" /></a>
+                </ul>
+            </div>
+            <aside-logo :logo="agentInfo.logo" :gourl="gourl"></aside-logo>
+        </aside>
+        <indexmenu :tel="agentInfo.tel" :gourl="gourl" @homehidetap="homeshow($event)" :qrcode="agentInfo.qrcode"></indexmenu>
+        <main>
+            <div class="video house-detail">
+                <div class="house-pic" style="position: relative">
+                    <img :src="houseInfo.media.bgimg1" alt="">
+                    <div class="open-house" v-show="open_houseshow">
+                        <span class="open-house-title" ><svg class="iconfont-tel3" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px">
+                                <image x="0px" y="0px" width="20px" height="20px"
+                                    xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABECAQAAACSGls5AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfjCR4JGy/s5EwdAAABZElEQVRo3u3ZvUrDUBTA8X9jKsGirZuTg08giLj6Bu3o7NDBTZx0EXwCX8BR6iIi4ij1RQSHDlLQ6iJFkOPQgJc0iWm47b3Fc+4Q7kdyfsnJdG9FoMkRy7iLb+45C9nmmgWHDIAtvgLazhkA7YAN1wYA1gMC14ZReMLwB/LqC+QqTAy8py6rUQVgyHDiFFVqAAgfmWseOEa6Ygap7SaePc2Yz2vN+N5B/jpfSqOQsahIl12zH1+fqRuj0/lZD+j8dsKM2+s0UkYjovKvPPbERbPjTWkUkozwj/k7nqzn3GdlcsgFt9YhrTTI3JRmFBE7FnL18spcDLLGowXIOYfZk96URiEKUYhCFKIQhSjEdShEIQpRiEIU8m8gxbYl+rQs5MrdBCsG+ZzCBlYi5qY0e2xaz9koB5lReFMahXgLyfpZV2cN8eaLeATpGb2+S4hxwMelOwiCnMiLDORNOrJU4qTbUvsBDJnBpf/QGqwAAAAASUVORK5CYII=" />
+                            </svg>公众开放日</span>
+                        <span class="open-house-cont" v-for="item in houseInfo.open_house">{{item}}</span>
+                    </div>
+                </div>
+                <aside class="house-detail-aside" v-show="isMobile">
+                    <div class="house-data bdsharebuttonbox">
+                        <span class="title">{{houseInfo.listingname}}</span>
+                        <span class="money"><svg class="iconfont-price" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="36px">
+                                <image x="0px" y="0px" width="36px" height="36px"
+                                    xlink:href="data:img/png;base64,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" />
+                            </svg>{{houseInfo.price}}</span>
+                        <div>
+                            MLS：<span>{{houseInfo.listingid}}</span>
+                        </div>
+                        <div class="clear">
+                            <div class="left">室内面积：<span>{{houseInfo.areas}}</span></div>
+                            <div class="right">卧室:<span>{{houseInfo.bedroom}}</span></div>
+                        </div>
+                        <div class="clear">
+                            <div class="left">土地面积：<span>{{houseInfo.parking}}</span></div>
+                            <div class="right">浴室：<span>{{houseInfo.toilet}}</span></div>
+                        </div>
+                        <div class="clear">
+                            <div class="left">地税：<span>{{houseInfo.tax}}</span></div>
+                            <div class="right">屋龄：<span>{{houseInfo.builddate}}</span></div>
+                        </div>
+                        <div class="clear">
+                            <div class="left">类型：<span>{{houseInfo.housetype}}</span></div>
+                            <div class="right">风格：<span>{{houseInfo.housestyle}}</span></div>
+                        </div>
+                        <div>
+                            地产公司：<span>{{houseInfo.corp}}</span>
+                        </div>
+                        <ul class="share right">
+                            <a
+                                href=" 'http://www.facebook.com/sharer.php?u='+encodeURIComponent(document.location.href)+'&amp;t='+encodeURIComponent(document.title),'_blank','toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=600, height=450,top=100,left=350');void(0)"><img
+                                    src="/static/sp/smf1/src/img/fs.png" /></a>
+                            <a href=""><img data-cmd="tsina" src="/static/sp/smf1/src/img/wb.png" /></a>
+                            <a href=""><img data-cmd="weixin" src="/static/sp/smf1/src/img/wx.png" /></a>
+                        </ul>
+                    </div>
+                    <aside-logo></aside-logo>
+                </aside>
+                <div class="house-cts">
+                    <div class="tal-box">
+                        <div class="clear">
+                            <button @click="click(0)" :class="isClick==0?'click':''">房源描述</button>
+                            <button @click="click(1)" :class="isClick==1?'click':''">房源照片</button>
+                            <button @click="click(2)" :class="isClick==2?'click':''">视频看房</button>
+                            <button @click="click(3)" :class="isClick==3?'click':''">户型图</button>
+                            <button @click="click(4)" :class="isClick==4?'click':''">实景看房</button>
+                        </div>
+                        <div class="cts-1" style="position: relative">
+                            <div class="cts-box">
+                                <span class="content" v-if="isClick==0"
+                                style="padding-top: 20px;">{{houseInfo.intro_zh?houseInfo.intro_zh:houseInfo.intro}}</span>
+                                <div style="position: relative;" v-else-if="isClick==1">
+                                    <el-carousel trigger="click" style="height: 395px;" indicator-position="none">
+                                        <el-carousel-item v-for="img in houseInfo.media.imgs" :key="img">
+                                            <img :src="img"
+                                            style="width: 100%;height: 100%; object-fit: contain;">
+                                        </el-carousel-item>
+                                    </el-carousel>
+                                </div>
+                                <div style="position: relative;" v-else-if="isClick==2">
+                                    <img class="without-video" v-if="houseInfo.media.video.length==0"
+                                        src="/static/sp/smf1/src/img/none-video.png" alt="">
+                                    <video id="video1" @click="playPause" v-else :src="houseInfo.media.video"
+                                        poster="/static/sp/smf1/src/img/poster1.jpg"></video>
+                                    <div v-show="isPause" class="pause">
+                                        <img @click="playPause" v-show="houseInfo.media.video.length>0"
+                                            src="/static/sp/smf1/src/img/play.png" alt="">
+                                    </div>
+                                </div>
+                                <div style="position: relative;" v-else-if="isClick==3">
+                                    <el-carousel trigger="click" style="height: 395px;" indicator-position="none">
+                                        <el-carousel-item v-for="img in houseInfo.media.hx" :key="img">
+                                            <img :src="img"
+                                                 style="width: 100%;height: 100%; object-fit: contain;">
+                                        </el-carousel-item>
+                                    </el-carousel>
+<!--                                    <img class="without-video" v-else src="/static/sp/smf1/src/img/deffloorplan.jpg" alt="">-->
+                                </div>
+                                <div style="position: relative;height: 395px;" class="inner-iframe" v-else-if="isClick==4">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="house-map">
+                        <div id="map-detail"></div>
+                        <!-- <img  src="/static/sp/smf1/src/img/map.png" alt=""> -->
+                    </div>
+                    <div class="user-info-form">
+                        <div class="clear">
+                            <div class="left">
+                                <div class="user-info">
+                                    <span class="title">获取更多房屋信息</span>
+                                    <input type="text" v-model="form.name" placeholder="姓名">
+                                    <input type="text" v-model="form.email" placeholder="邮箱">
+                                    <input type="text" v-model="form.tel" placeholder="电话">
+                                    <input class="more" v-model="form.msg" placeholder="想知道的房屋信息..."></input>
+                                    <div style="text-align: center;width:100%">
+                                        <button @click="postForm">发送</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="left ct-us">
+                                <span class="title">联系我们</span>
+                                <div class="user-info left">
+                                    <div>
+                                        <svg class="iconfont-tel1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px">
+                                            <image x="0px" y="0px" width="15px" height="15px"
+                                                xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAQAAACQEyoRAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfjCRwUBweB0UESAAAB+0lEQVRIx7XWsWsUQRTH8d8u3sUqOYug5NKYg2BErESrWGhho12KgGlSBC0CdgaDf4GNghCC/g+CRLEQrrcJMQoGJFgcpgp6Ek5JMPe1kEv27vbt7M1s3hS77A4fdt++NzsRSsSUKtpUS8UEnTHBBwD2mEdFjM5JjQadaHO/OLqagAvD/x/W6I0CcCFukRbBuBB1OAlcnOUQTgIXM2RFmwVfOtZkZtlHeq6qX8fEGnXMGNK0L11xzjnwpV0rxi/VfekfjieeU9OX3s6EZ/TGD5bEZbPw9rkT1jIxu6nwYRiMYrW1ZqTKszKOEyJuGAnZ5FTo8hTx2cAXQ2kxa9BNxkLpmI8G/pYojBbTtA38QSgtXhj0AddD6WG2DXyXC2G0uMq+gTeohdFi0Wz6BhfDaPHSxH9yM5W4wiMepqWs90KZ9yb+lyXirtkRT4/u3XPRYoQN7KhzPgGvJO70/f3TXvEcXzPwFsuc7oNT8PRPMN6zB+yNb8z2wX249X1rDtyKBG4XT81soZx4VmVW+RSCZ5d9xdxquvC7LlqUWfXCd4jytOw8LQ98NN96MMX6gPBvSnkXmxKP+TMA/cyd6+SY4FVO+DXlwWghrvHO/NV1wYPTQlxihaaZ4yVK7pbJGkPcZpWtrjf4zhPGj+dEhG2+hjWpMZ3Rnr5oS13YP6yLwmrqzn5lAAAAAElFTkSuQmCC" />
+                                        </svg>
+                                        <span class="content">{{agentInfo.tel}}</span>
+                                    </div>
+                                    <div>
+                                        <svg class="iconfont-tel1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="17px" height="15px">
+                                            <image x="0px" y="0px" width="17px" height="15px"
+                                                xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAiCAQAAABsW+iDAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfjCRwUDAoclORkAAAB70lEQVRIx7XWMWgUQRSH8W/XkEgSxBAPEoIiKIhiIwiKYESwUdBgIIiI2F0i2Nmm1yKFlaJYnI2KXGGj2IiFYGElVhbqRQwJeoKoJATR+yxuL9nb7JnEG181vD/zg8cwzETCBk5zgA5C1Ax3mQPs8Ikh66vDgsWgqOqcPTFnggyfrgGOxGwPzkJfTPU/sO9jysHRWV5ij+8CH1lREPc7HxB9aFRn8aSLgdCndotgQcSDVtoma163UywIXnDKSNzknbbQOY+LuNvndVYfOyDiqNV/RMtuEfGc3600WP3imIiDPlo3+c3zIhZ8oJpmVe/ZL0aO+2Md6DO3iTjip6STYXXWEyLu9MWayEUvG4ubLaW6K1itedNescNJf66CvnKviEf90NTPYVXfesj6NXnTkvztVbvEjV6zlslasDptr4jd3shFpz1s/SJdyklbsB/dkWxCPOXnTH7fvlR+ZW1sAy1426FkVVoadNrRhCs63gLOYZfR12rVkWTrHied8qydIvZbVmtO5MIr2Ga0XiUHUyNj5JgzSZYPZ9g8VHXBWw7bJW71YibLg5vYVugysNCin4VT7Gro3yoLL7HtoCvhhG0XzcIVwWMB0GZ4ovGWtY82w4RDm+CQaAqOgV10B/vR/GIfMUQCRAwF+jZXmQf4A1TqE4Ujl1ToAAAAAElFTkSuQmCC" />
+                                        </svg>
+                                        <span class="content">{{agentInfo.email}}</span>
+                                    </div>
+                                    <div>
+                                        <svg class="iconfont-tel1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="17px" height="20px">
+                                            <image x="0px" y="0px" width="17px" height="20px"
+                                                xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAA7CAMAAAA+YjhqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACK1BMVEX////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+/v717Nnp167hyI/dwX/cwH3fxIblz53v4cL7+fLy6NDewoPYt2vYuG7o1Kj8+fP9/Pnm0aDbvXf07NjiyZHz6dHlz57ZuXD38ePx5sz+/fzw5Mjz6dPgxYnn06T7+PHy6NHavHXu4MDau3Tu377bvnnv4sT17dvr2rT48+fl0J7jzJb38eL58+jn06X9+/jYt2zz6tTm0aL9+/fs3Lfcv3zYuG3jzJj27tzv4sXr27Xt3brz6dL8+vWGzrrRAAAAenRSTlMAGFB6l6aun4lmNgQdfdLyp0wCIqT7218Ff/jNL8lsLOeSAe2W5HsDwv1EcuMOiI/2F/OAZeC3NPV4MFjWdPB1WdSp8W6rJVHMZ2/rCgl2XMAm97wkxMcnzpr6KxXu5Q3YXUq6/vyhmBoWc9/TVjPBhDEH1Z05EezdqtvnpFEAAAABYktHRACIBR1IAAAAB3RJTUUH4wkcFA4fQ39iDQAAAk1JREFUSMeN1fdXE0EQB/CJKGqixm5ABI0lRgMiNlCDYEORWBB7773FvigQFQ/FGgS72LtYUf88c7md21t37nLfn/ZmPi/7sm8LgBxPj6yevbJ79+nr9YF9+vUfwMz4Bw4aTLMhQ4cxOcNHEDSQk8vUjMxTZh3FyOTmy65gNLPLmKDVjWX2GSekZzxzygR0oYmiWH/hYkNjU+LS5SuiFp7E4WRRa76q8bRcu25WI4XGxH4stN7QLLl5y5RFaTjFdLc1KS13sFM8NeUKS/DzrvZfkm3YmpaC0/HjnqYk0c57M1JLNJOP2xtVqHXgr8yCQCkf3iec9gBhGczG4UMKao94NxvmIEyQ8DHvzoUowickfMq75ZCD8BkJO7Et4HMSvjDhPBw1kPAl7/qhAuEryiVbebcS8hC+puAb7M4H3wIcvyXgO2wuBFiE4/dJxX0wN9pigCrzo0PZEx+xtUQ/0OLAdH6SnTgOS/WNWy1OwmfrYn7pMuvLanQYiwjZ9fWbob7/+CmqbLlxuFZYSqy+7Vd39+8/f621SMyAwZXMORV4sFfVOrrV4qqIOrniOnH3hNY4wKj1NqsrtXVrQ9K9Zzt57Tr5gvStdzOxHm/YzcR6NlBu4yb1tt+8hYBF1PNRrbqt2ygY2K7AHfSLtFP5J0Eawi7Z7fbaOCjYI8G9YJt9Vley3x4eKLfALHDIQeEOxZxg4LAJj4BjjuKbfQwy5LjhwicywfjJNDyVyQGc1veb35MZphezzIWDM2fZubgbCPmsypWD+Hl3DqCGqP0D05bMtqj7J1kAAAAASUVORK5CYII=" />
+                                        </svg>
+                                        <span class="content" style="display: inline">{{agentInfo.address}}</span>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <img :src="agentInfo.qrcode" alt="">
+                                    <span class="wx content right">扫码添加微信</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#house-detail',
+        data() {
+            return {
+                isMobile: window.screen.width <= 1080,
+                isClick: 0,
+                isImage: false,
+                isPause: true,
+                houseImgId: 0,
+                hxImgId: 0,
+                showAnimate: false,
+                animateClass: '',
+                prevLimit: "",
+                nextLimit: "",
+                nextAnimateStart: true,
+                prevAnimateStart: true,
+                gourl:"",
+                open_houseshow:false,
+                houseInfo: {
+                    media: {}
+                },
+                agentInfo: {
+                    tel: ''
+                },
+                form: {
+                    email: "",
+                    name: "",
+                    tel: "",
+                    mls: "",
+                    userId: "",
+                    url: window.location.href,
+                    type: "smart_flyer_2"
+                }
+            }
+        },
+        mounted() {
+            this.getHouseInfo()
+            $('.menu-item').eq(1).addClass('select')
+        },
+        methods: {
+            wxShare(title, desc, img) {
+                let timestamp = new Date().getTime();
+                timestamp = timestamp.toString().substring(0, 10);
+                let url = window.location.href;
+                url = encodeURIComponent(url.split('#')[0]);
+                let signature;
+
+                $.get('http://www.realtoraccess.com/weixin/jsapi/?timestamp=' + timestamp + '&url=' + url, function (data) {
+                    signature = data;
+                    wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: 'wxcd1c7e6e724cc101', // 必填，公众号的唯一标识
+                        timestamp: timestamp, // 必填，生成签名的时间戳
+                        nonceStr: 'realter', // 必填，生成签名的随机串
+                        signature: signature, // 必填，签名，见附录1
+                        jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                    });
+
+                    wx.ready(function () {
+                        wx.onMenuShareAppMessage({
+                            title: title, // 分享标题
+                            desc: desc, // 分享描述
+                            link: '', // 分享链接
+                            imgUrl: img, // 分享图标
+                            type: '', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        });
+                        wx.onMenuShareTimeline({
+                            title: title, // 分享标题
+                            link: '', // 分享链接
+                            imgUrl: img, // 分享图标
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        });
+                    });
+                })
+            },
+        	homeshow(e){
+        		var my = e.target
+        		console.log(1)
+        		if ($(my).attr("src")=="/static/sp/smf1/src/img/homeimg@3x.png") {
+        			$("header").addClass("shows")
+        		} else{
+        			$("header").removeClass("shows")
+        		}
+        	},
+            prev() { // 上一张
+                if (this.prevAnimateStart) {
+                    this.prevAnimateStart = false
+                    this.showAnimate = true
+                    this.animateClass = 'fadeInRight'
+                    if (this.isClick == 1) { //上一张 房源图
+                        if (this.houseImgId != 0) {
+                            this.houseImgId -= 1
+                            this.isLimitClick(this.houseImgId, this.houseInfo.media.imgs.length - 1)
+                        }
+                    } else { //上一张 户型图
+                        if (this.hxImgId != 0) {
+                            this.hxImgId -= 1
+                            this.isLimitClick(this.hxImgId, this.houseInfo.media.hx.length - 1)
+                        }
+                    }
+                    let clearTime = setTimeout(() => {
+                        this.showAnimate = false
+                        this.prevAnimateStart = true
+                        clearTimeout(clearTime)
+                    }, 600);
+                }
+            },
+            next() { // 下一张
+                if (this.nextAnimateStart) {
+                    this.nextAnimateStart = false
+                    this.showAnimate = true
+                    this.animateClass = 'fadeInLeft'
+                    if (this.isClick == 1) { //下一张 房源图
+                        if (this.houseImgId != this.houseInfo.media.imgs.length - 1) {
+                            this.houseImgId += 1
+                            this.isLimitClick(this.houseImgId, this.houseInfo.media.imgs.length - 1)
+                        }
+                    } else { //下一张 户型图
+                        if (this.hxImgId != this.houseInfo.media.hx.length - 1) {
+                            this.hxImgId += 1
+                            this.isLimitClick(this.hxImgId, this.houseInfo.media.hx.length - 1)
+                        }
+                    }
+                    let clearTime = setTimeout(() => {
+                        this.showAnimate = false
+                        this.nextAnimateStart = true
+                        clearTimeout(clearTime)
+                    }, 600);
+                }
+
+
+            },
+            isLimitClick(id, maxId) { // 按钮变色
+                // if(id==0){
+                //     this.prevLimit=true
+                // }else if(id==maxId){
+                //     this.nextLimit=true
+                // }else{
+                //     this.prevLimit=false
+                //     this.nextLimit=false
+                // }
+                if (id == 0) {
+                    this.prevLimit = true
+                } else {
+                    this.prevLimit = false
+                }
+                if (id == maxId) {
+                    this.nextLimit = true
+                } else {
+
+                    this.nextLimit = false
+                }
+            },
+            click(id) {
+            	console.log(id)
+               if (id == 4) {
+               		if (this.houseInfo.vrtour) {
+               			this.isClick = id
+               			 let clearTime = setTimeout(() => {
+                        document.getElementsByClassName("inner-iframe")[0].innerHTML = this.houseInfo.vrtour
+                        clearTimeout(clearTime)
+                    }, 500)
+               		}
+               } else if (id == 1) {
+                    if (this.houseInfo.media.imgs.length>0) {
+                    	this.isClick = id
+                    	this.isLimitClick(this.houseImgId, this.houseInfo.media.imgs.length - 1)
+                    if (document.getElementsByClassName("inner-iframe")[0])
+                        document.getElementsByClassName("inner-iframe")[0].innerHTML = "";
+                    }
+               }else if (id == 3) {
+                    if(this.houseInfo.media.hx.length>0){
+                    	this.isClick = id
+                    	this.isLimitClick(this.hxImgId, this.houseInfo.media.hx.length - 1)
+                    if (document.getElementsByClassName("inner-iframe")[0])
+                        document.getElementsByClassName("inner-iframe")[0].innerHTML = "";
+                    }
+                } else if (id == 2){
+                   		this.isClick = id
+                    	if (document.getElementsByClassName("inner-iframe")[0])
+                        document.getElementsByClassName("inner-iframe")[0].innerHTML = "";
+                }else{
+                	this.isClick = id
+                }
+            },
+            GetQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]); return null;
+            },
+             getHouseInfo() { //获取房源信息接口
+                let url = window.location.href,
+                    token = this.GetQueryString('token')
+                var strs = url.split('?token')[0].split("/"), str, mls
+                str = strs[strs.length - 1]
+                if (!str) {
+                    mls = strs[strs.length - 2]
+                } else {
+                    mls = strs[strs.length - 1]
+                }
+//                 token = '201708131845001'
+//                 mls = "r2150094"
+                axios.get(baseUrl + '/portal/smart/flyer/', { params: { token, mls } })
+                    .then(res => {
+                    	
+                    	this.gourl= "http://www.realtoraccess.com/web/agent4/"+res.data.data.agentId
+                        this.houseInfo = res.data.data
+//                      var open_houseshow = $.trim(houseInfo.open_house[0])?true:false
+                        this.form.mls = mls
+                        document.title =res.data.data.listingname
+                        this.getAgentInfo()
+                        $('#map-detail').mapmarker(this.houseInfo.listingname, this.houseInfo.price, this.houseInfo.listingname, 12, { lat: parseFloat(this.houseInfo.lat), lng: parseFloat(this.houseInfo.lng) });
+                    })
+                    .catch(function (error) {
+
+                    });
+            },
+            getAgentInfo() { //获取经纪人信息接口
+                let agentId = this.houseInfo.agentId
+                axios.get(baseUrl + '/portal/agent/' + 4 + '/')
+                    .then(res => {
+                        this.agentInfo = res.data.data
+                        this.form.userId = res.data.data.email;
+                    })
+                    .catch(function (error) {
+
+                    });
+            },
+            playPause() { //视频播放
+                var myVideo = document.getElementById("video1");
+                if (myVideo.paused) {
+                    myVideo.play()
+                    this.isPause = false
+                } else {
+                    myVideo.pause();
+                    this.isPause = true
+                }
+            },
+            postForm() { //form表单提交
+               if($.trim(this.form.name)&&$.trim(this.form.email)&&$.trim(this.form.tel)){
+               		var email =this.form.email;
+					var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+					if(reg.test(email)){
+               			 let data = this.form
+                axios.post(baseUrl + '/portal/commit/email/', data)
+                    .then(response => {
+                        if(response.data.code === '00') {
+                            this.$message({
+                                message: '提交成功！',
+                                type: 'success'
+                            });
+                        }
+                        this.form = {
+                            email: "",
+                            name: "",
+                            tel: "",
+                            url: window.location.href,
+                            type: "smart_flyer_2"
+                        }
+                    })
+                    .catch(function (error) {
+
+                    });
+               		} else{
+               			 this.$message({
+                            message: '邮箱格式不正确！',
+                            type: 'error'
+                        });
+               		}
+               }else{
+               		this.$message({
+                            message: '请填写完整信息！',
+                            type: 'error'
+                        });
+               }
+            },
+        }
+    })
+
+</script>
+</html>
+<!-- {% endverbatim %} -->

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv=Content-Type content=“text/html;charset=utf-8″>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>增加数据源</title>
+    {% load staticfiles %}
+
+    <link href="{% static 'bi/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/qingcheng.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/common.css' %}" rel="stylesheet">
+    <link href="{% static 'bi/css/visio.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'bi/images/favicon.ico' %}">
+    <!--[if lt IE 9]>
+    <script src="{% static 'bi/js/html5shiv.min.js' %}"></script>
+    <script src="{% static 'bi/js/respond.min.js' %}"></script>
+    <script src="{% static 'bi/js/CRYPT.js' %}"></script>
+    <![endif]-->
+</head>
+<body id="mathData">
+<div id="navbox">
+
+</div>
+
+<section>
+    <div class="containerbox">
+        <div class="container zero" style="margin:0;width: 1240px;">
+            <div class="row margin_x_zero huanjing section_title">
+                <i style="margin-left: 15px"></i><b></b><p>可配数据</p><b></b><em></em>
+            </div>
+            <div class="row zero" id="allsvg">
+                <div class="col-xs-2 pull-left margin_padding_x_zero">
+                    <a href="{% url 'bi:mysql' %}"> <img src="{% static 'bi/images/SQL-1.png' %}" class="img-responsive  margin_padding_x_zero" alt="databox"/></a>
+                </div>
+                <div class="col-xs-2 pull-left margin_padding_x_zero">
+                    <a href="{% url 'bi:excel' %}"><img src="{% static 'bi/images/Excel-1.png' %}" class="img-responsive  margin_padding_x_zero" alt="databox"/></a>
+                </div>
+                <div class="col-xs-2 pull-left margin_padding_x_zero">
+                    <a href=""><img src="{% static 'bi/images/Hadoop.png' %}" class="img-responsive  margin_padding_x_zero" alt="databox"/></a>
+                </div>
+                <div class="col-xs-2 pull-left margin_padding_x_zero">
+                    <a href=""><img src="{% static 'bi/images/Oracle.png' %}" class="img-responsive  margin_padding_x_zero" alt="databox"/></a>
+                </div>
+                <div class="col-xs-2 pull-left margin_padding_x_zero">
+                    <a href=""><img src="{% static 'bi/images/DB2.png' %}" class="img-responsive  margin_padding_x_zero" alt="databox"/></a>
+                </div>
+                <div class="col-xs-2 pull-left margin_padding_x_zero">
+                    <a href=""><img src="{% static 'bi/images/SQL-Server.png' %}" class="img-responsive  margin_padding_x_zero" alt="databox"/></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!--弹窗遮罩层-->
+<div id="index_addData" class="row ">
+
+</div>
+
+<div id="footerbox">
+    <footer id="footer">
+
+    </footer>
+
+
+</div>
+<script src="{% static 'bi/js/jquery-1.11.3.js' %}"></script>
+<script src="{% static 'bi/js/bootstrap.js' %}"></script>
+<script src="{% static 'bi/laydate/laydate.js' %}"></script>
+<script src="{% static 'bi/js/myjs.js' %}"></script>
+<script src="{% static 'bi/js/initEchart.js' %}"></script>
+<script src="{% static 'bi/js/IntervalEchart.js' %}"></script>
+<script src="{% static 'bi/js/outerTest.js' %}"></script>
+<script src="{% static 'bi/js/realTimeEachart.js' %}"></script>
+<script src="{% static 'bi/js/detail.js' %}"></script>
+<script src="{% static 'bi/js/systemPublish.js' %}"></script>
+<script src="{% static 'bi/js/commonIndexScroll.js' %}"></script>
+</body>
+</html>

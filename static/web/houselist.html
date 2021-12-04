@@ -1,0 +1,367 @@
+<!DOCTYPE>
+{% load staticfiles %}
+<html>
+<head>
+{% if cdt.country == 'all' and cdt.prov == 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype == 'all' and cdt.housetype == 'all' and cdt.bedroom == 'all' and cdt.price == 'all'%}
+<title>【海外房产信息_海外置业_新房二手房_mls房源】-海外瑞安居</title>
+<meta name="keywords" content="海外房产信息,海外置业,海外新房,海外二手房,海外买房, mls房源" />
+<meta name="description" content="【海外瑞安居】海外房产栏目为您提供最新的海外房产信息，海外置业，海外新房二手房和mls房产信息，想了解更多海外买房信息就来海外瑞安居。" />
+
+{% elif cdt.country != 'all' and cdt.prov == 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype == 'all' and cdt.housetype == 'all' and cdt.bedroom == 'all' and cdt.price == 'all'%}
+<title>【{{cdt.dist_cn}}房产网_{{cdt.dist_cn}}房产信息_购房置业】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}房产网,{{cdt.dist_cn}}房产信息,{{cdt.dist_cn}}购房置业" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}房产栏目为您推荐最新的{{cdt.dist_cn}}房产信息，房产价格查询。更多{{cdt.dist_cn}}新房源二手房源就来海外瑞安居。" />
+
+{% elif cdt.prov != 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype == 'all' and cdt.housetype == 'all' and cdt.bedroom == 'all' and cdt.price == 'all'%}
+<title>【{{cdt.dist_cn}}房产信息_{{cdt.dist_cn}}房价查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}房产网,{{cdt.dist_cn}}房产信息，{{cdt.dist_cn}}房价查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}栏目为您提供最新的{{cdt.dist_cn}}房产信息和{{cdt.dist_cn}}房价查询，更多{{cdt.dist_cn}}房产信息就来海外瑞安居。" />
+
+{% elif cdt.group != 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype == 'all' and cdt.housetype == 'all' and cdt.bedroom == 'all' and cdt.price == 'all'%}
+<title>【{{cdt.dist_cn}}房产信息_{{cdt.dist_cn}}房价查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}房产网,{{cdt.dist_cn}}房产信息，{{cdt.dist_cn}}房价查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}栏目为您提供最新的{{cdt.dist_cn}}房产信息和{{cdt.dist_cn}}房价查询，更多{{cdt.dist_cn}}房产信息就来海外瑞安居。" />
+
+{% elif cdt.city != 'all' and cdt.county == 'all' and cdt.listingtype == 'all' and cdt.housetype == 'all' and cdt.bedroom == 'all' and cdt.price == 'all'%}
+<title>【{{cdt.dist_cn}}房产信息_{{cdt.dist_cn}}房价查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}房产网,{{cdt.dist_cn}}房产信息，{{cdt.dist_cn}}房价查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}栏目为您提供最新的{{cdt.dist_cn}}房产信息和{{cdt.dist_cn}}房价查询，更多{{cdt.dist_cn}}房产信息就来海外瑞安居。" />
+
+{% elif cdt.county != 'all' and cdt.listingtype == 'all' and cdt.housetype == 'all' and cdt.bedroom == 'all' and cdt.price == 'all'%}
+<title>【{{cdt.dist_cn}}房产信息_{{cdt.dist_cn}}房价查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}房产网,{{cdt.dist_cn}}房产信息，{{cdt.dist_cn}}房价查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}栏目为您提供最新的{{cdt.dist_cn}}房产信息和{{cdt.dist_cn}}房价查询，更多{{cdt.dist_cn}}房产信息就来海外瑞安居。" />
+
+{% elif cdt.country == 'all' and cdt.prov == 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype != 'all' and cdt.housetype == 'all' and cdt.bedroom == 'all' and cdt.price == 'all'%}
+<title>【海外{{cdt.listingtype_cn}}房产信息_{{cdt.listingtype_cn}}价格查询】-海外瑞安居</title>
+<meta name="keywords" content="海外{{cdt.listingtype_cn}}房产信息，{{cdt.listingtype_cn}}价格查询" />
+<meta name="description" content="【海外瑞安居】海外{{cdt.listingtype_cn}}栏目为您提供海量的{{cdt.listingtype_cn}}房产信息，{{cdt.listingtype_cn}}价格查询和优质海外{{cdt.listingtype_cn}}信息推荐，更多靠谱的海外{{cdt.listingtype_cn}}信息就来海外瑞安居。" />
+
+{% elif cdt.country == 'all' and cdt.prov == 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype == 'all' and cdt.housetype != 'all' and cdt.bedroom == 'all' and cdt.price == 'all'%}
+<title>【海外{{cdt.housetype_cn}}房产信息_{{cdt.housetype_cn}}价格查询】-海外瑞安居</title>
+<meta name="keywords" content="海外{{cdt.housetype_cn}}房产信息，{{cdt.housetype_cn}}价格查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.housetype_cn}}栏目为您提供最新海外{{cdt.housetype_cn}}房产信息，{物业}房价查询，更多海外{{cdt.housetype_cn}}房源信息就来海外瑞安居。" />
+
+{% elif cdt.country == 'all' and cdt.prov == 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype == 'all' and cdt.housetype == 'all' and cdt.bedroom == 'all' and cdt.price != 'all'%}
+<title>【海外{{cdt.price_cn}}房源信息_房产价格查询】-海外瑞安居</title>
+<meta name="keywords" content="海外{{cdt.price_cn}}房源信息，{{cdt.price_cn}}房产查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.price_cn}}房源价格栏目为您提供最新的{{cdt.price_cn}}房源信息，更多优质的海外房源就来海外瑞安居。" />
+
+{% elif cdt.dist != '' and cdt.listingtype != 'all' and cdt.housetype == 'all' and cdt.bedroom == 'all' and cdt.price == 'all'%}
+<title>【{{cdt.dist_cn}}{{cdt.listingtype_cn}}信息_{{cdt.dist_cn}}{{cdt.listingtype_cn}}价格查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}{{cdt.listingtype_cn}}信息,{{cdt.dist_cn}}{{cdt.listingtype_cn}}房价查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}{{cdt.listingtype_cn}}栏目为您推荐最新的{{cdt.dist_cn}}{{cdt.listingtype_cn}}信息和{{cdt.dist_cn}}{{cdt.listingtype_cn}}房价查询，更多海量{{cdt.dist_cn}}{{cdt.listingtype_cn}}信息就来海外瑞安居。" />
+
+{% elif cdt.dist != '' and cdt.listingtype == 'all' and cdt.housetype != 'all' and cdt.bedroom == 'all' and cdt.price == 'all'%}
+<title>【{{cdt.dist_cn}}{{cdt.housetype_cn}}房产信息_{{cdt.housetype_cn}}价格查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}{{cdt.housetype_cn}}房产信息,{{cdt.dist_cn}}{{cdt.housetype_cn}}价格查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}{{cdt.housetype_cn}}栏目为您提供最新的{{cdt.dist_cn}}{{cdt.housetype_cn}}信息和{{cdt.dist_cn}}{{cdt.housetype_cn}}价格查询，更多{{cdt.dist_cn}}房产信息就来海外瑞安居。" />
+
+{% elif cdt.dist != '' and cdt.listingtype == 'all' and cdt.housetype == 'all' and cdt.bedroom != 'all' and cdt.price == 'all'%}
+<title>【{{cdt.dist_cn}}{{cdt.bedroom}}居房产信息_{{cdt.dist_cn}}{{cdt.bedroom}}居房产价格查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}{{cdt.bedroom}}居房产信息，{{cdt.dist_cn}}{{cdt.bedroom}}居房产价格查询" />
+<meta name="description" content="【海外绕安居】{{cdt.dist_cn}}{{cdt.bedroom}}居栏目为您提供最新的{{cdt.dist_cn}}{{cdt.bedroom}}居房产信息和{{cdt.dist_cn}}{{cdt.bedroom}}居房产价格查询，更多{{cdt.dist_cn}}房产信息就来海外瑞安居。" />
+
+{% elif cdt.dist != '' and cdt.listingtype == 'all' and cdt.housetype == 'all' and cdt.bedroom == 'all' and cdt.price != 'all'%}
+<title>【{{cdt.dist_cn}}{{cdt.price_cn}}房产信息查询_{{cdt.dist}}{{cdt.price_cn}}房产推荐】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}{{cdt.price_cn}}房产信息查询，{{cdt.dist_cn}}{{cdt.price_cn}}房产推荐" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}{{cdt.price_cn}}房产信息栏目为您提供优质的{{cdt.dist_cn}}{{cdt.price_cn}}房产信息，更多{{cdt.dist_cn}}{{cdt.price_cn}}房产信息就来海外瑞安居。" />
+
+{% elif cdt.country == 'all' and cdt.prov == 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype != 'all' and cdt.housetype != 'all' and cdt.bedroom == 'all' and cdt.price == 'all'%}
+<title>【{{cdt.listingtype_cn}}{{cdt.housetype_cn}}房产信息_{{cdt.listingtype_cn}}{{cdt.housetype_cn}}房产价格查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.listingtype_cn}}{{cdt.housetype_cn}}房产信息，{{cdt.listingtype_cn}}{{cdt.housetype_cn}}房产价格查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.listingtype_cn}}{{cdt.housetype_cn}}栏目为您推荐最新的{{cdt.listingtype_cn}}{{cdt.housetype_cn}}房产信息和{{cdt.listingtype_cn}}{{cdt.housetype_cn}}房产价格查询，更多优质房产信息就来海外瑞安居。" />
+
+{% elif cdt.country == 'all' and cdt.prov == 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype != 'all' and cdt.housetype == 'all' and cdt.bedroom != 'all' and cdt.price == 'all'%}
+<title>【{{cdt.bedroom}}居{{cdt.listingtype_cn}}房产信息_{{cdt.bedroom}}居{{cdt.listingtype_cn}}房产价格】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.bedroom}}居{{cdt.listingtype_cn}}房产信息，{{cdt.bedroom}}居{{cdt.listingtype_cn}}房产价格" />
+<meta name="description" content="【海外瑞安居】{{cdt.bedroom}}居{{cdt.listingtype_cn}}栏目为您推荐最新的{{cdt.bedroom}}居{{cdt.listingtype_cn}}房产信息和{{cdt.bedroom}}居{{cdt.listingtype_cn}}房产价格查询，更多优质海外房产信息就来海外瑞安居。" />
+
+{% elif cdt.country == 'all' and cdt.prov == 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype != 'all' and cdt.housetype == 'all' and cdt.bedroom == 'all' and cdt.price != 'all'%}
+<title>【{{cdt.price_cn}}{{cdt.listingtype_cn}}房产信息_{{cdt.price_cn}}{{cdt.listingtype_cn}}房产价格】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.price_cn}}{{cdt.listingtype_cn}}房产信息，{{cdt.price_cn}}{{cdt.listingtype_cn}}房产价格" />
+<meta name="description" content="【海外瑞安居】{{cdt.price_cn}}{{cdt.listingtype_cn}}栏目为您提供最新的{{cdt.price_cn}}{{cdt.listingtype_cn}}房产信息和{{cdt.price_cn}}{{cdt.listingtype_cn}}房产价格查询，更多优质海外房产信息就来海外瑞安居。" />
+
+{% elif cdt.country == 'all' and cdt.prov == 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype == 'all' and cdt.housetype != 'all' and cdt.bedroom != 'all' and cdt.price == 'all'%}
+<title>【{{cdt.bedroom}}居{{cdt.housetype_cn}}房产信息_{{cdt.bedroom}}居{{cdt.housetype_cn}}房产价格查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.bedroom}}居{{cdt.housetype_cn}}房产信息,{{cdt.bedroom}}居{{cdt.housetype_cn}}房产价格查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.bedroom}}居{{cdt.housetype_cn}}栏目为您提供最新的{{cdt.bedroom}}居{{cdt.housetype_cn}}房产信息和{{cdt.bedroom}}居{{cdt.housetype_cn}}房产价格查询，更多优质海外房产信息就来海外瑞安居。" />
+
+{% elif cdt.country == 'all' and cdt.prov == 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype == 'all' and cdt.housetype != 'all' and cdt.bedroom == 'all' and cdt.price != 'all'%}
+<title>【{{cdt.price_cn}}{{cdt.housetype_cn}}房产信息_{{cdt.housetype_cn}}房产查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.price_cn}}{{cdt.housetype_cn}}房产信息,{{cdt.housetype_cn}}房产查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.price_cn}}{{cdt.housetype_cn}}栏目为您提供最新的{{cdt.price_cn}}{{cdt.housetype_cn}}房产信息和{{cdt.price_cn}}{{cdt.housetype_cn}}房产查询，更多优质海外房产信息就来海外瑞安居。" />
+
+{% elif cdt.dist != '' and cdt.listingtype != 'all' and cdt.housetype != 'all' and cdt.bedroom == 'all' and cdt.price == 'all'%}
+<title>【{{cdt.dist_cn}}{{cdt.listingtype_cn}}{{cdt.housetype_cn}}房产信息_房产价格查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}{{cdt.listingtype_cn}}{{cdt.housetype_cn}}房产信息_{{cdt.dist_cn}}{{cdt.listingtype_cn}}{{cdt.housetype_cn}}房产价格查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}{{cdt.listingtype_cn}}{{cdt.housetype_cn}}栏目为您提供最新的{{cdt.dist_cn}}{{cdt.listingtype_cn}}{{cdt.housetype_cn}}房产信息和{{cdt.dist_cn}}{{cdt.listingtype_cn}}{{cdt.housetype_cn}}房产价格查询，更多优质海外房产信息就来海外瑞安居。" />
+
+{% elif cdt.dist != '' and cdt.listingtype != 'all' and cdt.housetype == 'all' and cdt.bedroom != 'all' and cdt.price == 'all'%}
+<title>【{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.listingtype_cn}}房产信息查询_房产价格查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.listingtype_cn}}房产信息查询，{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.listingtype_cn}}房产价格查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.listingtype_cn}}栏目为您提供最新的{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.listingtype_cn}}房产信息查询和{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.listingtype_cn}}房产价格查询，更多优质海外房产信息就来海外瑞安居。" />
+
+{% elif cdt.dist != '' and cdt.listingtype != 'all' and cdt.housetype == 'all' and cdt.bedroom == 'all' and cdt.price != 'all'%}
+<title>【{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.listingtype_cn}}信息_房产查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.listingtype_cn}}房产信息_{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.listingtype_cn}}房产查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.listingtype_cn}}栏目为您提供最新的{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.listingtype_cn}}房产信息查询和{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.listingtype_cn}}查询，更多优质海外房产信息就来海外瑞安居。" />
+
+{% elif cdt.dist != '' and cdt.listingtype == 'all' and cdt.housetype != 'all' and cdt.bedroom != 'all' and cdt.price == 'all'%}
+<title>【{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产信息_房产查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产信息_{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}栏目为您提供最新的{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产信息查询和{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产价格查询，更多优质海外房产信息就来海外瑞安居。" />
+
+{% elif cdt.dist != '' and cdt.listingtype == 'all' and cdt.housetype != 'all' and cdt.bedroom == 'all' and cdt.price != 'all'%}
+<title>【{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.housetype_cn}}房产信息_房产查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.housetype_cn}}房产信息_{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.housetype_cn}}房产查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.housetype_cn}}栏目为您提供最新的{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.housetype_cn}}房产信息查询和{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.housetype_cn}}信息查询，更多优质海外房产信息就来海外瑞安居。" />
+
+{% elif cdt.dist != '' and cdt.listingtype == 'all' and cdt.housetype == 'all' and cdt.bedroom != 'all' and cdt.price != 'all'%}
+<title>【{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居房产信息_房产查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居房产信息_{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居房产查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居栏目为您提供最新的{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居房产信息查询和{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居房产查询，更多优质海外房产信息就来海外瑞安居。" />
+
+{% elif cdt.country == 'all' and cdt.prov == 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype != 'all' and cdt.housetype != 'all' and cdt.bedroom != 'all' and cdt.price == 'all'%}
+<title>【{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产信息_房产价格查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产信息,{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房价查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}栏目为您提供最新的{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}信息查询和{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产价格查询，更多优质海外房产信息就来海外瑞安居。" />
+
+{% elif cdt.country == 'all' and cdt.prov == 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype != 'all' and cdt.housetype != 'all' and cdt.bedroom == 'all' and cdt.price != 'all'%}
+<title>【{{cdt.price_cn}}{{cdt.housetype_cn}}{{cdt.listingtype_cn}}信息_房产查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.price_cn}}{{cdt.housetype_cn}}{{cdt.listingtype_cn}}信息，{{cdt.price_cn}}{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.price_cn}}{{cdt.housetype_cn}}{{cdt.listingtype_cn}}栏目为您提供最心底{{cdt.price_cn}}{{cdt.housetype_cn}}{{cdt.listingtype_cn}}信息，{{cdt.price_cn}}{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产查询，更多优质海外房产信息就来海外瑞安居。" />
+
+{% elif cdt.country == 'all' and cdt.prov == 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype == 'all' and cdt.housetype != 'all' and cdt.bedroom != 'all' and cdt.price != 'all'%}
+<title>【{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产信息_房产查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产信息,{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}栏目为您提供最新的{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产信息和{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产查询，更多优质海外房产信息就来海外瑞安居。" />
+
+{% elif cdt.dist != '' and cdt.listingtype != 'all' and cdt.housetype != 'all' and cdt.bedroom != 'all' and cdt.price == 'all'%}
+<title>【{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产信息_房产查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产信息,{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}栏目为您提供最新的{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产信息,{{cdt.dist_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产查询，更多{{cdt.dist_cn}}房产信息就来海外瑞安居。" />
+
+{% elif cdt.dist != '' and cdt.listingtype != 'all' and cdt.housetype != 'all' and cdt.bedroom == 'all' and cdt.price != 'all'%}
+<title>【{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.housetype_cn}}{{cdt.listingtype_cn}}信息_房产查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.housetype_cn}}{{cdt.listingtype_cn}}信息,{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.housetype_cn}}{{cdt.listingtype_cn}}栏目为您推荐最新的{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.housetype_cn}}{{cdt.listingtype_cn}}信息,{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产查询，更多{{cdt.dist_cn}}房产信息就来海外瑞安居。" />
+
+{% elif cdt.dist != '' and cdt.listingtype == 'all' and cdt.housetype != 'all' and cdt.bedroom != 'all' and cdt.price != 'all'%}
+<title>【{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产信息_房产查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产信息,{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}栏目为您提供最新的{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产信息和{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}房产查询，更多{{cdt.dist_cn}}房产信息就来海外瑞安居。" />
+
+{% elif cdt.country == 'all' and cdt.prov == 'all' and cdt.group == 'all' and cdt.city == 'all' and cdt.county == 'all' and cdt.listingtype != 'all' and cdt.housetype != 'all' and cdt.bedroom != 'all' and cdt.price != 'all'%}
+<title>【{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产信息_房产查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产信息,{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}栏目为您提供最新的{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产信息和{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产查询，更多{{cdt.listingtype_cn}}房产信息就来海外瑞安居。" />
+
+{% elif cdt.dist != '' and cdt.listingtype != 'all' and cdt.housetype != 'all' and cdt.bedroom != 'all' and cdt.price != 'all'%}
+<title>【{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产信息_房产查询】-海外瑞安居</title>
+<meta name="keywords" content="{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产信息,{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产查询" />
+<meta name="description" content="【海外瑞安居】{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}栏目为您提供最新的{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产信息，{{cdt.dist_cn}}{{cdt.price_cn}}{{cdt.bedroom}}居{{cdt.housetype_cn}}{{cdt.listingtype_cn}}房产查询，更多{{cdt.dist_cn}}房产信息就来海外瑞安居。" />
+
+{% endif %}
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/houselist.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/header.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/footer.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/sidelogo.css' %}">
+<link rel="shortcut icon" href="{% static 'web/images/ico.ico' %}">
+<script type="text/javascript" src="{% static 'js/jquery-1.9.1.min.js' %}"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116462236-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-116462236-1');
+</script>
+</head>
+<body>
+   <div id="header"></div>
+   <div id="houselist_container_box">
+		<div id="container_left">
+
+            <div class="condi">
+            	<p class="country">国家：
+            		<a href="/web/houses/all-all-all-all-all-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.country == 'all' %} class="seledcondi" {% endif %}>不限</a>
+					<a href="/web/houses/Canada-all-all-all-all-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.country == 'Canada' %} class="seledcondi" {% endif %}>加拿大</a>
+            	</p>
+            	<p class="prov">省名：
+            		<a href="/web/houses/{{cdt.country}}-all-all-all-all-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.prov == 'all' %} class="seledcondi" {% endif %}>不限</a>
+					<a href="/web/houses/{{cdt.country}}-BC-all-all-all-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.prov == 'BC' %} class="seledcondi" {% endif %}>不列颠哥伦比亚省</a>
+            	</p>
+            	<p class="areas">区域：
+            		<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-all-all-all-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1"  {% if cdt.group == 'all' %} class="seledcondi" {% endif %}>不限</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-REBGV-all-all-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.group == 'REBGV' %} class="seledcondi" {% endif %}>大温地区</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-FVREB-all-all-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.group == 'FVREB' %} class="seledcondi" {% endif %}>菲莎河谷</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-SLRD-all-all-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.group == 'SLRD' %} class="seledcondi" {% endif %}>斯阔米什河谷</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-SCRD-all-all-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.group == 'SCRD' %} class="seledcondi" {% endif %}>阳光海岸地区</a>
+            	</p>
+            	<p class="city">城市：
+            		<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-all-all-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.city == 'all' %} class="seledcondi" {% endif %}>不限</a>
+            		{% for i in cities %}
+            		<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{i.cityid}}-all-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.city == i.cityid %} class="seledcondi" {% endif %}>{{i.cityname}}</a>
+            		{% endfor %}
+            	</p>
+            	<p class="county">县区：
+            		<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-all-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.county == 'all' %} class="seledcondi" {% endif %}>不限</a>
+            		{% for i in counties %}
+            		<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{i.countyid}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.county == i.countyid %} class="seledcondi" {% endif %}>{{i.countyname}}</a>
+            		{% endfor %}
+            	</p>
+            	<p>房屋类型：
+            		<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-all-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.listingtype == 'all' %} class="seledcondi" {% endif %}>不限</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-new-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.listingtype == 'new' %} class="seledcondi" {% endif %}>新房</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-sale-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.listingtype == 'sale' %} class="seledcondi" {% endif %}>二手房</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-rent-{{cdt.housetype}}-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.listingtype == 'rent' %} class="seledcondi" {% endif %}>租房</a>
+            	</p>
+            	<p>物业：
+            		<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-all-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.housetype == 'all' %} class="seledcondi" {% endif %}>不限</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-t1-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.housetype == 't1' %} class="seledcondi" {% endif %}>别墅</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-t2-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.housetype == 't2' %} class="seledcondi" {% endif %}>独立屋</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-t3-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.housetype == 't3' %} class="seledcondi" {% endif %}>公寓</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-t4-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.housetype == 't4' %} class="seledcondi" {% endif %}>联排公寓</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-t5-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.housetype == 't5' %} class="seledcondi" {% endif %}>休闲屋</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-t7-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.housetype == 't7' %} class="seledcondi" {% endif %}>城市屋</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-t8-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.housetype == 't8' %} class="seledcondi" {% endif %}>双拼联排公寓</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-t9-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.housetype == 't9' %} class="seledcondi" {% endif %}>工厂</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-t10-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.housetype == 't10' %} class="seledcondi" {% endif %}>三体联排公寓</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-t11-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.housetype == 't11' %} class="seledcondi" {% endif %}>四体联排公寓</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-t12-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.housetype == 't12' %} class="seledcondi" {% endif %}>商业地产</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-t13-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.housetype == 't13' %} class="seledcondi" {% endif %}>联排式住宅</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-t6-{{cdt.bedroom}}-{{cdt.price}}-1" {% if cdt.housetype == 't6' %} class="seledcondi" {% endif %}>其它</a>
+            	</p>
+            	<p>卧室：
+            		<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-all-{{cdt.price}}-1" {% if cdt.bedroom == 'all' %} class="seledcondi" {% endif %}>不限</a>
+<!-- 					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-0-{{cdt.price}}-1" {% if cdt.bedroom == '0' %} class="seledcondi" {% endif %}>0+</a> -->
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-1-{{cdt.price}}-1" {% if cdt.bedroom == '1' %} class="seledcondi" {% endif %}>1+</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-2-{{cdt.price}}-1" {% if cdt.bedroom == '2' %} class="seledcondi" {% endif %}>2+</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-3-{{cdt.price}}-1" {% if cdt.bedroom == '3' %} class="seledcondi" {% endif %}>3+</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-4-{{cdt.price}}-1" {% if cdt.bedroom == '4' %} class="seledcondi" {% endif %}>4+</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-5-{{cdt.price}}-1" {% if cdt.bedroom == '5' %} class="seledcondi" {% endif %}>5+</a>
+            	</p>
+<!--             	<p>卫生间：
+            		<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-all-{{cdt.price}}-1" {% if cdt.toilet == 'all' %} class="seledcondi" {% endif %}>不限</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-0-{{cdt.price}}-1" {% if cdt.toilet == '0' %} class="seledcondi" {% endif %}>0+</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-1-{{cdt.price}}-1" {% if cdt.toilet == '1' %} class="seledcondi" {% endif %}>1+</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-2-{{cdt.price}}-1" {% if cdt.toilet == '2' %} class="seledcondi" {% endif %}>2+</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-3-{{cdt.price}}-1" {% if cdt.toilet == '3' %} class="seledcondi" {% endif %}>3+</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-4-{{cdt.price}}-1" {% if cdt.toilet == '4' %} class="seledcondi" {% endif %}>4+</a>
+            	</p> -->
+            	<p>价格：
+            		<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-all-1" {% if cdt.price == 'all' %} class="seledcondi" {% endif %}>不限</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-3050-1" {% if cdt.price == '3050' %} class="seledcondi" {% endif %}>$30万-$50万</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-50100-1" {% if cdt.price == '50100' %} class="seledcondi" {% endif %}>$50万-$100万</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-100150-1" {% if cdt.price == '100150' %} class="seledcondi" {% endif %}>$100万-$150万</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-150200-1" {% if cdt.price == '150200' %} class="seledcondi" {% endif %}>$150万-$200万</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-200300-1" {% if cdt.price == '200300' %} class="seledcondi" {% endif %}>$200万-$300万</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-300400-1" {% if cdt.price == '300400' %} class="seledcondi" {% endif %}>$300万-$400万</a>
+					<a href="/web/houses/{{cdt.country}}-{{cdt.prov}}-{{cdt.group}}-{{cdt.city}}-{{cdt.county}}-{{cdt.listingtype}}-{{cdt.housetype}}-{{cdt.bedroom}}-400-1" {% if cdt.price == '400' %} class="seledcondi" {% endif %}>$400万+</a>
+            	</p>
+
+
+            </div>
+            <div id="part2" class="list">
+                 <h2 id="part2title">{{cnt}}个最新房源</h2>
+					<div id="map_clas">
+		                     <div id="s_map">
+		                      <a href="http://www.realtoraccess.com/web/m/listings/">
+		                         <img src="{% static 'web/images/1_icon.png' %}">
+		                      </a>
+		                     
+		                     </div>
+	                     </div>
+	                 <div style="clear: both;"></div>
+	                 <div class="part2_left">
+                    
+                    <div class="studentlist">
+
+                    	{% for i in listings %}
+			              <div class="share_box">
+					           <div class="above">
+					            <div class="housepicture"><a href="/web/listing1/{{i.mls}}"><img src="{{i.img}}"
+					             alt="{{i.mls}}"></a>
+					         	</div>
+					            <div class="information">
+					               <p class="price">&nbsp&nbsp{{i.price}} | {{i.areas}}</p>
+					               <p class="adddress">&nbsp&nbsp{{i.bedroom}}室{{i.toilet}}卫 &nbsp&nbsp<img class="dianwei"src="/static/web/images/_icon.png">&nbsp{{i.addr}}</p>
+					            </div>
+					           </div>
+					        <div class="page_view">
+					            <p><img src="/static/web/images/reading.png">{{i.visit}}</p>
+					            <p class="date">{{i.date}}</p>
+					        </div>
+					      </div>
+					    {% endfor %}
+
+						<div style="clear: both;"></div>
+						<div class="pageclick" currpage={{currpage}}>
+					    	<ul>
+					    		<li class="bigpage" id="prevpage">上一页&nbsp</li>
+					    		{% for i in pages%}
+					    		{% if forloop.counter < 6%}
+					    		<li class="page" p="{{i}}">{{i}}</li>
+					    		{% endif %}
+					    		{% endfor %}
+					    		<li class="bigpage" id="nextpage">下一页&nbsp</li>
+					    	</ul>
+				    		<div class="txt" id="tip" page="{{lastpage}}">共{{lastpage}}页 , 到第</div>
+				    		<input id="ipt" type="number" name="skippage" min="1" max="{{lastpage}}" value="{{lastpage}}">
+				    		<span class="txt">页</span>
+				    		<span class="txt" id="confirm">确定</span>
+				    		<div style="clear: both;"></div>
+					    </div>
+
+	                  </div><!-- studentlist -->
+                   </div><!-- part2_left -->
+               </div><!-- part2 -->
+               
+
+               <div id="part3">
+                 	<div class="card"><span id="card_left">国内代理&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><span id="card_right">周一至周日9:00-17:00</span></div>
+                 	<div id="s_nummber">400 877 1896</div>
+                 	<!-- <div class="broker_title"><p>海外品牌经纪</p><img src="{% static 'web/images/xiazzz.png' %}"></div> -->
+                 	<div class="broker"><img src="{% static 'web/images/ad3.gif' %}"></div>
+                 	<!-- <div class="broker"><img src="{% static 'web/images/ad2.png' %}"></div>
+                 	<div class="broker"><img src="{% static 'web/images/ad1.png' %}"></div> -->
+                 	{% if cdt.city == 'Vancouver' %}
+                    <a href="/web/van/" style="color: #962828;font-weight:600;">查看此地区的房价走势-></a>
+                    {% elif cdt.city == 'WestVan' %}
+                    <a href="/web/westvan/" style="color: #962828;font-weight:600;">查看此地区的房价走势-></a>
+                    {% elif cdt.city == 'Burnaby' %}
+                    <a href="/web/burnaby/" style="color: #962828;font-weight:600;">查看此地区的房价走势-></a>
+                    {% elif cdt.city == 'Surrey' %}
+                    <a href="/web/surrey/" style="color: #962828;font-weight:600;">查看此地区的房价走势-></a>
+                    {% elif cdt.city == 'Coquitlam' %}
+                    <a href="/web/coquitlam/" style="color: #962828;font-weight:600;">查看此地区的房价走势-></a>
+                    {% elif cdt.city == 'WhiteRock' %}
+                    <a href="/web/whiterock/" style="color: #962828;font-weight:600;">查看此地区的房价走势-></a>
+                    {% elif cdt.city == 'PortMoody' %}
+                    <a href="/web/portmoody/" style="color: #962828;font-weight:600;">查看此地区的房价走势-></a>
+                    {% elif cdt.city == 'Richmond' %}
+                    <a href="/web/richmond/" style="color: #962828;font-weight:600;">查看此地区的房价走势-></a>
+                    {% elif cdt.city == 'NorthVancouver' %}
+                    <a href="/web/northvan/" style="color: #962828;font-weight:600;">查看此地区的房价走势-></a>
+                    {% elif cdt.city == 'NorthSurrey' %}
+                    <a href="/web/northsurrey/" style="color: #962828;font-weight:600;">查看此地区的房价走势-></a>
+                    {% elif cdt.city == 'NewWestminster' %}
+                    <a href="/web/newwestminster/" style="color: #962828;font-weight:600;">查看此地区的房价走势-></a>
+                    {% elif cdt.city == 'Whistler' %}
+                    <a href="/web/whistler/" style="color: #962828;font-weight:600;">查看此地区的房价走势-></a>
+                    {% endif %}
+               </div>
+        </div><!-- container_left" -->
+
+        <div id="container_right"></div>
+   </div><!-- houselist_container_box" -->
+   <div style="claer:both"></div>
+   <div id="footer"></div>
+  <script type="text/javascript" src="{% static 'web/js/houselist.js' %}"></script>
+
+</body>
+</html>

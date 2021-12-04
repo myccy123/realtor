@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+{% load staticfiles %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Realtoraccess-Access to the Chinese market made easy!</title>
+    <link rel="shortcut icon" href="{% static 'web/img/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'web/css/element.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/console.css' %}">
+    <!-- <link rel="stylesheet" href="css/element.css">
+  <link rel="stylesheet" href="css/console.css"> -->
+    <style type="text/css">
+        .el-radio__label {
+            white-space: normal;
+        }
+    </style>
+</head>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+Tawk_API.visitor = {
+name : 'visitor name',
+email : 'visitor@email.com'
+};
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5da42103fbec0f2fe3b99527/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+<body>
+    <div id="app" v-cloak>
+        <div class="left-side">
+            <el-menu mode="vertical" class="vertical-nav" :router="false" :unique-opened="true" :default-active="activeIndex" @select="selectMenu" background-color="#32363f" text-color="#747e92" active-text-color="#fff">
+                <div>
+                    <img class="nav-logo" src="{% static 'web/img/img_nav_logo_console@2x.png' %}" width="147" @click="enterHome" />
+                    <el-menu-item index="1" class="menu-dashboard">
+                        <span slot="title">DASHBOARD</span>
+                    </el-menu-item>
+                    <el-menu-item index="2" class="menu-agent">
+                        <span slot="title">AGENT PAGE</span>
+                    </el-menu-item>
+                    <el-menu-item index="3" class="menu-properties">
+                        <span slot="title">PROPERTIES</span>
+                    </el-menu-item>
+                    <el-menu-item index="7" class="menu-campaigns">
+                        <span slot="title">CAMPAIGNS</span>
+                    </el-menu-item>
+                    <el-menu-item index="4" class="menu-billing">
+                        <span slot="title">BILLING</span>
+                    </el-menu-item>
+                    <el-menu-item index="5" class="menu-password">
+                        <span slot="title">PASSWORD</span>
+                    </el-menu-item>
+                    <el-menu-item index="6" class="menu-logout">
+                        <span slot="title">LOGOUT</span>
+                    </el-menu-item>
+                </div>
+            </el-menu>
+        </div>
+        <div class="right-side">
+            <div id="page-dashboard" v-show="activeIndex == 1">
+                <div class="header">
+                    <h1>Realtoraccess is a membership-based global realtor club, dedicated to facilitating global realtors’access to the Chinese market. Since 2016, Realtoraccess has gathered a group of web designers, data scientists, writers, analysts, and programmers working together to bridge the gap between the Chinese community and global professional real estate agents by bringing massive value to customers on both sides. Access to the Chinese market made easy! Check out Realtoraccess’<a href="https://mailchi.mp/3eb0ed944424/chinese_marketing" target="_blank" style="color: #fff!important;">Total Chinese Marketing Solution</a></h1>
+                    <!-- <h1><a href="https://mailchi.mp/realtoraccess/yvropenhouse" target="_blank" style="color: #fff!important;">Wechat Marketing & Listing Promotion；</a>Online Branding & Chinese SEOs；Blogging & Email Campaigns; Realtoraccess provides total Chinese marketing solution, which will bring your business to the next level.Upgrade to <a href="https://mailchi.mp/realtoraccess/member-pricing" target="_blank" style="color: #fff!important;">advanced member of Realtoraccess</a> for the best price rate!</h1> -->
+                </div>
+                <div class="container">
+                    <h2>Profile</h2>
+                    <hr />
+                    <el-form ref="profile" label-position="left" label-width="120px" :rules="profileRules" :model="profile">
+                        <el-form-item label="E-mail Address">
+                            <el-input v-model="profile.email"></el-input>
+                        </el-form-item>
+                        <el-form-item label="First Name" prop="fname">
+                            <el-input v-model="profile.fname"></el-input>
+                        </el-form-item>
+                        <el-form-item label="Last Name" prop="lname">
+                            <el-input v-model="profile.lname"></el-input>
+                        </el-form-item>
+                        <el-form-item label="Address">
+                            <el-input v-model="profile.address"></el-input>
+                        </el-form-item>
+                        <el-form-item label="ZIP code">
+                            <el-input v-model="profile.postid"></el-input>
+                        </el-form-item>
+                        <el-form-item label="Avatar (1:1)">
+                            <el-upload ref="uploadAvatar" class="avatar-uploader" action="http://www.realtoraccess.com/web/postimg/" list-type="picture-card" :multiple="false" :on-success="handleAvatarSuccess" :on-remove="handleImageRemove" :data="uploadData" name="head" :file-list="user.headImage" :on-change="handleAvatarChange">
+                                <el-button type="primary" size="medium">Upload</el-button>
+                            </el-upload>
+                        </el-form-item>
+                    </el-form>
+                </div>
+                <el-button type="primary" class="btn-primary" @click="submitProfileForm">Save</el-button>
+            </div>
+            <div id="page-agent" v-show="activeIndex == 2">
+                <div class="container">
+                    <el-form ref="agent" :model="agent" label-width="130px" label-position="left">
+                        <el-tabs v-model="agentTabActiveIndex">
+                            <el-tab-pane label="Contact Info" name="agent1">
+                                <el-row>
+                                    <el-select v-model="agent.country" @change="countryChange" placeholder="Country">
+                                        <el-option v-for="item in countryList" :key="item.countryid" :label="item.countryid" :value="item.countryid">
+                                        </el-option>
+                                    </el-select>
+                                    <el-select v-if="agent.country" v-model="agent.prov" @change="provChange" placeholder="Province">
+                                        <el-option v-for="item in provList" :key="item.provid" :label="item.provid" :value="item.provid">
+                                        </el-option>
+                                    </el-select>
+                                    <el-select v-if="agent.prov" v-model="agent.group" @change="groupChange" placeholder="Group">
+                                        <el-option v-for="item in groupList" :key="item.groupid" :label="item.groupid" :value="item.groupid">
+                                        </el-option>
+                                    </el-select>
+                                    <el-select v-if="agent.group" v-model="agent.city" @change="cityChange" placeholder="City">
+                                        <el-option v-for="item in cityList" :key="item.cityid" :label="item.cityid" :value="item.cityid">
+                                        </el-option>
+                                    </el-select>
+                                </el-row>
+                                <el-form-item label="Phone">
+                                    <el-input v-model="agent.tel" placeholder=""></el-input>
+                                </el-form-item>
+                                <el-form-item label="Company">
+                                    <el-input v-model="agent.corp" placeholder=""></el-input>
+                                </el-form-item>
+                                <el-form-item label="Website">
+                                    <el-input v-model="agent.website" placeholder=""></el-input>
+                                </el-form-item>
+                                <el-form-item label="WeChat QR code">
+                                    <el-upload ref="uploadQRCode" class="avatar-uploader" action="http://www.realtoraccess.com/web/postimg/" list-type="picture-card" :multiple="false" :on-success="handleQRCodeSuccess" :on-remove="handleImageRemove" :data="uploadData" name="qrcode" :file-list="user.qrcodeImage">
+                                        <el-button type="primary" size="medium">Upload</el-button>
+                                    </el-upload>
+                                </el-form-item>
+                                <el-form-item label="My Slogan">
+                                    <el-input v-model="agent.note" placeholder=""></el-input>
+                                </el-form-item>
+                                <el-form-item label="About Me">
+                                    <el-input type="textarea" v-model="agent.selfintro" :rows="4"></el-input>
+                                </el-form-item>
+                                <el-form-item label="Photo slide show (1:1)">
+                                    <el-upload class="photo-uploader" action="http://www.realtoraccess.com/web/postimg/" list-type="picture-card" :multiple="false" :on-success="handlePhotoSuccess" :on-remove="handleImageRemove" :data="uploadData" name="agent" :file-list="user.photoImages">
+                                        <i class="el-icon-plus"></i>
+                                    </el-upload>
+                                </el-form-item>
+                            </el-tab-pane>
+                            <el-tab-pane label="My Company" name="agent2">
+                                <el-form-item label="My Team">
+                                    <el-input type="textarea" v-model="agent.teamintro" :rows="4"></el-input>
+                                </el-form-item>
+                                <el-form-item label="My Company">
+                                    <el-input type="textarea" v-model="agent.corpintro" :rows="4"></el-input>
+                                </el-form-item>
+                            </el-tab-pane>
+                            <el-tab-pane label="My Co-agent" name="agent3">
+                                <el-form-item label="Avatar (1:1)">
+                                    <el-upload ref="uploadAvatar2" class="avatar-uploader" action="http://www.realtoraccess.com/web/postimg/" list-type="picture-card" multiple="false" :on-success="handleAvatar2Success" :on-remove="handleImageRemove" :data="uploadData" name="head2" :file-list="user.head2Image">
+                                        <el-button type="primary" size="medium">Upload</el-button>
+                                    </el-upload>
+                                </el-form-item>
+                                <el-form-item label="Name">
+                                    <el-input v-model="agent.username2"></el-input>
+                                </el-form-item>
+                                <el-form-item label="Phone">
+                                    <el-input v-model="agent.tel2"></el-input>
+                                </el-form-item>
+                                <el-form-item label="E-mail">
+                                    <el-input v-model="agent.email2"></el-input>
+                                </el-form-item>
+                                <el-form-item label="WeChat QR code">
+                                    <el-upload ref="uploadQRCode2" class="avatar-uploader" action="http://www.realtoraccess.com/web/postimg/" list-type="picture-card" multiple="false" :on-success="handleQRCode2Success" :on-remove="handleImageRemove" :data="uploadData" name="qrcode2" :file-list="user.qrcode2Image">
+                                        <el-button type="primary" size="medium">Upload</el-button>
+                                    </el-upload>
+                                </el-form-item>
+                            </el-tab-pane>
+                        </el-tabs>
+                    </el-form>
+                </div>
+                <div v-show="agentTabActiveIndex != 'agent2'" class="banner-container">
+                    <img src="{% static 'web/img/img_01@2x.png' %}" width="465" />
+                    <h2>Responsive-designed webpage</h2>
+                    <h3>Wechat QR code + Property Hosting + SEO Enhancement</h3>
+                    <a href="http://www.realtoraccess.com/web/agent2/174/" target="_blank">
+                        <div class="demo">Live Demos</div>
+                    </a>
+                    <button class="charge">Contact</button>
+                </div>
+                <div v-show="agentTabActiveIndex == 'agent2'" class="banner-container">
+                    <img src="{% static 'web/img/img_02@2x.png' %}" width="465" />
+                    <h2>Translation and Realtor Certification Badge</h2>
+                    <h3>Our designated professional translators, we??ll help you translate everything 
+                you want to say on your website. And we also developed our own realtor 
+                certification badge, which helps to build viewers?? trust.</h3>
+                    <a href="http://www.realtoraccess.com/web/agent2/174/" target="_blank">
+                        <div class="demo">Live Demos</div>
+                    </a>
+                    <button class="charge">Contact</button>
+                </div>
+                <div style="clear: both;">
+                    <el-button class="btn-primary" @click="submitAgentForm">Save</el-button>
+                    <el-button class="btn-preview" @click="preViewMypage">Preview</el-button>
+                </div>
+            </div>
+            <div id="page-properties" v-show="activeIndex == 3">
+                <div class="container">
+                    <h2>Manage Properties</h2>
+                    <el-popover placement="bottom" width="500" trigger="manual" v-model="addListingvisible">
+                        <div style="text-align: right; margin: 0">
+                            <el-button size="mini" type="text" icon="el-icon-close" @click="addListingvisible = false">Close</el-button>
+                        </div>
+                        <div>
+                            <p>
+                                Upgrade Plan! Add all your listings to the Wechat portal!
+                            </p>
+                            <div v-if="subscript">
+                                <el-select v-model="newListing.dist" placeholder="" style="width: 200px;margin-bottom: 20px;">
+                                    <el-option popper-class="listingtype" v-for="type in options" :key="type" :label="type" :value="type">
+                                    </el-option>
+                                </el-select>
+                            </div>
+                            <div>
+                                <el-input placeholder="e.g. 111 Realtoraccess Street" v-model="newListing.address">
+                                    <template slot="prepend">Street</template>
+                                </el-input>
+                            </div>
+                            <div style="margin-top: 15px;">
+                                <div>
+                                    <el-input class="mlsinput" placeholder="MLS# if applicable" v-model="newListing.mls">
+                                        <template slot="prepend">MLS</template>
+                                    </el-input>
+                                </div>
+                                <p>
+                                    <el-select v-model="newListing.housetype" placeholder="Property Type" style="width: 200px;">
+                                        <el-option popper-class="listingtype" v-for="type in types" :key="type.typesvalue" :label="type.label" :value="type.typesvalue">
+                                        </el-option>
+                                    </el-select>
+                                </p>
+                            </div>
+                            <div style="margin-top: 15px;">
+                                <div>
+                                    <el-input class="mlsinput" placeholder="Price e.g. $100,000" v-model="newListing.price">
+                                        <template slot="prepend">Price</template>
+                                    </el-input>
+                                    <div style="clear: both;"></div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 15px;">
+                                <div>
+                                    <el-input class="mlsinput" placeholder="Listing Area, e.g. 6,000 Sqft." v-model="newListing.sqft">
+                                        <template slot="prepend">Area</template>
+                                    </el-input>
+                                    <div style="clear: both;"></div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 15px;">
+                                <el-input placeholder="City/Area" v-model="newListing.area">
+                                    <template slot="append">e.g. Vancouver/Downtown </template>
+                                </el-input>
+                            </div>
+                            <div style="margin-top: 15px;">
+                                <el-input placeholder="Listing URL" v-model="newListing.url">
+                                    <template slot="prepend">Http://</template>
+                                </el-input>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <el-upload ref="uploadimg" class="avatar-uploader-property" 
+                            	action="/web/add/listing/"
+                            	:data="newListing"
+                            	:show-file-list="false" 
+                            	:auto-upload="false" 
+                            	:on-success="addListingSuccess"
+                                       :on-error="uploadFail"
+                            	:on-change="uploadListingImg">
+                                <img v-if="newListing.imageUrl" :src="newListing.imageUrl" class="avatar">
+                                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                            </el-upload>
+                        </div>
+                        <div style="text-align: left; margin-top: 15px;">
+                            <el-button :loading="loadingAdd" type="primary" size="mini" @click="addListing">Save</el-button>
+                        </div>
+                        <p>Update price and listing status from the prperty list on the left.</p>
+                        <el-button class="btn-primary" size="medium" slot="reference" @click="toAddListing">Add Listings</el-button>
+                    </el-popover>
+                    <!-- <el-button class="btn-primary" size="medium" @click="smartFlyerDemo">Contact</el-button> -->
+                    <hr />
+                    <!-- <div class="property-list">
+            <div class="item" v-for="property in propertyList" v-bind:key="property.mls">
+              <table>
+                <tr>
+                  <td width="100px" class="name">Property ID</td>
+                  <td width="120px" class="content">[[property.mls]]</td>
+                  <td width="111px" class="name">Listing URL</td>
+                  <td class="content" colspan="2"><a target="_blank" :href="property.url">[[property.url]]</a></td>
+                </tr>
+                <tr>
+                  <td class="name">Listing views</td>
+                  <td class="content">[[property.visit]]</td>
+                  <td class="name">Viewer Report</td>
+                  <td class="content" colspan="2"><a target="_blank" :href="property.consoleurl">[[property.consoleurl]]</a></td>
+                </tr>
+                <tr style="vertical-align:top">
+                  <td class="name">Date</td>
+                  <td class="content">[[property.date]]</td>
+                  <td class="name">Open house</td>
+                  <td class="content" >
+                    <div class="date">[[formatOpenDate(property.opendate1)]]</div>
+                    <el-button style="display: block; margin-top: 1em;" size="mini" @click="showOpenHouseDateDialog(1, property.mls, property.opendate1)">update</el-button>
+                  </td>
+                  <td class="content" >
+                    <div class="date">[[formatOpenDate(property.opendate2)]]</div>
+                    <el-button style="display: block; margin-top: 1em;" size="mini" @click="showOpenHouseDateDialog(2, property.mls, property.opendate2)">update</el-button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div> -->
+                    <el-table class="property-table" :data="propertyList" style="width: 100%;">
+                        <el-table-column type="expand">
+                            <template slot-scope="props">
+                                <el-form label-position="left" inline class="property-detail-form">
+                                    <el-row>
+                                        <el-form-item label="Listing views">
+                                            <span>[[props.row.visit]]</span>
+                                        </el-form-item>
+                                    </el-row>
+                                    <el-row>
+                                        <el-col :span="12">
+                                        	<el-form>
+	                                            <el-form-item label="Price">
+	                                                <el-input v-model="props.row.price" placeholder="Listing Price e.g. $100,000" style="width: 200px;">
+	                                                </el-input>
+	                                                <el-button size="mini" type="success" plain style="margin-left: 10px;" @click="setPrice(props.row.price,props.row.token)">update</el-button>
+	                                            </el-form-item>
+                                        	</el-form>
+                                        </el-col>
+                                        <el-col :span="12">
+                                            <el-form-item label="Sales Status">
+                                                <el-select v-model="props.row.salestatus" placeholder="Select" @change="changeSaleStatus($event,props.row.token)">
+												    <el-option
+												      v-for="item in salestatusOpt"
+												      :key="item.value"
+												      :label="item.label"
+												      :value="item.value">
+												    </el-option>
+												</el-select>
+                                            </el-form-item>
+                                        </el-col>
+                                    </el-row>
+                                    <el-row>
+                                        <el-col :span="12">
+                                            <el-form-item label="Listing URL">
+                                                <el-button type="success" plain size="mini" @click="openLink([[props.row.url]])">Listing URL</el-button>
+                                            </el-form-item>
+                                        </el-col>
+                                        <el-col :span="12" v-show="props.row.sptype=='smf'">
+                                            <el-form-item label="Viewer Report">
+                                                <el-button type="success" plain size="mini" @click="openLink([[props.row.consoleurl]])">Viewer Report</el-button>
+                                            </el-form-item>
+                                        </el-col>
+                                    </el-row>
+                                    <el-row v-show="props.row.sptype=='smf'">
+                                        <el-form-item label="Open House 1">
+                                            <div class="date" style="display: inline-block;">[[formatOpenDate(props.row.opendate1)]]</div>
+                                            <el-button type="success" plain style="display: inline-block;margin-left: 10px;" size="mini" @click="showOpenHouseDateDialog(1, props.row.mls, props.row.opendate1)">update</el-button>
+                                        </el-form-item>
+                                    </el-row>
+                                    <el-row v-show="props.row.sptype=='smf'">
+                                        <el-form-item label="Open House 2">
+                                            <div class="date" style="display: inline-block;">[[formatOpenDate(props.row.opendate2)]]</div>
+                                            <el-button type="success" plain style="display: inline-block;margin-left: 10px;" size="mini" @click="showOpenHouseDateDialog(2, props.row.mls, props.row.opendate2)">update</el-button>
+                                        </el-form-item>
+                                    </el-row>
+                                </el-form>
+                            </template>
+                        </el-table-column>
+                        <el-table-column label="Date" prop="date"></el-table-column>
+                        <el-table-column label="PropertyID" prop="mls"></el-table-column>
+                        <el-table-column label="Address" prop="address"></el-table-column>
+                    </el-table>
+                    <el-dialog title="Open House Date Range" :visible.sync="openHouseDateDialogVisible" width="500px">
+                        <el-form ref="openDate" :model="openDateForm">
+                            <el-row>
+                                <el-date-picker v-model="openDateForm.currentDate" type="date" placeholder="date" value-format="yyyyMMdd">
+                                </el-date-picker>
+                                <el-time-picker v-model="openDateForm.currentTime1" placeholder="begin time" value-format="HHmmss">
+                                </el-time-picker>
+                                <el-time-picker v-model="openDateForm.currentTime2" placeholder="end time" value-format="HHmmss">
+                                </el-time-picker>
+                            </el-row>
+                        </el-form>
+                        <span slot="footer" class="dialog-footer">
+              <el-button @click="openHouseDateDialogVisible = false" type="text" size="small">Cancel</el-button>
+              <el-button type="primary" @click="confirmOpenHouseDate" size="small">Done</el-button>
+            </span>
+                    </el-dialog>
+                </div>
+            </div>
+            <div id="page-billing" v-show="activeIndex == 4">
+                <div class="container">
+                    <el-tabs v-model="billingTabActiveName">
+                        <el-tab-pane label="Payment Method" name="billing1">
+                            <div class="credit-card-list" v-if="creditCard && creditCard.cardno">
+                                <div class="item">
+                                    <h2>[[formateCreditCard(creditCard.cardno)]]</h2>
+                                    <h3>Name<span>[[creditCard.holder]]</span></h3>
+                                    <h3>Expiration<span>[[creditCard.expire]]</span>
+                  </h3>
+                                </div>
+                            </div>
+                            <div v-else class="hint">
+                                Click Update to Complete Your Credit Card Info
+                            </div>
+                            <el-button class="btn-primary" @click="paymentMethodDialogVisible = true">
+                                Update
+                            </el-button>
+                        </el-tab-pane>
+                        <el-tab-pane label="Invoice" name="billing2">
+                            <div class="hint" v-if="orderList && orderList.length">If you have multiple services, these invoices are a summary of all your charges.</div>
+                            <div class="invoice-list">
+                                <div class="item" v-for="order in orderList">
+                                    <div class="card-number">[[formateCreditCard(order.cardno)]]</div>
+                                    <el-table :data="order.records" style="width: 100%">
+                                        <el-table-column prop="fee" label="Amount" width="180">
+                                        </el-table-column>
+                                        <el-table-column prop="status" label="Status" width="180">
+                                        </el-table-column>
+                                        <el-table-column prop="date" label="Date">
+                                        </el-table-column>
+                                        <el-table-column label="Actions">
+                                            <template slot-scope="scope">
+                                                <a class="invoice-action" @click="askForInvoice" target="_blank" style="cursor: pointer;">Invoice</a>
+                                            </template>
+                                        </el-table-column>
+                                    </el-table>
+                                </div>
+                            </div>
+                        </el-tab-pane>
+                    </el-tabs>
+                </div>
+                <el-dialog title="Payment Methods" :visible.sync="paymentMethodDialogVisible" width="615px" custom-class="payment-dialog" :show-close="false">
+                    <el-form ref="payment" :model="paymentForm" :rules="paymentRules" label-position="left" label-width="124px">
+                        <el-form-item label="Name on card" prop="holder">
+                            <el-input v-model="paymentForm.holder" placeholder=""></el-input>
+                        </el-form-item>
+                        <el-form-item label="Card number" prop="cardno">
+                            <el-input v-model="paymentForm.cardno" placeholder="" type="number"></el-input>
+                        </el-form-item>
+                        <el-form-item label="Expiration" prop="expire">
+                            <el-date-picker v-model="paymentForm.expire" type="month" placeholder="choose expire time" format="yyyy/MM" value-format="yyyy/MM">
+                            </el-date-picker>
+                        </el-form-item>
+                        <el-form-item label="Security code" prop="cvs">
+                            <el-input v-model="paymentForm.cvs" placeholder="" type="number"></el-input>
+                        </el-form-item>
+                        <el-form-item label="ZIP code" prop="postid">
+                            <el-input v-model="paymentForm.postid" placeholder=""></el-input>
+                        </el-form-item>
+                    </el-form>
+                    <span slot="footer" class="dialog-footer">
+            <el-button @click="paymentMethodDialogVisible = false">Cancel</el-button>
+            <el-button type="primary" @click="confirmPaymentMethodDialog">Update</el-button>
+          </span>
+                </el-dialog>
+            </div>
+            <div id="page-campaigns" v-show="activeIndex ==7">
+                <div class="container">
+                    <div>
+                        <el-tabs v-model="activeName">
+                            <!-- <el-tab-pane label="Campaign Overview" name="first">
+                                <el-table :data="tableData" max-height="450" border show-header>
+                                    <el-table-column prop="date" label="Date" width="150">
+                                    </el-table-column>
+                                    <el-table-column prop="emaildelivery" label="Email Delivered" width="180">
+                                    </el-table-column>
+                                    <el-table-column prop="reviewemail" label="Review Email" width="180">
+                                        <template slot-scope="scope">
+                                            <el-button @click="reviewEmail(scope.row)" type="text" size="small">Review email campaign</el-button>
+                                        </template>
+                                    </el-table-column>
+                                </el-table>
+                            </el-tab-pane> -->
+                            <el-tab-pane label="Email Lists" name="second">
+                                <div id="uploadexplain"> The system only recognizes lists in template formate.Please download this template file before uploading your lists.
+                                    <br>
+                                    <a href="{% static 'web/email_list_template.xlsx' %}" download="email_list_template.xlsx">Download List Template</a>
+                                </div>
+                                <div style="margin-top: 30px;">
+                                    <el-upload class="upload-demo" action="/web/upload/list/" :data="{'userid': user.userid}" multiple :limit="1" :file-list="fileList">
+                                        <el-button style="background-color: #00c700;
+                      border-color: #00c700;" size="small" type="primary"><i class="el-icon-upload"></i> Upload a list</el-button>
+                                        <div slot="tip" class="el-upload__tip">Please download the template first and then upload your list in the template format.
+                                            <br>Only one file is accepted.Once a new file is uploaded, multiple lists under your account will be combined as one!
+                                        </div>
+                                    </el-upload>
+                                </div>
+                            </el-tab-pane>
+                            <el-tab-pane label="Schedule" name="third">
+                            	<el-radio-group v-model="radio1" @change="changEmailSchedule">
+	                                <el-radio :disabled="!paymentstatus" label="weekly" style="margin-top: 20px;width: 100%;">Weekly newsletter campaign - featured listings of the week -  is set at 6:00 AM every Tuesday. You will receive a general view insight report by the end of the week. If you are an advanced member, we will also give you detailed sights to help you convert your viewers to leads.</el-radio>
+	                                <br>
+	                                <el-radio :disabled="!paymentstatus" label="pause" style="margin-top: 20px;width: 100%;">Pause your campaigns, please contact clientservice@realtoraccess.com.
+Once a list is uploaded, the weekly campaign is launched.</el-radio>
+                                </el-radio-group>
+                            </el-tab-pane>
+                        </el-tabs>
+                    </div>
+                </div>
+                <div class="banner-container">
+                    <iframe :src="'/web/agent3/'+user.id" width="400" height="360" frameborder="0"></iframe>
+                    <h2>Chinese Customer Engagement </h2>
+                    <h3>Weekly E-mail Campaign + Chinese Blog Content + SEO Enhancement</h3>
+                    <a href="http://www.realtoraccess.com/web/agent2/174/" target="_blank">
+                        <div class="demo">Setup a domain website!</div>
+                    </a>
+                    <button class="charge">Contact
+                        <br>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- <script src="js/jquery.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="js/element.js"></script>
+<script src="js/en.js"></script> -->
+<script src="{% static 'web/js/jquery.min.js' %}"></script>
+<script src="{% static 'web/js/moment.min.js' %}"></script>
+<script src="{% static 'web/js/vue.min.js' %}"></script>
+<script src="{% static 'web/js/axios.min.js' %}"></script>
+<script src="{% static 'web/js/element.js' %}"></script>
+<script src="{% static 'web/js/en.js' %}"></script>
+
+<script>
+ELEMENT.locale(ELEMENT.lang.en)
+new Vue({
+    el: '#app',
+    delimiters: ['[[', ']]'],
+    data: function() {
+        return {
+
+        	//addlisting
+            loadingAdd: false,
+            addListingvisible: false,
+            options: [1,2,3],
+            newListing: {
+            	userid: '',
+            	address: '',
+            	price: '',
+            	sqft: '',
+	            mls: '',
+	            housetype: '',
+	            area: '',
+	            url: '',
+            	imageUrl: '',
+                dist: [],
+            },
+
+
+            types: [{
+                typesvalue: 'House with Acreage',
+                label: 'House with Acreage'
+            }, {
+                typesvalue: 'House/Single Family',
+                label: 'House/Single Family'
+            }, {
+                typesvalue: 'Apartment/Condo',
+                label: 'Apartment/Condo'
+            }, {
+                typesvalue: 'Duplex',
+                label: 'Duplex'
+            }, {
+                typesvalue: 'Recreational',
+                label: 'Recreational'
+            }, {
+                typesvalue: 'Other',
+                label: 'Other'
+            }, {
+                typesvalue: 'Townhouse',
+                label: 'Townhouse'
+            }, {
+                typesvalue: '1/2 Duplex',
+                label: '1/2 Duplex'
+            }, {
+                typesvalue: 'Triplex',
+                label: 'Triplex'
+            }, {
+                typesvalue: 'Fourplex',
+                label: 'Fourplex'
+            }, {
+                typesvalue: 'Manufactured with Land',
+                label: 'Manufactured with Land'
+            }, {
+                typesvalue: 'Row House (Non-Strata)',
+                label: 'Row House (Non-Strata)'
+            }],
+
+            salestatusOpt: [
+            	{value: 'no', label: 'MLS'},
+            	{value: 'yes', label: 'Sold'},
+            	{value: 'rent', label: 'For Rent'},
+            	{value: 'rented', label: 'Rented'},
+            	{value: 'presale', label: 'Presale'},
+            	{value: 'dark', label: 'Exclusive'},
+            	{value: 'invalid', label: 'Invalid'},
+            ],
+            activeName: 'second',
+            paymentstatus: {{ engagement }},
+            subscript: {{ subscript }},
+            tableData: {{ emailhistory | safe }},
+            fileList: [],
+            radio1: '',
+            activeIndex: '1',
+            user: {
+                userid: 'mcjohn@gmail.com',
+                country: '',
+                prov: '',
+                group: '',
+                city: '',
+                headImage: [],
+                qrcodeImage: [],
+                photoImages: [],
+                head2Image: [],
+                qrcode2Image: []
+            },
+            profile: {},
+            profileRules: {
+                fname: [
+                    { required: true, message: 'please enter your first name', trigger: 'blur' }
+                ],
+                lname: [
+                    { required: true, message: 'please enter your last name', trigger: 'blur' }
+                ]
+            },
+            uploadData: {},
+            headImage: null,
+            agentTabActiveIndex: 'agent1',
+            agent: {
+                country: '',
+                prov: '',
+                group: '',
+                city: ''
+            },
+            propertyList: [],
+            propertyPage: 0,
+            countryList: [],
+            provList: [],
+            groupList: [],
+            cityList: [],
+            openHouseDateDialogVisible: false,
+            openDateForm: {
+                idx: 1,
+                mls: null,
+                bgndate: null,
+                enddate: null,
+                currentDate: '',
+                currentTime1: '',
+                currentTime2: ''
+            },
+            billingTabActiveName: 'billing1',
+            creditCard: {},
+            paymentMethodDialogVisible: false,
+            paymentForm: {},
+            paymentRules: {
+                holder: [{ required: true, message: 'Please enter name on card', trigger: 'blur' }],
+                cardno: [{ required: true, message: 'Please enter card number', trigger: 'blur' },
+                    { min: 16, max: 16, message: 'Please enter correct card number', trigger: 'blur' }
+                ],
+                expire: [{ required: true, message: 'Please enter expiration', trigger: 'blur' }],
+                cvs: [{ required: true, message: 'Please enter security code', trigger: 'blur' },
+                    { min: 3, max: 3, message: 'Please enter correct security code', trigger: 'blur' }
+                ],
+                postid: [{ required: true, message: 'Please enter Zip Code', trigger: 'blur' }],
+            },
+            orderList: []
+        }
+    },
+    mounted() {
+        let self = this
+        axios.get('http://www.realtoraccess.com/web/city/tree/').then(function(resp) {
+            self.options = resp.data
+        }).catch(function(err) {
+            console.log(err)
+        })
+
+    },
+    beforeMount: function() {
+        this.polyfill()
+        this.user = {{ user | safe }}
+        let imgs = {{ imgs | safe }}
+        this.creditCard = {{ card | safe }}
+        this.orderList = {{ orders | safe }}
+        this.radio1 = this.user.emailscd
+        this.newListing.userid = this.user.userid
+        this.user.photoImages = imgs.map(function(imageItem) {
+            return { url: imageItem.img, imgid: imageItem.imgid }
+        })
+        // this.user.qrcodeImage = [{imgid: 'head', url: 'https://www.boostfield.com/wp-content/uploads/2018/04/img_service_03@2x.png'}]
+        this.user.headImage = this.user.head ? [{ url: this.user.head, imgid: 'head' }] : []
+        this.user.qrcodeImage = this.user.qrcode ? [{ url: this.user.qrcode, imgid: 'qrcode' }] : []
+
+        this.user.head2Image = this.user.head2 ? [{ url: this.user.head2, imgid: 'head2' }] : []
+        this.user.qrcode2Image = this.user.qrcode2 ? [{ url: this.user.qrcode2, imgid: 'qrcode2' }] : []
+
+        this.profile.email = this.user.email || ''
+        this.profile.fname = this.user.fname || ''
+        this.profile.lname = this.user.lname || ''
+        this.profile.address = this.user.address || ''
+        this.profile.postid = this.user.postid || ''
+
+        this.agent.country = this.user.country || null
+        this.agent.prov = this.user.prov || null
+        this.agent.group = this.user.group || null
+        this.agent.city = this.user.city || null
+        this.agent.tel = this.user.tel || null
+        this.agent.corp = this.user.corp || null
+        this.agent.website = this.user.website || null
+        this.agent.note = this.user.note || null
+        this.agent.selfintro = this.user.selfintro || null
+        this.agent.teamintro = this.user.teamintro || null
+        this.agent.corpintro = this.user.corpintro || null
+        this.agent.username2 = this.user.username2 || null
+        this.agent.tel2 = this.user.tel2 || null
+        this.agent.email2 = this.user.email2 || null
+
+        this.uploadData.userid = this.user.userid
+        this.fetchCountryList()
+        this.fetchProvList()
+        this.fetchGroupList()
+        this.fetchCityList()
+        this.fetchPropertyList()
+    },
+    methods: {
+        polyfill: function() {
+            if (typeof Object.assign != 'function') {
+                // Must be writable: true, enumerable: false, configurable: true
+                Object.defineProperty(Object, "assign", {
+                    value: function assign(target, varArgs) { // .length of function is 2
+                        'use strict'
+                        if (target == null) { // TypeError if undefined or null
+                            throw new TypeError('Cannot convert undefined or null to object')
+                        }
+
+                        var to = Object(target)
+
+                        for (var index = 1; index < arguments.length; index++) {
+                            var nextSource = arguments[index]
+
+                            if (nextSource != null) { // Skip over if undefined or null
+                                for (var nextKey in nextSource) {
+                                    // Avoid bugs when hasOwnProperty is shadowed
+                                    if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                                        to[nextKey] = nextSource[nextKey]
+                                    }
+                                }
+                            }
+                        }
+                        return to
+                    },
+                    writable: true,
+                    configurable: true
+                })
+            }
+        },
+        selectMenu: function(index) {
+            //change password
+            if (index == '5') {
+                window.location.href = '/web/passwd/'
+                return
+            }
+            //back to home
+            if (index == '6') {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://www.realtoraccess.com/web/logout/',
+                    data: {},
+                    success: function(resp) {
+                        window.location.href = '/web/page/signin/'
+                        return
+                    }
+                })
+            }
+            this.activeIndex = index
+            this.addListingvisible = false
+        },
+        handleAvatarSuccess: function(res, file, fileList) {
+            if (this.user.headImage.length > 0) {
+                this.user.headImage[0].url = URL.createObjectURL(file.raw)
+            } else {
+                this.user.headImage = [{ url: URL.createObjectURL(file.raw), imgid: 'head' }]
+            }
+
+            file.imgid = 'head'
+            this.$refs.uploadAvatar.fileList = [file]
+            this.$message({
+                message: 'upload avatar success',
+                type: 'success'
+            })
+        },
+        handleAvatarChange: function() {
+            //this.$refs.uploadAvatar.clearFiles()
+        },
+        handleAvatar2Success: function(res, file, fileList) {
+            if (this.user.head2Image.length > 0) {
+                this.user.head2Image[0].url = URL.createObjectURL(file.raw)
+            } else {
+                this.user.head2Image = [{ url: URL.createObjectURL(file.raw), imgid: 'head2' }]
+            }
+            file.imgid = 'head2'
+            this.$refs.uploadAvatar2.fileList = [file]
+            this.$message({
+                message: 'upload avatar success',
+                type: 'success'
+            })
+        },
+        handleQRCodeSuccess: function(res, file, fileList) {
+            if (this.user.qrcodeImage.length > 0) {
+                this.user.qrcodeImage[0].url = URL.createObjectURL(file.raw)
+            } else {
+                this.user.qrcodeImage = [{ url: URL.createObjectURL(file.raw), imgid: 'qrcode' }]
+            }
+            file.imgid = 'qrcode'
+            this.$refs.uploadQRCode.fileList = [file]
+            this.$message({
+                message: 'upload qrcode success',
+                type: 'success'
+            })
+        },
+        handleQRCode2Success: function(res, file, fileList) {
+            if (this.user.qrcode2Image.length > 0) {
+                this.user.qrcode2Image[0].url = URL.createObjectURL(file.raw)
+            } else {
+                this.user.qrcode2Image = [{ url: URL.createObjectURL(file.raw), imgid: 'qrcode2' }]
+            }
+            file.imgid = 'qrcode2'
+            this.$refs.uploadQRCode2.fileList = [file]
+            this.$message({
+                message: 'upload qrcode success',
+                type: 'success'
+            })
+        },
+        handlePhotoSuccess: function(res, file, fileList) {
+            file.imgid = res
+            this.user.photoImages.push({ url: URL.createObjectURL(file.raw), imgid: res })
+            this.$message({
+                message: 'upload photo success',
+                type: 'success'
+            })
+        },
+        handleImageRemove: function(file, fileList) {
+            let self = this
+            if (file.imgid) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://www.realtoraccess.com/web/delimg/',
+                    data: { imgid: file.imgid, userid: self.user.userid },
+                    success: function(resp) {
+                        let respData = JSON.parse(resp)
+                        let code = respData.rescode
+                        if (code !== "0") {
+                            self.$message({
+                                type: 'error',
+                                message: respData.resdesc
+                            })
+                        } else {
+                            self.$message({
+                                type: 'success',
+                                message: 'Delete Success'
+                            })
+                            // here we should use the imgid to correctly change origin img data
+                            const imgid = file.imgid
+                            if (imgid == 'head') {
+                                self.user.headImage = []
+                            } else if (imgid == 'head2') {
+                                self.user.head2Image = []
+                            } else if (imgid == 'qrcode') {
+                                self.user.qrcodeImage = []
+                            } else if (imgid == 'qrcode2') {
+                                self.user.qrcode2Image = []
+                            } else {
+                                self.user.photoImages = self.user.photoImages.filter(function(item) {
+                                    return item.imgid != imgid
+                                })
+                            }
+                        }
+                    }
+                })
+            }
+        },
+        countryChange: function() {
+            this.agent.prov = ''
+            this.fetchProvList()
+        },
+        provChange: function() {
+            this.agent.group = ''
+            this.fetchGroupList()
+        },
+        groupChange: function() {
+            this.agent.city = ''
+            this.fetchCityList()
+        },
+        cityChange: function() {
+            this.agent.county = ''
+        },
+        fetchCountryList: function() {
+            let self = this
+            axios.get('http://www.realtoraccess.com/web/get/countries/').then(function(resp) {
+                self.countryList = resp.data
+            }).catch(function(err) {
+                console.log(err)
+            })
+        },
+        fetchProvList: function() {
+            let self = this
+            axios.get('http://www.realtoraccess.com/web/get/provs/', { params: { countryid: this.agent.country } }).then(function(resp) {
+                self.provList = resp.data
+            }).catch(function(err) {
+                console.log(err)
+            })
+        },
+        fetchGroupList: function() {
+            let self = this
+            axios.get('http://www.realtoraccess.com/web/get/groups/', { params: { provid: this.agent.prov } }).then(function(resp) {
+                self.groupList = resp.data
+            }).catch(function(err) {
+                console.log(err)
+            })
+        },
+        fetchCityList: function() {
+            let self = this
+            axios.get('http://www.realtoraccess.com/web/get/cities/', { params: { groupid: this.agent.group } }).then(function(resp) {
+                self.cityList = resp.data
+            }).catch(function(err) {
+                console.log(err)
+            })
+        },
+        fetchPropertyList: function(isRefresh) {
+            let self = this
+            axios.get('/web/get/singlepages/', { params: { page: isRefresh ? 1 : ++this.propertyPage, userid: this.user.userid } }).then(function(resp) {
+                isRefresh ? self.propertyList = resp.data : self.propertyList = self.propertyList.concat(resp.data)
+                console.log(self.propertyList)
+            }).catch(function(err) {
+                console.log(err)
+            })
+        },
+        formatOpenDate: function(origin) {
+            //origin format is '20180114140000-20180114160000'
+            let length = origin.length
+            if (length === 29) {
+                let originDateString = origin.substring(0, 8)
+                let dateString = moment(originDateString).format('YYYY-MM-DD')
+                let originTime1String = origin.substring(8, 15)
+                let time1 = moment(originTime1String, 'HHmmss').format('HH:mm')
+                let originTime2String = origin.substring(23, 29)
+                let time2 = moment(originTime2String, 'HHmmss').format('HH:mm')
+                return dateString + ' ' + time1 + ' ~ ' + time2
+            } else if (length === 15) {
+                if (origin.indexOf("-") === 0) {
+                    let originDateString = origin.substring(1, 9)
+                    let dateString = moment(originDateString).format('YYYY-MM-DD')
+                    let originTime2String = origin.substring(9, 15)
+                    let time2 = moment(originTime2String, 'HHmmss').format('HH:mm')
+                    return dateString + ' ' + time2
+                } else {
+                    let originDateString = origin.substring(0, 8)
+                    let dateString = moment(originDateString).format('YYYY-MM-DD')
+                    let originTime1String = origin.substring(8, 14)
+                    let time1 = moment(originTime1String, 'HHmmss').format('HH:mm')
+                    return dateString + ' ' + time1
+                }
+            } else {
+                return '1970-01-01 00:00 ~ 2199-12-31 00:00'
+            }
+        },
+        showOpenHouseDateDialog: function(index, id, origin) {
+            this.openDateForm.idx = index
+            this.openDateForm.mls = id
+            let length = origin.length
+            if (length === 29) {
+                let originDateString = origin.substring(0, 8)
+                let dateString = moment(originDateString).format('YYYYMMDD')
+                let originTime1String = origin.substring(8, 15)
+                let time1 = moment(originTime1String, 'HHmmss').format('HHmmss')
+                let originTime2String = origin.substring(23, 29)
+                let time2 = moment(originTime2String, 'HHmmss').format('HHmmss')
+                this.openDateForm.currentDate = dateString
+                this.openDateForm.currentTime1 = time1
+                this.openDateForm.currentTime2 = time2
+            } else if (length === 15) {
+                if (origin.indexOf("-") === 0) {
+                    let originDateString = origin.substring(1, 9)
+                    let dateString = moment(originDateString).format('YYYYMMDD')
+                    let originTime2String = origin.substring(9, 15)
+                    let time2 = moment(originTime2String, 'HHmmss').format('HHmmss')
+                    this.openDateForm.currentDate = dateString
+                    this.openDateForm.currentTime2 = time2
+                    this.openDateForm.currentTime1 = ''
+                } else {
+                    let originDateString = origin.substring(0, 8)
+                    let dateString = moment(originDateString).format('YYYYMMDD')
+                    let originTime1String = origin.substring(8, 14)
+                    let time1 = moment(originTime1String, 'HHmmss').format('HHmmss')
+                    this.openDateForm.currentDate = dateString
+                    this.openDateForm.currentTime1 = time1
+                    this.openDateForm.currentTime2 = ''
+                }
+            } else {
+
+            }
+            this.openHouseDateDialogVisible = true
+
+        },
+        confirmOpenHouseDate: function() {
+            let self = this
+            this.$refs.openDate.validate(function(valid) {
+                if (valid) {
+                    let data = { mls: self.openDateForm.mls, idx: self.openDateForm.idx }
+                    if (self.openDateForm.currentTime1) {
+                        data = Object.assign(data, { bgndate: self.openDateForm.currentDate + '' + self.openDateForm.currentTime1 })
+                    }
+                    if (self.openDateForm.currentTime2) {
+                        data = Object.assign(data, { enddate: self.openDateForm.currentDate + '' + self.openDateForm.currentTime2 })
+                    }
+                    self.updateOpenDate(data)
+                }
+            })
+        },
+        confirmPaymentMethodDialog: function() {
+            let self = this
+            this.$refs.payment.validate(function(valid) {
+                if (valid) {
+                    self.addCard(self.paymentForm)
+                }
+            })
+        },
+        submitProfileForm: function() {
+            let self = this
+            this.$refs.profile.validate(function(valid) {
+                if (valid) {
+                    self.updateInfo(self.profile)
+                }
+            })
+        },
+        submitAgentForm: function() {
+            let self = this
+            this.$refs.agent.validate(function(valid) {
+                if (valid) {
+                    self.updateInfo(self.agent)
+                }
+            })
+        },
+        preViewMypage: function() {
+            window.open("/web/agent2/" + this.user.id)
+        },
+        updateInfo: function(data) {
+            let self = this
+            const loading = this.$loading({
+                lock: true
+            })
+            $.ajax({
+                type: 'POST',
+                url: 'http://www.realtoraccess.com/web/postinfo/',
+                data: Object.assign({ userid: this.user.userid }, data),
+                success: function(resp) {
+                    let respData = JSON.parse(resp)
+                    let code = respData.rescode
+                    loading.close()
+                    if (code !== "0") {
+                        self.$message({
+                            type: 'error',
+                            message: respData.resdesc
+                        })
+                    } else {
+                        self.$message({
+                            type: 'success',
+                            message: 'Update Success'
+                        })
+                    }
+                }
+            })
+        },
+        addCard: function(data) {
+            let self = this
+            $.ajax({
+                type: 'POST',
+                url: 'http://www.realtoraccess.com/web/addcard/',
+                data: Object.assign({ userid: this.user.userid }, data),
+                success: function(resp) {
+                    self.paymentMethodDialogVisible = false
+                    self.creditCard = Object.assign(self.paymentForm)
+                    self.paymentForm = {}
+                    self.$message({
+                        type: 'success',
+                        message: 'Updata Card Success'
+                    })
+                }
+            })
+        },
+        updateOpenDate: function(data) {
+            let self = this
+            $.ajax({
+                type: 'POST',
+                url: 'http://www.realtoraccess.com/web/postopendate/',
+                data: Object.assign({ userid: this.user.userid }, data),
+                success: function(resp) {
+                    let respData = JSON.parse(resp)
+                    let code = respData.rescode
+                    if (code !== "0") {
+                        self.$message({
+                            type: 'error',
+                            message: respData.resdesc
+                        })
+                    } else {
+                        self.openHouseDateDialogVisible = false
+                        self.fetchPropertyList(true)
+                        self.$message({
+                            type: 'success',
+                            message: 'Update Success'
+                        })
+                    }
+                }
+            })
+        },
+        formateCreditCard: function(cardno) {
+            if (cardno && cardno.length == 16) {
+                return '************' + cardno.substring(12, 16)
+            }
+            return ''
+        },
+        askForInvoice: function(cardno) {
+            $.ajax({
+                type: 'GET',
+                url: 'http://www.realtoraccess.com/web/get-invoice/',
+                data: { userid: this.user.userid },
+                success: function(resp) {
+                    alert('Your invoice will be sent to you soon!')
+                    return false
+                }
+            })
+        },
+        enterHome: function() {
+            window.location.href = '/'
+        },
+        smartFlyerDemo: function() {
+            //window.open("http://www.webmainland.com/sp/listing/r2122650/?token=201805370935034")
+        },
+        agentPageDemo: function() {
+            window.open("http://www.realtoraccess.com/web/agent2/174")
+        },
+        openLink: function(url) {
+            window.open(url, '_blank')
+        },
+        reviewEmail: function(rowdata) {
+            console.log(rowdata)
+            window.open(rowdata.reviewemail)
+        },
+        beforeAvatarUpload: function (file) {
+        	console.log(file.type);
+            const isJPG = file.type === 'image/jpeg';
+            const isPNG = file.type === "image/png";
+            const isLt2M = file.size / 1024 / 1024 < 2;
+
+            if (!isJPG && !isPNG) {
+                this.$message.error('Only support JPG file!');
+            }
+            if (!isLt2M) {
+                this.$message.error('The file should be no larger than 2MB!');
+            }
+
+            return isJPG && isLt2M;
+        },
+        changEmailSchedule: function (val) {
+        	var that = this
+        	const loading = this.$loading({
+					          lock: true,
+					          text: 'Saving',
+					          spinner: 'el-icon-loading',
+					          background: 'rgba(0, 0, 0, 0.7)'
+					        });
+        	$.ajax({
+                type: 'POST',
+                url: '/web/set/schedule/',
+                data: { userid: this.user.userid, schedule: val },
+                success: function(resp) {
+                	loading.close()
+                }
+            })
+        },
+        changeSaleStatus: function (val,token) {
+        	const loading = this.$loading({
+					          lock: true,
+					          text: 'Saving',
+					          spinner: 'el-icon-loading',
+					          background: 'rgba(0, 0, 0, 0.7)'
+					        });
+        	$.ajax({
+                type: 'POST',
+                url: '/web/set/salestatus/',
+                data: { token: token, salestatus: val },
+                success: function(resp) {
+                	loading.close()
+                }
+            })
+        },
+        setPrice: function (price,token) {
+        	const loading = this.$loading({
+					          lock: true,
+					          text: 'Saving',
+					          spinner: 'el-icon-loading',
+					          background: 'rgba(0, 0, 0, 0.7)'
+					        });
+        	$.ajax({
+                type: 'POST',
+                url: '/web/set/price/',
+                data: { token: token, price: price },
+                success: function(resp) {
+                	loading.close()
+                }
+            })
+        },
+        uploadListingImg: function (file) {
+        	this.newListing.imageUrl = URL.createObjectURL(file.raw);
+        },
+        toAddListing: function () {
+        	if(!this.paymentstatus) {
+        		this.$alert('Add listing URLs to your account. Shoot us an email at clientservice@realtoraccess.com or go for live chat.', {
+		          confirmButtonText: 'OK'
+		        });
+        	} else {
+        		this.addListingvisible = !this.addListingvisible
+        	}
+
+        },
+        addListing: function () {
+        	this.$refs.uploadimg.submit()
+        	// this.addListingvisible = false
+            this.loadingAdd = true
+        },
+        uploadFail(e){
+            console.log('fail', e)
+        },
+        addListingSuccess: function (res) {
+            console.log('success', res)
+        	this.newListing.address = ''
+        	this.newListing.price = ''
+        	this.newListing.sqft = ''
+	        this.newListing.mls = ''
+	        this.newListing.housetype = ''
+	        this.newListing.area = ''
+	        this.newListing.url = ''
+            this.newListing.imageUrl = ''
+            this.addListingvisible = false
+            this.loadingAdd = false
+            this.propertyList.unshift(res)
+        }
+    }
+})
+</script>
+
+</html>

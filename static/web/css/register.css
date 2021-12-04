@@ -1,0 +1,244 @@
+html {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+}
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+html,
+body {
+  height: 100%;
+  background: #FAFAFA;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  flex: 1 0 auto;
+}
+footer {
+  flex: 0 0 auto;
+  background: white;
+  padding: 19px;
+}
+footer h4 {
+  color: #b9b9b9;
+  font-size: 0.7rem;
+  text-align: center;
+}
+.top {
+  background-image: url('../img/bg_signup@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 110px 0;
+}
+.left-title {
+  color: white;
+  font-size: 2.3rem;
+}
+.btn-contact {
+  width: 70px;
+  height: 70px;
+  outline: none;
+  border: none;
+  background-image: url('../img/bt_service@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70px 70px;
+  border-radius: 35px;
+  box-shadow: 5px 5px 10px rgba(66, 152, 42, 0.6);
+  margin-top: 112px;
+}
+.btn-back {
+  width: 79px;
+  height: 32px;
+  font-size: 0.7rem;
+  background-image: url('../img/img_back@2x.png');
+  background-repeat: no-repeat;
+  background-position: 14px center;
+  background-size: 8px 15px;
+  padding-left: 14px;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 16px;
+  background-color: #00C700;
+  margin: 0 auto 10px 0;
+}
+#formRegister {
+  background: white;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+  padding: 39px 49px;
+  width: 428px;
+  height: 457px;
+  position: relative;
+}
+#formRegister h4 {
+  color: #999;
+  font-weight: 400;
+  margin-top: 0;
+}
+#formRegister h3 {
+  color: #00C700;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+#formRegister input {
+  height: 48px;
+  border: 1px solid #E5E5E5;
+  border-radius: 0;
+  margin-top: 20px;
+  width: 100%;
+}
+#formRegister .form-group {
+  height: 48px;
+}
+#formRegister button.btn-primary {
+  background-color: #00C700;
+  font-size: 0.8rem;
+  color: white;
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  box-shadow: none;
+  transition: box-shadow 0.5s;
+  margin-top: 35px;
+}
+#formRegister button.btn-primary:hover {
+  box-shadow: 5px 5px 10px rgba(88, 196, 57, 0.44);
+}
+#formRegister label.error {
+  color: #ff1c1c;
+  font-size: 0.6rem;
+}
+#formRegister .forget-password {
+  color: #999;
+  font-size: 0.7rem;
+  text-align: right;
+  display: block;
+  font-weight: 500;
+}
+#formRegister .hint {
+  display: block;
+  margin-top: 24px;
+  text-align: center;
+}
+#formRegister .hint span {
+  color: #333;
+  font-size: 0.8rem;
+}
+#formRegister .hint a {
+  color: #00C700;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  background-image: url('../img/img_log_next@2x.png');
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: 18px;
+  padding-right: 24px;
+}
+#formRegister #error-info {
+  position: absolute;
+  bottom: 120px;
+  left: 49px;
+}
+#formRegister input[type='checkbox'] {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+#formRegister input[type='checkbox'] + label {
+  display: block;
+  color: #999;
+  font-size: 0.6rem;
+  font-weight: 400;
+}
+.feature {
+  background: white;
+  text-align: center;
+  padding: 72px 0;
+}
+.feature h2 {
+  font-weight: 300;
+  font-size: 1.8rem;
+  color: #666;
+  margin-bottom: 87px;
+}
+.feature .feature-item img {
+  width: 93px;
+}
+.feature .feature-item h3 {
+  color: #00C700;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 3;
+}
+.feature .feature-item h4 {
+  color: #999;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.5;
+  width: 270px;
+  margin: 0 auto;
+}
+.contact {
+  padding: 60px 0;
+}
+.friend-link {
+  display: block;
+  margin: 0 auto 60px auto;
+  text-align: center;
+}
+.friend-link a {
+  color: #00C700;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-right: 1em;
+  text-decoration: none;
+}
+.friend-link a:not(:first-child)::before {
+  content: '|\00A0\00A0\00A0\00A0';
+}
+.row.info h3 {
+  color: #333;
+  font-size: 0.8rem;
+}
+.row.info h4 {
+  color: #666;
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+.row.info h4 a {
+  color: #666;
+  font-size: 0.7rem;
+}
+@media screen and (max-width: 768px) {
+  .top {
+    padding: 20px 0;
+    background-position: 30% center;
+  }
+  .btn-contact {
+    margin-top: 20px;
+  }
+  .btn-back {
+    margin-top: 20px;
+  }
+  #formRegister {
+    width: auto;
+    height: auto;
+    padding: 20px 10px;
+  }
+  h2.left-title {
+    font-size: 24px;
+  }
+  .feature .feature-item {
+    margin-top: 4em;
+  }
+}

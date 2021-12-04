@@ -1,0 +1,85 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>海外房源搜索_海外房产_海外最新房源_海外房产投资_海外置业_海外买房_瑞安居</title>
+{% load staticfiles %}
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="keywords" content="瑞安居海外房产,海外置业，海外买房，海外房产投资，海外最新房源，海外二手房，mls,海外房产经纪" />
+
+<meta name="description" content="海外房产，海外房产投资，聚合世界各地海外最新房源信息包括一年新房源，5室以上房源，顶级豪宅，土地购置，学区房" />
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/search.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/header.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/footer.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/sidelogo.css' %}">
+<link rel="shortcut icon" href="{% static 'web/images/ico.ico' %}">
+<script type="text/javascript" src="{% static 'js/jquery-1.9.1.min.js' %}"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116462236-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-116462236-1');
+</script>
+
+</head>
+<body>
+   <div id="header"></div>
+   <div id="houselist_container_box">
+		<div id="container_left">
+			<div id="part1">
+				{% if res|length == 0 %}
+				<h1><span class="housedate">没有搜索结果！</span></h1>
+				{% else %}
+					{% if res.0.type == 'listing1' %}
+						<h1>搜到<span class="houseclasily">在售房源</span>：<span class="housedate">{{res.0.mls}}</span></h1>
+					{% elif res.0.type == 'listing2' %}
+						<h1>搜到<span class="houseclasily">海外楼花</span><span class="housedate">{{res|length}}</span>套房源</h1>
+					{% endif %}
+				{% endif %}
+            </div><!-- part1 -->
+            <div id="part2" class="list">
+                 <div class="part2_left">
+                    <div class="studentlist">
+                    	{% for r in res %}
+                    		<div class="share_box">
+		                      <div class="above">
+				                  <div class="housepicture"><a href="/web/{{r.type}}/?mls={{r.mls}}"><img src="{{r.img}}"></a></div>
+				                  <div class="information">
+				                     <p class="price">&nbsp&nbsp{{r.price}}|{{r.areas}}</p>
+				                     <p class="adddress">&nbsp&nbsp{{r.bedroom}}室{{r.toilet}}卫/&nbsp<img class="dianwei"src="{% static 'web/images/dail.png' %}">&nbsp{{r.addr}}</p>
+				                  </div>
+					          </div>
+					          <div class="page_view">
+					              <p><img src="{% static 'web/images/reading.png' %}"> {{r.visit}}</p>
+					              <p><img src="{% static 'web/images/zan.png' %}"> {{r.good}}</p>
+					              <p class="date">{{r.date}}</p>
+					          </div>
+	                      </div>
+                    	{% endfor %}
+	                  </div><!-- studentlist -->
+                   </div><!-- part2_left -->
+               </div><!-- part2 -->
+               
+
+               <div id="part3">
+                  <div class="card"><span id="card_left">
+                  国内代理&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  </span><span id="card_right">周一至周日9:00-17:00</span></div>
+                  <div id="s_nummber">400 877 1896</div>
+                  <div class="broker_title"><p>海外品牌经纪</p><img src="{% static 'web/images/xiazzz.png' %}"  alt="瑞安居_海外最新房源_海外房产_app下载"></div>
+                  <div class="broker"><img src="{% static 'web/images/ad2.png' %}"  alt="海外房产_海外房产经纪_海外置业_海外房产投资_海外买房买家经纪直联"></div>
+                  <div class="broker"><img src="{% static 'web/images/ad1.png' %}"  alt="海外房产_海外房产经纪_海外置业_海外房产投资_海外买房买家经纪直联"></div>
+                   
+               </div>
+        </div><!-- container_left" -->
+
+        <div id="container_right"></div>
+   </div><!-- houselist_container_box" -->
+   <div style="claer:both"></div>
+   <div id="footer"></div>
+  <script type="text/javascript" src="{% static 'web/js/search.js' %}"></script>
+
+</body>
+</html>
